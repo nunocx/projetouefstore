@@ -1,4 +1,5 @@
 <?php
+//teste
 		class Admim extends User
 		{
 			public function __construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
