@@ -1,5 +1,5 @@
 <?php
-// marcelo viado 
+// marcelo viado pegou :D  o problema é que ogit é lerdo dai demora 10 min... kasokasos deixa eu testar aqui em cssa .
 		class Admim extends User
 		{
 			public function __construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
