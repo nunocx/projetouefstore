@@ -1,5 +1,5 @@
 <?php
-//pra mim er isso tu nao ta podendo er comitar..
+// marcelo viado 
 		class Admim extends User
 		{
 			public function __construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
