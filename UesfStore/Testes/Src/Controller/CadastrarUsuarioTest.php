@@ -38,7 +38,7 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
     /**
      * CW2-E-mail Inváido:
      * Testa o cadastro de um usuario com o e-mail invalido.
-     * @expectedException EmailInvalidoException
+     * @expectedException CampoPreenchidoErradoException
      */
     public function testeEmailInvalido()
     {

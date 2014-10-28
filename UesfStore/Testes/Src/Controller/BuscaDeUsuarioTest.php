@@ -22,8 +22,8 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
-     * CW1-Busca de uauário:
-     * Testa a busca de um uauário com todos os dados.
+     * CW1-Busca de usuário:
+     * Testa a busca de um usuário com todos os dados.
      */
     public function testeBuscaBemSucedida()
     {
@@ -43,7 +43,7 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
     /**
      * CW2-Busca de um usuário não cadastrado:
      * Testa a busca de um usuário não cadastrado.
-     * @expectedException CamposNãoEncontradoException
+     * @expectedException CamposNaoEncontradoException
      */
     public function testeBuscaDeUsuarioNaoCadastrado()
     {

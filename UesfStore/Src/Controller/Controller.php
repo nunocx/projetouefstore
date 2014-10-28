@@ -121,7 +121,11 @@ class Controller
             $mensagem.="Nome,";
             $exception=1;
         }
-        
+        if($email=="")
+        {
+            $mensagem.="Email,";
+            $exception=1;
+        }
         //Checar e-mail throw new EmailInvalidoException;
 
         if($sexo=="")
