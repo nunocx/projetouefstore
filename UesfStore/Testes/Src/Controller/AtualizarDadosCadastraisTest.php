@@ -1,6 +1,6 @@
 <?php
 
-/**k
+/**
 * TC01-Atulaizar Dados Cadastrais:
 */
 require_once dirname(__FILE__).'/../../../Src/Model/User.php';
