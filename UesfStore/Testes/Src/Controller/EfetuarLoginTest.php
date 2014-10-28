@@ -10,7 +10,7 @@ require_once dirname(__FILE__).'/../../PBLTestes/CampoPreenchidoErradoException.
 
 class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
 
-    protected $controllerUsuario;
+    protected $controller;
     protected $usuario;
     
     /**
@@ -18,7 +18,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     protected function setUp() {
         $this->controller = new Controller();
-        $this->usuario = $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
+        $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
             "M", "07511112222","07511112222","abc1234","abc1234","fotoaqui","0");
 
 
@@ -30,19 +30,20 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginBemSucedido()
     {
-    	$login = $this->controller->EfetuarLogin("pedro@hotmail.com", "abc1234");
-
-    	$this->assertTrue($login);
+        
+        $this->controller->EfetuarLogin("pedro@hotmail.com", "abc1234");
+    
     }
     /**
      * SC2 - Usuario nao cadastrado:
      * Testa o a tentativa de login de um usuario não cadastrado.
+     *@expectedException UsuarioNaoCadastradoException
      */
     public function testEfetuarLoginUsuarioNaoEncontrado()
     {
-    	$login = $this->controller->EfetuarLogin("jose@gmail.com", "abc1234");
-
-    	$this->assertFalse($login, "Usuario não Cadastrado");
+    	
+        $login = $this->controller->EfetuarLogin("jose@gmail.com", "abc1234");
+        
     }
 
     /**

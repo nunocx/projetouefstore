@@ -18,7 +18,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     protected function setUp() {
         $this->controller = new Controller();
-        $this->usuario = $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
+        $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
             "M", "07511112222","07511112222","abc1234","abc1234","fotoaqui","0");
 
 
@@ -30,9 +30,10 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLogoutBemSucedido()
     {
-    	$login = $this->controller->EfetuarLogout($this->$usuario);
+    	$usuario = $this->controller->buscarUsaurio("pedro@hotmail.com")
 
-    	$this->assertTrue($login);
+        $this->controller->EfetuarLogout($usuario);
+
     }
 
 }
