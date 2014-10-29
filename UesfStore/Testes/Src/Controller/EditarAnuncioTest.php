@@ -5,6 +5,7 @@
 */
 require_once dirname(__FILE__).'/../../PBLTestes/User.php';
 require_once dirname(__FILE__).'/../../PBLTestes/Controller.php';
+require_once dirname(__FILE__).'/../../PBLTestes/Anuncio.php';
 require_once dirname(__FILE__).'/../../PBLTestes/Produto.php';
 require_once dirname(__FILE__).'/../../PBLTestes/Servico.php';
 require_once dirname(__FILE__).'/../../PBLTestes/CampoPreenchidoErradoException.php';
@@ -18,19 +19,20 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp()
+    {
         $this->controller = new Controller();
         $this->produto = $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos",
                 "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1");
-        $this->id = "1"
-
+        $this->id = "1";
+    }
+    
     /**
      * SC1 - Edição de anuncio de produto bem-sucedida:
      * Testa a edição de um anuncio de produto no caso ideal.
      */
     public function testEditarAnuncioBemSucedido()
     {    
-
         $anuncio = $this->controller->buscarAnuncio($this->$id);
         $titulo = $this->$usuario->getTitulo();
         $categoria = $this->$usuario->getCategoria();
@@ -45,11 +47,10 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
         $this->assertNotEquals($descricao,$anuncioAtual->getDescricao());
         $this->assertNotEquals($preco,$anuncioAtual->getPreco());
         
-        $this->assertEquals("TV de LED FullHD", this->$produto->getTitulo();
-        $this->assertEquals("Televisores", this->$produto->getCategoria();
-        $this->assertEquals("Televisor Novo, Com Nota Fiscal", this->$produto->getDescricao();
-        $this->assertEquals("2.000,00", this->$produto->getPreco();
-
+        $this->assertEquals("TV de LED FullHD", $this->$produto->getTitulo());
+        $this->assertEquals("Televisores", $this->$produto->getCategoria());
+        $this->assertEquals("Televisor Novo, Com Nota Fiscal", $this->$produto->getDescricao());
+        $this->assertEquals("2.000,00", $this->$produto->getPreco());
     }
 
      /**
@@ -59,10 +60,8 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEditarAnuncioSemTitulo()
     {
-
         $this->controller->EditarAnuncioProduto($this->$produto, "", "Eletrônicos",
                 "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1");
-
     }
 
     /**
@@ -74,7 +73,6 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     {
         $this->controller->EditarAnuncioProduto($this->$produto, "TV de Plasma", "Eletrônicos",
                 "Televisor semi-novo, 2 meses de uso", "", "HHHHSSSS", "1");
-
     }
 
 }
