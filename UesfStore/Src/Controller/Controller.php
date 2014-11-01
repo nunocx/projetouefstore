@@ -21,6 +21,11 @@ class Controller
     {
         //return new Produto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Usado", "1");
     }
+    
+    public function recuperarAnuncio($email)
+    {
+        
+    }
     public function cadastrarProduto($titulo,$categoria,$descricao,$preco,$fotoVideo,$quantidade)	
     {
         $mensagem="";
@@ -112,6 +117,12 @@ class Controller
     {
 
     }
+    
+    public function recuperarUsuario($email)
+    {
+
+    }
+    
     public function cadastrarUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$senhaConfirmacao,$foto,$status)
     {
         $mensagem="";
