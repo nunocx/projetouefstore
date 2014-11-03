@@ -10,6 +10,7 @@ class User
     private  $senha;
     private  $foto;
     private  $status;
+    //TODO: Criar atributo logado(boolean) e os seus metodos.
 
     public function __construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
     {

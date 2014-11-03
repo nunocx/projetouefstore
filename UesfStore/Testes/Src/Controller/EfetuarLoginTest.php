@@ -31,7 +31,7 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
     public function testEfetuarLoginBemSucedido()
     {
 
-        $this->controller->Login("pedro@hotmail.com", "abc1234");
+        $this->controller->login("pedro@hotmail.com", "abc1234");
 
     }
     /**
@@ -42,7 +42,7 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
     public function testEfetuarLoginUsuarioNaoEncontrado()
     {
 
-        $login = $this->controller->Login("jose@gmail.com", "abc1234");
+        $login = $this->controller->login("jose@gmail.com", "abc1234");
 
     }
 
@@ -53,6 +53,6 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginCamposEmBranco()
     {
-    	$this->controller->Login("", "");
+    	$this->controller->login("", "");
     }
 }

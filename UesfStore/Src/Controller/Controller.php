@@ -18,7 +18,7 @@ class Controller
 
     public function buscarAnuncio($nome,$decricao,$categoria)
     {
-        //return new Produto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Usado", "1");
+        //TODO: Buscar no banco de dados e retornar uma lista de anúncios.
     }
     
     public function recuperarAnuncio($id)
@@ -114,7 +114,7 @@ class Controller
     }
     public function buscarUsuario($nome)
     {
-
+        //TODO: Buscar usuário no banco de dados e retornar uma lista de usuários encontrados.
     }
     
     public function recuperarUsuario($email)
@@ -189,7 +189,7 @@ class Controller
     }
     public function login($email,$senha)
     {
-
+       //TODO: Verificar Como fazer login.
     }
     public function logout($email)
     {
@@ -218,6 +218,10 @@ class Controller
     public function conectarBancoDeDados()
     {
 
+    }
+    public function CadastrarAnuncioTerceiro($nome,$link,$banner)
+    {
+        
     }
 }
 ?>
