@@ -34,24 +34,24 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     public function testEditarAnuncioBemSucedido()
     {
 
-        $anuncio = $this->controller->buscarAnuncio($this->id);
-        $titulo = $this->usuario->getTitulo();
-        $categoria = $this->usuario->getCategoria();
-        $descricao = $this->usuario->getDescricao();
-        $preco = $this->usuario->getPreco();
+        $anuncio = $this->controller->recuperarAnuncio($this->id);
+        $titulo = $this->anuncio->getTitulo();
+        $categoria = $this->anuncio->getCategoria();
+        $descricao = $this->anuncio->getDescricao();
+        $preco = $this->anuncio->getPreco();
 
         $this->controller->EditarAnuncio($this->$id, "TV de LED FullHD", "Televisores",
-                "Televisor Novo, Com Nota Fiscal", "2.000,00", "HHHHSSSS");
-        $anuncioAtual = $this->controller->buscarAnuncio($this->$id);
+                "Televisor Novo, Com Nota Fiscal", "2.000,00", "HHHHSSSS","1");
+        $anuncioAtual = $this->controller->recuperarAnuncio($this->$id);
         $this->assertNotEquals($titulo,$anuncioAtual->getTitulo());
         $this->assertNotEquals($categoria,$anuncioAtual->getCategoria());
         $this->assertNotEquals($descricao,$anuncioAtual->getDescricao());
         $this->assertNotEquals($preco,$anuncioAtual->getPreco());
 
-        $this->assertEquals("TV de LED FullHD", $this->$produto->getTitulo());
-        $this->assertEquals("Televisores", $this->$produto->getCategoria());
-        $this->assertEquals("Televisor Novo, Com Nota Fiscal", $this->$produto->getDescricao());
-        $this->assertEquals("2.000,00", $this->$produto->getPreco());
+        $this->assertEquals("TV de LED FullHD", $this->produto->getTitulo());
+        $this->assertEquals("Televisores", $this->produto->getCategoria());
+        $this->assertEquals("Televisor Novo, Com Nota Fiscal", $this->produto->getDescricao());
+        $this->assertEquals("2.000,00", $this->produto->getPreco());
 
     }
 

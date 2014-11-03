@@ -47,6 +47,7 @@ class Anuncio
      */
     private $dataVencimento;
     
+    //TODO:Acrecentar a variavel id e todos os seus atributos.
     /**
      * Construtor da classe para um novo anúncio
      * @param type $titulo O titulo do anúncio

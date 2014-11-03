@@ -29,15 +29,17 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
     {
         
         $this->usuario = $this->controller->buscarUsuario("Joao Filho");
-        $this->assertEquals("Joao Filho", $this->usuario->getNome());
-        $this->assertEquals("joaofilho@hotmail.com", $this->usuario->getEmail());
-        $this->assertEquals("M", $this->usuario->getSexo());
-        $this->assertEquals("07532231345", $this->usuario->getTelefone());
-        $this->assertEquals("07199034567", $this->usuario->getCelular());
-        $this->assertEquals("joao1234", $this->usuario->getSenha());
-        $this->assertEquals("joao.jpeg", $this->usuario->getFoto());
-        $this->assertEquals("0", $this->usuario->getStatus());
-           
+        if($usario instanceof Usuario)
+        {    
+            $this->assertEquals("Joao Filho", $this->usuario->getNome());
+            $this->assertEquals("joaofilho@hotmail.com", $this->usuario->getEmail());
+            $this->assertEquals("M", $this->usuario->getSexo());
+            $this->assertEquals("07532231345", $this->usuario->getTelefone());
+            $this->assertEquals("07199034567", $this->usuario->getCelular());
+            $this->assertEquals("joao1234", $this->usuario->getSenha());
+            $this->assertEquals("joao.jpeg", $this->usuario->getFoto());
+            $this->assertEquals("0", $this->usuario->getStatus());
+        }
     }
     
     /**

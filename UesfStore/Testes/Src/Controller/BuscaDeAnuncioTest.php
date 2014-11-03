@@ -33,15 +33,15 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase
     {
         
         $this->anuncio = $this->controller->buscarAnuncio("Celular LG", "Usado","Celulares e telefone");
-        //if($anuncio instanceof Anuncio)
-        //{
+        if($anuncio instanceof Anuncio)
+        {
             $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
             $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
             $this->assertEquals("299,99", $this->anuncio->getPreco());
             $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
             $this->assertEquals("Usado", $this->anuncio->getDescricao());
             $this->assertEquals("1", $this->anuncio->getQuantidade());
-        //}
+        }
         
     }
     
@@ -50,15 +50,17 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase
      * Testa a busca de um anúncio apenas pelo nome.
      */
     public function testeBuscaPorNome()
-    {
-        
+    {       
         $this->anuncio = $this->controller->buscarAnuncio("Celular LG", "","");
-        $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
-        $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
-        $this->assertEquals("299,99", $this->anuncio->getPreco());
-        $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-        $this->assertEquals("Usado", $this->anuncio->getDescricao());
-        $this->assertEquals("1", $this->anuncio->getQuantidade());
+        if($usuario instanceof Usuario)
+        {
+            $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
+            $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
+            $this->assertEquals("299,99", $this->anuncio->getPreco());
+            $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
+            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
     }
     
     /**
@@ -69,12 +71,15 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase
     {
         
         $this->anuncio = $this->controller->buscarAnuncio("", "Usado","");
-        $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
-        $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
-        $this->assertEquals("299,99", $this->anuncio->getPreco());
-        $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-        $this->assertEquals("Usado", $this->anuncio->getDescricao());
-        $this->assertEquals("1", $this->anuncio->getQuantidade());
+        if($anuncio instanceof Anuncio)
+        {
+            $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
+            $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
+            $this->assertEquals("299,99", $this->anuncio->getPreco());
+            $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
+            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
     }
     
     /**
@@ -85,12 +90,15 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase
     {
         
         $this->anuncio = $this->controller->buscarAnuncio("", "","Celulares e telefone");
-        $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
-        $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
-        $this->assertEquals("299,99", $this->anuncio->getPreco());
-        $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-        $this->assertEquals("Usado", $this->anuncio->getDescricao());
-        $this->assertEquals("1", $this->anuncio->getQuantidade());
+        if($anuncio instanceof Anuncio)
+        {    
+            $this->assertEquals("Celular LG",$this->anuncio->getTitulo());
+            $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
+            $this->assertEquals("299,99", $this->anuncio->getPreco());
+            $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
+            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
     }
     
     /**

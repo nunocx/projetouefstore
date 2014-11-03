@@ -1,7 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../Model/User.php';
 require_once dirname(__FILE__).'/../Model/Usuario.php';
-
 require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
@@ -22,9 +21,9 @@ class Controller
         //return new Produto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Usado", "1");
     }
     
-    public function recuperarAnuncio($email)
+    public function recuperarAnuncio($id)
     {
-        
+        //TODO: Buscar no banco de dados o anuncio com o id.
     }
     public function cadastrarProduto($titulo,$categoria,$descricao,$preco,$fotoVideo,$quantidade)	
     {
@@ -60,7 +59,7 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
     public function cadastrarServico($titulo,$categoria,$descricao,$preco,$fotoVideo,$aCombinar)	
     {   
@@ -95,9 +94,9 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarAnuncio($titulo,$categoria,$descricao,$preco,$fotoVideo,$dataPublicacao,$dataVencimento)
+    public function editarAnuncio($titulo,$categoria,$descricao,$preco,$fotoVideo,$dataPublicacao,$dataVencimento,$quantidade)
     {
 
     }
@@ -120,7 +119,7 @@ class Controller
     
     public function recuperarUsuario($email)
     {
-
+        //TODO: Buscar no banco de dados o usuário com o id.
     }
     
     public function cadastrarUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$senhaConfirmacao,$foto,$status)
@@ -137,7 +136,7 @@ class Controller
             $mensagem.="Email,";
             $exception=1;
         }
-        //Checar e-mail throw new EmailInvalidoException;
+        //TODO: Checar e-mail e(throw new EmailInvalidoException);
 
         if($sexo=="")
         {
@@ -159,8 +158,9 @@ class Controller
             $mensagem.="Senha,";
             $exception=1;
         }
-        /*Buscar usuario e lançar UsuarioJaCadastradoException
-        $usuario = $this->buscarUsuario($email);
+        
+        //TODO: Buscar usuario e lançar UsuarioJaCadastradoException
+        /*$usuario = $this->buscarUsuario($email);
         if($usuario instanceof Usuario)
         {
             if($email==$usuario->getEmail())
@@ -173,7 +173,7 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
     public function editarCadastro($nome,$email,$sexo,$senha,$foto,$status,$telefone)
     {
@@ -187,7 +187,11 @@ class Controller
     {
 
     }
-    public function login($email)
+    public function login($email,$senha)
+    {
+
+    }
+    public function logout($email)
     {
 
     }
