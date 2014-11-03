@@ -1,67 +1,41 @@
 <div class="servicos view">
 <h2><?php echo __('Servico'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nome'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Nome']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descricao'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Descricao']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Preco'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Preco']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Publicacao'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Data_Publicacao']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Vencimento'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Data_Vencimento']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Foto Video'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Foto_Video']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Bloqueado'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Bloqueado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Expirado'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Expirado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('ACombinar'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['ACombinar']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Usuario'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($servico['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Categor'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($servico['Categor']['id'], array('controller' => 'categors', 'action' => 'view', $servico['Categor']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+	
+
+	<!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Título</th>
+                                            <th>Descrição</th>
+                                            <th>Preço</th>
+                                            <th>A Combinar</th>
+                                            <th>Data de Publicado</th>
+                                            <th>Usuario</th>
+                                            <th>Reputação</th>
+                                            <th>Categoria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td><?php echo h($servico['Servico']['Nome']); ?>&nbsp; </td>
+                                            <td><?php echo h($servico['Servico']['Descricao']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['Preco']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['ACombinar']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['Data_Publicacao']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Usuario']['Nome']); ?></td>
+                                        	<td> <?php echo h($servico['Usuario']['Foto']); ?>&nbsp;</td>
+                                        	<td> <?php echo h($servico['Categor']['Nome']); ?>&nbsp;</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

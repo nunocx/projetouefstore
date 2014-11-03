@@ -1,5 +1,48 @@
 <div class="produtos view">
 <h2><?php echo __('Produto'); ?></h2>
+
+
+	<!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Título</th>
+                                            <th>Descrição</th>
+                                            <th>Preço</th>
+                                            <th>Quantidade</th>
+                                            <th>Data de Publicado</th>
+                                            <th>Usuario</th>
+                                            <th>Reputação</th>
+                                            <th>Categoria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td><?php echo h($servico['Servico']['Nome']); ?>&nbsp; </td>
+                                            <td><?php echo h($servico['Servico']['Descricao']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['Preco']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['ACombinar']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Servico']['Data_Publicacao']); ?>&nbsp;</td>
+                                            <td><?php echo h($servico['Usuario']['Nome']); ?></td>
+                                        	<td> <?php echo h($servico['Usuario']['Foto']); ?>&nbsp;</td>
+                                        	<td> <?php echo h($servico['Categor']['Nome']); ?>&nbsp;</td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+
+
+
+
+
+
+
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
