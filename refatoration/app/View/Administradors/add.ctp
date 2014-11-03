@@ -1,19 +1,39 @@
 <div class="administradors form">
 <?php echo $this->Form->create('Administrador'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Administrador'); ?></legend>
-	<?php
-		echo $this->Form->input('Email');
-		echo $this->Form->input('Nome');
-		echo $this->Form->input('Senha');
-		echo $this->Form->input('Telefone1');
-		echo $this->Form->input('Telefone2');
-		echo $this->Form->input('Data_Nascimento');
-		echo $this->Form->input('Foto');
-		echo $this->Form->input('Status');
-	?>
+		<legend><?php echo __('Cadastro Administrador'); ?></legend>
+		<div class="form-group">
+			<?php ?>
+				<?php
+		        	echo $this->Form->input('Email', array('label'=>'E-mail:', 'class'=>'form-control'));?>
+		          	<p class="help-block">Exemplo: name@exemplo.com </p>
+		          	<?php echo $this->Form->input('Nome',array('label'=>'Nome:', 'class'=>'form-control')); 
+		           		 echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
+		           		 echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
+		           		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
+		           	<?php	 echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>
+		           		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
+		           
+					<p>
+		           	<?php
+		           		 echo $this->Form->input('Data_Nascimento',
+		           		 	array( 'label' => 'Data de Nascimento:'
+		                           , 'dateFormat' => 'DMY'
+		                           , 'minYear' => date('Y') - 90
+		                           , 'maxYear' => date('Y') - 0 ));
+		           		 	?>
+		           	</p>
+
+					<?php 
+						echo $this->Form->file('Foto');
+						echo $this->Form->hidden('Status',array('value'=>'1'));
+					?>
+		
+		</div>
+			<button type="submit" class="btn btn-default">Cadastrar</button>
+        	<button type="reset" class="btn btn-default">Reset</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

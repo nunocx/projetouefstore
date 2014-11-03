@@ -22,10 +22,7 @@
 	echo $this->element('header');
 ?>
 <body>
-	<!-- Head -->
-	<?php
-		echo $this->element('header');		
-	?>
+	
    <!--  Nav Menu top  -->
 
    <?php echo $this->element('navbar-top'); ?>

@@ -1,12 +1,15 @@
 <div class="categors form">
 <?php echo $this->Form->create('Categor'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Categor'); ?></legend>
+		<legend><?php echo __('Cadastar Categoria'); ?></legend>
+	<div class="form-group">
 	<?php
-		echo $this->Form->input('Nome');
+		echo $this->Form->input('Nome',array('label'=>'Nome:', 'class'=>'form-control'));
 	?>
+	</div>
+	<button type="submit" class="btn btn-default">Cadastrar Categoria</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

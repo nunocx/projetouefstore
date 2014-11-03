@@ -1,30 +1,54 @@
 <div class="usuarios form">
-<?php echo $this->Form->create('Usuario'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Usuario'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('Email');
-		echo $this->Form->input('Nome');
-		echo $this->Form->input('Senha');
-		echo $this->Form->input('Telefone1');
-		echo $this->Form->input('Data_Nascimento');
-		echo $this->Form->input('Sexo');
-		echo $this->Form->input('Telefone2');
-		echo $this->Form->input('Foto');
-		echo $this->Form->input('Strikes');
-		echo $this->Form->input('Status');
-		echo $this->Form->input('VotosPositivos');
-		echo $this->Form->input('VotosNegativos');
-	?>
+<?php echo $this->Form->create('Usuario'); 
+		echo $this->Form->hidden('id');
+?>
+
+	<fieldset >
+		<legend><?php echo __('Alterar Dados Cadastrais'); ?></legend>
+	
+
+		<div class="form-group">
+           <?php
+
+           		echo $this->Form->input('Email', array('label'=>'E-mail:', 'class'=>'form-control'));?>
+          		 <p class="help-block">Exemplo: name@exemplo.com </p>
+        
+           <?php echo $this->Form->input('Nome',array('label'=>'Nome:', 'class'=>'form-control')); 
+           		 echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
+           		 echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
+           		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
+           	<?php	 echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>
+           		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
+           	<?php
+           		 echo $this->Form->radio('Sexo', array('M'=>'Masculino','F'=>'Feminino'));
+           	?>
+           	<p>
+           	<?php
+           		 echo $this->Form->input('Data_Nascimento',
+           		 	array( 'label' => 'Data de Nascimento:'
+                           , 'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));
+           		 	?>
+           	</p>
+           		 	<p>
+           	<?php 
+           		 echo $this->Form->label('Alterar foto');
+           		 echo $this->Form->file('Foto');
+           	?>
+      		        </p>
+           	
+        
+           
+        </div>
+        	<button type="submit" class="btn btn-default">Alterar Dados</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Usuario.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Usuario.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Usuarios'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>

@@ -1,6 +1,6 @@
 <div class="reports index">
-	<h2><?php echo __('Reports'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<h2><?php echo __('Denuncias'); ?></h2>
+	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>

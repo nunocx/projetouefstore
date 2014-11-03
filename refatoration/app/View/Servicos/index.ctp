@@ -1,6 +1,6 @@
 <div class="servicos index">
 	<h2><?php echo __('Servicos'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>

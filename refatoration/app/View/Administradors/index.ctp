@@ -1,32 +1,29 @@
 <div class="administradors index">
 	<h2><?php echo __('Administradors'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<thead>
-	<tr>
+	
+	<table class="table table-bordered table-hover table-striped">
+		
+		<thead>
+		<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Email'); ?></th>
 			<th><?php echo $this->Paginator->sort('Nome'); ?></th>
-			<th><?php echo $this->Paginator->sort('Senha'); ?></th>
 			<th><?php echo $this->Paginator->sort('Telefone1'); ?></th>
 			<th><?php echo $this->Paginator->sort('Telefone2'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data_Nascimento'); ?></th>
-			<th><?php echo $this->Paginator->sort('Foto'); ?></th>
-			<th><?php echo $this->Paginator->sort('Status'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
+	
 	<tbody>
 	<?php foreach ($administradors as $administrador): ?>
 	<tr>
 		<td><?php echo h($administrador['Administrador']['id']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Email']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Nome']); ?>&nbsp;</td>
-		<td><?php echo h($administrador['Administrador']['Senha']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Telefone1']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Telefone2']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Data_Nascimento']); ?>&nbsp;</td>
-		<td><?php echo h($administrador['Administrador']['Foto']); ?>&nbsp;</td>
-		<td><?php echo h($administrador['Administrador']['Status']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $administrador['Administrador']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $administrador['Administrador']['id'])); ?>

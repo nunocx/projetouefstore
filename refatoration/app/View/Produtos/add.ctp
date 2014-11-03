@@ -1,23 +1,46 @@
 <div class="produtos form">
 <?php echo $this->Form->create('Produto'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Produto'); ?></legend>
-	<?php
-		echo $this->Form->input('Nome');
-		echo $this->Form->input('Descricao');
-		echo $this->Form->input('Preco');
-		echo $this->Form->input('Data_Publicacao');
-		echo $this->Form->input('Data_Vencimento');
-		echo $this->Form->input('Quantidade');
-		echo $this->Form->input('Foto_Video');
-		echo $this->Form->input('Bloqueado');
-		echo $this->Form->input('Expirado');
-		echo $this->Form->input('CondicaoUso');
-		echo $this->Form->input('usuario_id');
-		echo $this->Form->input('categor_id');
-	?>
+		<legend><?php echo __('Cadastrar Produto'); ?></legend>
+	<div class="form-group">
+		<?php
+           		echo $this->Form->input('Email',array('label'=>'E-mail:', 'class'=>'form-control'));?>
+          		 <p class="help-block">Exemplo: name@exemplo.com </p>
+
+		<?php
+			echo $this->Form->input('Nome',array('label'=>'Titulo:', 'class'=>'form-control'));
+			echo $this->Form->input('Descricao',array('rows'=>'4','label'=>'Descrição:', 'class'=>'form-control'));
+			echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));?>
+
+		<p><?php
+			echo $this->Form->input('Data_Publicacao',array(
+							 'label' => 'Data de Publicação:',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));?>
+		</p>
+		<p><?php
+			echo $this->Form->input('Data_Vencimento',array(
+							 'label' => 'Data de Vencimento:',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));?>
+		</p>
+		<p><?php
+			echo $this->Form->input('Quantidade',array('class'=>'form-control'));?></p>
+		<?php
+			echo $this->Form->file('Foto_Video',array('label'=>'Foto/Video:', 'class'=>'form-control'));
+			echo $this->Form->hidden('Bloqueado',array('value'=>'0'));
+			echo $this->Form->hidden('Expirado',array('value'=>'0'));
+			echo $this->Form->input('CondicaoUso',array('rows'=>'3','label'=>'Condição de Uso:', 'class'=>'form-control'));
+			echo $this->Form->input('usuario_id');
+			echo $this->Form->input('categor_id');
+		?>
+	</div>
+		<button type="submit" class="btn btn-default">Cadastrar Produto</button>
+        <button type="reset" class="btn btn-default">Reset Informações</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

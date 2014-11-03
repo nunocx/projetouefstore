@@ -1,72 +1,37 @@
 <div class="usuarios view">
-<h2><?php echo __('Usuario'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Email'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nome'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Nome']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Senha'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Senha']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Telefone1'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Telefone1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Nascimento'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Data_Nascimento']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Sexo'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Sexo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Telefone2'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Telefone2']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Foto'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Foto']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Strikes'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Strikes']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Status'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Status']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('VotosPositivos'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['VotosPositivos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('VotosNegativos'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['VotosNegativos']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<h2><?php echo __('Perfil Usuario: ').h($usuario['Usuario']['Nome']); ?></h2>
+	
+
+ <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <th>Celular:</th>
+                                            <th>Telefone:</th>
+                                            <th>Sexo:</th>
+                                            <th>Reputação:</th>
+ 											<th>Foto:</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td><?php echo h($usuario['Usuario']['Nome']); ?>&nbsp; </td>
+                                            <td><?php echo h($usuario['Usuario']['Email']); ?>&nbsp;</td>
+                                            <td><?php echo h($usuario['Usuario']['Telefone1']); ?>&nbsp;</td>
+                                            <td><?php echo h($usuario['Usuario']['Telefone2']); ?>&nbsp;</td>
+                                            <td><?php echo h($usuario['Usuario']['Sexo']); ?>&nbsp;</td>
+                                            <td><?php echo (h($usuario['Usuario']['VotosPositivos'])+h($usuario['Usuario']['VotosNegativos']))/2; ?></td>
+                                        	<td> <?php echo h($usuario['Usuario']['Foto']); ?>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

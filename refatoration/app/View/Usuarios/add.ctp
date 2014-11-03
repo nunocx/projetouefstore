@@ -29,7 +29,7 @@
            	</p>
            		 	<p>
            	<?php 
-           		 echo $this->Form->file('Foto');
+           		 echo $this->Form->file('Foto',array('class'=>'form-control'));
            	?>
       		        </p>
            	<?php
