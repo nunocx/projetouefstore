@@ -31,7 +31,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
     {
     	$usuario = $this->controller->buscarUsuario("pedro@hotmail.com");
 
-        $this->controller->Logout($usuario);
+        $this->controller->logout($usuario);
 
     }
 
