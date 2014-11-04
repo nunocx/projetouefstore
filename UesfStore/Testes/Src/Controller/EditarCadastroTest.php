@@ -16,8 +16,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
 
     protected function setUp() {
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
-        "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->email = "joao@hotmail.com";
     }
 
@@ -29,28 +28,39 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
     {
 
         $this->usuario = $this->controller->recuperarUsuario($this->email);
-        if($usuario instanceof Usuario)
+        if($this->usuario instanceof Usuario)
         {    
             $nome = $this->usuario->getNome();
+            $email = $this->usuario->getEmail();
             $sexo = $this->usuario->getSexo();
             $telefone = $this->usuario->getTelefone();
+            $celular = $this->usuario->getCelular();
             $Senha = $this->usuario->getSenha();
+            $foto = $this->usuario->getFoto();
+            $status = $this->usuario->getStatus();
         }
-        $this->controller->editarCadastro($this->email, "José Neto",
-        "F", "07588885555","abc3333", "abc3333", "fotoaqui");
+        $this->controller->editarCadastro("Euclidistoviskon", "joao@hotmail.com","F", "07566668888","07544445555","abc1234","abc4321","outraFoo","0");
 
-        $usuarioAtual = $this->controller->recuperarUsuario("joao@hotmail.com");
-        if($usuarioAtual instanceof Usuario)
+        $this->usuario = $this->controller->recuperarUsuario("joao@hotmail.com");
+        if($this->usuario instanceof Usuario)
         {
-            $this->assertNotEquals($nome,$usuarioAtual->getNome());
-            $this->assertNotEquals($sexo,$usuarioAtual->getSexo());
-            $this->assertNotEquals($telefone,$usuarioAtual->getTelefone());
-            $this->assertNotEquals($senha,$usuarioAtual->getSenha());
+            $this->assertNotEquals($nome,$this->usuario->getNome());
+            $this->assertNotEquals($email,$this->usuario->getEmail());
+            $this->assertNotEquals($sexo,$this->usuario->getSexo());
+            $this->assertNotEquals($telefone,$this->usuario->getTelefone());
+            $this->assertNotEquals($celular,$this->usuario->getCelular());
+            $this->assertnotEquals($senha,$this->usuario->getSenha());
+            $this->assertNotEquals($foto,$this->usuario->getFoto());
+            $this->assertEquals($status,$this->usuario->getStatus());
 
-            $this->assertEquals("José Neto",$usuarioAtual->getNome());
-            $this->assertEquals("F",$usuarioAtual->getSexo());
-            $this->assertEquals("07588885555",$usuarioAtual->getelefone());
-            $this->assertEquals("abc3333",$usuarioAtual->getNovaSenha());
+            $this->assertEquals("Euclidistoviskon",$this->usuario->getNome());
+            $this->assertEquals("joao@hotmail.com",$this->usuario->getEmail());
+            $this->assertEquals("F",$this->usuario->getSexo());
+            $this->assertEquals("07566668888",$this->usuario->getelefone());
+            $this->assertEquals("07544445555",$this->usuario->getCelular());
+            $this->assertEquals("abc4321",$this->usuario->getSenha());
+            $this->assertEquals("outraFoo",$this->usuario->getFoto());
+            $this->assertEquals("0",$this->usuario->getStatus());
         }
     }   
      
@@ -61,9 +71,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
      */
     public function testNomeAtualizadoInvalido()
     {
-
-        $this->controller->editarCadastro($this->email, "",
-        "F", "07588885555","abc1234", "abc1234", "fotoaqui");
+        $this->controller->editarCadastro("", "joao@hotmail.com","F", "07566668888","07544445555","abc1234","abc4321","outraFoto","0");
     }
 
     /**
@@ -73,8 +81,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
      */
     public function testDeSenhaAtualDigitadaDiferenteDoCadastrada()
     {
-        $this->controller->editarCadastro($this->email, "José Neto",
-        "F", "07588885555","abc3333", "abc5555", "fotoaqui");
+        $this->controller->editarCadastro("Euclidistoviskon", "joao@hotmail.com","F", "07566668888","07544445555","abc4781","4425454","outraFoo","0");
     }
 
     /**
@@ -84,9 +91,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
      */
     public function testNovaSenhaComQuantidadeInsuficienteDeCaracter()
     {
-
-        $this->controller->editarCadastro($this->email, "José Neto",
-        "F", "07588885555","abc1234", "abc", "fotoaqui");
+        $this->controller->editarCadastro("", "joao@hotmail.com","F", "07566668888","07544445555","abc1234","a1","outraFoto","0");
     }
 
     /**
@@ -96,8 +101,6 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
      */
     public function testTelefoneInvalido()
     {
-
-        $this->controller->editarCadastro($this->email, "José Neto",
-        "F", "075888","abc1234", "abc1", "fotoaqui");
+        $this->controller->editarCadastro("", "joao@hotmail.com","F", "075666","07555","abc1234","abc4321","outraFoto","0");        
     }
 }

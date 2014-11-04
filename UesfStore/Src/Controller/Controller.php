@@ -191,7 +191,7 @@ class Controller
         }
         //TODO:Mandar Para o bano de dados. Observar status pra mandar pro lugar certo 1-usuario 0-admimPode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
+    public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senhaAntiga,$senhaNova,$foto,$status)
     {
 
     }

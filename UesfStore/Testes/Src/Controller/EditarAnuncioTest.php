@@ -23,7 +23,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
                 "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHHHH","Televisor semi-novo, 2 meses de uso", "1","2");
-        $this->controller->cadastrarServico("Troca de lâmpadas", "Geral", "1.000.000,99", "HHHHHHH","Serviço rapido, facil e \"barato\" ", "1","2");
+        $this->controller->cadastrarServico("Troca de lâmpadas", "Geral", "1.000.000,99", "HHHHHHH","Serviço rapido, facil e \"barato\" ", "1","1");
     
     }
 
@@ -72,7 +72,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEditarServicoBemSucedido()
     {
-        $this->anuncio = $this->controller->recuperarAnuncio("1");
+        $this->anuncio = $this->controller->recuperarAnuncio("2");
         if($this->anuncio instanceof Anuncio)
         {   
             $titulo = $this->anuncio->getTitulo();
@@ -80,11 +80,11 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
             $preco = $this->anuncio->getPreco();
             $fotoVideo = $this->anuncio->getFotoVideo();
             $descricao = $this->anuncio->getDescricao();
-            $idUsuario = $this->anuncio->getIdUsuario();//TODO:PQ ñ reconhece esse metodo?
-            $quantidade = $this->anuncio->getQuantidade();
+            $idUsuario = $this->anuncio->getIdUsuario();//TODO: PQ ñ reconhece esse metodo?
+            $aCombinar = $this->anuncio->getACombinar();
         }
-        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "2.000,00", "SSSSSSS","Televisor Novo, Com Nota Fiscal","1","3");
-        $this->anuncio = $this->controller->recuperarAnuncio("1");
+        $this->controller->editarServico("Formato PC", "Eletrônicos", "50,00", "MMMMMM","coloco win7 original", "1","1");
+        $this->anuncio = $this->controller->recuperarAnuncio("2");
         if($this->anuncio instanceof Anuncio)
         {
             $this->assertNotEquals($titulo,$this->anuncio->getTitulo());
@@ -93,20 +93,20 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
             $this->assertNotEquals($fotoVideo,$this->anuncio->getFotoVideo());
             $this->assertNotEquals($descricao,$this->anuncio->getDescricao());
             $this->assertEquals($idUsuario,$this->anuncio->getIdUsuario());
-            $this->assertNotEquals($quantidade,$this->anuncio->getQuantidade());
+            $this->assertNotEquals($aCombinar,$this->anuncio->getACombinar());
 
-            $this->assertEquals("TV de LED FullHD", $this->produto->getTitulo());
-            $this->assertEquals("Televisores", $this->produto->getCategoria());
-            $this->assertEquals("2.000,00", $this->produto->getPreco());
-            $this->assertEquals("SSSSSSS", $this->produto->getFotoVideo());
-            $this->assertEquals("Televisor Novo, Com Nota Fiscal", $this->produto->getDescricao());
+            $this->assertEquals("Formato PC", $this->produto->getTitulo());
+            $this->assertEquals("Eletrônicos", $this->produto->getCategoria());
+            $this->assertEquals("50,00", $this->produto->getPreco());
+            $this->assertEquals("MMMMMM", $this->produto->getFotoVideo());
+            $this->assertEquals("coloco win7 original", $this->produto->getDescricao());
             $this->assertEquals("1", $this->produto->getIdUsuario());
-            $this->assertEquals("3", $this->produto->getQuantidade());
+            $this->assertEquals("1", $this->produto->getQuantidade());
         }
     }
 
      /**
-     * SC2 - Edição de anuncio de produto sem título:
+     * SC3 - Edição de anuncio de produto sem título:
      * Testa a edição de um anuncio de prouto sem o título.
      *@expectedException CampoPreenchidoErradoException
      */
@@ -118,7 +118,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * SC3 - Edição de anuncio de produto sem preco:
+     * SC4 - Edição de anuncio de produto sem preco:
      * Testa a edição de um anuncio de produtono sem o preço.
      *@expectedException CampoPreenchidoErradoException
      */
@@ -129,7 +129,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
-     * SC4 - Edição de anuncio com descrição invalida:
+     * SC5 - Edição de anuncio com descrição invalida:
      * Testa a edição de um anúncio sem a descrição.
      *@expectedException CampoPreenchidoErradoException
      */
