@@ -36,7 +36,7 @@ class User
         $this->senha= $senha;
         $this->foto = $foto;
         $this->status = $status;
-        $this->logado = $lodado;
+        $this->logado = $logado;
         $this->id = $id;
     }
     public function setNome($nome)

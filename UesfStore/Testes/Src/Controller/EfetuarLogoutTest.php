@@ -18,8 +18,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
     protected function setUp() 
     {
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
-            "M", "07511112222","07511112222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->controller->login("pedro@hotmail.com","abc1234");
     }
     //TODO: E se o usuário sair sem fazer o logout?

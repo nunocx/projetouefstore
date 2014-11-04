@@ -10,13 +10,12 @@ require_once dirname(__FILE__).'/../Model/Produto.php';
 */
 class Controller
 {
-
     public function __construct()
     {
 
     }
     
-    public function buscarAnuncio($nome,$decricao,$categoria)
+    public function buscarAnuncio($nome,$categoria,$decricao)
     {
         //TODO: Buscar no banco de dados e retornar uma lista de anúncios.
     }
@@ -209,7 +208,7 @@ class Controller
     }
     public function recuperarSenha($email)
     {
-
+        //Envia um email com a senha para o usuário;
     }
     public function exportarRelatorio()
     {

@@ -16,12 +16,10 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp() 
+    {
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
-            "M", "07511112222","07511112222","abc1234","abc1234","fotoaqui","0");
-
-
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
     }
 
     /**
@@ -31,7 +29,7 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
     public function testEfetuarLoginBemSucedido()
     {
 
-        $this->controller->login("pedro@hotmail.com", "abc1234");
+        $this->controller->login("joao@hotmail.com", "abc1234");
 
     }
     /**
@@ -41,9 +39,7 @@ class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginUsuarioNaoEncontrado()
     {
-
-        $login = $this->controller->login("jose@gmail.com", "abc1234");
-
+        $login = $this->controller->login("jose@gmail.com", "huehue123");
     }
 
     /**

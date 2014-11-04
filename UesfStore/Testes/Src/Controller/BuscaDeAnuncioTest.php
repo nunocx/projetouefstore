@@ -22,7 +22,8 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase {
     protected function setUp() 
     {
         $this->controller = new Controller();
-        $this->celularLG = $this->controller->cadastrarProduto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Em bom estado", "1");
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarProduto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Em bom estado", "1","1");
     }
 
     /**
@@ -31,15 +32,20 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeBuscaBemSucedida() 
     {
-        $this->anuncio = $this->controller->buscarAnuncio("Celular LG", "Usado", "Celulares e telefone");
-        if ($anuncio instanceof Anuncio) 
+        $this->anuncio = $this->controller->buscarAnuncio("Celular LG", "Celulares e telefone", "Em bom estado");
+        if ($this->anuncio instanceof Anuncio) 
         {
             $this->assertEquals("Celular LG", $this->anuncio->getTitulo());
             $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
             $this->assertEquals("299,99", $this->anuncio->getPreco());
             $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("Em bom estado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getIdUsuario());
             $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
+        else
+        {
+            $this->fail();
         }
     }
 
@@ -50,14 +56,19 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase {
     public function testeBuscaPorNome() 
     {
         $this->anuncio = $this->controller->buscarAnuncio("Celular LG", "", "");
-        if ($usuario instanceof Usuario) 
+        if ($this->anuncio instanceof Anuncio) 
         {
             $this->assertEquals("Celular LG", $this->anuncio->getTitulo());
             $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
             $this->assertEquals("299,99", $this->anuncio->getPreco());
             $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("Em bom estado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getIdUsuario());
             $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
+        else
+        {
+            $this->fail();
         }
     }
 
@@ -67,15 +78,20 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeBuscaPorCaracteristica() 
     {
-        $this->anuncio = $this->controller->buscarAnuncio("", "Usado", "");
-        if ($anuncio instanceof Anuncio) 
+        $this->anuncio = $this->controller->buscarAnuncio("", "", "Usado");
+        if ($this->anuncio instanceof Anuncio) 
         {
             $this->assertEquals("Celular LG", $this->anuncio->getTitulo());
             $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
             $this->assertEquals("299,99", $this->anuncio->getPreco());
             $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("Em bom estado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getIdUsuario());
             $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
+        else
+        {
+            $this->fail();
         }
     }
 
@@ -85,15 +101,20 @@ class BuscaDeAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeBuscaPorCategoria() 
     {
-        $this->anuncio = $this->controller->buscarAnuncio("", "", "Celulares e telefone");
-        if ($anuncio instanceof Anuncio) 
+        $this->anuncio = $this->controller->buscarAnuncio("", "Celulares e telefone", "");
+        if ($this->anuncio instanceof Anuncio) 
         {
             $this->assertEquals("Celular LG", $this->anuncio->getTitulo());
             $this->assertEquals("Celulares e telefone", $this->anuncio->getCategoria());
             $this->assertEquals("299,99", $this->anuncio->getPreco());
             $this->assertEquals("HDHDUSHSUDHSUF", $this->anuncio->getFotoVideo());
-            $this->assertEquals("Usado", $this->anuncio->getDescricao());
+            $this->assertEquals("Em bom estado", $this->anuncio->getDescricao());
+            $this->assertEquals("1", $this->anuncio->getIdUsuario());
             $this->assertEquals("1", $this->anuncio->getQuantidade());
+        }
+        else
+        {
+            $this->fail();
         }
     }
 

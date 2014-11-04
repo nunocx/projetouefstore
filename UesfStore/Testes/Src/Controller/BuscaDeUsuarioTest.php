@@ -17,8 +17,7 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
     protected function setUp() 
     {
         $this->controller = new Controller();
-        $this->usuario = $this->controller->cadastrarUsuario("Joao Filho", "joaofilho@hotmail.com",
-                "M", "07532231345", "07199034567", "joao1234", "joao1234", "joao.jpeg", "0");
+        $this->controller->cadastrarUsuario("Joao Filho", "joaofilho@hotmail.com","M", "07532231345", "07199034567", "joao1234", "joao1234", "joao.jpeg", "1");
     }
     
     /**
@@ -27,9 +26,8 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeBuscaBemSucedida()
     {
-        
         $this->usuario = $this->controller->buscarUsuario("Joao Filho");
-        if($usario instanceof Usuario)
+        if($this->usuario instanceof Usuario)
         {    
             $this->assertEquals("Joao Filho", $this->usuario->getNome());
             $this->assertEquals("joaofilho@hotmail.com", $this->usuario->getEmail());
@@ -38,14 +36,18 @@ class BuscaDeUsuarioTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals("07199034567", $this->usuario->getCelular());
             $this->assertEquals("joao1234", $this->usuario->getSenha());
             $this->assertEquals("joao.jpeg", $this->usuario->getFoto());
-            $this->assertEquals("0", $this->usuario->getStatus());
+            $this->assertEquals("1", $this->usuario->getStatus());
+        }
+        else
+        {
+            $this->fail();
         }
     }
     
     /**
      * CW2-Busca de um usuário não cadastrado:
      * Testa a busca de um usuário não cadastrado.
-     * @expectedException CamposNaoEncontradoException
+     * @expectedException UsuarioNaoCadastradoException
      */
     public function testeBuscaDeUsuarioNaoCadastrado()
     {

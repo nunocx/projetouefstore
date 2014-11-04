@@ -6,7 +6,7 @@
 require_once dirname(__FILE__).'/../../../Src/Model/User.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
-//require_once dirname(__FILE__).'/../../../Src/Controller/Exception/UsuarioNaoCadastradoException.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/UsuarioNaoCadastradoException.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
 
 class RecuperarSenhaTest extends PHPUnit_Framework_TestCase {
@@ -20,8 +20,7 @@ class RecuperarSenhaTest extends PHPUnit_Framework_TestCase {
     protected function setUp() 
     {
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("Pedro", "pedro@hotmail.com",
-            "M", "07511112222","07511112222","abcd1234","abcd1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("João Filho","joao@hotmail.com","M","07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
     }
 
     /**
