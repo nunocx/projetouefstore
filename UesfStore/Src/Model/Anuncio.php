@@ -4,6 +4,7 @@
  */
 class Anuncio 
 {
+    
     /**
      * Variável que recebe o título do anúncio.
      * @access private
@@ -39,6 +40,8 @@ class Anuncio
      * @access private
      * @name $descricao
      */
+    private $idUsuario;
+    
     private $dataPublicacao;
     /**
      * Variável que recebe a data de vencimento do anúncio.
@@ -47,7 +50,10 @@ class Anuncio
      */
     private $dataVencimento;
     
-    //TODO:Acrecentar a variavel id e todos os seus atributos.
+    private $id;
+    
+    //TODO:arrumas phpdoc.
+    
     /**
      * Construtor da classe para um novo anúncio
      * @param type $titulo O titulo do anúncio
@@ -56,15 +62,17 @@ class Anuncio
      * @param type $fotoVideo A foto ou O video do anúncio
      * @param type $descricao A descrição do anuncio
      */
-    public function __construct($titulo,$categoria,$preco,$fotoVideo,$descricao)
+    public function __construct($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario)
     {
         $this->titulo = $titulo;
         $this->categoria = $categoria;
         $this->preco = $preco;
         $this->fotoVideo = $fotoVideo;
         $this->descricao = $descricao;
+        $this->idUsuario = $idUsuario;
         // Gerar dataPublicacao;
         // Gerar dataVencimento;
+        $this->id = null;
     }
     
     /**
@@ -77,16 +85,18 @@ class Anuncio
      * @param type $dataPublicacao A data de publicação do anúncio
      * @param type $dataVencimento A data de vencimentodo anúncio
      */
-    public function __construct1($titulo,$categoria,$preco,$fotoVideo,$descricao,
-            $dataPublicacao,$dataVencimento)
+    public function __construct1($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,
+            $dataPublicacao,$dataVencimento,$id)
     {
         $this->titulo = $titulo;
         $this->categoria = $categoria;
         $this->preco = $preco;
         $this->fotoVideo = $fotoVideo;
         $this->descricao = $descricao;
-        $this->dataPublicacao = $dataPublicacaoerar;
+        $this->idUsuario=$idUsuario;
+        $this->dataPublicacao = $dataPublicacao;
         $this->dataVencimento = $dataVencimento;
+        $this->id=$id;
     }
     
     /**
@@ -96,60 +106,78 @@ class Anuncio
      */
     public function setTitulo($titulo)
     {
-            $this->titulo = $titulo;
+        $this->titulo = $titulo;
     }
     public function setCategoria($categoria)
     {
-            $this->categoria = $categoria;
+        $this->categoria = $categoria;
     }
     public function setPreco($preco)
     {
-            $this->preco = $preco;
+        $this->preco = $preco;
     }
     public function setfotoVideo($fotoVideo)
     {
-            $this->fotoVideo = $fotoVideo;
+        $this->fotoVideo = $fotoVideo;
     }
     public function setDescricao($descricao)
     {
-            $this->descricao = $descricao;
+        $this->descricao = $descricao;
+    }
+    public function setIdUsuario()
+    {
+        $this->idUsuario=$idUsuario;
     }
     public function setdataPublicacao($dataPublicacao)
     {
-            $this->dataPublicacao = $dataPublicacao;
+        $this->dataPublicacao = $dataPublicacao;
     }
     public function setdataVencimento($dataVencimento)
     {
-            $this->dataVencimento = $dataVencimento;
+        $this->dataVencimento = $dataVencimento;
     }
+    public function setId($id)
+    {
+        $this->id=$id;
+    }
+    
 
     public function getTitulo()
     {
-            return $this->titulo;
+        return $this->titulo;
     }
     public function getCategoria()
     {
-            return $this->categoria;
+        return $this->categoria;
     }
     public function getPreco()
     {
-            return $this->preco;
+        return $this->preco;
     }
     public function getfotoVideo()
     {
-            return $this->fotoVideo;
+        return $this->fotoVideo;
     }
     public function getDescricao()
     {
-            return $this->descricao;
+        return $this->descricao;
+    }
+    
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
     }
     public function getdataPublicacao()
     {
-            return $this->dataPublicacao;
+        return $this->dataPublicacao;
     }
     public function getdataVencimento()
     {
-            return $this->dataVencimento;
+        return $this->dataVencimento;
+    }
+    public function getId()
+    {
+        return $this->id;
     }
 }	
 ?>

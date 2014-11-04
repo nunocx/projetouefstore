@@ -1,60 +1,60 @@
 <?php
-	/**
-	* 
-	*/
-	class Comentario
-	{	
-		private $comentarista;
-		private $anuncio;
-		private $texto;
-		private $data;
-		
-		public function __construct($comentarista,$anuncio,$texto,$data)
-		{
-			$this->comentarista=comentarista;
-			$this->anuncio=anuncio;
-			$this->texto=texto;
-			$this->data=data;
-		}
+/**
+* 
+*/
+class Comentario
+{	
+    private $idUsuario;
+    private $anuncio;
+    private $texto;
+    private $data;
 
-		public function setComentarista($comentarista)
-		{
-			$this->comentarista=comentarista;
-		}
+    public function __construct($idUsuario,$anuncio,$texto,$data)
+    {
+        $this->idUsuario = $idUsuario;
+        $this->anuncio = $anuncio;
+        $this->texto = $texto;
+        $this->data = $data;
+    }
 
-		public function setAnuncio($anuncio)
-		{
-			$this->anuncio=anuncio;
-		}
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+    }
 
-		public function setTexto($texto)
-		{
-			$this->texto=texto;
-		}
+    public function setAnuncio($anuncio)
+    {
+        $this->anuncio = $anuncio;
+    }
 
-		public function setData($data)
-		{
-			$this->data=data;	
-		}
+    public function setTexto($texto)
+    {
+        $this->texto = $texto;
+    }
 
-		public function getComentarista()
-		{
-			return $this->comentarista;
-		}
+    public function setData($data)
+    {
+        $this->data = $data;	
+    }
 
-		public function getAnuncio()
-		{
-			return $this->anuncio;
-		}
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
 
-		public function getTexto()
-		{
-			return $this->texto;
-		}
+    public function getAnuncio()
+    {
+        return $this->anuncio;
+    }
 
-		public function getData()
-		{
-			return $this->data;	
-		}
-	}
+    public function getTexto()
+    {
+        return $this->texto;
+    }
+
+    public function getData()
+    {
+        return $this->data;	
+    }
+}
 ?>

@@ -1,57 +1,54 @@
 <?php
-	/**
-	* 
-	*/
-	class Denuncia
-	{	
-		private $usuario;
-		private $data;
-		private $texto;
-		private $anuncio;
-		
-		public function __construct($usuario,$texto,$anuncio)
-		{
-			$this->usuario = usuario;
-			setData(dataSistema);
-			$this->texto = texto;
-			$this->anuncio = anuncio;
-		}
+/**
+* 
+*/
+class Denuncia
+{	
+    private $idUsuario;
+    private $texto;
+    private $idAnuncio;
+    private $data;
 
-		public function setUsuario($usuario)
-		{
-			$this->usuario = usuario;
-		}
-		public function setData($data)
-		{
-			$this->data = data;
-		}
-		public function setTexto($texto)
-		{
-			$this->texto = texto;
-		}
-		public function setAnuncio($anuncio)
-		{
-			$this->anuncio = anuncio;
-		}
+    public function __construct($idUsuario,$texto,$idAnuncio)
+    {
+        $this->idUsuario = $idUsuario;
+        $this->texto = $texto;
+        $this->idAnuncio = $idAnuncio;
+        //TODO: Pegar data do sistema.
+    }
 
-		public function getUsuario()
-		{
-			return $this->usuario;
-		}
-		public function getData()
-		{
-			return $this->data;
-		}
-		public function getTexto()
-		{
-			return $this->texto;
-		}
-		public function getAnuncio()
-		{
-			return $this->anuncio;
-		}
-
-	}
-
-
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+    }
+    public function setTexto($texto)
+    {
+        $this->texto = $texto;
+    }
+    public function setIdAnuncio($idAnuncio)
+    {
+        $this->idAnuncio = $idAnuncio;
+    }
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+    
+    public function getIDUsuario()
+    {
+        return $this->idUsuario;
+    }
+    public function getTexto()
+    {
+        return $this->texto;
+    }
+    public function getIdAnuncio()
+    {
+        return $this->idAnuncio;
+    }
+    public function getData()
+    {
+        return $this->data;
+    }
+}
 ?>

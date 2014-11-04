@@ -10,38 +10,35 @@ class relatorio
 
     public function __construct($titulo,$corpo,$imagem)
     {
-            $this->titulo = titulo;
-            $this->corpo = corpo;
-            $this->imagem = imagem;
+        $this->titulo = $titulo;
+        $this->corpo = $corpo;
+        $this->imagem = $imagem;
     }
 
 
     public function setTitulo($titulo)
     {
-            $this->titulo = titulo; 
+        $this->titulo = $titulo; 
     }
     public function setCorpo($corpo)
     {
-            $this->corpo = corpo;
+        $this->corpo = $corpo;
     }
     public function setImagem($imagem)
     {
-            $this->imagem = imagem;
+        $this->imagem = $imagem;
     }
-
-
     public function getTitulo()
     {
-            return $this->titulo; 
+        return $this->titulo; 
     }
     public function getCorpo()
     {
-            return $this->corpo;
+        return $this->corpo;
     }
     public function getImagem()
     {
-            return $this->imagem;
+        return $this->imagem;
     }
-}	
-
+}
 ?>

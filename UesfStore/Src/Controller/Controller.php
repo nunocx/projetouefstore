@@ -15,7 +15,7 @@ class Controller
     {
 
     }
-
+    
     public function buscarAnuncio($nome,$decricao,$categoria)
     {
         //TODO: Buscar no banco de dados e retornar uma lista de anúncios.
@@ -25,7 +25,7 @@ class Controller
     {
         //TODO: Buscar no banco de dados o anuncio com o id.
     }
-    public function cadastrarProduto($titulo,$categoria,$descricao,$preco,$fotoVideo,$quantidade)	
+    public function cadastrarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)	
     {
         $mensagem="";
         $exception=0;
@@ -39,19 +39,24 @@ class Controller
             $mensagem.="Categoria,";
             $exception=1;
         }
-        if($descricao=="")
-        {
-            $mensagem.="Descricao,";
-            $exception=1;
-        }
         if($preco=="")
         {
             $mensagem.="Preco,";
             $exception=1;
         }
+        if($descricao=="")
+        {
+            $mensagem.="Descricao,";
+            $exception=1;
+        }
+        if($idUsuario=="")
+        {
+            $mensagem.="Usuario,";
+            $exception=1;
+        }
         if($quantidade=="")
         {
-            $mensagem.=",";
+            $mensagem.="Quantidade,";
             $exception=1;
         }
        
@@ -61,7 +66,7 @@ class Controller
         }
         //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
-    public function cadastrarServico($titulo,$categoria,$descricao,$preco,$fotoVideo,$aCombinar)	
+    public function cadastrarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)	
     {   
         $mensagem="";
         $exception=0;
@@ -75,14 +80,20 @@ class Controller
             $mensagem.="Categoria,";
             $exception=1;
         }
+        if($preco=="")
+        {
+            $mensagem.="Preco,";
+            $exception=1;
+        }
         if($descricao=="")
         {
             $mensagem.="Descrição,";
             $exception=1;
         }
-        if($preco=="")
+        
+        if($idUsuario=="")
         {
-            $mensagem.="Preco,";
+            $mensagem.="Usuario,";
             $exception=1;
         }
         if($aCombinar=="")
@@ -96,7 +107,12 @@ class Controller
         }
         //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarAnuncio($titulo,$categoria,$descricao,$preco,$fotoVideo,$dataPublicacao,$dataVencimento,$quantidade)
+    public function editarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
+    {
+
+    }
+    
+    public function editarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)
     {
 
     }
@@ -173,17 +189,13 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Observar status pra mandar pro lugar certo 1-usuario 0-admimPode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarCadastro($nome,$email,$sexo,$senha,$foto,$status,$telefone)
+    public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
     {
 
     }
-    public function autenticarUsuario($usuario)
-    {
-
-    }
-    public function entrarEmContato($mensagem)
+    public function autenticarUsuario($idUsuario)
     {
 
     }
@@ -203,11 +215,11 @@ class Controller
     {
 
     }
-    public function enviarMensagem($mensagem)
+    public function enviarMensagem($titulo,$destinatario,$remetente,$texto)
     {
 
     }
-    public function excluirMensagem($mensagem)
+    public function excluirMensagem($idUsuario,$idMensagem)
     {
 
     }
@@ -219,7 +231,8 @@ class Controller
     {
 
     }
-    public function CadastrarAnuncioTerceiro($nome,$link,$banner)
+    public function CadastrarAnuncioTerceiro($nome,$nomeDaEmpresa,$foto,$valorPago,$dataDeInicio,
+            $idAdministrador,$link,$banner)
     {
         
     }
