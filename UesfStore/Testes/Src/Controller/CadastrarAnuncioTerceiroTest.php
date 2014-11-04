@@ -3,10 +3,10 @@
 /**
 * TC19-Cadastro de Anuncio de Terceiros:
 */
-require_once dirname(__FILE__).'/../../PBLTestes/User.php';
-require_once dirname(__FILE__).'/../../PBLTestes/Controller.php';
-require_once dirname(__FILE__).'/../../PBLTestes/EmailInvalidoException.php';
-require_once dirname(__FILE__).'/../../PBLTestes/CampoPreenchidoErradoException.php';
+require_once dirname(__FILE__).'/../../../Src/Model/User.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/EmailInvalidoException.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
 
 class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
 
@@ -25,10 +25,9 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testCadastrarAnuncioDeTerceirosBemSucedido()
     {
-    	$terceirizado = $this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br", 
-"nsbanner.jpg");
-
-    	$this->assertEquals("Netshoes", this->$usuario->getIdentificacao());
+    	$terceirizado = $this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br","nsbanner.jpg");
+        //TODO:Verificar se terceirizado é AnuncioTerceirizado.
+    	$this->assertEquals("Netshoes", $this->usuario->getIdentificacao());
         $this->assertEquals("http://www.netshoes.com.br", $usuario->getLink());
     }
 
@@ -39,8 +38,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testCadastrarAnuncioDeTerceirosSemIdentificacao()
     {
-    	$this->controller->CadastrarAnuncioTerceiro("", "http://www.netshoes.com.br", 
-"nsbanner.jpg");
+    	$this->controller->CadastrarAnuncioTerceiro("", "http://www.netshoes.com.br", "nsbanner.jpg");
     }
 
     /**
@@ -50,8 +48,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testCadastrarAnuncioDeTerceirosSemLink()
     {
-    	$this->controller->CadastrarAnuncioTerceiro("Netshoes", "", 
-"nsbanner.jpg");
+    	$this->controller->CadastrarAnuncioTerceiro("Netshoes", "", "nsbanner.jpg");
     }
 
     /**
@@ -61,7 +58,6 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testCadastrarAnuncioDeTerceirosSemImagem()
     {
-    	$this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br", 
-"");
+    	$this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br", "");
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
- * 
- */
+* 
+*/
 class Admim extends User
 {
     /**
@@ -10,7 +10,13 @@ class Admim extends User
     public function __construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
     {
         parent::__construct($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status);
-    } 
+    }
+
+    public function __construct1($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status, $logado,$id) 
+    {
+        parent::__construct1($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status, $logado,$id);
+    }
+
     public function bloquearUsuario()
     {
             //Requisição BD Set User bloqueado

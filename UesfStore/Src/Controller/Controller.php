@@ -1,7 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../Model/User.php';
 require_once dirname(__FILE__).'/../Model/Usuario.php';
-
 require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
@@ -16,12 +15,17 @@ class Controller
     {
 
     }
-
+    
     public function buscarAnuncio($nome,$decricao,$categoria)
     {
-        //return new Produto("Celular LG", "Celulares e telefone", "299,99", "HDHDUSHSUDHSUF", "Usado", "1");
+        //TODO: Buscar no banco de dados e retornar uma lista de anúncios.
     }
-    public function cadastrarProduto($titulo,$categoria,$descricao,$preco,$fotoVideo,$quantidade)	
+    
+    public function recuperarAnuncio($id)
+    {
+        //TODO: Buscar no banco de dados o anuncio com o id.
+    }
+    public function cadastrarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)	
     {
         $mensagem="";
         $exception=0;
@@ -35,19 +39,24 @@ class Controller
             $mensagem.="Categoria,";
             $exception=1;
         }
-        if($descricao=="")
-        {
-            $mensagem.="Descricao,";
-            $exception=1;
-        }
         if($preco=="")
         {
             $mensagem.="Preco,";
             $exception=1;
         }
+        if($descricao=="")
+        {
+            $mensagem.="Descricao,";
+            $exception=1;
+        }
+        if($idUsuario=="")
+        {
+            $mensagem.="Usuario,";
+            $exception=1;
+        }
         if($quantidade=="")
         {
-            $mensagem.=",";
+            $mensagem.="Quantidade,";
             $exception=1;
         }
        
@@ -55,9 +64,9 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
-    public function cadastrarServico($titulo,$categoria,$descricao,$preco,$fotoVideo,$aCombinar)	
+    public function cadastrarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)	
     {   
         $mensagem="";
         $exception=0;
@@ -71,14 +80,20 @@ class Controller
             $mensagem.="Categoria,";
             $exception=1;
         }
+        if($preco=="")
+        {
+            $mensagem.="Preco,";
+            $exception=1;
+        }
         if($descricao=="")
         {
             $mensagem.="Descrição,";
             $exception=1;
         }
-        if($preco=="")
+        
+        if($idUsuario=="")
         {
-            $mensagem.="Preco,";
+            $mensagem.="Usuario,";
             $exception=1;
         }
         if($aCombinar=="")
@@ -90,9 +105,14 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarAnuncio($titulo,$categoria,$descricao,$preco,$fotoVideo,$dataPublicacao,$dataVencimento)
+    public function editarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
+    {
+
+    }
+    
+    public function editarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)
     {
 
     }
@@ -110,8 +130,14 @@ class Controller
     }
     public function buscarUsuario($nome)
     {
-
+        //TODO: Buscar usuário no banco de dados e retornar uma lista de usuários encontrados.
     }
+    
+    public function recuperarUsuario($email)
+    {
+        //TODO: Buscar no banco de dados o usuário com o id.
+    }
+    
     public function cadastrarUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$senhaConfirmacao,$foto,$status)
     {
         $mensagem="";
@@ -126,7 +152,7 @@ class Controller
             $mensagem.="Email,";
             $exception=1;
         }
-        //Checar e-mail throw new EmailInvalidoException;
+        //TODO: Checar e-mail e(throw new EmailInvalidoException);
 
         if($sexo=="")
         {
@@ -148,8 +174,9 @@ class Controller
             $mensagem.="Senha,";
             $exception=1;
         }
-        /*Buscar usuario e lançar UsuarioJaCadastradoException
-        $usuario = $this->buscarUsuario($email);
+        
+        //TODO: Buscar usuario e lançar UsuarioJaCadastradoException
+        /*$usuario = $this->buscarUsuario($email);
         if($usuario instanceof Usuario)
         {
             if($email==$usuario->getEmail())
@@ -162,21 +189,21 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //Mandar para o banco de dados. Pode lançar uma exceção (FalhaEnvioException)
+        //TODO:Mandar Para o bano de dados. Observar status pra mandar pro lugar certo 1-usuario 0-admimPode lançar uma exceção (FalhaEnvioException)
     }
-    public function editarCadastro($nome,$email,$sexo,$senha,$foto,$status,$telefone)
+    public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
     {
 
     }
-    public function autenticarUsuario($usuario)
+    public function autenticarUsuario($idUsuario)
     {
 
     }
-    public function entrarEmContato($mensagem)
+    public function login($email,$senha)
     {
-
+       //TODO: Verificar Como fazer login.
     }
-    public function login($email)
+    public function logout($email)
     {
 
     }
@@ -188,11 +215,11 @@ class Controller
     {
 
     }
-    public function enviarMensagem($mensagem)
+    public function enviarMensagem($titulo,$destinatario,$remetente,$texto)
     {
 
     }
-    public function excluirMensagem($mensagem)
+    public function excluirMensagem($idUsuario,$idMensagem)
     {
 
     }
@@ -203,6 +230,11 @@ class Controller
     public function conectarBancoDeDados()
     {
 
+    }
+    public function CadastrarAnuncioTerceiro($nome,$nomeDaEmpresa,$foto,$valorPago,$dataDeInicio,
+            $idAdministrador,$link,$banner)
+    {
+        
     }
 }
 ?>

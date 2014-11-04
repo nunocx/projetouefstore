@@ -75,7 +75,7 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeNumeroTelefone()
     {
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com", 
         "M", "07592","07599992222222222","abc1234","abc1234","fotoaqui","0");
     }
     

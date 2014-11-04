@@ -8,11 +8,11 @@ require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
 
-class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
+class EfetuarLoginTest extends PHPUnit_Framework_TestCase {
 
     protected $controller;
     protected $usuario;
-    
+
     /**
      * Método setUp executado antes de todos os testes.
      */
@@ -30,9 +30,9 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginBemSucedido()
     {
-        
-        $this->controller->EfetuarLogin("pedro@hotmail.com", "abc1234");
-    
+
+        $this->controller->login("pedro@hotmail.com", "abc1234");
+
     }
     /**
      * SC2 - Usuario nao cadastrado:
@@ -41,9 +41,9 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginUsuarioNaoEncontrado()
     {
-    	
-        $login = $this->controller->EfetuarLogin("jose@gmail.com", "abc1234");
-        
+
+        $login = $this->controller->login("jose@gmail.com", "abc1234");
+
     }
 
     /**
@@ -53,6 +53,6 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEfetuarLoginCamposEmBranco()
     {
-    	$this->controller->EfetuarLogin("", "");
+    	$this->controller->login("", "");
     }
 }
