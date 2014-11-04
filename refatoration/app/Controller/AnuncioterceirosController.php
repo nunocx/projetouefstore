@@ -55,8 +55,9 @@ class AnuncioterceirosController extends AppController {
 				$this->Session->setFlash(__('The anuncioterceiro could not be saved. Please, try again.'));
 			}
 		}
+		$categories = $this->Anuncioterceiro->Category->find('list');
 		$administradors = $this->Anuncioterceiro->Administrador->find('list');
-		$this->set(compact('administradors'));
+		$this->set(compact('categories', 'administradors'));
 	}
 
 /**
@@ -81,8 +82,9 @@ class AnuncioterceirosController extends AppController {
 			$options = array('conditions' => array('Anuncioterceiro.' . $this->Anuncioterceiro->primaryKey => $id));
 			$this->request->data = $this->Anuncioterceiro->find('first', $options);
 		}
+		$categories = $this->Anuncioterceiro->Category->find('list');
 		$administradors = $this->Anuncioterceiro->Administrador->find('list');
-		$this->set(compact('administradors'));
+		$this->set(compact('categories', 'administradors'));
 	}
 
 /**

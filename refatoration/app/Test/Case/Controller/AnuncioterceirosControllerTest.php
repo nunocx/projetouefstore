@@ -14,6 +14,12 @@ class AnuncioterceirosControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.anuncioterceiro',
+		'app.category',
+		'app.produto',
+		'app.usuario',
+		'app.comentario',
+		'app.servico',
+		'app.report',
 		'app.administrador',
 		'app.mensagem'
 	);

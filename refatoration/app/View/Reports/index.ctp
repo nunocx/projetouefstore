@@ -19,13 +19,13 @@
 		<td><?php echo h($report['Report']['Texto']); ?>&nbsp;</td>
 		<td><?php echo h($report['Report']['Data']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($report['Produto']['id'], array('controller' => 'produtos', 'action' => 'view', $report['Produto']['id'])); ?>
+			<?php echo $this->Html->link($report['Produto']['name'], array('controller' => 'produtos', 'action' => 'view', $report['Produto']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($report['Servico']['id'], array('controller' => 'servicos', 'action' => 'view', $report['Servico']['id'])); ?>
+			<?php echo $this->Html->link($report['Servico']['name'], array('controller' => 'servicos', 'action' => 'view', $report['Servico']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($report['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $report['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($report['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $report['Usuario']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $report['Report']['id'])); ?>

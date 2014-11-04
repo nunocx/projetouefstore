@@ -39,8 +39,8 @@
            	<?php echo $this->Form->label('Aceitos os termos do portal');?>	
            
         </div>
-        	<button type="submit" class="btn btn-default">Cadastrar Button</button>
-        	<button type="reset" class="btn btn-default">Reset Button</button>
+        	<button type="submit" class="btn btn-default">Cadastrar</button>
+        	<button type="reset" class="btn btn-default">Reset</button>
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>

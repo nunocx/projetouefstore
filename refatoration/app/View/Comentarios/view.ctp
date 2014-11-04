@@ -18,17 +18,17 @@
 		</dd>
 		<dt><?php echo __('Usuario'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($comentario['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $comentario['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($comentario['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $comentario['Usuario']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Servico'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($comentario['Servico']['id'], array('controller' => 'servicos', 'action' => 'view', $comentario['Servico']['id'])); ?>
+			<?php echo $this->Html->link($comentario['Servico']['name'], array('controller' => 'servicos', 'action' => 'view', $comentario['Servico']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Produto'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($comentario['Produto']['id'], array('controller' => 'produtos', 'action' => 'view', $comentario['Produto']['id'])); ?>
+			<?php echo $this->Html->link($comentario['Produto']['name'], array('controller' => 'produtos', 'action' => 'view', $comentario['Produto']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

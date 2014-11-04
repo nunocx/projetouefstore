@@ -7,7 +7,7 @@
 		<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Email'); ?></th>
-			<th><?php echo $this->Paginator->sort('Nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('Telefone1'); ?></th>
 			<th><?php echo $this->Paginator->sort('Telefone2'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data_Nascimento'); ?></th>
@@ -20,7 +20,7 @@
 	<tr>
 		<td><?php echo h($administrador['Administrador']['id']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Email']); ?>&nbsp;</td>
-		<td><?php echo h($administrador['Administrador']['Nome']); ?>&nbsp;</td>
+		<td><?php echo h($administrador['Administrador']['name']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Telefone1']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Telefone2']); ?>&nbsp;</td>
 		<td><?php echo h($administrador['Administrador']['Data_Nascimento']); ?>&nbsp;</td>

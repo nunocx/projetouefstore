@@ -1,57 +1,14 @@
 <div class="produtos view">
 <h2><?php echo __('Produto'); ?></h2>
-
-
-	<!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Título</th>
-                                            <th>Descrição</th>
-                                            <th>Preço</th>
-                                            <th>Quantidade</th>
-                                            <th>Data de Publicado</th>
-                                            <th>Usuario</th>
-                                            <th>Reputação</th>
-                                            <th>Categoria</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="info">
-                                            <td><?php echo h($servico['Servico']['Nome']); ?>&nbsp; </td>
-                                            <td><?php echo h($servico['Servico']['Descricao']); ?>&nbsp;</td>
-                                            <td><?php echo h($servico['Servico']['Preco']); ?>&nbsp;</td>
-                                            <td><?php echo h($servico['Servico']['ACombinar']); ?>&nbsp;</td>
-                                            <td><?php echo h($servico['Servico']['Data_Publicacao']); ?>&nbsp;</td>
-                                            <td><?php echo h($servico['Usuario']['Nome']); ?></td>
-                                        	<td> <?php echo h($servico['Usuario']['Foto']); ?>&nbsp;</td>
-                                        	<td> <?php echo h($servico['Categor']['Nome']); ?>&nbsp;</td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-
-
-
-
-
-
-
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($produto['Produto']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Nome'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($produto['Produto']['Nome']); ?>
+			<?php echo h($produto['Produto']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Descricao'); ?></dt>
@@ -101,12 +58,12 @@
 		</dd>
 		<dt><?php echo __('Usuario'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($produto['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($produto['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Categor'); ?></dt>
+		<dt><?php echo __('Category'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($produto['Categor']['id'], array('controller' => 'categors', 'action' => 'view', $produto['Categor']['id'])); ?>
+			<?php echo $this->Html->link($produto['Category']['name'], array('controller' => 'categories', 'action' => 'view', $produto['Category']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -120,8 +77,8 @@
 		<li><?php echo $this->Html->link(__('New Produto'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categors'), array('controller' => 'categors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categor'), array('controller' => 'categors', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>

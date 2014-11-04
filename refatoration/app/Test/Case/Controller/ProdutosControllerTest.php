@@ -15,9 +15,9 @@ class ProdutosControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.produto',
 		'app.usuario',
-		'app.categor',
-		'app.servico',
 		'app.comentario',
+		'app.servico',
+		'app.category',
 		'app.report'
 	);
 

@@ -10,7 +10,7 @@
 				
 		        	echo $this->Form->input('Email', array('label'=>'E-mail:', 'class'=>'form-control'));?>
 		          	<p class="help-block">Exemplo: name@exemplo.com </p>
-		          	<?php echo $this->Form->input('Nome',array('label'=>'Nome:', 'class'=>'form-control')); 
+		          	<?php echo $this->Form->input('name',array('label'=>'Nome:', 'class'=>'form-control')); 
 		           		 echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
 		           		 echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
 		           		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>

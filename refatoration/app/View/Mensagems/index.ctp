@@ -1,5 +1,6 @@
 <div class="mensagems index">
 	<h2><?php echo __('Mensagems'); ?></h2>
+	
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
@@ -8,8 +9,8 @@
 			<th><?php echo $this->Paginator->sort('Texto'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data'); ?></th>
 			<th><?php echo $this->Paginator->sort('administrador_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('usuariosR_Email'); ?></th>
-			<th><?php echo $this->Paginator->sort('usuariosE_Email'); ?></th>
+			<th><?php echo $this->Paginator->sort('Destinatario'); ?></th>
+			<th><?php echo $this->Paginator->sort('Emisor'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -21,10 +22,10 @@
 		<td><?php echo h($mensagem['Mensagem']['Texto']); ?>&nbsp;</td>
 		<td><?php echo h($mensagem['Mensagem']['Data']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($mensagem['Administrador']['id'], array('controller' => 'administradors', 'action' => 'view', $mensagem['Administrador']['id'])); ?>
+			<?php echo $this->Html->link($mensagem['Administrador']['name'], array('controller' => 'administradors', 'action' => 'view', $mensagem['Administrador']['id'])); ?>
 		</td>
-		<td><?php echo h($mensagem['Mensagem']['usuariosR_Email']); ?>&nbsp;</td>
-		<td><?php echo h($mensagem['Mensagem']['usuariosE_Email']); ?>&nbsp;</td>
+		<td><?php echo h($mensagem['Mensagem']['Destinatario']); ?>&nbsp;</td>
+		<td><?php echo h($mensagem['Mensagem']['Emisor']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $mensagem['Mensagem']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $mensagem['Mensagem']['id'])); ?>

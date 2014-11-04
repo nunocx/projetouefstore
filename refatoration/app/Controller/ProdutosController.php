@@ -56,8 +56,8 @@ class ProdutosController extends AppController {
 			}
 		}
 		$usuarios = $this->Produto->Usuario->find('list');
-		$categors = $this->Produto->Categor->find('list');
-		$this->set(compact('usuarios', 'categors'));
+		$categories = $this->Produto->Category->find('list');
+		$this->set(compact('usuarios', 'categories'));
 	}
 
 /**
@@ -83,8 +83,8 @@ class ProdutosController extends AppController {
 			$this->request->data = $this->Produto->find('first', $options);
 		}
 		$usuarios = $this->Produto->Usuario->find('list');
-		$categors = $this->Produto->Categor->find('list');
-		$this->set(compact('usuarios', 'categors'));
+		$categories = $this->Produto->Category->find('list');
+		$this->set(compact('usuarios', 'categories'));
 	}
 
 /**

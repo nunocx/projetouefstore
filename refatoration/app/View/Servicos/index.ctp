@@ -4,7 +4,7 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('Nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('Descricao'); ?></th>
 			<th><?php echo $this->Paginator->sort('Preco'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data_Publicacao'); ?></th>
@@ -14,7 +14,7 @@
 			<th><?php echo $this->Paginator->sort('Expirado'); ?></th>
 			<th><?php echo $this->Paginator->sort('ACombinar'); ?></th>
 			<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('categor_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -22,7 +22,7 @@
 	<?php foreach ($servicos as $servico): ?>
 	<tr>
 		<td><?php echo h($servico['Servico']['id']); ?>&nbsp;</td>
-		<td><?php echo h($servico['Servico']['Nome']); ?>&nbsp;</td>
+		<td><?php echo h($servico['Servico']['name']); ?>&nbsp;</td>
 		<td><?php echo h($servico['Servico']['Descricao']); ?>&nbsp;</td>
 		<td><?php echo h($servico['Servico']['Preco']); ?>&nbsp;</td>
 		<td><?php echo h($servico['Servico']['Data_Publicacao']); ?>&nbsp;</td>
@@ -32,10 +32,10 @@
 		<td><?php echo h($servico['Servico']['Expirado']); ?>&nbsp;</td>
 		<td><?php echo h($servico['Servico']['ACombinar']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($servico['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($servico['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($servico['Categor']['id'], array('controller' => 'categors', 'action' => 'view', $servico['Categor']['id'])); ?>
+			<?php echo $this->Html->link($servico['Category']['name'], array('controller' => 'categories', 'action' => 'view', $servico['Category']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $servico['Servico']['id'])); ?>
@@ -66,8 +66,8 @@
 		<li><?php echo $this->Html->link(__('New Servico'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categors'), array('controller' => 'categors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categor'), array('controller' => 'categors', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>

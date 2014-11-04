@@ -1,5 +1,5 @@
 <div class="usuarios view">
-<h2><?php echo __('Perfil Usuario: ').h($usuario['Usuario']['Nome']); ?></h2>
+<h2><?php echo __('Perfil Usuario: ').h($usuario['Usuario']['name']); ?></h2>
 	
 
  <!-- /.panel-heading -->
@@ -19,7 +19,7 @@
                                     </thead>
                                     <tbody>
                                         <tr class="info">
-                                            <td><?php echo h($usuario['Usuario']['Nome']); ?>&nbsp; </td>
+                                            <td><?php echo h($usuario['Usuario']['name']); ?>&nbsp; </td>
                                             <td><?php echo h($usuario['Usuario']['Email']); ?>&nbsp;</td>
                                             <td><?php echo h($usuario['Usuario']['Telefone1']); ?>&nbsp;</td>
                                             <td><?php echo h($usuario['Usuario']['Telefone2']); ?>&nbsp;</td>

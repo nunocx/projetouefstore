@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Anuncioterceiro Model
  *
+ * @property Category $Category
  * @property Administrador $Administrador
  */
 class Anuncioterceiro extends AppModel {
@@ -13,7 +14,7 @@ class Anuncioterceiro extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'Nome' => array(
+		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -53,6 +54,26 @@ class Anuncioterceiro extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'link' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'category_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'administrador_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -73,6 +94,13 @@ class Anuncioterceiro extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
+		'Category' => array(
+			'className' => 'Category',
+			'foreignKey' => 'category_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Administrador' => array(
 			'className' => 'Administrador',
 			'foreignKey' => 'administrador_id',

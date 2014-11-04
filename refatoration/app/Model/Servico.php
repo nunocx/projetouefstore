@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * Servico Model
  *
  * @property Usuario $Usuario
- * @property Categor $Categor
+ * @property Category $Category
  * @property Comentario $Comentario
  * @property Report $Report
  */
@@ -16,7 +16,7 @@ class Servico extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'Nome' => array(
+		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -76,7 +76,7 @@ class Servico extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'categor_id' => array(
+		'category_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -103,9 +103,9 @@ class Servico extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Categor' => array(
-			'className' => 'Categor',
-			'foreignKey' => 'categor_id',
+		'Category' => array(
+			'className' => 'Category',
+			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

@@ -1,34 +1,53 @@
 <div class="servicos form">
-<?php echo $this->Form->create('Servico'); ?>
+<?php echo $this->Form->create('Servico');
+		echo $this->Form->hidden('id');
+?>
 	<fieldset>
-		<legend><?php echo __('Edit Servico'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('Nome');
-		echo $this->Form->input('Descricao');
-		echo $this->Form->input('Preco');
-		echo $this->Form->input('Data_Publicacao');
-		echo $this->Form->input('Data_Vencimento');
-		echo $this->Form->input('Foto_Video');
-		echo $this->Form->input('Bloqueado');
-		echo $this->Form->input('Expirado');
-		echo $this->Form->input('ACombinar');
-		echo $this->Form->input('usuario_id');
-		echo $this->Form->input('categor_id');
-	?>
+		<legend><?php echo __('Alterar Serviço'); ?></legend>
+	<div class="form-group">
+		<?php
+         	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
+         	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
+         	echo $this->Form->file('Foto_Video',array('label'=>'Foto/Video:', 'class'=>'form-control'));
+         	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
+         	echo $this->Form->hidden('ACombinar',array('label'=>'Preço a combinar', 'class'=>'form-control'));
+         ?>
+         <p><?php
+			echo $this->Form->input('Data_Publicacao',array(
+							 'label' => 'Data de Publicação:',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));?>
+		</p>
+		<p><?php
+			echo $this->Form->input('Data_Vencimento',array(
+							 'label' => 'Data de Vencimento:',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));?>
+		</p>
+		<p><?php
+			echo $this->Form->input('Quantidade',array('class'=>'form-control'));?></p>
+		<?php
+			echo $this->Form->hidden('Bloqueado',array('value'=>'0'));
+			echo $this->Form->hidden('Expirado',array('value'=>'0'));
+			echo $this->Form->input('usuario_id',array( 'class'=>'form-control'));
+			echo $this->Form->input('category_id',array( 'class'=>'form-control'));
+		?>
+	</div>
+		<button type="submit" class="btn btn-default">Alterar</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Servico.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Servico.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Servicos'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categors'), array('controller' => 'categors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categor'), array('controller' => 'categors', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>

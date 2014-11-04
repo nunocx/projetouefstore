@@ -23,17 +23,17 @@
 		</dd>
 		<dt><?php echo __('Administrador'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($mensagem['Administrador']['id'], array('controller' => 'administradors', 'action' => 'view', $mensagem['Administrador']['id'])); ?>
+			<?php echo $this->Html->link($mensagem['Administrador']['name'], array('controller' => 'administradors', 'action' => 'view', $mensagem['Administrador']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('UsuariosR Email'); ?></dt>
+		<dt><?php echo __('Destinatario'); ?></dt>
 		<dd>
-			<?php echo h($mensagem['Mensagem']['usuariosR_Email']); ?>
+			<?php echo h($mensagem['Mensagem']['Destinatario']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('UsuariosE Email'); ?></dt>
+		<dt><?php echo __('Emisor'); ?></dt>
 		<dd>
-			<?php echo h($mensagem['Mensagem']['usuariosE_Email']); ?>
+			<?php echo h($mensagem['Mensagem']['Emisor']); ?>
 			&nbsp;
 		</dd>
 	</dl>

@@ -1,14 +1,14 @@
-<div class="categors view">
-<h2><?php echo __('Categor'); ?></h2>
+<div class="categories view">
+<h2><?php echo __('Category'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($categor['Categor']['id']); ?>
+			<?php echo h($category['Category']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Nome'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($categor['Categor']['Nome']); ?>
+			<?php echo h($category['Category']['name']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -16,10 +16,10 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Categor'), array('action' => 'edit', $categor['Categor']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Categor'), array('action' => 'delete', $categor['Categor']['id']), array(), __('Are you sure you want to delete # %s?', $categor['Categor']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categors'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categor'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), array(), __('Você tem certeza que deseja deletar: # %s?', $category['Category']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Produtos'), array('controller' => 'produtos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Produto'), array('controller' => 'produtos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Servicos'), array('controller' => 'servicos', 'action' => 'index')); ?> </li>
@@ -28,11 +28,11 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Produtos'); ?></h3>
-	<?php if (!empty($categor['Produto'])): ?>
+	<?php if (!empty($category['Produto'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Nome'); ?></th>
+		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Descricao'); ?></th>
 		<th><?php echo __('Preco'); ?></th>
 		<th><?php echo __('Data Publicacao'); ?></th>
@@ -43,13 +43,13 @@
 		<th><?php echo __('Expirado'); ?></th>
 		<th><?php echo __('CondicaoUso'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Categor Id'); ?></th>
+		<th><?php echo __('Category Id'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php foreach ($categor['Produto'] as $produto): ?>
+	<?php foreach ($category['Produto'] as $produto): ?>
 		<tr>
 			<td><?php echo $produto['id']; ?></td>
-			<td><?php echo $produto['Nome']; ?></td>
+			<td><?php echo $produto['name']; ?></td>
 			<td><?php echo $produto['Descricao']; ?></td>
 			<td><?php echo $produto['Preco']; ?></td>
 			<td><?php echo $produto['Data_Publicacao']; ?></td>
@@ -60,11 +60,11 @@
 			<td><?php echo $produto['Expirado']; ?></td>
 			<td><?php echo $produto['CondicaoUso']; ?></td>
 			<td><?php echo $produto['usuario_id']; ?></td>
-			<td><?php echo $produto['categor_id']; ?></td>
+			<td><?php echo $produto['category_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'produtos', 'action' => 'view', $produto['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'produtos', 'action' => 'edit', $produto['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'produtos', 'action' => 'delete', $produto['id']), array(), __('Are you sure you want to delete # %s?', $produto['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'produtos', 'action' => 'delete', $produto['id']), array(), __('Você tem certeza que deseja deletar: # %s?', $produto['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -79,11 +79,11 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Servicos'); ?></h3>
-	<?php if (!empty($categor['Servico'])): ?>
+	<?php if (!empty($category['Servico'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Nome'); ?></th>
+		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Descricao'); ?></th>
 		<th><?php echo __('Preco'); ?></th>
 		<th><?php echo __('Data Publicacao'); ?></th>
@@ -93,13 +93,13 @@
 		<th><?php echo __('Expirado'); ?></th>
 		<th><?php echo __('ACombinar'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Categor Id'); ?></th>
+		<th><?php echo __('Category Id'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php foreach ($categor['Servico'] as $servico): ?>
+	<?php foreach ($category['Servico'] as $servico): ?>
 		<tr>
 			<td><?php echo $servico['id']; ?></td>
-			<td><?php echo $servico['Nome']; ?></td>
+			<td><?php echo $servico['name']; ?></td>
 			<td><?php echo $servico['Descricao']; ?></td>
 			<td><?php echo $servico['Preco']; ?></td>
 			<td><?php echo $servico['Data_Publicacao']; ?></td>
@@ -109,11 +109,11 @@
 			<td><?php echo $servico['Expirado']; ?></td>
 			<td><?php echo $servico['ACombinar']; ?></td>
 			<td><?php echo $servico['usuario_id']; ?></td>
-			<td><?php echo $servico['categor_id']; ?></td>
+			<td><?php echo $servico['category_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'servicos', 'action' => 'view', $servico['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'servicos', 'action' => 'edit', $servico['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'servicos', 'action' => 'delete', $servico['id']), array(), __('Are you sure you want to delete # %s?', $servico['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'servicos', 'action' => 'delete', $servico['id']), array(), __('Você tem certeza que deseja deletar: # %s?', $servico['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

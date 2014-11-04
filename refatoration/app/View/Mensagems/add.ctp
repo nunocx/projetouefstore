@@ -2,29 +2,25 @@
 <?php echo $this->Form->create('Mensagem'); ?>
 	<fieldset>
 		<legend><?php echo __('Enviar Mensagem'); ?></legend>
-	<div class="form-group">
-			
+		<div class="form-group">
 			<?php
-				echo $this->Form->input('Assunto',array('label'=>'Assunto:', 'class'=>'form-control'));
-				echo $this->Form->input('Texto',array('rows'=>'5','label'=>'Corpo da mensagem:', 'class'=>'form-control'));
-				?>
-
-				<p><?php
-				echo $this->Form->input('Data',array(
-							 'label' => 'Data:',
+				echo $this->Form->input('Assunto',array('label'=>'Assunto', 'class'=>'form-control'));
+				echo $this->Form->input('Texto',array('label'=>'Mensagem', 'class'=>'form-control'));
+				echo $this->Form->input('administrador_id',array('label'=>'Admininstrador', 'class'=>'form-control'));
+				echo $this->Form->input('Destinatario',array('label'=>'Destinatario', 'class'=>'form-control'));
+				echo $this->Form->input('Emisor',array('label'=>'Emisor', 'class'=>'form-control'));
+			?>
+			<p><?php
+			echo $this->Form->input('Data',array(
+							 'label' => 'Data',
 							'dateFormat' => 'DMY'
                            , 'minYear' => date('Y') - 90
                            , 'maxYear' => date('Y') - 0 ));?>
-				</p>
-			<?php
-				echo $this->Form->input('administrador_id',array('label'=>'Admin:', 'class'=>'form-control'));
-				echo $this->Form->input('usuariosR_Email',array('label'=>'Usuario Remetente:', 'class'=>'form-control'));
-				echo $this->Form->input('usuariosE_Email',array('label'=>'Usuario Emisor:', 'class'=>'form-control'));
-			?>
-	</div>
-	<button type="submit" class="btn btn-default">Enviar</button>
+		</p>
+		</div>
+		<button type="submit" class="btn btn-default">Enviar</button>
+        	<button type="reset" class="btn btn-default">Reset Informações</button>
 	</fieldset>
-
 <?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">

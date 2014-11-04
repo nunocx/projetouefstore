@@ -5,7 +5,7 @@
 		<thead>
 		<tr>
 				<th><?php echo $this->Paginator->sort('id'); ?></th>
-				<th><?php echo $this->Paginator->sort('Nome'); ?></th>
+				<th><?php echo $this->Paginator->sort('name'); ?></th>
 				<th><?php echo $this->Paginator->sort('Email'); ?></th>
 				<th><?php echo $this->Paginator->sort('Telefone1'); ?></th>
 				<th><?php echo $this->Paginator->sort('Data_Nascimento'); ?></th>
@@ -18,7 +18,7 @@
 			<?php foreach ($usuarios as $usuario): ?>
 				<tr>
 					<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
-					<td><?php echo h($usuario['Usuario']['Nome']); ?>&nbsp;</td>
+					<td><?php echo h($usuario['Usuario']['name']); ?>&nbsp;</td>
 					<td><?php echo h($usuario['Usuario']['Email']); ?>&nbsp;</td>
 					<td><?php echo h($usuario['Usuario']['Telefone1']); ?>&nbsp;</td>
 					<td><?php echo h($usuario['Usuario']['Data_Nascimento']); ?>&nbsp;</td>

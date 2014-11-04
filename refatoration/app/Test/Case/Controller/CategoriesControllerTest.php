@@ -1,11 +1,11 @@
 <?php
-App::uses('ComentariosController', 'Controller');
+App::uses('CategoriesController', 'Controller');
 
 /**
- * ComentariosController Test Case
+ * CategoriesController Test Case
  *
  */
-class ComentariosControllerTest extends ControllerTestCase {
+class CategoriesControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,10 +13,10 @@ class ComentariosControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.comentario',
-		'app.usuario',
+		'app.category',
 		'app.produto',
-		'app.categor',
+		'app.usuario',
+		'app.comentario',
 		'app.servico',
 		'app.report'
 	);

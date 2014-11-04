@@ -1,23 +1,30 @@
 <div class="reports form">
-<?php echo $this->Form->create('Report'); ?>
+<?php echo $this->Form->create('Report'); 
+	  echo $this->Form->hidden('id');	?>
 	<fieldset>
-		<legend><?php echo __('Edit Report'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('Texto');
-		echo $this->Form->input('Data');
-		echo $this->Form->input('produto_id');
-		echo $this->Form->input('servico_id');
-		echo $this->Form->input('usuario_id');
-	?>
+		<legend><?php echo __('Editar Denunciar'); ?></legend>
+	<div class="form-group">
+		<?php
+			echo $this->Form->input('Texto',array('label'=>'Texto:', 'class'=>'form-control'));
+			echo $this->Form->input('Data',array(
+							 'label' => 'Data:',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));
+			echo $this->Form->input('produto_id',array('class'=>'form-control'));
+			echo $this->Form->input('servico_id',array('class'=>'form-control'));
+			echo $this->Form->input('usuario_id',array('class'=>'form-control'));
+		?>
+	</div>
+	<button type="submit" class="btn btn-default">Alterar</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Report.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Report.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Reports'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Produtos'), array('controller' => 'produtos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Produto'), array('controller' => 'produtos', 'action' => 'add')); ?> </li>

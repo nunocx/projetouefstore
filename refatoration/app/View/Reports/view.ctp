@@ -18,17 +18,17 @@
 		</dd>
 		<dt><?php echo __('Produto'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($report['Produto']['id'], array('controller' => 'produtos', 'action' => 'view', $report['Produto']['id'])); ?>
+			<?php echo $this->Html->link($report['Produto']['name'], array('controller' => 'produtos', 'action' => 'view', $report['Produto']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Servico'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($report['Servico']['id'], array('controller' => 'servicos', 'action' => 'view', $report['Servico']['id'])); ?>
+			<?php echo $this->Html->link($report['Servico']['name'], array('controller' => 'servicos', 'action' => 'view', $report['Servico']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Usuario'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($report['Usuario']['id'], array('controller' => 'usuarios', 'action' => 'view', $report['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($report['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $report['Usuario']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

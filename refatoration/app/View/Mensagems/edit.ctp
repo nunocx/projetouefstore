@@ -1,24 +1,34 @@
+
 <div class="mensagems form">
-<?php echo $this->Form->create('Mensagem'); ?>
+<?php echo $this->Form->create('Mensagem');
+echo $this->Form->hidden('id'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Mensagem'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('Assunto');
-		echo $this->Form->input('Texto');
-		echo $this->Form->input('Data');
-		echo $this->Form->input('administrador_id');
-		echo $this->Form->input('usuariosR_Email');
-		echo $this->Form->input('usuariosE_Email');
-	?>
+		<legend><?php echo __('Enviar Mensagem'); ?></legend>
+		<div class="form-group">
+			<?php
+				echo $this->Form->input('Assunto',array('label'=>'Assunto', 'class'=>'form-control'));
+				echo $this->Form->input('Texto',array('label'=>'Mensagem', 'class'=>'form-control'));
+				echo $this->Form->input('administrador_id',array('label'=>'Admininstrador', 'class'=>'form-control'));
+				echo $this->Form->input('Destinatario',array('label'=>'Destinatario', 'class'=>'form-control'));
+				echo $this->Form->input('Emisor',array('label'=>'Emisor', 'class'=>'form-control'));
+			?>
+			<p><?php
+			echo $this->Form->input('Data',array(
+							 'label' => 'Data',
+							'dateFormat' => 'DMY'
+                           , 'minYear' => date('Y') - 90
+                           , 'maxYear' => date('Y') - 0 ));?>
+		</p>
+		</div>
+		<button type="submit" class="btn btn-default">Enviar</button>
+        	<button type="reset" class="btn btn-default">Reset Informações</button>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Mensagem.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Mensagem.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Mensagems'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Administradors'), array('controller' => 'administradors', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Administrador'), array('controller' => 'administradors', 'action' => 'add')); ?> </li>

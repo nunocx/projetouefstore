@@ -56,8 +56,8 @@ class ServicosController extends AppController {
 			}
 		}
 		$usuarios = $this->Servico->Usuario->find('list');
-		$categors = $this->Servico->Categor->find('list');
-		$this->set(compact('usuarios', 'categors'));
+		$categories = $this->Servico->Category->find('list');
+		$this->set(compact('usuarios', 'categories'));
 	}
 
 /**
@@ -83,8 +83,8 @@ class ServicosController extends AppController {
 			$this->request->data = $this->Servico->find('first', $options);
 		}
 		$usuarios = $this->Servico->Usuario->find('list');
-		$categors = $this->Servico->Categor->find('list');
-		$this->set(compact('usuarios', 'categors'));
+		$categories = $this->Servico->Category->find('list');
+		$this->set(compact('usuarios', 'categories'));
 	}
 
 /**
