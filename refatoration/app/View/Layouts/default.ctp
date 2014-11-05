@@ -1,74 +1,84 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
-  */
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<!--  HEADER-->
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <?php
 	echo $this->element('header');
 ?>
 <body>
-	
-   <!--  Nav Menu top  -->
+	<div class="header">
+  	  		<div class="wrap">
+				<div class="header_top">
+						<div class="header_top_right">
+						</div>
+			     <div class="clear"></div>
+  		    </div>     
+  		    <!--- MENU PRINCIAPL-->
+  		    <?php
+  		    	echo $this->element('nav-top-menu');
+  		    ?>
+  		     <div class="header_bottom">
 
-   <?php echo $this->element('navbar-top'); ?>
-    <!-- Page Content -->
-    
-    <div class="container">
-    <div>
-    <?php
-       echo $this->Html->image('logo.png');
-    ?>
+			   <div class="slider-text">
+			   	<h2>UEFStore <br/>Encontre tudo o que procura!</h2>
+			   	<p>Crie um anúncio<br/>Dê destaque ao seu produtos</p>
+			   	<a href="#">Criar Anúncio</a>
+	  	      </div>
+	  	      <div class="slider-img">
+	  	      	<?php echo $this->Html->image('images/slider-img.png');?>
+	  	      </div>
+	  	     <div class="clear"></div>
+	      </div>
+   		</div>
+   </div>
+   <!------------End Header ------------>
+  <div class="main">
+      <div class="content">
+    	        <!--
+    	        Anuncio em Destaque
+	    	        -->
+	    	    <?php echo $this->element('navbar-anunc-terceiros'); ?>
 
-                <p> <?php //echo $this->Form->input('Login'); ?></p>
-                <p> <?php  // echo $this->Form->input('Senha');?></p>
+    	  <div class="content_bottom">
+    	    <div class="wrap">
+    	    	<div class="content-bottom-left">
+    	    		<!--- Categorias -->
+    	    		<?php echo $this->element('navbar-side-left')?>
+    	    	</div>
+    	    	
+    	    	<div class="content-bottom-right">
+    	    	<!-- Anuncio em GERAL -->
+    	    	<div class="Content">
+    	    	
+		             <?php echo $this->Session->flash(); ?>
+                     <?php echo $this->fetch('content'); ?>
+			    
+			    </div>
+			    <!--- END CONTENT -->
+			    <div class="product-articles">
+			      <h3></h3>
+			      <ul>
+			      <li>
+			       <div class="article">
+			      	<p><span>Você já pode se cadastrar</span></p>
+			      	<p>Criamos um formulário simples e eficiente onde você usuário pode se cadastrar de forma rápida e segura.</p>
+			      	<p><a href="#">+ Read Full article</a></p>
+			      </div>
+			      </li>
+			      </ul>
+			    </div>
+		      </div>
+		      <div class="clear"></div>
+		   </div>
+         </div>
+      </div>
     </div>
-        <div class="row">
+  <!--- Footer -->
+		<?php echo $this->element('footer');?>
 
-           <!-- nav Side Left -->
-           <?php echo $this->element('navbar-side-left'); ?>
-
-            <div class="col-md-9">
-                <div class="row">
-
-                    <?php echo $this->Session->flash(); ?>
-                    <?php echo $this->fetch('content'); ?>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
-
-        <hr>
-
-        <!-- Footer -->
-		<?php
-			echo $this->element('footer');
-		?>       
-
-    </div>
-    <!-- /.container -->
-
-   
 </body>
-
 </html>
+
