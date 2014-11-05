@@ -17,7 +17,7 @@
   		    	<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
 						<li>
-							<a href="#">Home </a>
+							<a href="<?php echo $this->Html->url()?>">Home </a>
 						</li>
 						
 						<li>

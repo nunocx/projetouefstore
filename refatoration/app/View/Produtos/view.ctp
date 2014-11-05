@@ -1,5 +1,5 @@
 <div class="produtos view">
-<h2><?php echo __('Produto'); ?></h2>
+<h3><?php echo __('Produto'); ?></h3>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -69,7 +69,7 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Produto'), array('action' => 'edit', $produto['Produto']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Produto'), array('action' => 'delete', $produto['Produto']['id']), array(), __('Are you sure you want to delete # %s?', $produto['Produto']['id'])); ?> </li>
@@ -88,7 +88,7 @@
 <div class="related">
 	<h3><?php echo __('Related Comentarios'); ?></h3>
 	<?php if (!empty($produto['Comentario'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+		<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Data'); ?></th>
@@ -125,7 +125,7 @@
 <div class="related">
 	<h3><?php echo __('Related Reports'); ?></h3>
 	<?php if (!empty($produto['Report'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+		<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Texto'); ?></th>

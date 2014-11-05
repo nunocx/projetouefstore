@@ -1,22 +1,19 @@
 <div class="produtos index">
-	<h2><?php echo __('Produtos'); ?></h2>
+	<h3><?php echo __('Produtos'); ?></h3>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('name',$title='Titulo'); ?></th>
 			<th><?php echo $this->Paginator->sort('Descricao'); ?></th>
-			<th><?php echo $this->Paginator->sort('Preco'); ?></th>
+			<th><?php echo $this->Paginator->sort('Preco',$title='Preço'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data_Publicacao'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data_Vencimento'); ?></th>
 			<th><?php echo $this->Paginator->sort('Quantidade'); ?></th>
 			<th><?php echo $this->Paginator->sort('Foto_Video'); ?></th>
-			<th><?php echo $this->Paginator->sort('Bloqueado'); ?></th>
-			<th><?php echo $this->Paginator->sort('Expirado'); ?></th>
-			<th><?php echo $this->Paginator->sort('CondicaoUso'); ?></th>
 			<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('Ações'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -30,9 +27,6 @@
 		<td><?php echo h($produto['Produto']['Data_Vencimento']); ?>&nbsp;</td>
 		<td><?php echo h($produto['Produto']['Quantidade']); ?>&nbsp;</td>
 		<td><?php echo h($produto['Produto']['Foto_Video']); ?>&nbsp;</td>
-		<td><?php echo h($produto['Produto']['Bloqueado']); ?>&nbsp;</td>
-		<td><?php echo h($produto['Produto']['Expirado']); ?>&nbsp;</td>
-		<td><?php echo h($produto['Produto']['CondicaoUso']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($produto['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?>
 		</td>
@@ -51,14 +45,14 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros no  total {:count}, começando no registro {:start}, terminando no {:end}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous '), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__(' next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>

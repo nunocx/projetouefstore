@@ -1,5 +1,5 @@
-<div class="categories index">
-	<h2><?php echo __('Categories'); ?></h2>
+<div class="category index">
+	<h3><?php echo __('Categorias'); ?></h3>
 		<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
@@ -23,22 +23,22 @@
 	</tbody>
 	</table>
 	<p>
-	
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros no  total {:count}, começando no registro {:start}, terminando no {:end}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous '), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__(' next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações
+	'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Produtos'), array('controller' => 'produtos', 'action' => 'index')); ?> </li>

@@ -1,12 +1,12 @@
-<div class="categories view">
-<h2><?php echo __('Category'); ?></h2>
+<div class="category view">
+	<h3> <?php echo __('Categoria'); ?> </h3>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($category['Category']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Name'); ?></dt>
+		<dt><?php echo __('Nome'); ?></dt>
 		<dd>
 			<?php echo h($category['Category']['name']); ?>
 			&nbsp;
@@ -14,7 +14,7 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), array(), __('Você tem certeza que deseja deletar: # %s?', $category['Category']['id'])); ?> </li>
@@ -29,7 +29,7 @@
 <div class="related">
 	<h3><?php echo __('Related Produtos'); ?></h3>
 	<?php if (!empty($category['Produto'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
@@ -39,8 +39,6 @@
 		<th><?php echo __('Data Vencimento'); ?></th>
 		<th><?php echo __('Quantidade'); ?></th>
 		<th><?php echo __('Foto Video'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th><?php echo __('Expirado'); ?></th>
 		<th><?php echo __('CondicaoUso'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
 		<th><?php echo __('Category Id'); ?></th>
@@ -56,8 +54,6 @@
 			<td><?php echo $produto['Data_Vencimento']; ?></td>
 			<td><?php echo $produto['Quantidade']; ?></td>
 			<td><?php echo $produto['Foto_Video']; ?></td>
-			<td><?php echo $produto['Bloqueado']; ?></td>
-			<td><?php echo $produto['Expirado']; ?></td>
 			<td><?php echo $produto['CondicaoUso']; ?></td>
 			<td><?php echo $produto['usuario_id']; ?></td>
 			<td><?php echo $produto['category_id']; ?></td>
@@ -80,7 +76,7 @@
 <div class="related">
 	<h3><?php echo __('Related Servicos'); ?></h3>
 	<?php if (!empty($category['Servico'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
@@ -89,8 +85,6 @@
 		<th><?php echo __('Data Publicacao'); ?></th>
 		<th><?php echo __('Data Vencimento'); ?></th>
 		<th><?php echo __('Foto Video'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th><?php echo __('Expirado'); ?></th>
 		<th><?php echo __('ACombinar'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
 		<th><?php echo __('Category Id'); ?></th>
@@ -105,8 +99,6 @@
 			<td><?php echo $servico['Data_Publicacao']; ?></td>
 			<td><?php echo $servico['Data_Vencimento']; ?></td>
 			<td><?php echo $servico['Foto_Video']; ?></td>
-			<td><?php echo $servico['Bloqueado']; ?></td>
-			<td><?php echo $servico['Expirado']; ?></td>
 			<td><?php echo $servico['ACombinar']; ?></td>
 			<td><?php echo $servico['usuario_id']; ?></td>
 			<td><?php echo $servico['category_id']; ?></td>

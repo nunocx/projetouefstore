@@ -1,15 +1,12 @@
+<?php	
+$categories = $this->requestAction('categories/indexView');
+?>
 <div class="categories">
 	<ul>
 	<h3>Categorias</h3>
-		<li><a href="#">Moda e Beleza</a></li>
-		<li><a href="#">Eletrônicos e Informática</a></li>
-		<li><a href="#">Crianças e Bebês</a></li>
-		<li><a href="#">Para sua casa</a></li>
-		<li><a href="#">Esportes</a></li>
-		<li><a href="#">Música, Arte e lazer</a></li>
-		<li><a href="#">Animais</a></li>
-		<li><a href="#">Imóveis</a></li>
-		<li><a href="#">Veículos</a></li>
+		<?php  foreach ($categories as $category): ?>
+		<li><a href="#"><?php echo $category['Category']['name'];?></a></li>
+		<?php  endforeach; ?>
 	</ul>
 </div>		
 <div class="buters-guide">

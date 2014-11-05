@@ -1,7 +1,7 @@
 <div class="produtos form">
 <?php echo $this->Form->create('Produto'); ?>
 	<fieldset>
-		<legend><?php echo __('Cadastrar Produto'); ?></legend>
+		<legend><h3><?php echo __('Cadastrar Produto'); ?></h3></legend>
 	<div class="form-group">
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
@@ -38,8 +38,8 @@
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div style="margin-top:10px" class="actions">
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Produtos'), array('action' => 'index')); ?></li>

@@ -1,16 +1,16 @@
 <div class="usuarios index">
-	<h2><?php echo __('Usuarios'); ?></h2>
+	<h3><?php echo __('Usuarios'); ?></h3>
 	<table class="table table-bordered table-hover table-striped">
 		
 		<thead>
 		<tr>
 				<th><?php echo $this->Paginator->sort('id'); ?></th>
-				<th><?php echo $this->Paginator->sort('name'); ?></th>
+				<th><?php echo $this->Paginator->sort('name',$title='Nome'); ?></th>
 				<th><?php echo $this->Paginator->sort('Email'); ?></th>
-				<th><?php echo $this->Paginator->sort('Telefone1'); ?></th>
+				<th><?php echo $this->Paginator->sort('Telefone1',$title='Celular'); ?></th>
 				<th><?php echo $this->Paginator->sort('Data_Nascimento'); ?></th>
 				<th><?php echo $this->Paginator->sort('Sexo'); ?></th>
-				<th class="actions"><?php echo __('Actions'); ?></th>
+				<th class="actions"><?php echo __('Ações'); ?></th>
 		</tr>
 		</thead>
 
@@ -37,19 +37,19 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros no  total {:count}, começando no registro {:start}, terminando no {:end}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous '), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__(' next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Usuario'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>

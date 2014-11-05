@@ -1,7 +1,7 @@
 <div class="mensagems form">
 <?php echo $this->Form->create('Mensagem'); ?>
 	<fieldset>
-		<legend><?php echo __('Enviar Mensagem'); ?></legend>
+		<legend><h3><?php echo __('Enviar Mensagem'); ?></h3></legend>
 		<div class="form-group">
 			<?php
 				echo $this->Form->input('Assunto',array('label'=>'Assunto', 'class'=>'form-control'));
@@ -23,8 +23,8 @@
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div style="margin-top:10px"class="actions">
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Mensagems'), array('action' => 'index')); ?></li>

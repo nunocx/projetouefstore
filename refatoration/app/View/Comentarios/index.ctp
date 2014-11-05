@@ -1,5 +1,5 @@
 <div class="comentarios index">
-	<h2><?php echo __('Comentarios'); ?></h2>
+	<h3><?php echo __('Comentarios'); ?></h3>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
@@ -39,14 +39,14 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros no  total {:count}, começando no registro {:start}, terminando no {:end}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('previous '), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__(' next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>

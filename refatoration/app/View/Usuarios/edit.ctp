@@ -3,7 +3,7 @@
       echo $this->Form->hidden('id');
  ?>
   <fieldset>
-    <legend><?php echo __('Cadastro Usuario'); ?></legend>
+    <legend><h3><?php echo __('Atualizar Dados Usuario'); ?></h3></legend>
   
 
     <div class="form-group">
@@ -11,7 +11,7 @@
               echo $this->Form->input('Email', array('label'=>'E-mail:', 'class'=>'form-control'));?>
                <p class="help-block">Exemplo: name@exemplo.com </p>
         
-           <?php echo $this->Form->input('Nome',array('label'=>'Nome:', 'class'=>'form-control')); 
+           <?php echo $this->Form->input('name',array('label'=>'Nome:', 'class'=>'form-control')); 
                echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
                echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
                <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
@@ -36,13 +36,12 @@
                   </p>
            
         </div>
-          <button type="submit" class="btn btn-default">Cadastrar</button>
-          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-default">Alterar</button>
   </fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
-  <h3><?php echo __('Actions'); ?></h3>
+  <h3><?php echo __('Ações'); ?></h3>
   <ul>
 
     <li><?php echo $this->Html->link(__('List Usuarios'), array('action' => 'index')); ?></li>

@@ -1,5 +1,5 @@
 <div class="servicos view">
-<h2><?php echo __('Servico'); ?></h2>
+<h3><?php echo __('Servico'); ?></h3>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -64,7 +64,7 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Servico'), array('action' => 'edit', $servico['Servico']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Servico'), array('action' => 'delete', $servico['Servico']['id']), array(), __('Are you sure you want to delete # %s?', $servico['Servico']['id'])); ?> </li>
@@ -83,7 +83,7 @@
 <div class="related">
 	<h3><?php echo __('Related Comentarios'); ?></h3>
 	<?php if (!empty($servico['Comentario'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Data'); ?></th>
@@ -120,7 +120,7 @@
 <div class="related">
 	<h3><?php echo __('Related Reports'); ?></h3>
 	<?php if (!empty($servico['Report'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Texto'); ?></th>

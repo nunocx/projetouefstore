@@ -1,7 +1,7 @@
 <div class="servicos form">
 <?php echo $this->Form->create('Servico'); ?>
 	<fieldset>
-		<legend><?php echo __('Cadastrar Serviço'); ?></legend>
+		<legend><h3><?php echo __('Cadastrar Serviço'); ?></h3></legend>
 	<div class="form-group">
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
@@ -39,7 +39,7 @@
 <?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Servicos'), array('action' => 'index')); ?></li>

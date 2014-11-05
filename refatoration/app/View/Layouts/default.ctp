@@ -23,13 +23,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   		     <div class="header_bottom">
 
 			   <div class="slider-text">
-			   	<h2>UEFStore <br/>Encontre tudo o que procura!</h2>
-			   	<p>Crie um anúncio<br/>Dê destaque ao seu produtos</p>
-			   	<a href="#">Criar Anúncio</a>
-	  	      </div>
-	  	      <div class="slider-img">
-	  	      	<?php echo $this->Html->image('images/slider-img.png');?>
-	  	      </div>
+
+	  	       </div>
+	  	       <div class="slider-img">
+	  	      	
+	  	       </div>
 	  	     <div class="clear"></div>
 	      </div>
    		</div>

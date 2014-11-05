@@ -1,7 +1,7 @@
 <div class="administradors form">
 <?php echo $this->Form->create('Administrador'); ?>
 	<fieldset>
-		<legend><?php echo __('Cadastro Administrador'); ?></legend>
+		<h3><legend><?php echo __('Cadastro Administrador'); ?></legend></h3>
 		<div class="form-group">
 			<?php ?>
 				<?php

@@ -25,6 +25,16 @@ class ProdutosController extends AppController {
 		$this->set('produtos', $this->Paginator->paginate());
 	}
 
+
+	public function indexView() {
+        $produtos = $this->paginate();
+        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+            return $produtos;
+        } else {  //Senão envia para a view padrão
+            $this->set('produtos', $produtos);
+        }
+    }
+
 /**
  * view method
  *

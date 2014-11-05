@@ -3,7 +3,7 @@
 	echo $this->Form->hidden('id');
 ?>
 	<fieldset>
-		<legend><?php echo __('Atualizar Dados'); ?></legend>
+		<legend><h3><?php echo __('Atualizar Dados'); ?></h3></legend>
 		<div class="form-group">
 			<?php ?>
 				<?php
@@ -33,12 +33,12 @@
 					?>
 		
 		</div>
-			<button type="submit" class="btn btn-default">Alterar</button>
+			<p><button type="submit" class="btn btn-default">Alterar</button></p>
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Administradors'), array('action' => 'index')); ?></li>

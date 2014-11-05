@@ -1,5 +1,5 @@
 <div class="usuarios view">
-<h2><?php echo __('Perfil Usuario: ').h($usuario['Usuario']['name']); ?></h2>
+<h3><?php echo __('Perfil Usuario: ').h($usuario['Usuario']['name']); ?></h3>
 	
 
  <!-- /.panel-heading -->
@@ -34,7 +34,7 @@
                         </div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Usuario'), array('action' => 'edit', $usuario['Usuario']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Usuario'), array('action' => 'delete', $usuario['Usuario']['id']), array(), __('Are you sure you want to delete # %s?', $usuario['Usuario']['id'])); ?> </li>
@@ -53,7 +53,7 @@
 <div class="related">
 	<h3><?php echo __('Related Comentarios'); ?></h3>
 	<?php if (!empty($usuario['Comentario'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Data'); ?></th>
@@ -141,7 +141,7 @@
 <div class="related">
 	<h3><?php echo __('Related Reports'); ?></h3>
 	<?php if (!empty($usuario['Report'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Texto'); ?></th>
@@ -178,7 +178,7 @@
 <div class="related">
 	<h3><?php echo __('Related Servicos'); ?></h3>
 	<?php if (!empty($usuario['Servico'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered table-hover table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Nome'); ?></th>

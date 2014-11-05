@@ -3,7 +3,7 @@
 		echo $this->Form->hidden('id');
 ?>
 	<fieldset>
-		<legend><?php echo __('Alterar Produto'); ?></legend>
+		<legend><h3><?php echo __('Alterar Produto'); ?></h3></legend>
 	<div class="form-group">
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
@@ -40,7 +40,7 @@
 <?php echo $this->Form->end(); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Produtos'), array('action' => 'index')); ?></li>

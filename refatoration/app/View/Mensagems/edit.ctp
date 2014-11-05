@@ -3,7 +3,7 @@
 <?php echo $this->Form->create('Mensagem');
 echo $this->Form->hidden('id'); ?>
 	<fieldset>
-		<legend><?php echo __('Enviar Mensagem'); ?></legend>
+		<legend><h3><?php echo __('Alterar Mensagem'); ?></h3></legend>
 		<div class="form-group">
 			<?php
 				echo $this->Form->input('Assunto',array('label'=>'Assunto', 'class'=>'form-control'));
@@ -20,8 +20,7 @@ echo $this->Form->hidden('id'); ?>
                            , 'maxYear' => date('Y') - 0 ));?>
 		</p>
 		</div>
-		<button type="submit" class="btn btn-default">Enviar</button>
-        	<button type="reset" class="btn btn-default">Reset Informações</button>
+		<button type="submit" class="btn btn-default">Alterar</button>
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>

@@ -2,7 +2,7 @@
 <?php echo $this->Form->create('Report'); 
 	  echo $this->Form->hidden('id');	?>
 	<fieldset>
-		<legend><?php echo __('Editar Denunciar'); ?></legend>
+		<legend><h3><?php echo __('Editar Denunciar'); ?></h3></legend>
 	<div class="form-group">
 		<?php
 			echo $this->Form->input('Texto',array('label'=>'Texto:', 'class'=>'form-control'));
@@ -21,8 +21,8 @@
 
 <?php echo $this->Form->end(); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<div style="margin-top:10px" class="actions">
+	<h3><?php echo __('Ações'); ?></h3>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Reports'), array('action' => 'index')); ?></li>
