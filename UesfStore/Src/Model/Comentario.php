@@ -8,13 +8,24 @@ class Comentario
     private $anuncio;
     private $texto;
     private $data;
+    private $id;
 
     public function __construct($idUsuario,$anuncio,$texto,$data)
     {
         $this->idUsuario = $idUsuario;
         $this->anuncio = $anuncio;
         $this->texto = $texto;
+        //TODO:Pegar data do sistema
+        $this->id=null;
+    }
+    
+    public function __constructor1($idUsuario,$anuncio,$texto,$data,$id)
+    {
+        $this->idUsuario = $idUsuario;
+        $this->anuncio = $anuncio;
+        $this->texto = $texto;
         $this->data = $data;
+        $this->id = $id;
     }
 
     public function setIdUsuario($idUsuario)
