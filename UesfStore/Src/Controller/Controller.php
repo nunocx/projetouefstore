@@ -4,7 +4,7 @@ require_once dirname(__FILE__).'/../Model/Usuario.php';
 require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
-
+require_once dirname(__FILE__).'/../Util/UsuarioDAO.php';
 /**
 * 
 */
@@ -12,6 +12,7 @@ class Controller
 {
     public function __construct()
     {
+        
 
     }
     
@@ -129,7 +130,7 @@ class Controller
     }
     public function buscarUsuario($nome)
     {
-        //TODO: Buscar usuário no banco de dados e retornar uma lista de usuários encontrados.
+        
     }
     
     public function recuperarUsuario($email)
