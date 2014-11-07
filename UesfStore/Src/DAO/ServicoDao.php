@@ -1,73 +1,45 @@
 <?php
 	require_once('MySqlClass.php');
 	conexao();
-
-
-
-	
-	function _inserir($Nome, $Descricao,$Preco, $Foto_Video, $Categoria,$ACombinar, $Usuario_Id)
+        
+	function inserir($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)                        
 	{
-
-		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`servicos` (`id` ,`name` ,`Descricao` ,`Preco` ,`Data_Publicacao` ,
-`Data_Vencimento` ,`Foto_Video` ,`Bloqueado` ,`Expirado` ,`ACombinar` ,`usuario_id` ,`category_id`)
-VALUES (NULL ,  '$Nome',  '$Descricao',  '$Preco','2014-11-19',  '2014-11-19',  '$Foto_Video',  '0',  '0',  '$ACombinar',  '$Usuario_Id',  '$Categoria');";
-		
-		if(mysql_query($sql_inserir))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+            $data_Publicacao = mktime (0, 0, 0, date("y")  , date("m"), date("d"));
+            $data_Vencimento = mktime (0, 0, 0, date("y")  , date("m"), date("d")+15);
+	    $sql_inserir = "INSERT INTO  `u961758316_uefs`.`servicos` VALUES (NULL ,  '$titulo',  '$descricao',  '$preco','$data_Publicacao',  '$data_Vencimento',  '$fotoVideo',  '0',  '0',  '$aCombinar',  '$idUsuario',  '$categoria');";
+              return mysql_query($sql_inserir)? TRUE:FALSE;
 	}		
-	function _update($IdServico, $Nome, $Categoria, $Descricao, $Preco, $Foto_Video, $ACombinar)
+	function update($idServico,$titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
 	{
 		$sql_update = "UPDATE  `u961758316_uefs`.`servicos`
 		SET 
-		`name` =  '$Nome',
-		`Descricao` =  '$Descricao',
-		`Preco` =  '$Preco',
-		`Foto_Video` =  '$Foto_Video',
-		`ACombinar` = '$ACombinar'
-		/*`category_id` = '$Categoria'*/
+		`name` =  '$titulo',
+		`Descricao` =  '$descricao',
+		`Preco` =  '$preco',
+		`Foto_Video` =  '$fotoVideo',
+		`ACombinar` = '$aCombinar'
+		`category_id` = '$categoria'
 		WHERE 
-		`servicos`.`id` = '$IdServico';";
-
-		if(mysql_query($sql_update))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+		`servicos`.`id` = '$idServico' AND `servicos`.`usuario_id`='$idUsuario';";
+            
+                return mysql_query($sql_update)? TRUE:FALSE;
 	}
-	function _findServico($IdServico)
+	function recuperarServico($idServico)
 	{
 		$sql = "SELECT * FROM servicos";
 		$sql_sel = mysql_query($sql);
-
 		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['id'] == $IdServico)
+			if($ln['id'] == $idServico)
 				return $ln;
 	}
-
 	/*
 		Mas nao iremos deletar USUARIOS...
 		mas servirá para anuncios.
 	*/
-	function _delete($IdServico)
+	function deleta($idServico)
 	{
-		$sql = "DELETE FROM servicos WHERE id = '$IdServico';";
-
-			if(mysql_query($sql))
-				return TRUE;
-			else
-				return FALSE;
+            $sql = "DELETE FROM servicos WHERE id = '$idServico';";
+            return mysql_query($sql)? TRUE:FALSE;
 	}
-
-
-
 ?>
 
