@@ -6,7 +6,7 @@
         <?php echo $this->Form->input('Login',array('class'=>'form-group')); ?>
         <?php echo $this->Form->input('Password',array('class'=>'form-group', 'type'=>'password')); ?>
         <button type="submit" class="btn btn-default">Entrar</button>
-        <a class="btn btn-default" href="usuarios/add">Cadastre-se</a>
+        <a class="btn btn-default" href="<?php echo $this->Html->url('/usuarios/add', true)?>">Cadastre-se</a>
 
         
         <?php echo $this->Form->end(); ?>
@@ -25,7 +25,7 @@
   		    	<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
 						<li>
-							<a href="<?php echo $this->Html->url()?>">Home </a>
+							<a href="<?php echo $this->Html->url('/', true)?>">Home </a>
 						</li>
 						
 						<li>
