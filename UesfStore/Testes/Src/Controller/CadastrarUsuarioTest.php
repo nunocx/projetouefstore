@@ -6,13 +6,14 @@
 require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/EmailInvalidoException.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
-require_once dirname(__FILE__).'/../../../Src/Controller/Exception/SenhaConfirmacaoErradaException.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/SenhaErradaException.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/UsuarioJaCadastradoException.php';
 require_once dirname(__FILE__).'/../../../Src/Model/User.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Anuncio.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Produto.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Servico.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
+require_once dirname(__FILE__).'/../../../Src/DAO/UsuarioDAO.php';
 class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
 
     protected $controller;
@@ -42,7 +43,7 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testeEmailInvalido()
     {
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotma.cm",
+        $this->controller->cadastrarUsuario("João Filho", "",
         "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
     }
     

@@ -4,7 +4,7 @@ require_once dirname(__FILE__).'/../Model/Usuario.php';
 require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
-require_once dirname(__FILE__).'/../Util/UsuarioDAO.php';
+require_once dirname(__FILE__).'/../DAO/UsuarioDAO.php';
 /**
 * 
 */
@@ -173,27 +173,60 @@ class Controller
         {
             $mensagem.="Senha,";
             $exception=1;
-        }
-        
-        //TODO: Buscar usuario e lançar UsuarioJaCadastradoException
-        /*$usuario = $this->buscarUsuario($email);
-        if($usuario instanceof Usuario)
-        {
-            if($email==$usuario->getEmail())
-            {
-                throw new UsuarioJaCadastradoException();
-            }
-        }
-        */
+        }        
         if($exception==1)
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
-        //TODO:Mandar Para o bano de dados. Observar status pra mandar pro lugar certo 1-usuario 0-admimPode lançar uma exceção (FalhaEnvioException)
+        
+        $usuario = new Usuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status);
+        if(!(inserir($usuario->getNome(),$usuario->getEmail(),$usuario->getSexo(),$usuario->getTelefone(),$usuario->getCelular()
+                ,$usuario->getSenha(),$usuario->getFoto(),$usuario->getStatus())))
+        {
+            $mensagem="Usuario,";
+            throw new CampoPreenchidoErradoException($mensagem);
+        }    
     }
     public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senhaAntiga,$senhaNova,$foto,$status)
     {
-
+        $usuario = recuperarUsuario($Email);
+        $mensagem="";
+        $exception=0;
+        if($nome=="")
+        {
+            $mensagem.="Nome,";
+            $exception=1;
+        }
+        if($sexo=="")
+        {
+            $mensagem.="Sexo,";
+            $exception=1;
+        }
+        if(strlen($telefone)!=11)
+        {
+            $mensagem.="Telefone,";
+            $exception=1;
+        }
+        if(strlen($celular)!=11)
+        {
+            $mensagem.="Celular,";
+            $exception=1;
+        }
+        if($usuario->getSenha() != $senhaAntiga)
+        {
+            throw new SenhaErradaException;
+        }
+        if(strlen($senhaNova) < 6)
+        {
+            $mensagem.="Senha,";
+            $exception=1;
+        }
+        if($exception==1)
+        {
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
+        $usuarioAtualizado = new Usuario($nome, $email, $sexo, $telefone, $celular, $senhaNova, $foto, $status);
+        
     }
     public function autenticarUsuario($idUsuario)
     {

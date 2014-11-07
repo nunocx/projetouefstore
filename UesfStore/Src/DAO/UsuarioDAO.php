@@ -6,7 +6,7 @@ function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
 
     $sql_inserir = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
-        . "'$senha',  '$telefone', NULL,  '$Sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
+        . "'$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
     if(mysql_query($sql_inserir))
       return TRUE;
     else

@@ -60,6 +60,10 @@ class User
         $this->celular = $celular;
 
     }
+    public function setSenha($senha)
+    {
+        $this->senha = $senha;
+    }
     public function setFoto($foto)
     {
         $this->foto = $foto;
@@ -96,6 +100,10 @@ class User
     public function getCelular()
     {
         return $this->celular;
+    }
+    public function getSenha()
+    {
+        return $this->senha;
     }
     public function getFoto()
     {
