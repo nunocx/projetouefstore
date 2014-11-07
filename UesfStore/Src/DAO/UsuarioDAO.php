@@ -36,7 +36,7 @@ function recuperarUsuario($email)//recover
     $sql_sel = mysql_query($sql);
 
     while($ln = mysql_fetch_array($sql_sel))
-        if($ln['id']==$email)
+        if($ln['email']==$email)
             return $ln;
 }
 function buscarUsuarios($nome)//recover
