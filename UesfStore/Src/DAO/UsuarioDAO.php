@@ -6,7 +6,7 @@ function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
     $sql_inserir = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
         . "'$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
-    return mysql_query($sql_update)? TRUE:FALSE;
+    return mysql_query($sql_inserir)? TRUE:FALSE;
 }
 function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
@@ -25,12 +25,10 @@ function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 }
 function recuperarUsuario($email)//recover
 {
-    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios`;";
-    $sql_sel = mysql_query($sql);
+    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE Email = '$email';";
+     return $sql_sel = mysql_query($sql);
     
-    while($ln = mysql_fetch_array($sql_sel))
-        if($ln['Email']==$email)
-            return $ln;
+    
 }
 function buscarUsuarios($nome)//recover
 {
