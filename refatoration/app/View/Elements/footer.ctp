@@ -1,7 +1,7 @@
  <div class="footer">
    	  <div class="wrap">	
 			 <div class="copy_right">
-				<p>Copy rights (c). All rights Reseverd | Template by  <a href="http://w3layouts.com" target="_blank">W3Layouts</a> </p>
+				<p>Copyrights (c). All rights Reserved | Template by  <a href="http://w3layouts.com" target="_blank">W3Layouts</a> </p>
 		   </div>	
 		   <div class="footer-nav">
 		   	<ul>

@@ -34,7 +34,7 @@ img{max-width:100%;}
 }
 body {
 	font-family: 'Ubuntu Condensed', sans-serif;
-	background:#ebebeb;
+	background:white;
 }
 
 .wrap {
@@ -47,7 +47,7 @@ body {
 	-ms-transition:all .2s linear;
 }
 .header {
-	background: -webkit-linear-gradient(left, #009999 , #006699);
+	background: #1A695C;
 	padding:20px 0;
 }
 .header_top {
@@ -447,7 +447,7 @@ body {
 	display:block;
 	font-size:15px;
 	padding:10px 15px;
-    color: #9C9C9C;
+    color: #3EA896;
     background:url(../img/images/drop_arrow.png) no-repeat 0;
     border-bottom:1px solid #D6D6D6;
 }
@@ -462,7 +462,7 @@ body {
 }
 .buters-guide p{
 	font-size:14px;
-	color:#969696;
+	color:white;
 	line-height:1.4em;
 	padding:8px 0;
 }
@@ -607,12 +607,12 @@ body {
 }
 .product-articles p{
 	font-size:15px;
-	color:#a1a1a1;
+	color:#49c5bf;
 	line-height:1.6em;
 	padding:5px 0;
 }
 .product-articles p span{
-	color:#23272a;
+	color:white;
 	font-size:18px;
 }
 .product-articles p a{
@@ -633,7 +633,7 @@ body {
 }
 /*** Footer ***/
 .footer {
-	background:#49c5bf;
+	background:#2AA893;
 	padding:3% 0;
 }
 .footer-nav{

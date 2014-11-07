@@ -20,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   		    <?php
   		    	echo $this->element('nav-top-menu');
   		    ?>
-  		     <div class="header_bottom">
+  		     
 
 			   <div class="slider-text">
 
@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	        <!--
     	        Anuncio em Destaque
 	    	        -->
-	    	    <?php echo $this->element('navbar-anunc-terceiros'); ?>
+	    	    
 
     	  <div class="content_bottom">
     	    <div class="wrap">
