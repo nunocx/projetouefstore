@@ -39,6 +39,11 @@ function buscarUsuario($email)//recover
         if($ln['id']==$email)
             return $ln;
 }
+function recuperarUsuarios($nome)//recover
+{
+    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE name = '$nome';";
+    return mysql_query($sql);
+}
 /*
     function _findUser($nome)
     {
