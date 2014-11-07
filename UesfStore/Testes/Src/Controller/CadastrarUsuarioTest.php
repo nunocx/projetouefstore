@@ -93,7 +93,7 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
     /**
      * CW7-Usuário já cadastrado
      * Testa o cadastro de dois usuários com os mesmos dados.
-     * @expectedException UsuarioJaCadastradoException
+     * @expectedException CampoPreenchidoErradoException
      */
     public function testeUsuarioDuplo()
     {

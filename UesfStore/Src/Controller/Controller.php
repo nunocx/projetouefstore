@@ -135,7 +135,11 @@ class Controller
     
     public function recuperarUsuario($email)
     {
-        //TODO: Buscar no banco de dados o usuário com o id.
+        $usuarioString = recuperarUsuario($email);
+        return $usuario = new Usuario($usuarioString['name'], $usuarioString['email'], $usuarioString['sexo'],
+                $usuarioString['telefone'],
+                $usuarioString['celular'], $usuarioString['senha'], $usuarioString['foto'], $usuarioString['status']);
+        
     }
     
     public function cadastrarUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$senhaConfirmacao,$foto,$status)
