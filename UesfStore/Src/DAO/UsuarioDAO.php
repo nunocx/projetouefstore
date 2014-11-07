@@ -30,7 +30,7 @@ function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 
     return mysql_query($sql_update)? TRUE:FALSE;
 }
-function buscarUsuario($email)//recover
+function recuperarUsuario($email)//recover
 {
     $sql = "SELECT * FROM `u961758316_uefs`.`usuarios`;";
     $sql_sel = mysql_query($sql);
@@ -39,7 +39,7 @@ function buscarUsuario($email)//recover
         if($ln['id']==$email)
             return $ln;
 }
-function recuperarUsuarios($nome)//recover
+function buscarUsuarios($nome)//recover
 {
     $sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE name = '$nome';";
     return mysql_query($sql);
