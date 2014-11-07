@@ -4,10 +4,18 @@
 	<form class="form-group" method="post" action="">
 	
         <?php echo $this->Form->input('Login',array('class'=>'form-group')); ?>
-        <?php echo $this->Form->input('Password',array('class'=>'form-group')); ?>
+        <?php echo $this->Form->input('Password',array('class'=>'form-group', 'type'=>'password')); ?>
         <button type="submit" class="btn btn-default">Entrar</button>
-     	<?php echo $this->Form->end(); ?>
+        <a class="btn btn-default" href="usuarios/add">Cadastre-se</a>
+
+        
+        <?php echo $this->Form->end(); ?>
+       
+
+		
      </form>
+
+
 </div>
 <?php echo $this->Html->image('logo.png');?>
 
@@ -44,15 +52,15 @@
 									<a href="#">Faça a sua Doação</a>
 									
 								</li>
-							</ul>					
-					</div>
-  		    </div>
-
-				<!-------- CAIXA DE BUSCA/ PESQUISA ------>
-						<div class="search_box" align="right">
+								<div class="search_box" align="right">
 							  	<span>Buscar</span>
 					     		<form>
 					     			<input type="text" value=""><input type="submit" value="">
 					     		</form>
 					    		<div class="clear"></div>
 					    </div>
+							</ul>					
+					</div>
+  		    </div>
+
+						

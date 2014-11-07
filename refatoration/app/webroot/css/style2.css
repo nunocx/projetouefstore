@@ -47,7 +47,7 @@ body {
 	-ms-transition:all .2s linear;
 }
 .header {
-	background: -webkit-linear-gradient(left, #009999 , #006699);
+	background: #49c5bf;
 	padding:20px 0;
 }
 .header_top {
@@ -61,7 +61,7 @@ body {
 	padding-top:0px;
 }
 .search_box span{
-   color: #009999;
+   color:#5b5b5b;
    margin-right:10px;
 }
 .search_box form{
@@ -103,7 +103,7 @@ body {
 }
 /** Navigation **/
 .navigation{
-	/* background:#49c5bf; */
+	background:#49c5bf;
 	padding:5px 0;
 	position:relative;
 }
@@ -134,7 +134,7 @@ body {
 	font-family: 'Ubuntu Condensed', sans-serif; 
 	position: relative;
 	left: 980px;
-	/* background: #49c5bf; */
+	background: #49c5bf;
 	width: 300px;
 	height: 50px;
 }
@@ -346,7 +346,7 @@ body {
 	width:30px;
 	height:30px;
 	text-align:center;
-	background: #009999 url("../img/images/arrows.png") no-repeat;
+	background:#49c5bf url("../img/images/arrows.png") no-repeat;
 	border-radius:2em;
 	-webkit-border-radius:2em;
 	-moz-border-radius:2em;
