@@ -4,16 +4,21 @@ require_once dirname(__FILE__).'/../Model/Usuario.php';
 require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
-require_once dirname(__FILE__).'/../DAO/UsuarioDAO.php';
+include dirname(__FILE__).'/../DAO/UsuarioDAO.php';
+include dirname(__FILE__).'/../DAO/BancoDados.php';
 /**
 * 
 */
+    
 class Controller
 {
+    private $uefsBD;
+    private $usuarioAux;
+    
     public function __construct()
     {
-        
-
+         $uefsBD = new BancoDados('localhost','u961758316_uefs','root','');
+         $usuarioAux = new UsuarioDAO($uefsBD->getDB());
     }
     
     public function buscarAnuncio($nome,$categoria,$decricao)
@@ -183,11 +188,11 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         
-        $usuario = new Usuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status);
-        if(!(inserir($usuario->getNome(),$usuario->getEmail(),$usuario->getSexo(),$usuario->getTelefone(),$usuario->getCelular()
-                ,$usuario->getSenha(),$usuario->getFoto(),$usuario->getStatus())))
+       $sql = $this->usuarioAux->inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status);
+       $confirmacao = $this->uefsBD->executarSQL($sql);
+       if(!$confirmacao)
         {
-            $mensagem="Usuario,";
+            $mensagem ="Usuario,";
             throw new CampoPreenchidoErradoException($mensagem);
         }
     }
