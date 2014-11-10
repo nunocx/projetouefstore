@@ -1,6 +1,6 @@
 <?php
-	require_once('MySqlClass.php');
-	conexao();
+	require_once('BancoDados.php');
+conexao();
 
 
 

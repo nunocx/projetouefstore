@@ -185,7 +185,7 @@ class Controller
         
      
       
-       if(!inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status))
+       if(!inserirUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status))
         {
             $mensagem ="Usuario,";
             throw new CampoPreenchidoErradoException($mensagem);

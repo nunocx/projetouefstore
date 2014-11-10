@@ -1,6 +1,6 @@
 <?php
-	require_once('MySqlClass.php');
-	conexao();
+	require_once('BancoDados.php');
+conexao();
 	
 	function _inserir($Texto, $Data,$Produto_Id,$Servico_Id,$Usuario_id)
 	{

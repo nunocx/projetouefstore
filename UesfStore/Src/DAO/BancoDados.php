@@ -3,7 +3,6 @@
 
 function conexao()
 {   
-    
     $bd  ='u961758316_uefs';
     $user='root';
     $pass='';
