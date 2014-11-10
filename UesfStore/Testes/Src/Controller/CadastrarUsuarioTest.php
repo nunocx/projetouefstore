@@ -22,7 +22,15 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp() 
+    {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
     }
 
