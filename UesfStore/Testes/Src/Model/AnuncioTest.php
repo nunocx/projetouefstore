@@ -13,10 +13,10 @@ class AnuncioTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() 
-    {
-        $this->anuncio = new Anuncio("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHSSSS","Televisor semi-novo, 2 meses de uso","1");
-    }
+    protected function setUp() {
+        $this->anuncio = new Anuncio("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHSSSS",
+            "Televisor semi-novo, 2 meses de uso");
+ }
 
     /**
      * Teste de unidade que verifica se os atributos de um Anuncio são atribuidos e
@@ -29,7 +29,6 @@ class AnuncioTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("1.100,00", $this->anuncio->getPreco());
         $this->assertEquals("HHHHSSSS", $this->anuncio->getfotoVideo());
         $this->assertEquals("Televisor semi-novo, 2 meses de uso", $this->anuncio->getDescricao());
-        $this->assertEquals("1", $this->anuncio->getIdUsuario());
 
         $this->anuncio->setTitulo("TV de LED FullHD");
         $this->anuncio->setCategoria("Televisores");

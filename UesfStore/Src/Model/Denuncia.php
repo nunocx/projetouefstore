@@ -8,7 +8,6 @@ class Denuncia
     private $texto;
     private $idAnuncio;
     private $data;
-    private $id;
 
     public function __construct($idUsuario,$texto,$idAnuncio)
     {
@@ -16,15 +15,6 @@ class Denuncia
         $this->texto = $texto;
         $this->idAnuncio = $idAnuncio;
         //TODO: Pegar data do sistema.
-    }
-    
-    public function __construct1($idUsuario,$texto,$idAnuncio,$data,$id)
-    {
-        $this->idUsuario = $idUsuario;
-        $this->texto = $texto;
-        $this->idAnuncio = $idAnuncio;
-        $this->data = $data;
-        $this->id = $id;
     }
 
     public function setIdUsuario($idUsuario)
