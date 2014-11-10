@@ -5,9 +5,9 @@ conexao();
 function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
 
-    $sql_inserir = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
+    $sql = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
         . "'$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
-    return mysql_query($sql_update)? TRUE:FALSE;
+    return mysql_query($sql)? TRUE:FALSE;
 }
 
 function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)

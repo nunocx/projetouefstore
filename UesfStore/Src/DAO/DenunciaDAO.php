@@ -70,8 +70,5 @@
 		else
 			return FALSE;
 	}
-
-
-}
 ?>
 
