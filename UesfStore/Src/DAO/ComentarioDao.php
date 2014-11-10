@@ -8,7 +8,8 @@
 		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', NULL ,  '$Produto_id');";
 		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', '$Servico_id' ,  NULL);";
 		
-		if(mysql_query($sql_inserir))
+		return (mysql_query($sql_inserir)) ? TRUE :((mysql_query($sql2_inserir))?TRUE:FALSE);
+                /*if(mysql_query($sql_inserir))
 		{
 			return TRUE;
 		}
@@ -20,43 +21,30 @@
 			else{
 				return FALSE;
 			}
-			
-		}
+		}*/
 	}
-	function _update($id,$Texto)
+	function update($id,$Texto)
 	{
 		$sql_update = "UPDATE  `u961758316_uefs`.`comentarios`
 		SET 
 		`Texto` = '$Texto'
 		WHERE  `comentarios`.`id` = $id;";
-
-		if(mysql_query($sql_update))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+                    return (mysql_query($sql_update)) ? TRUE:FALSE;
 	}
-	function _findComentario($IdComentario)
+	function recuperarComentario($IdComentario)
 	{
 		$sql = "SELECT * FROM Usuarios";
 		$sql_sel = mysql_query($sql);
 
-		while($ln = mysql_fetch_array($sql_sel))
+                while($ln = mysql_fetch_array($sql_sel))
 			if($ln['id']==$IdComentario)
 				return $ln;
 	}
 
-	function _delete($IdComentario)
+	function deleta($IdComentario)
 	{
 		$sql = "DELETE FROM comentarioprodutos WHERE IdComentario = '$IdComentario';";
-
-			if(mysql_query($sql))
-				return TRUE;
-			else
-				return FALSE;
+			return (mysql_query($sql)) ? TRUE:FALSE;
 	}
 
 
