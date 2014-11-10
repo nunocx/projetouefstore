@@ -1,30 +1,30 @@
 <?php
-require_once('MySqlClass.php');
+require_once('BancoDados.php');
 conexao();
 
-function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
+function inserirUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
-
-    $sql = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
-        . "'$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
-    return mysql_query($sql)? TRUE:FALSE;
+    $sql = "INSERT INTO  `u961758316_uefs`.`usuarios` 
+            VALUES (NULL , '$email',  '$nome','$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";      
+    return mysql_query($sql)? TRUE:FALSE;    
 }
 
-function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
+function atualizarUsuario($id,$nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
-    $sql_update = "	UPDATE  `u961758316_uefs`.`usuarios`
-    SET  
-    `Email` =  '$email',
-    `name` = '$nome',
-    `Senha` = '$senha',
-    `Telefone1` = '$telefone',
-    `Telefone2` = '$celular',
-    `Sexo` = '$sexo',
-    `Foto` = '$foto',
-    `Data_Nascimento` = NULL;
-    WHERE `usuarios`.`Email` =  '$email';";
+    $sql = "	UPDATE  `u961758316_uefs`.`usuarios` 
+                             SET  
+                                `Email` =  '$email',
+                                `name` = '$nome',
+                                `Senha` = '$senha',
+                                `Telefone1` = '$telefone',
+                                `Telefone2` = '$celular',
+                                `Sexo` = '$sexo',
+                                `Foto` = '$foto',
+                                `Data_Nascimento` = NULL
+                             WHERE Email = '$email' AND id = '$id';
+                        ";
 
-    return mysql_query($sql_update)? TRUE:FALSE;
+    return mysql_query($sql)? TRUE:FALSE;
 }
 function recuperarUsuario($email)//recover
 {
