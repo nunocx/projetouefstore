@@ -1,18 +1,11 @@
 <?php
-class UsuarioDAO
-{
-    private $bd;
 
-        function __construct($bd)
-        {
-            $this->bd = $bd;
-        }
         function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
         {
-            $usuario = $this->recuperarUsuario($email);
+            $usuario = recuperarUsuario($email);
             if($usuario['Email'] != $email )
             { 
-                $sql = "INSERT INTO $this->bd.`usuarios` 
+                $sql = "INSERT INTO 'u961758316_uefs'.'usuarios' 
                 VALUES (NULL , '$email',  '$nome','$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";      
                 return $sql;  
             }
@@ -24,7 +17,7 @@ class UsuarioDAO
             $usuario = $this->recuperarUsuario($email);
             if($usuario['id'] == $id && $usuario['Email'] == $email )
             {
-                $sql = "	UPDATE  $this->bd.`usuarios`
+                $sql = "	UPDATE  'u961758316_uefs'.'usuarios'
                              SET  
                                 `Email` =  '$email',
                                 `name` = '$nome',
@@ -43,7 +36,7 @@ class UsuarioDAO
         }
         function recuperarUsuario($email)//retrieve
         {
-            $sql = "SELECT * FROM $this->bd.`usuarios`;";
+            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios';";
             
             $sql = mysql_query($sql);
 
@@ -55,7 +48,7 @@ class UsuarioDAO
         }
        function recuperarUsuarioID($id)//retrieve
         {
-            $sql = "SELECT * FROM $this->bd.`usuarios`;";
+            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios';";
             
             $sql = mysql_query($sql);
 
@@ -69,7 +62,7 @@ class UsuarioDAO
         {
             $nome.='%';
             
-            $sql = "SELECT * FROM $this->bd.`usuarios` WHERE name LIKE '$nome';";
+            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios' WHERE name LIKE '$nome';";
 
             $sql = mysql_query($sql);
             
@@ -90,7 +83,7 @@ class UsuarioDAO
             $usuario = $this->recuperarUsuario($email);
             if($usuario['Email'] == $email )
             { 
-                $sql = " DELETE FROM $this->bd.`usuarios` WHERE Email = '$email';";
+                $sql = " DELETE FROM 'u961758316_uefs'.'usuarios' WHERE Email = '$email';";
                 
                  return $sql;
             }
@@ -98,6 +91,5 @@ class UsuarioDAO
                  return FALSE;
         }
 
-}
 ?>
 
