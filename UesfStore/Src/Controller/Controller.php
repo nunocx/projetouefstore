@@ -141,9 +141,9 @@ class Controller
     public function recuperarUsuario($email)
     {
         $usuarioString = recuperarUsuario($email);
-        return $usuario = new Usuario($usuarioString['name'], $usuarioString['Email'], $usuarioString['Sexo'],
-                $usuarioString['Telefone1'],
-                $usuarioString['Telefone2'], $usuarioString['Senha'], $usuarioString['Foto'], $usuarioString['Status']);
+        return $usuario = new Usuario($usuarioString['name'], $usuarioString['email'], $usuarioString['sexo'],
+                $usuarioString['telefone'],
+                $usuarioString['celular'], $usuarioString['senha'], $usuarioString['foto'], $usuarioString['status']);
         
     }
     
@@ -182,7 +182,7 @@ class Controller
         {
             $mensagem.="Senha,";
             $exception=1;
-        }
+        }        
         if($exception==1)
         {
             throw new CampoPreenchidoErradoException($mensagem);
@@ -194,14 +194,11 @@ class Controller
         {
             $mensagem ="Usuario,";
             throw new CampoPreenchidoErradoException($mensagem);
-        }
+        }    
     }
     public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senhaAntiga,$senhaNova,$foto,$status)
     {
-        $usuarioR = recuperarUsuario($email);
-        $usuario = new Usuario($usuarioR['nome'], $usuarioR['Email'], $usuarioR['Sexo'], $usuarioR['Telefone1'], $usuarioR['Telefone2'], 
-                $usuarioR['Senha'], $usuarioR['Foto'], $usuarioR['Status']);
-        
+        $usuario = recuperarUsuario($Email);
         $mensagem="";
         $exception=0;
         if($nome=="")
@@ -238,11 +235,7 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $usuarioAtualizado = new Usuario($nome, $email, $sexo, $telefone, $celular, $senhaNova, $foto, $status);
-        if(!(update($usuarioAtualizado->getNome(), $usuarioAtualizado->getEmail(), $usuarioAtualizado->getSeco(), $usuarioAtualizado->getTelefone(),
-            $usuarioAtualizado->getCelular(), $usuarioAtualizado->getSenha(), $usuarioAtualizado->getFoto(), $usuarioAtualizado->getStatus())))
-        {
-            throw new ErroAtualizacaoException("Usuário,");
-        }
+        
     }
     public function autenticarUsuario($idUsuario)
     {

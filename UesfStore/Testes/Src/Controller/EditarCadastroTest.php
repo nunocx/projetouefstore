@@ -7,8 +7,6 @@ require_once dirname(__FILE__).'/../../../Src/Model/User.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
-require_once dirname(__FILE__).'/../../../Src/Controller/Exception/SenhaErradaException.php';
-
 
 class EditarCadastroTest extends PHPUnit_Framework_TestCase {
 
@@ -16,8 +14,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
     protected $usuario;
     protected $email;
 
-    protected function setUp() 
-    {
+    protected function setUp() {
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->email = "joao@hotmail.com";

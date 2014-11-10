@@ -1,69 +1,57 @@
 <?php
+	require_once('MySqlClass.php');
+	conexao();
 	
-class DenunciaDAO
-{
-		
-
-
-	private $bd;
-
-	    function __construct($bd)
-	    {
-	        $this->bd = $bd;
-	    }
-	
-	function inserir($texto, $data,$produto_id,$servico_id,$usuario_id)
+	function _inserir($Texto, $Data,$Produto_Id,$Servico_Id,$Usuario_id)
 	{
+		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
+`usuario_id`)VALUES (NULL ,  '$Texto',  '$Data',  '$Produto_Id',  '$Servico_Id',  NULL);";
+
+		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
+`usuario_id`)VALUES (NULL ,  '$Texto',  '$Data',  '$Produto_Id',  NULL,  '$Usuario_id');";
 		
-		if($usuario_id != NULL)
+		if(mysql_query($sql_inserir))
 		{
-			if($servico_id != 'NULL')
-			{
-				$sql = "INSERT INTO  $this->bd.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
-			`usuario_id`)VALUES (NULL ,  '$texto',  '$data',  NULL,  '$servico_id',  '$usuario_id');";
-			}
-			else if($produto_id != 'NULL')
-			{
-				
-				$sql = "INSERT INTO    $this->bd.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
-			`usuario_id`)VALUES (NULL ,  '$texto',  '$data',  '$produto_id',  NULL,  '$usuario_id');";	
-			}
-			return $sql;
+			return TRUE;
 		}
 		else
-			return FALSE;
-	}
-	function atualizar($idDenuncia,$texto,$data,$usuario_id,$produto_id,$servico_id)
-	{
-	
-		$denuncia=	$this->recuperarDenuncia($idDenuncia);
-		if($denuncia['id'] == $idDenuncia)
 		{
-			if($produto_id != 'NULL')
-			{
-				$sql = "UPDATE $this->bd.`reports` SET `Texto` = '$texto', `Data` ='$data', `servico_id` =NULL
-						 WHERE `reports`.`id` = '$idDenuncia' AND `reports`.`usuario_id` = '$usuario_id' AND `reports`.`produto_id` ='$produto_id'; ";
+			if(mysql_query($sql2_inserir)){
+				return TRUE;
 			}
-			else if ($servico_id != 'NULL')
-			{
-				$sql = "UPDATE $this->bd.`reports` SET `Texto` = '$texto', `Data` ='$data' , `produto_id` =NULL
-						 WHERE `reports`.`id` = '$idDenuncia' AND `reports`.`usuario_id` = '$usuario_id' AND `reports`.`servico_id` ='$servico_id';";
+			else{
+				return FALSE;
 			}
-			return $sql;
-		}		
-		else
-			return FALSE;
+			
+		}
 	}
-	function recuperarDenuncia($idDenuncia)
+	function _update($Texto,$Data,$Usuario_Email,$Produto_idProduto,$Servico_IdServico)
 	{
-		$sql = "SELECT * FROM $this->bd .`reports`";
+		$sql_update = "UPDATE denuncias 
+						SET Texto = '$Texto',
+							Data = '$Data',
+							Usuario_Email = '$Usuario_Email',
+							Produto_idProduto = '$Produto_idProduto',
+							Servico_IdServico = '$Servico_IdServico'
+						WHERE idDenuncia = '$idDenuncia';";
+
+		if(mysql_query($sql_update))
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+	function _findDenuncia($idDenuncia)
+	{
+		$sql = "SELECT * FROM Denuncias";
 		$sql_sel = mysql_query($sql);
 
 		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['id']==$idDenuncia)
+			if($ln['idDenuncia']==$idDenuncia)
 				return $ln;
-
-		 return FALSE;
 	}
 
 	/*

@@ -1,76 +1,37 @@
 <?php
-	
-class CategoriesDAO
-{	
-	private $bd;
-
-        function __construct($bd)
-        {
-            $this->bd = $bd;
-        }
-
-	
+	require_once('MySqlClass.php');
+	conexao();
+        
 	function inserir($nome)
 	{
-		$cat = $this->recuperarCategoriasN($nome);
-		if($cat['name']!=$nome)
-		{
-			$sql = "INSERT INTO  $this->bd.`categories` (`id` ,`name`)VALUES (NULL ,  '$nome');";
-				return $sql;
-		}else
-		return FALSE;
+		$sql_inserir = "INSERT INTO  `".getBD()."`.`categories` VALUES (NULL ,  '$nome');";
+        	 return (mysql_query($sql_inserir))?TRUE:FALSE;
 	}
-	function atualizar($id, $nome)
+	function update($id, $nome)
 	{
-		$cat = $this->recuperarCategorias($id);
-		if($cat['id']==$id)
-		{
-			$sql = "UPDATE $this->bd.`categories` SET 
-			`name` =  '$nome'
-			WHERE  `categories`.`id` = '$id';";
-				return $sql;
-		}
-		return FALSE;
+		$sql_update = "UPDATE  `u961758316_uefs`.`categories` 
+                 SET 
+		`name` =  '$nome'
+		WHERE  `categories`.`id` = '$id';";
+		return (mysql_query($sql_update))? TRUE:FALSE;
 	}
-	function recuperarCategoriasN($nome)
+	function recuperarCategoria($categoria)
 	{
-		$sql = "SELECT * FROM anuncioterceiros";
+		$sql = "SELECT * FROM categories";
 		$sql_sel = mysql_query($sql);
-
 		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['name']==$nome)
-				return $ln;
-
-		 return FALSE;
+                    if($ln['name']==$categoria)
+			return $ln;
 	}
-
-	function recuperarCategorias($id)
-	{
-		$sql = "SELECT * FROM anuncioterceiros";
-		$sql_sel = mysql_query($sql);
-
-		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['id']==$id)
-				return $ln;
-
-		 return FALSE;
-	}
-
 	/*
 		Mas nao iremos deletar USUARIOS...
 		mas servirá para anuncios.
 	*/
 	function deleta($id)
 	{
-		$cat = $this->recuperarCategorias($id);
-		if($cat['id']==$id)
-		{
-			$sql = "DELETE FROM $this->bd.`categories` WHERE `categories`.`id` = $id";
-			return $sql;
-		}
-		else
-				return FALSE;
+		$sql = "DELETE FROM `u961758316_uefs`.`categories` WHERE `categories`.`id` = $id";
+                    return (mysql_query($sql))? TRUE:FALSE;
 	}
-}
+
 ?>
 
