@@ -1,26 +1,26 @@
 <?php
 	require_once('BancoDados.php');
-conexao();
+        connectar();
         
 	function inserir($nome)
 	{
-		$sql_inserir = "INSERT INTO  `".getBD()."`.`categories` VALUES (NULL ,  '$nome');";
-        	 return (mysql_query($sql_inserir))?TRUE:FALSE;
+		$sql = "INSERT INTO  `u961758316_uefs`.`categories` VALUES (NULL ,  '$nome');";
+        	 return (mysql_query($sql))?TRUE:FALSE;
 	}
 	function update($id, $nome)
 	{
-		$sql_update = "UPDATE  `u961758316_uefs`.`categories` 
+		$sql = "UPDATE  `u961758316_uefs`.`categories` 
                  SET 
 		`name` =  '$nome'
 		WHERE  `categories`.`id` = '$id';";
-		return (mysql_query($sql_update))? TRUE:FALSE;
+		return (mysql_query($sql))? TRUE:FALSE;
 	}
-	function recuperarCategoria($categoria)
+	function recuperarCategoria($nome)
 	{
 		$sql = "SELECT * FROM categories";
 		$sql_sel = mysql_query($sql);
 		while($ln = mysql_fetch_array($sql_sel))
-                    if($ln['name']==$categoria)
+                    if($ln['name']==$nome)
 			return $ln;
 	}
 	/*

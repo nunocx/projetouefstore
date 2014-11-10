@@ -1,68 +1,47 @@
 <?php
 	require_once('BancoDados.php');
-conexao();
+connectar();
 
 	
-	function _inserir($Nome,$NomeEmpresa,$Imagem,$ValorPago,$DataInicio,$link,$Categoria,$Id_Adm)
+	function inserirAnuncioTerc($nome,$nomeDaEmpresa,$imagem,$valorPago,$admin_id,$link,$category_id)
 	{
-		$data = date('d/m/y');
-		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`anuncioterceiros` (`id` ,`name` ,`NomeEmpresa` ,`Imagem` ,`ValorPago` ,
-`DataInicio` ,`link` ,`category_id` ,`administrador_id`)
-VALUES (NULL ,  '$Nome',  '$NomeEmpresa',  '$Imagem',  '$ValorPago', '$link',  '$Categoria',  '$Id_Adm');";
-
-		if(mysql_query($sql_inserir))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+	   $data_Publicacao = date('Y-m-d');
+	    $sql = "INSERT INTO  `u961758316_uefs`.`anuncioterceiros` (`id`, `name`, `NomeEmpresa`, `Imagem`, `ValorPago`, `DataInicio`, `link`, `administrador_id`)	
+	     VALUES (NULL ,'$nome','$nomeDaEmpresa','$imagem','$valorPago','$data_Publicacao', '$link', '$admin_id');";
+             return (mysql_query($sql)) ? TRUE:FALSE;
 	}
-	function _update($idAnuncioTerceiro, $Nome, $NomeEmpresa, $Imagem, $ValorPago, $DataInicio, $link, $Id_Categoria, $Administrador_Id)
+	function atualizarAnuncioTerc($id, $nome, $nomeEmpresa, $imagem, $valorPago, $link, $category_id, $admin_id)
 	{
-		$sql_update = "UPDATE `anuncioterceiros` SET
-		`administrador_id` = '$Administrador_Id'
-		`name`= '$NomeEmpresa',
-		`NomeEmpresa`= '$NomeEmpresa',
-		`Imagem`= '$Imagem',
-		`ValorPago`='$ValorPago',
-		`DataInicio`='$DataInicio',
-		`link`='$link',
-		`category_id`='$Id_Categoria'
-		WHERE `id` = '$idAnuncioTerceiro';";
-
-		if(mysql_query($sql_update))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+            $sql = "UPDATE `u961758316_uefs`.`anuncioterceiros`
+				SET `name` = '$nome', `NomeEmpresa` = '$nomeEmpresa', `Imagem` = '$imagem', `ValorPago` = '$valorPago', `link` = '$link' 
+				WHERE `anuncioterceiros`.`id` = $id AND  `anuncioterceiros`.`administrador_id` = '$admin_id';";
+		return (mysql_query($sql))? TRUE:FALSE;
 	}
-	function _findUser($idAnuncioTerceiro)
+	function recuperarAnuncioTerc($id)
 	{
-		$sql = "SELECT * FROM anuncioterceiros";
+		$sql = "SELECT * FROM `u961758316_uefs`.`anuncioterceiros`";
 		$sql_sel = mysql_query($sql);
 
 		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['anuncioterceiros']==$anuncioterceiros)
+			if($ln['id']==$id)
 				return $ln;
 	}
-
-	/*
-		Mas nao iremos deletar USUARIOS...
-		mas servirá para anuncios.
-	*/
-	function _delete($idAnuncioTerceiro)
+        function buscaAnuncioTerc($nome)
 	{
-		$sql = "DELETE FROM anuncioterceiros WHERE idAnuncioTerceiro = '$idAnuncioTerceiro';";
-
-			if(mysql_query($sql))
-				return TRUE;
-			else
-				return FALSE;
+            $nome.='%';
+            $sql = "SELECT * FROM `u961758316_uefs`.`anuncioterceiros` WHERE name LIKE '$nome'";
+            $sql_sel = mysql_query($sql);
+            $contador=0;
+            while ( $anunTerc = mysql_fetch_array($sql) )
+            { 
+             $list[$contador++] = $anunTerc; 
+            }
+             return  $list;     
+	}
+	function deletaAnuncioTerc($id)
+	{
+            $sql = "DELETE FROM `u961758316_uefs`.`anuncioterceiros` WHERE id = '$id';";
+            return (mysql_query($sql)) ? TRUE:FALSE;
 	}
 
 ?>

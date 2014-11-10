@@ -1,7 +1,7 @@
 <?php
 //Função para oBD
 
-function conexao()
+function connectar()
 {   
     $bd  ='u961758316_uefs';
     $user='root';

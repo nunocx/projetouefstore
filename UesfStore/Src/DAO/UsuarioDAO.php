@@ -1,6 +1,6 @@
 <?php
 require_once('BancoDados.php');
-conexao();
+connectar();
 
 function inserirUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
@@ -8,7 +8,6 @@ function inserirUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$stat
             VALUES (NULL , '$email',  '$nome','$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";      
     return mysql_query($sql)? TRUE:FALSE;    
 }
-
 function atualizarUsuario($id,$nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
 {
     $sql = "	UPDATE  `u961758316_uefs`.`usuarios` 

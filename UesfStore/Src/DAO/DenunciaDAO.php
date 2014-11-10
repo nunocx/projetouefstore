@@ -1,52 +1,43 @@
 <?php
 	require_once('BancoDados.php');
-conexao();
+connectar();
 	
-	function _inserir($Texto, $Data,$Produto_Id,$Servico_Id,$Usuario_id)
+	function inserirDenuncia($Texto, $Data,$Produto_Id,$Servico_Id,$Usuario_id)
 	{
-		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
-`usuario_id`)VALUES (NULL ,  '$Texto',  '$Data',  '$Produto_Id',  '$Servico_Id',  NULL);";
-
-		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
-`usuario_id`)VALUES (NULL ,  '$Texto',  '$Data',  '$Produto_Id',  NULL,  '$Usuario_id');";
-		
-		if(mysql_query($sql_inserir))
+             if($usuario_id != NULL)
 		{
-			return TRUE;
-		}
-		else
-		{
-			if(mysql_query($sql2_inserir)){
-				return TRUE;
+			if($servico_id != 'NULL')
+			{
+				$sql = "INSERT INTO   `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
+			`usuario_id`)VALUES (NULL ,  '$texto',  '$data',  NULL,  '$servico_id',  '$usuario_id');";
 			}
-			else{
-				return FALSE;
+			else if($produto_id != 'NULL')
+			{
+				
+				$sql = "INSERT INTO    `u961758316_uefs`.`reports` (`id` ,`Texto` ,`Data` ,`produto_id` ,`servico_id` ,
+			`usuario_id`)VALUES (NULL ,  '$texto',  '$data',  '$produto_id',  NULL,  '$usuario_id');";	
 			}
-			
+			return mysql_query($sql)?TRUE:FALSE;
 		}
+                return FALSE;
 	}
-	function _update($Texto,$Data,$Usuario_Email,$Produto_idProduto,$Servico_IdServico)
+	function atualizarDenuncia($idDenuncia,$texto,$data,$usuario_id,$produto_id,$servico_id)
 	{
-		$sql_update = "UPDATE denuncias 
-						SET Texto = '$Texto',
-							Data = '$Data',
-							Usuario_Email = '$Usuario_Email',
-							Produto_idProduto = '$Produto_idProduto',
-							Servico_IdServico = '$Servico_IdServico'
-						WHERE idDenuncia = '$idDenuncia';";
-
-		if(mysql_query($sql_update))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+            if($produto_id != 'NULL')
+            {
+                $sql = "UPDATE `u961758316_uefs`.`reports` SET `Texto` = '$texto', `Data` ='$data', `servico_id` =NULL
+						 WHERE `reports`.`id` = '$idDenuncia' AND `reports`.`usuario_id` = '$usuario_id' AND `reports`.`produto_id` ='$produto_id'; ";
+            }
+            else if ($servico_id != 'NULL')
+            {
+                $sql = "UPDATE `u961758316_uefs`.`reports`SET `Texto` = '$texto', `Data` ='$data' , `produto_id` =NULL
+						 WHERE `reports`.`id` = '$idDenuncia' AND `reports`.`usuario_id` = '$usuario_id' AND `reports`.`servico_id` ='$servico_id';";
+            }
+		return mysql_query($sql)?TRUE:FALSE;
 	}
-	function _findDenuncia($idDenuncia)
+	function recuperarDenuncia($idDenuncia)
 	{
-		$sql = "SELECT * FROM Denuncias";
+		$sql = "SELECT * FROM `u961758316_uefs`.`reports`";
 		$sql_sel = mysql_query($sql);
 
 		while($ln = mysql_fetch_array($sql_sel))
@@ -54,21 +45,11 @@ conexao();
 				return $ln;
 	}
 
-	/*
-		Mas nao iremos deletar USUARIOS...
-		mas servirá para anuncios.
-	*/
-	function deleta($idDenuncia)
+	
+	function deletaDenuncia($idDenuncia)
 	{
-		$denuncia=	$this->recuperarDenuncia($idDenuncia);
-		if($denuncia['id'] == $idDenuncia)
-		{
-			$sql = " DELETE FROM $this->bd.`reports` WHERE `reports`.`id` = '$idDenuncia';";
-			return $sql;
-
-		}
-		else
-			return FALSE;
+            $sql = " DELETE FROM `u961758316_uefs`.`reports` WHERE `reports`.`id` = '$idDenuncia';";
+            return mysql_query($sql)? TRUE:FALSE;
 	}
 ?>
 
