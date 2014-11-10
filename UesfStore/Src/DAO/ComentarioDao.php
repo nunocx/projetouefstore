@@ -3,10 +3,15 @@
 	conexao();
 
 
-	function inserir($Data, $Texto,$Usuario_id,$Servico_id,$Produto_id)
+
+	
+	function _inserir($Data, $Texto,$Usuario_id,$Servico_id,$Produto_id)
 	{
-		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', NULL ,  '$Produto_id');";
-		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', '$Servico_id' ,  NULL);";
+		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
+`servico_id` ,`produto_id`)VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', NULL ,  '$Produto_id');";
+
+		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
+`servico_id` ,`produto_id`)VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', '$Servico_id' ,  NULL);";
 		
 		return (mysql_query($sql_inserir)) ? TRUE :((mysql_query($sql2_inserir))?TRUE:FALSE);
                 /*if(mysql_query($sql_inserir))

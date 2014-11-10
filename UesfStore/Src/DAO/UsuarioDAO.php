@@ -1,95 +1,69 @@
 <?php
+require_once('MySqlClass.php');
+conexao();
 
-        function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
-        {
-            $usuario = recuperarUsuario($email);
-            if($usuario['Email'] != $email )
-            { 
-                $sql = "INSERT INTO 'u961758316_uefs'.'usuarios' 
-                VALUES (NULL , '$email',  '$nome','$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";      
-                return $sql;  
-            }
-            else
-                return FALSE;
-        }
-        function atualizar($id,$nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
-        {
-            $usuario = $this->recuperarUsuario($email);
-            if($usuario['id'] == $id && $usuario['Email'] == $email )
-            {
-                $sql = "	UPDATE  'u961758316_uefs'.'usuarios'
-                             SET  
-                                `Email` =  '$email',
-                                `name` = '$nome',
-                                `Senha` = '$senha',
-                                `Telefone1` = '$telefone',
-                                `Telefone2` = '$celular',
-                                `Sexo` = '$sexo',
-                                `Foto` = '$foto',
-                                `Data_Nascimento` = NULL
-                             WHERE Email = '$email' AND id = '$id';
-                        ";
-               return  $sql;
-         }
-         else
-            return FALSE;
-        }
-        function recuperarUsuario($email)//retrieve
-        {
-            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios';";
-            
-            $sql = mysql_query($sql);
+function inserir($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
+{
 
-            while($ln = mysql_fetch_array($sql))
-                if($ln['Email'] == $email)
-                    return $ln;
+    $sql_inserir = "INSERT INTO  `u961758316_uefs`.`usuarios` VALUES (NULL ,  '$email',  '$nome',  "
+        . "'$senha',  '$telefone', NULL,  '$sexo',  '$celular',  '$foto',  '0',  '0',  '0',  '0');";
+    if(mysql_query($sql_inserir))
+      return TRUE;
+    else
+      return FALSE;
+     //return mysql_query($sql_update)? TRUE:FALSE;
+}
 
-            return FALSE;
-        }
-       function recuperarUsuarioID($id)//retrieve
-        {
-            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios';";
-            
-            $sql = mysql_query($sql);
+function update($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status)
+{
+    $sql_update = "	UPDATE  `u961758316_uefs`.`usuarios`
+    SET  
+    `Email` =  '$email',
+    `name` = '$nome',
+    `Senha` = '$senha',
+    `Telefone1` = '$telefone',
+    `Telefone2` = '$celular',
+    `Sexo` = '$sexo',
+    `Foto` = '$foto',
+    `Data_Nascimento` = NULL;
+    WHERE `usuarios`.`Email` =  '$email';";
 
-            while($ln = mysql_fetch_array($sql))
-                if($ln['id'] == $id)
-                    return $ln;
+    return mysql_query($sql_update)? TRUE:FALSE;
+}
+function recuperarUsuario($email)//recover
+{
+    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios`;";
+    $sql_sel = mysql_query($sql);
 
-            return FALSE;
-        }
-        function buscarUsuarios($nome)//retrieve
-        {
-            $nome.='%';
-            
-            $sql = "SELECT * FROM 'u961758316_uefs'.'usuarios' WHERE name LIKE '$nome';";
+    while($ln = mysql_fetch_array($sql_sel))
+        if($ln['email']==$email)
+            return $ln;
+}
+function buscarUsuarios($nome)//recover
+{
+    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE name = '$nome';";
+    return mysql_query($sql);
+}
+/*
+    function _findUser($nome)
+    {
+        $sql = "SELECT * FROM `u961758316_uefs`.`usuarios`;";
+        $sql_sel = mysql_query($sql);
 
-            $sql = mysql_query($sql);
-            
-            $contador = 0;
-            while ( $usuariosEncontrados = mysql_fetch_array($sql) )
-            { 
-                $list[$contador++] = $usuariosEncontrados; 
-            }
-            return  $list;
-        }
-        /*
-                Mas nao iremos deletar USUARIOS...
-                mas servirá para anuncios.
-        */
-        function deleta($email)
-        {   
+        while($ln = mysql_fetch_array($sql_sel))
+            if($ln['id']==$nome)
+                return $ln;
+    }
+*/
+/*
+        Mas nao iremos deletar USUARIOS...
+        mas servirá para anuncios.
+*/
+function deleta($email)
+{
+    $sql = " DELETE FROM `u961758316_uefs`.`usuarios` WHERE Email = '$email';";
 
-            $usuario = $this->recuperarUsuario($email);
-            if($usuario['Email'] == $email )
-            { 
-                $sql = " DELETE FROM 'u961758316_uefs'.'usuarios' WHERE Email = '$email';";
-                
-                 return $sql;
-            }
-            else
-                 return FALSE;
-        }
-
+     return mysql_query($sql)? TRUE:FALSE;
+}
 ?>
 
