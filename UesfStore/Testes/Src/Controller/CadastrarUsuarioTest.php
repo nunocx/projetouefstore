@@ -23,9 +23,21 @@ class CadastrarUsuarioTest extends PHPUnit_Framework_TestCase {
      * Método setUp executado antes de todos os testes.
      */
     protected function setUp() {
+        resetDB();
         $this->controller = new Controller();
     }
-    
+    function resetDB()
+    {
+        $query = 'SHOW TABLES u961758316_uefs';
+        $querys = mysql_query($query);
+        while($dados = mysql_fetch_row($querys))
+        {
+            $sql = 'DELETE FROM u961758316_uefs '.$dados[0];
+            mysql_query($sql);
+        }  
+          
+    }
+
     /**
      * CW1-Cadastro bem sucedido:
      * Testa o cadastro de um usuário corretamente.
