@@ -7,6 +7,9 @@ require_once dirname(__FILE__).'/../../../Src/Model/User.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Controller.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
 require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchidoErradoException.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/ErroAtualizacaoException.php';
+require_once dirname(__FILE__).'/../../../Src/Controller/Exception/SenhaErradaException.php';
+require_once dirname(__FILE__).'/../../../Src/DAO/UsuarioDAO.php';
 
 class EditarCadastroTest extends PHPUnit_Framework_TestCase {
 
@@ -14,7 +17,15 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
     protected $usuario;
     protected $email;
 
-    protected function setUp() {
+    protected function setUp() 
+    {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->email = "joao@hotmail.com";
@@ -77,7 +88,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
     /**
      * SC3 - Senha digitada diferente da cadastrada
      * Testa a atualização dos dados cadastrais com senha atual digitada diferente da cadastrada.
-     *@expectedException CampoPreenchidoErradoException
+     *@expectedException SenhaErradaException
      */
     public function testDeSenhaAtualDigitadaDiferenteDoCadastrada()
     {
