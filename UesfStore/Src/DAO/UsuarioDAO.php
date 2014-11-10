@@ -35,27 +35,23 @@ function recuperarUsuario($email)//recover
         if($ln['Email']==$email)
             return $ln;
 }
-function buscarUsuarios($nome)//recover
+function buscarUsuarios($nome)
 {
-    $sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE name = '$nome';";
-    return mysql_query($sql);
-}
-/*
-    function _findUser($nome)
-    {
-        $sql = "SELECT * FROM `u961758316_uefs`.`usuarios`;";
-        $sql_sel = mysql_query($sql);
+    $nome.='%';
+            
+        $sql = "SELECT * FROM $this->bd.`usuarios` WHERE name LIKE '$nome';";
 
-        while($ln = mysql_fetch_array($sql_sel))
-            if($ln['id']==$nome)
-                return $ln;
-    }
-*/
-/*
-        Mas nao iremos deletar USUARIOS...
-        mas servirá para anuncios.
-*/
-function deleta($email)
+        $sql = mysql_query($sql);
+        
+        $contador = 0;
+        while ( $usuariosEncontrados = mysql_fetch_array($sql) )
+        { 
+            $list[$contador++] = $usuariosEncontrados; 
+        }
+        return  $list;
+}
+
+function deletaUsuario($email)
 {
     $sql = " DELETE FROM `u961758316_uefs`.`usuarios` WHERE Email = '$email';";
 
