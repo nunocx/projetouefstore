@@ -44,14 +44,16 @@
             else
                 return FALSE;
     }
-    function recuperarProduto($idProduto)
+    function recuperarProduto($usuario_id)
     {
-        $sql = "SELECT * FROM `u961758316_uefs`.`produtos`";
-        $sql_sel = mysql_query($sql);
-
-        while($ln = mysql_fetch_array($sql_sel))
-            if($ln['id'] == $idProduto)
-                return $ln;
+        $sql = "SELECT * FROM `u961758316_uefs`.`produtos`WHERE `produtos`.`usuario_id`='$usuario_id'";
+        $sql1 = mysql_query($sql);
+         $contador = 0;
+        while ( $produtosEncontrados = mysql_fetch_array($sql1) )
+        { 
+            $list[$contador++] = $produtosEncontrados; 
+        }
+        return  $list;
     }
     function buscarProdutos($nome)
     {
