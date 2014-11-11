@@ -8,9 +8,11 @@ require_once dirname(__FILE__).'/../../../Src/Controller/Exception/CampoPreenchi
 require_once dirname(__FILE__).'/../../../Src/Model/Anuncio.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Produto.php';
 require_once dirname(__FILE__).'/../../../Src/Model/Servico.php';
+require_once dirname(__FILE__).'/../../../Src/Model/Usuario.php';
 class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
 
     protected $controller;
+    protected $usuario;
     
     /**
      * Método setUp executado antes de todos os testes.
@@ -25,16 +27,19 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
             mysql_query($sql);
         }
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
-    }
+        $this->controller->cadastrarUsuario("João Filhos", "joaos@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+      echo  $this->controller->recuperarUsuario('joaos@hotmail.com')->getNome();
+        $this->usuario = $this->controller->recuperarUsuario('joaos@hotmail.com');
+        //$this->usuario = new Usuario(user['name'],user['Email'],user['Sexo'],user['Telefone1'],user['Telefone2'],user['Senha'],user['Foto'],user['Status'],user['id']);   
+     }   
     
     /**
      * CW1-Cadastro de produto bem sucedido:
      * Testa o cadastro de produtos no caso ideal.
      */
     public function testeCadastroDeProduto()
-    {    
-        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", "1","2");
+    {    echo $this->usuario->getId().'arthur';
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", $this->usuario->getId(),"2");
     }
     
     /**
@@ -44,7 +49,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProdutoSemCategoria()
     {
-        $this->controller->cadastrarProduto("TV de Plasma", "", "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1","2");
+        $this->controller->cadastrarProduto("TV de Plasma", "", "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->usuario->getId(),"2");
     }
     
     /**
@@ -55,7 +60,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
     public function testeCadastroDeProdutoSemPreco()
     {
         $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "",
-                "Televisor semi-novo, 2 meses de uso", "HHHHSSSS", "1","2");
+                "Televisor semi-novo, 2 meses de uso", "HHHHSSSS", $this->usuario->getId(),"2");
     }
     
     /**
@@ -65,7 +70,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProdutoSemInformação()
     {
-        $this->controller->cadastrarProduto("", "", "", "", "", "1","");
+        $this->controller->cadastrarProduto("", "", "", "", "", $this->usuario->getId(),"");
     }
     
     /**
@@ -76,6 +81,6 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
     public function testeCadastroDeProdutoSemNome()
     {
         $this->controller->cadastrarProduto("", "Eletrônicos",
-                "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1","2");
+                "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->usuario->getId(),"2");
     }
 }

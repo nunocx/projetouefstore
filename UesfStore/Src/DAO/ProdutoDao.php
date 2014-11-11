@@ -2,23 +2,21 @@
     require_once('BancoDados.php');
     connectar();
 
-    function inserirProduto ($titulo,$categoria,$preco,$fotoVideo,$descricao,$usuario_id,$quantidade,$category_id)
+    function inserirProduto ($titulo,$preco,$fotoVideo,$descricao,$usuario_id,$quantidade,$category_id)
     {
-        $condicaoUso = 'NULL';
-        $data_Publicacao = date('Y-m-d');
-         $data_Vencimento;
-         $dia = date('d')+30;
+         $data_Publicacao = date('Y-m-d');
+         $dia = date('d');
          $mes = date('m');
          $ano = date('Y'); 
         // tem que fazer a para de somar 1 mes e tals
          $data_Vencimento = $ano.'-'.$mes.'-'.$dia;
         
-        $sql = "INSERT INTO   `u961758316_uefs`.`produtos` (`id` ,`name` ,`Descricao` ,`Preco` ,`Data_Publicacao` ,
+        $sql = "INSERT INTO   `u961758316_uefs`.`produtos` 
+            (`id` ,`name` ,`Descricao` ,`Preco` ,`Data_Publicacao` ,
                 `Data_Vencimento` ,`Quantidade` ,`Foto_Video` ,`Bloqueado` ,`Expirado` ,`CondicaoUso` ,`usuario_id` ,`category_id`)
-                VALUES (NULL ,  '$titulo',  '$descricao',  '$preco',  '$data_Publicacao',  '$data_Vencimento', $quantidade,  '$fotoVideo',
-                '0',  '0',  NULL,  '$usuario_id',  '$category_id');";
+                VALUES (NULL , '$titulo',  '$descricao',  '$preco',  '$data_Publicacao',  '$data_Vencimento', '$quantidade',  '$fotoVideo',
+                '0',  '0',  'NULL',  '$usuario_id','$category_id');";
            
-         
          return mysql_query($sql)? TRUE:FALSE;
     }
     function atualizarProduto($id,$titulo,$category_id,$preco,$quantidade,$fotoVideo,$descricao,$usuario_id)
