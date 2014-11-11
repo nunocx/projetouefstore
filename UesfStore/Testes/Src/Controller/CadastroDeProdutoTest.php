@@ -29,10 +29,12 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $usuario = recuperarUsuario("joao@hotmail.com");
-        if($usuario instanceof Usuario)
-        {
-            $this->id = $usuario[id];
-        }
+        $this->id = $usuario['id'];
+    }
+    
+    protected function tearDown() 
+    {
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", $this->id,"2");
     }
     
     /**
@@ -40,8 +42,9 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      * Testa o cadastro de produtos no caso ideal.
      */
     public function testeCadastroDeProduto()
+    {    
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", $this->id,"2");
     }
-    
     /**
      * CW2-Categoria não preenchida:
      * Testa o cadastro de um produto sem a categoria.
@@ -49,7 +52,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProdutoSemCategoria()
     {
-        $this->controller->cadastrarProduto("TV de Plasma", "", "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->usuario->getId(),"2");
+        $this->controller->cadastrarProduto("TV de Plasma", "", "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->id,"2");
     }
     
     /**
@@ -60,7 +63,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
     public function testeCadastroDeProdutoSemPreco()
     {
         $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "",
-                "Televisor semi-novo, 2 meses de uso", "HHHHSSSS", $this->usuario->getId(),"2");
+                "Televisor semi-novo, 2 meses de uso", "HHHHSSSS", $this->id,"2");
     }
     
     /**
@@ -70,7 +73,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProdutoSemInformação()
     {
-        $this->controller->cadastrarProduto("", "", "", "", "", $this->usuario->getId(),"");
+        $this->controller->cadastrarProduto("", "", "", "", "",$this->id,"");
     }
     
     /**
@@ -81,8 +84,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
     public function testeCadastroDeProdutoSemNome()
     {
         $this->controller->cadastrarProduto("", "Eletrônicos",
-                "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->usuario->getId(),"2");
+                "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", $this->id,"2");
     }
 }
-    {    
-        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", $this->id,"2");
+    

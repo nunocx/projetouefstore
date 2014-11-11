@@ -9,6 +9,7 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
 
     protected $controller;
     protected $usuario;
+    protected $id;
     
     /**
      * Método setUp executado antes de todos os testes.
@@ -23,8 +24,9 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
             mysql_query($sql);
         }
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
-            "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $usuario = recuperarUsuario("joao@hotmail.com");
+        $this->id = $usuario['id'];
     }
     
     /**
@@ -33,8 +35,7 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroServicoCorreto()
     {
-        $this->controller->cadastrarServico("Lava jato JC", "Serviço em geral", "80,00", "HHHHWWWWW", 
-                "Lavamos e polimos seu carro", "1","0");
+        $this->controller->cadastrarServico("Lava jato JC", "Serviço em geral", "80,00", "HHHHWWWWW", "Lavamos e polimos seu carro", $this->id,"0");
     }
     
     /**
@@ -44,8 +45,7 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeServicoSemNome()
     {
-        $this->controller->cadastrarServico("", "Serviço em geral", "80,00", "HHHHWWWWW", 
-                "Lavamos e polimos seu carro", "1","0");
+        $this->controller->cadastrarServico("", "Serviço em geral", "80,00", "HHHHWWWWW", "Lavamos e polimos seu carro", $this->id,"0");
     }
     
     /**
@@ -55,8 +55,7 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeServicoSemCategoria()
     {
-        $this->controller->cadastrarServico("Lava jato JC", "", "80,00", "HHHHWWWWW", 
-                "Lavamos e polimos seu carro", "1","0");
+        $this->controller->cadastrarServico("Lava jato JC", "", "80,00", "HHHHWWWWW", "Lavamos e polimos seu carro", $this->id,"0");
     }
     
     /**
@@ -66,7 +65,7 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroServicoSemDescricao()
     {
-            $this->controller->cadastrarServico("Lava jato JC", "Serviço em geral","80,00", "HHHHWWWWW","", "1", "0"); 
+            $this->controller->cadastrarServico("Lava jato JC", "Serviço em geral","80,00", "HHHHWWWWW","", $this->id, "0"); 
     }
     
     /**
@@ -76,6 +75,6 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroServicoEmBranco()
     {
-        $this->controller->cadastrarServico("", "", "", "", "", "1","");
+        $this->controller->cadastrarServico("", "", "", "", "", $this->id,"");
     }
 }

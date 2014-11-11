@@ -14,17 +14,26 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
     protected $controller;
     protected $anuncio;
     protected $idProduto;
-
+    protected $id;
+    
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp() 
+    {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
-                "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
-        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHHHH","Televisor semi-novo, 2 meses de uso", "1","2");
-        $this->controller->cadastrarServico("Troca de lâmpadas", "Geral", "1.000.000,99", "HHHHHHH","Serviço rapido, facil e \"barato\" ", "1","1");
-    
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $usuario = recuperarUsuario("joao@hotmail.com");
+        $this->id = $usuario['id'];
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHHHH","Televisor semi-novo, 2 meses de uso", $this->id,"2");
+        $this->controller->cadastrarServico("Troca de lâmpadas", "Geral", "1.000.000,99", "HHHHHHH","Serviço rapido, facil e \"barato\" ", $this->id,"1");
     }
 
     /**
@@ -44,8 +53,8 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
             $idUsuario = $this->anuncio->getIdUsuario();//TODO:PQ ñ reconhece esse metodo?
             $quantidade = $this->anuncio->getQuantidade();
         }
-        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "2.000,00", "SSSSSSS","Televisor Novo, Com Nota Fiscal","1","3");
-        $this->anuncio = $this->controller->recuperarAnuncio("1");
+        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "2.000,00", "SSSSSSS","Televisor Novo, Com Nota Fiscal",$this->id,"3");
+        $this->anuncio = $this->controller->recuperarAnuncio();
         if($this->anuncio instanceof Anuncio)
         {
             $this->assertNotEquals($titulo,$this->anuncio->getTitulo());
@@ -83,7 +92,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
             $idUsuario = $this->anuncio->getIdUsuario();//TODO: PQ ñ reconhece esse metodo?
             $aCombinar = $this->anuncio->getACombinar();
         }
-        $this->controller->editarServico("Formato PC", "Eletrônicos", "50,00", "MMMMMM","coloco win7 original", "1","1");
+        $this->controller->editarServico("Formato PC", "Eletrônicos", "50,00", "MMMMMM","coloco win7 original", $this->id,"1");
         $this->anuncio = $this->controller->recuperarAnuncio("2");
         if($this->anuncio instanceof Anuncio)
         {
@@ -112,9 +121,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEditarAnuncioSemTitulo()
     {
-
-        $this->controller->editarProduto("", "Televisores", "2.000,00", "SSSSSSS","Televisor Novo, Com Nota Fiscal","1","3");
-        
+        $this->controller->editarProduto("", "Televisores", "2.000,00", "SSSSSSS","Televisor Novo, Com Nota Fiscal",$this->id,"3");        
     }
 
     /**
@@ -124,8 +131,7 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEditarAnuncioComPrecoInvalido()
     {
-        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "", "SSSSSSS","Televisor Novo, Com Nota Fiscal","1","3");
-        
+        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "", "SSSSSSS","Televisor Novo, Com Nota Fiscal",$this->id,"3");       
     }
     
     /**
@@ -135,8 +141,6 @@ class EditarAnuncioTest extends PHPUnit_Framework_TestCase {
      */
     public function testEditarAnuncioComDescricaoInvalida()
     {
-        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "", "SSSSSSS","","1","3");
-        
+        $this->controller->editarProduto("TV de LED FullHD", "Televisores", "", "SSSSSSS","",$this->id,"3");
     }
-
 }

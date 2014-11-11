@@ -22,11 +22,6 @@ class Controller
     {
         //TODO: Buscar no banco de dados e retornar uma lista de anúncios.
     }
-    
-    public function recuperarAnuncio($id)
-    {
-        //TODO: Buscar no banco de dados o anuncio com o id.
-    }                                
     public function cadastrarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)	
     {
         $mensagem="";
@@ -125,12 +120,66 @@ class Controller
     }
     public function editarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
     {
-
+        $mensagem="";
+        $exception=0;
+        if($titulo=="")
+        {
+            $mensagem.="Titulo,";
+            $exception=1;
+        }
+        if($categoria=="")
+        {
+            $mensagem.="Categoria,";
+            $exception=1;
+        }
+        if($preco=="")
+        {
+            $mensagem.="Preco,";
+            $exception=1;
+        }
+        if($descricao=="")
+        {
+            $mensagem.="Descricao,";
+            $exception=1;
+        }
+        if($idUsuario=="")
+        {
+            $mensagem.="Usuario,";
+            $exception=1;
+        }
+        if($quantidade=="")
+        {
+            $mensagem.="Quantidade,";
+            $exception=1;
+        }
+       
+        if($exception==1)
+        {
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
+        
+        $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
+       
+                
+        if(!atualizarServico($produtoTemp->getTitulo(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
+                $produtoTemp->getDescricao(), $produtoTemp->getIdUsuario(),$produtoTemp->getQuantidade(),$produtoTemp->getCategoria()))
+        {
+            $mensagem ="Produto,";
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
     }
     
     public function editarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)
     {
 
+    }
+    public function recuperarServico($id)
+    {
+        
+    }
+    public function recuperarProduto($id)
+    {
+        //TODO: Buscar no banco de dados o anuncio com o id.
     }
     public function autenticarAnuncio($anuncio)
     {
