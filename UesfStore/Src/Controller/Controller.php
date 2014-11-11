@@ -26,7 +26,7 @@ class Controller
     public function recuperarAnuncio($id)
     {
         //TODO: Buscar no banco de dados o anuncio com o id.
-    }
+    }                                
     public function cadastrarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)	
     {
         $mensagem="";
@@ -67,7 +67,9 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
-        if(!inserirProduto($produtoTemp->getTitulo(), $produtoTemp->getCategoria(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
+       
+                
+        if(!inserirProduto($produtoTemp->getTitulo(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
                 $produtoTemp->getDescricao(), $produtoTemp->getIdUsuario(),$produtoTemp->getQuantidade(),$produtoTemp->getCategoria()))
         {
             $mensagem ="Produto,";
@@ -150,10 +152,21 @@ class Controller
     public function recuperarUsuario($email)
     {
         $usuarioString = recuperarUsuario($email);
-        return $usuario = new Usuario($usuarioString['name'], $usuarioString['Email'], $usuarioString['Sexo'],
-                $usuarioString['Telefone1'],
-                $usuarioString['Telefone2'], $usuarioString['Senha'], $usuarioString['Foto'], $usuarioString['Status']);
         
+         $usuario = new Usuario(
+                $usuarioString['name'],
+                $usuarioString['Email'],
+                $usuarioString['Sexo'],
+                $usuarioString['Telefone1'],
+                $usuarioString['Telefone2'],
+                $usuarioString['Senha'],
+                $usuarioString['Foto'],
+                $usuarioString['Status']);
+         
+         $usuario->setId($usuarioString['id']);
+         echo $usuario->getId() or die();
+         
+        return  $usuario;
     }
     
     public function cadastrarUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$senhaConfirmacao,$foto,$status)
