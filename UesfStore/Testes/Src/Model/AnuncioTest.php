@@ -13,10 +13,10 @@ class AnuncioTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
-        $this->anuncio = new Anuncio("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHSSSS",
-            "Televisor semi-novo, 2 meses de uso");
- }
+    protected function setUp() 
+    {
+        $this->anuncio = new Anuncio("TV de Plasma", "Eletrônicos", "1.100,00", "HHHHSSSS","Televisor semi-novo, 2 meses de uso");
+    }
 
     /**
      * Teste de unidade que verifica se os atributos de um Anuncio são atribuidos e

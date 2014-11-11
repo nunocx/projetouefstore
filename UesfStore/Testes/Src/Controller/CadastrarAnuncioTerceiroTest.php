@@ -15,7 +15,15 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp() 
+    {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
     }
 
@@ -25,8 +33,7 @@ class ControllerUsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testCadastrarAnuncioDeTerceirosBemSucedido()
     {
-    	$terceirizado = $this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br","nsbanner.jpg");
-        //TODO:Verificar se terceirizado é AnuncioTerceirizado.
+    	$this->controller->CadastrarAnuncioTerceiro("Netshoes", "http://www.netshoes.com.br","nsbanner.jpg");
     	$this->assertEquals("Netshoes", $this->usuario->getIdentificacao());
         $this->assertEquals("http://www.netshoes.com.br", $usuario->getLink());
     }

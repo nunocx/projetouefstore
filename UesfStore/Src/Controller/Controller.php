@@ -349,9 +349,54 @@ class Controller
     {
 
     }
-    public function CadastrarAnuncioTerceiro($nome,$nomeDaEmpresa,$foto,$valorPago,$dataDeInicio,
-            $idAdministrador,$link,$banner)
+    public function CadastrarAnuncioTerceiro($nome,$nomeDaEmpresa,$foto,$valorPago,$link,$idAdministrador)
     {
+        
+        $mensagem="";
+        $exception=0;
+        if($nome=="")
+        {
+            $mensagem.="Nome,";
+            $exception=1;
+        }
+        if($nomeDaEmpresa=="")
+        {
+            $mensagem.="Nome Da Empresa,";
+            $exception=1;
+        }
+        if($foto=="")
+        {
+            $mensagem.="Foto,";
+            $exception=1;
+        }
+        if($valorPago=="")
+        {
+            $mensagem.="Valor Pago,";
+            $exception=1;
+        }
+        if(strlen($celular)!=11)
+        {
+            $mensagem.="Celular,";
+            $exception=1;
+        }
+        if(strlen($senha)<6 | $senha != $senhaConfirmacao)
+        {
+            $mensagem.="Senha,";
+            $exception=1;
+        }        
+        if($exception==1)
+        {
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
+        //TODO: pegar data do sistema
+        $usuarioAtual = new Usuario($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status);
+        if(!inserirUsuario($usuarioAtual->getNome(),$usuarioAtual->getEmail(),$usuarioAtual->getSexo(),$usuarioAtual->getTelefone(),$usuarioAtual->getCelular(),
+                $usuarioAtual->getSenha(),$usuarioAtual->getFoto(),$usuarioAtual->getStatus()))
+        {
+            $mensagem ="Usuario,";
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
+    
         
     }
 }
