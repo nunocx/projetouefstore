@@ -11,11 +11,12 @@ require_once dirname(__FILE__).'/../../../Src/Model/Servico.php';
 class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
 
     protected $controller;
-    
+    protected $usuario;
+    protected $id;
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() 
+    protected function setUp()
     {
         $query = ' SHOW TABLES ';
         $query = mysql_query($query);
@@ -26,6 +27,11 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
         }
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $usuario = recuperarUsuario("joao@hotmail.com");
+        if($usuario instanceof Usuario)
+        {
+            $this->id = $usuario[id];
+        }
     }
     
     /**
@@ -34,7 +40,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProduto()
     {    
-        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", "1","2");
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", $this->id,"2");
     }
     
     /**
