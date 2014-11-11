@@ -1,6 +1,6 @@
 <?php
 require_once('BancoDados.php');
-conexao();
+connectar();
 
 function _inserir($Assunto,$Texto, $Data, $Administrador_Id, $Email_Destinatario, $Email_Emissor)
 {

@@ -1,62 +1,62 @@
 <?php
 	require_once('BancoDados.php');
-conexao();
+        connectar();
 
 
 
 	
-	function _inserir($Email,$Nome,$Senha,$Telefone1,$Telefone2,$Data_Nascimento,$Foto)
+	function inserirAdmin($email,$nome,$senha,$telefone,$celular,$foto)
 	{	
-
-		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`administradors` (`id` ,`Email` ,`name` ,`Senha` ,`Telefone1` ,`Telefone2` ,
-`Data_Nascimento` ,`Foto` ,`Status`)
-VALUES (NULL ,  '$Email',  '$Nome',  '$Senha',  'Telefone1',  '$Telefone2',  '$Data_Nascimento',  'oivr',  '1');";
+            $sql = "INSERT INTO  `u961758316_uefs`.`administradors` (`id` ,`Email` ,`name` ,`Senha` ,`Telefone1` ,`Telefone2` ,
+                    `Data_Nascimento` ,`Foto` ,`Status`)
+                    VALUES (NULL ,  '$email',  '$nome',  '$senha',  '$telefone',  '$celular',  NULL,  '$foto',  '1');";
+            return (mysql_query($sql))?TRUE: FALSE;
 		
-		if(mysql_query($sql_inserir))
-		{ 
-			return TRUE;		
-		}
-		else
-		{
-			return FALSE;
-		}
 	}
-	function _update($id,$Email,$Nome,$Senha,$Telefone1,$Telefone2,$Data_Nascimento,$Foto,$Status)
+	function atualizarAdmin($id,$email,$nome,$senha,$telefone,$celular,$foto,$status)
 	{
-		$sql_update = "UPDATE  `u961758316_uefs`.`administradors`
-		SET 
-		`Email` =  '$Email',
-		`name` =  '$Nome',`Senha` =  '$Senha',
-`Telefone1` =  '$Telefone1',`Telefone2` =  '%Telefone2',`Data_Nascimento` =  '$Data_Nascimento',`Foto` =  '$Foto',
-`Status` =  '$Status' WHERE  `administradors`.`id` ='$id';";
-
-		if(mysql_query($sql_update))
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
+		$sql= "UPDATE `u961758316_uefs`.`administradors`
+				SET 
+				`Email` =  '$email',
+				`name` =  '$nome',
+				`Senha` =  '$senha',
+				`Telefone1` =  '$telefone',
+				`Telefone2` =  '$celular',
+				`Data_Nascimento` =  NULL,
+				`Foto` =  '$foto',
+				`Status` =  '$status'
+				 WHERE  `administradors`.`id` ='$id' AND `administradors`.`Email` = '$email';";
+				
+		return (mysql_query($sql)) ? TRUE : FALSE;
 	}
-	function _findAdm($id)
+	function recuperarAdmin($email)
 	{
 		$sql = "SELECT * FROM administradors";
 		$sql_sel = mysql_query($sql);
 
 		while($ln = mysql_fetch_array($sql_sel))
-			if($ln['id'] == $id)
+			if($ln['Email'] == $email)
 				return $ln;
 	}
+        function buscarAdmins($nome)//retrieve
+        {
+            $nome.='%';
+            
+            $sql = "SELECT * FROM `administradors` WHERE name LIKE '$nome';";
 
-	function _delete($id)
+            $sql = mysql_query($sql);
+            
+            $contador = 0;
+            while ( $adminsEncontrados = mysql_fetch_array($sql) )
+            { 
+                $list[$contador++] = $adminsEncontrados; 
+            }
+            return  $list;
+        }
+	function deletarAdmin($id)
 	{
-		$sql = " DELETE FROM administradors WHERE id = '$id';";
-
-			if(mysql_query($sql))
-				return TRUE;
-			else
-				return FALSE;
+            $sql = " DELETE FROM administradors WHERE id = '$id';";
+            return (mysql_query($sql)) ? TRUE : FALSE;
 	}
 
 
