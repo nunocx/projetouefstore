@@ -46,20 +46,22 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
             $sexo = $this->usuario->getSexo();
             $telefone = $this->usuario->getTelefone();
             $celular = $this->usuario->getCelular();
-            $Senha = $this->usuario->getSenha();
+            $senha = $this->usuario->getSenha();
             $foto = $this->usuario->getFoto();
             $status = $this->usuario->getStatus();
         }
-        $this->controller->editarCadastro("Euclidistoviskon", "joao@hotmail.com","F", "07566668888","07544445555","abc1234","abc4321","outraFoo","0");
+        $this->controller->editarCadastro('Euclidistoviskon', 'joao@hotmail.com','F', '07566668888','07544445555','abc1234','abc4321','outraFoo','0');
 
-        $this->usuario = $this->controller->recuperarUsuario("joao@hotmail.com");
+        $this->usuario = $this->controller->recuperarUsuario('joao@hotmail.com');
         if($this->usuario instanceof Usuario)
         {
             $this->assertNotEquals($nome,$this->usuario->getNome());
             $this->assertNotEquals($email,$this->usuario->getEmail());
+       
             $this->assertNotEquals($sexo,$this->usuario->getSexo());
             $this->assertNotEquals($telefone,$this->usuario->getTelefone());
             $this->assertNotEquals($celular,$this->usuario->getCelular());
+          
             $this->assertnotEquals($senha,$this->usuario->getSenha());
             $this->assertNotEquals($foto,$this->usuario->getFoto());
             $this->assertEquals($status,$this->usuario->getStatus());
@@ -67,7 +69,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals("Euclidistoviskon",$this->usuario->getNome());
             $this->assertEquals("joao@hotmail.com",$this->usuario->getEmail());
             $this->assertEquals("F",$this->usuario->getSexo());
-            $this->assertEquals("07566668888",$this->usuario->getelefone());
+            $this->assertEquals("07566668888",$this->usuario->getTelefone());
             $this->assertEquals("07544445555",$this->usuario->getCelular());
             $this->assertEquals("abc4321",$this->usuario->getSenha());
             $this->assertEquals("outraFoo",$this->usuario->getFoto());

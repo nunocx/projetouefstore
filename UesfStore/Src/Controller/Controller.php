@@ -191,7 +191,7 @@ class Controller
         }
         
         $usuarioAtual = new Usuario($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status);
-        if(!inserir($usuarioAtual->getNome(),$usuarioAtual->getEmail(),$usuarioAtual->getSexo(),$usuarioAtual->getTelefone(),$usuarioAtual->getCelular(),
+        if(!inserirUsuario($usuarioAtual->getNome(),$usuarioAtual->getEmail(),$usuarioAtual->getSexo(),$usuarioAtual->getTelefone(),$usuarioAtual->getCelular(),
                 $usuarioAtual->getSenha(),$usuarioAtual->getFoto(),$usuarioAtual->getStatus()))
         {
             $mensagem ="Usuario,";
@@ -237,7 +237,7 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $usuarioAtualizado = new Usuario($nome, $email, $sexo, $telefone, $celular, $senhaNova, $foto, $status);
-        if(!update($usuarioAtualizado->getNome(), $usuarioAtualizado->getEmail(), $usuarioAtualizado->getSexo(),$usuarioAtualizado->getTelefone(), 
+        if(!atualizarUsuario($usuarioAtualizado->getNome(), $usuarioAtualizado->getEmail(), $usuarioAtualizado->getSexo(),$usuarioAtualizado->getTelefone(), 
                 $usuarioAtualizado->getCelular(), $usuarioAtualizado->getSenha(), $usuarioAtualizado->getFoto(), $usuarioAtualizado->getStatus()))
         {
         //    throw new ErroAtualizacaoException("Usuário");

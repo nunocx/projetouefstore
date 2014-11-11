@@ -1,7 +1,7 @@
 <?php
 class Usuario extends User
 {
-
+ 
     private  $reputacao;
     private  $bloqueado;
 
@@ -12,11 +12,16 @@ class Usuario extends User
         $this->reputacao = 0;
         $this->bloqueado = 0;
     }
-    
-    public function __construct1($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status,
+     public function __construct1($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status,$id)
+    {
+        parent::__construct1($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status,$id);
+        $this->reputacao = 0;
+        $this->bloqueado = 0;
+    }
+    public function __construct2($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status,
             $logado, $id, $reputacao, $bloqueado) 
     {
-        parent::__construct1($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status, $logado, $id);
+        parent::__construct2($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status, $logado, $id);
         $this->reputacao = $reputacao;
         $this->bloqueado = $bloqueado;
     }
