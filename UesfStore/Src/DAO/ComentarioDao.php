@@ -1,48 +1,55 @@
 <?php
-	require_once('BancoDados.php');
-        connectar();
+	require_once('MySqlClass.php');
+	conexao();
 
-	function inserirComentario($texto,$usuario_id,$servico_id,$produto_id)
+
+
+	
+	function _inserir($Data, $Texto,$Usuario_id,$Servico_id,$Produto_id)
 	{
-            $data = date('Y-m-d');
-        }
-         if($usuario_id != NULL)
-	 {
-	    if($servico_id != 'NULL')
-	    {
-		$sql = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
-                `servico_id` ,`produto_id`)
-                VALUES (NULL ,  '$data',  '$texto',  '$usuario_id', NULL ,  '$produto_id');";
-            }else if($produto_id != 'NULL')
-            {
-                $sql = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
-                `servico_id` ,`produto_id`)
-                VALUES (NULL ,  '$data',  '$texto',  '$usuario_id', '$servico_id' ,  NULL);";
-            }
-		return (mysql_query($sql)) ? TRUE : FALSE;
+		$sql_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
+`servico_id` ,`produto_id`)VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', NULL ,  '$Produto_id');";
+
+		$sql2_inserir = "INSERT INTO  `u961758316_uefs`.`comentarios` (`id` ,`Data` ,`Texto` ,`usuario_id` ,
+`servico_id` ,`produto_id`)VALUES (NULL ,  '$Data',  '$Texto',  '$Usuario_id', '$Servico_id' ,  NULL);";
+		
+		return (mysql_query($sql_inserir)) ? TRUE :((mysql_query($sql2_inserir))?TRUE:FALSE);
+                /*if(mysql_query($sql_inserir))
+		{
+			return TRUE;
+		}
+		else
+		{
+			if(mysql_query($sql2_inserir)){
+				return TRUE;
+			}
+			else{
+				return FALSE;
+			}
+		}*/
 	}
-	function atualizarComentario($id,$texto)
+	function update($id,$Texto)
 	{
-		$sql = "UPDATE  `u961758316_uefs`.`comentarios`
+		$sql_update = "UPDATE  `u961758316_uefs`.`comentarios`
 		SET 
-		`Texto` = '$texto'
+		`Texto` = '$Texto'
 		WHERE  `comentarios`.`id` = $id;";
-                    return (mysql_query($sql)) ? TRUE:FALSE;
+                    return (mysql_query($sql_update)) ? TRUE:FALSE;
 	}
-	function recuperarComentario($id)
+	function recuperarComentario($IdComentario)
 	{
-		$sql = "SELECT * FROM `u961758316_uefs`.`comentarios`";
+		$sql = "SELECT * FROM Usuarios";
 		$sql_sel = mysql_query($sql);
 
                 while($ln = mysql_fetch_array($sql_sel))
-			if($ln['id']==$id)
+			if($ln['id']==$IdComentario)
 				return $ln;
 	}
 
-	function deletaComentario($id)
+	function deleta($IdComentario)
 	{
-          $sql = "DELETE FROM `u961758316_uefs`.`comentarios` WHERE id = '$id';";
-            return (mysql_query($sql)) ? TRUE:FALSE;
+		$sql = "DELETE FROM comentarioprodutos WHERE IdComentario = '$IdComentario';";
+			return (mysql_query($sql)) ? TRUE:FALSE;
 	}
 
 

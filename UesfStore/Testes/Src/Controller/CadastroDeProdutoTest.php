@@ -15,7 +15,15 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
     /**
      * Método setUp executado antes de todos os testes.
      */
-    protected function setUp() {
+    protected function setUp() 
+    {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
         "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
@@ -38,8 +46,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProdutoSemCategoria()
     {
-        $this->controller->cadastrarProduto("TV de Plasma", "",
-                "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1","2");
+        $this->controller->cadastrarProduto("TV de Plasma", "", "Televisor semi-novo, 2 meses de uso", "1.100,00", "HHHHSSSS", "1","2");
     }
     
     /**

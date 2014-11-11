@@ -64,6 +64,12 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
+        $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
+        if(!inserir($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade))
+        {
+            $mensagem ="Produto,";
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
         //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
     public function cadastrarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)	
@@ -105,6 +111,7 @@ class Controller
         {
             throw new CampoPreenchidoErradoException($mensagem);
         }
+        $servicoTemp = new Servico($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $aCombinar);
         //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
     }
     public function editarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
@@ -136,9 +143,9 @@ class Controller
     public function recuperarUsuario($email)
     {
         $usuarioString = recuperarUsuario($email);
-        return $usuario = new Usuario($usuarioString['name'], $usuarioString['email'], $usuarioString['sexo'],
-                $usuarioString['telefone'],
-                $usuarioString['celular'], $usuarioString['senha'], $usuarioString['foto'], $usuarioString['status']);
+        return $usuario = new Usuario($usuarioString['name'], $usuarioString['Email'], $usuarioString['Sexo'],
+                $usuarioString['Telefone1'],
+                $usuarioString['Telefone2'], $usuarioString['Senha'], $usuarioString['Foto'], $usuarioString['Status']);
         
     }
     
@@ -183,17 +190,17 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         
-     
-      
-       if(!inserirUsuario($nome,$email,$sexo,$telefone,$celular,$senha,$foto,$status))
+        $usuarioAtual = new Usuario($nome, $email, $sexo, $telefone, $celular, $senha, $foto, $status);
+        if(!inserir($usuarioAtual->getNome(),$usuarioAtual->getEmail(),$usuarioAtual->getSexo(),$usuarioAtual->getTelefone(),$usuarioAtual->getCelular(),
+                $usuarioAtual->getSenha(),$usuarioAtual->getFoto(),$usuarioAtual->getStatus()))
         {
             $mensagem ="Usuario,";
             throw new CampoPreenchidoErradoException($mensagem);
-        }    
+        }
     }
     public function editarCadastro($nome,$email,$sexo,$telefone,$celular,$senhaAntiga,$senhaNova,$foto,$status)
     {
-        $usuario = recuperarUsuario($Email);
+        $usuario = recuperarUsuario($email);
         $mensagem="";
         $exception=0;
         if($nome=="")
@@ -216,7 +223,7 @@ class Controller
             $mensagem.="Celular,";
             $exception=1;
         }
-        if($usuario->getSenha() != $senhaAntiga)
+        if($usuario['Senha'] != $senhaAntiga)
         {
             throw new SenhaErradaException;
         }
@@ -230,6 +237,11 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $usuarioAtualizado = new Usuario($nome, $email, $sexo, $telefone, $celular, $senhaNova, $foto, $status);
+        if(!update($usuarioAtualizado->getNome(), $usuarioAtualizado->getEmail(), $usuarioAtualizado->getSexo(),$usuarioAtualizado->getTelefone(), 
+                $usuarioAtualizado->getCelular(), $usuarioAtualizado->getSenha(), $usuarioAtualizado->getFoto(), $usuarioAtualizado->getStatus()))
+        {
+        //    throw new ErroAtualizacaoException("Usuário");
+        }
         
     }
     public function autenticarUsuario($idUsuario)
