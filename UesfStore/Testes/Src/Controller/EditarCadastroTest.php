@@ -27,7 +27,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
             mysql_query($sql);
         }
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("Joao Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
         $this->email = "joao@hotmail.com";
     }
 
@@ -38,7 +38,7 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
     public function testAtualizarDadosCadastraisBemSucedido()
     {
 
-        $this->usuario = $this->controller->recuperarUsuario($this->email);
+        $this->usuario = $this->controller->recuperarUsuario("joao@hotmail.com");
         if($this->usuario instanceof Usuario)
         {    
             $nome = $this->usuario->getNome();
@@ -56,13 +56,13 @@ class EditarCadastroTest extends PHPUnit_Framework_TestCase {
         if($this->usuario instanceof Usuario)
         {
             $this->assertNotEquals($nome,$this->usuario->getNome());
-            $this->assertNotEquals($email,$this->usuario->getEmail());
-       
+            $this->assertEquals($email,$this->usuario->getEmail());
+            
             $this->assertNotEquals($sexo,$this->usuario->getSexo());
             $this->assertNotEquals($telefone,$this->usuario->getTelefone());
             $this->assertNotEquals($celular,$this->usuario->getCelular());
           
-            $this->assertnotEquals($senha,$this->usuario->getSenha());
+            $this->assertNotEquals($senha,$this->usuario->getSenha());
             $this->assertNotEquals($foto,$this->usuario->getFoto());
             $this->assertEquals($status,$this->usuario->getStatus());
 

@@ -15,6 +15,13 @@ class CadastroDeServicoTest extends PHPUnit_Framework_TestCase {
      */
     protected function setUp() 
     {
+        $query = ' SHOW TABLES ';
+        $query = mysql_query($query);
+        while($dados = mysql_fetch_row($query))
+        {
+            $sql = ' DELETE FROM ' . $dados[0];
+            mysql_query($sql);
+        }
         $this->controller = new Controller();
         $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
             "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");

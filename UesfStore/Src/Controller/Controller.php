@@ -5,6 +5,8 @@ require_once dirname(__FILE__).'/../Model/Anuncio.php';
 require_once dirname(__FILE__).'/../Model/Servico.php';
 require_once dirname(__FILE__).'/../Model/Produto.php';
 require_once dirname(__FILE__).'/../DAO/UsuarioDAO.php';
+require_once dirname(__FILE__).'/../DAO/ProdutoDao.php';
+require_once dirname(__FILE__).'/../DAO/ServicoDao.php';
 /**
 * 
 */
@@ -65,7 +67,8 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
-        if(!inserir($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade))
+        if(!inserirProduto($produtoTemp->getTitulo(), $produtoTemp->getCategoria(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
+                $produtoTemp->getDescricao(), $produtoTemp->getIdUsuario(),$produtoTemp->getQuantidade(),$produtoTemp->getCategoria()))
         {
             $mensagem ="Produto,";
             throw new CampoPreenchidoErradoException($mensagem);
@@ -112,7 +115,11 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         $servicoTemp = new Servico($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $aCombinar);
-        //TODO:Mandar Para o bano de dados. Pode lançar uma exceção (FalhaEnvioException)
+        if(!inserirServico($servicoTemp->getTitulo(), $servicoTemp->getCategoria(), $servicoTemp->getPreco(), $servicoTemp->getfotoVideo(),
+                $servicoTemp->getDescricao(), $servicoTemp->getIdUsuario(), $servicoTemp->getACombinar()))
+        {
+            throw new CampoPreenchidoErradoException("Serviço");
+        }
     }
     public function editarServico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar)
     {

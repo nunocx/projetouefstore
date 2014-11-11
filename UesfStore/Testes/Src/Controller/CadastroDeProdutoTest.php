@@ -25,8 +25,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
             mysql_query($sql);
         }
         $this->controller = new Controller();
-        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com",
-        "M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
+        $this->controller->cadastrarUsuario("João Filho", "joao@hotmail.com","M", "07599992222","07599992222","abc1234","abc1234","fotoaqui","0");
     }
     
     /**
@@ -35,8 +34,7 @@ class CadastrarDeProdutoTest extends PHPUnit_Framework_TestCase {
      */
     public function testeCadastroDeProduto()
     {    
-        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00",
-               "HHHHSSSS","Televisor semi-novo, 2 meses de uso", "1","2");
+        $this->controller->cadastrarProduto("TV de Plasma", "Eletrônicos", "1.100,00","HHHHSSSS","Televisor semi-novo, 2 meses de uso", "1","2");
     }
     
     /**

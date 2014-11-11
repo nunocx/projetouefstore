@@ -60,4 +60,3 @@
             return mysql_query($sql)? TRUE:FALSE;
 	}
 ?>
-
