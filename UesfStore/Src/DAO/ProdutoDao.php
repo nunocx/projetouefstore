@@ -22,10 +22,7 @@
     function atualizarProduto($id,$titulo,$category_id,$preco,$quantidade,$fotoVideo,$descricao,$usuario_id)
     {
         $condicaoUso = NULL;
-        $produto = recuperarProduto($id);
-
-            if($produto['id']==$id)
-            {
+       
                 $sql = "UPDATE   `u961758316_uefs`.`produtos`
                 SET  
                 `name` =  '$titulo',
@@ -37,12 +34,7 @@
                 `category_id`= '$category_id'
                 WHERE  `produtos`.`id` = '$id' AND `produtos`.`usuario_id` = '$usuario_id';";
                 
-                mysql_query($sql);
-                
-                return TRUE;
-            }
-            else
-                return FALSE;
+       return mysql_query($sql) ? TRUE : FALSE;
     }
     function recuperarProduto($usuario_id)
     {

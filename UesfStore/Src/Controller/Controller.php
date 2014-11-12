@@ -158,7 +158,7 @@ class Controller
             throw new CampoPreenchidoErradoException($mensagem);
         }
         
-        $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
+        $produtoTemp = new Servico($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$aCombinar);
        
                 
         if(!atualizarServico($produtoTemp->getTitulo(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
@@ -171,15 +171,70 @@ class Controller
     
     public function editarProduto($titulo,$categoria,$preco,$fotoVideo,$descricao,$idUsuario,$quantidade)
     {
-
+        $mensagem="";
+        $exception=0;
+        if($titulo=="")
+        {
+            $mensagem.="Titulo,";
+            $exception=1;
+        }
+        if($categoria=="")
+        {
+            $mensagem.="Categoria,";
+            $exception=1;
+        }
+        if($preco=="")
+        {
+            $mensagem.="Preco,";
+            $exception=1;
+        }
+        if($descricao=="")
+        {
+            $mensagem.="Descricao,";
+            $exception=1;
+        }
+        if($idUsuario=="")
+        {
+            $mensagem.="Usuario,";
+            $exception=1;
+        }
+        if($quantidade=="")
+        {
+            $mensagem.="Quantidade,";
+            $exception=1;
+        }
+       
+        if($exception==1)
+        {
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
+        
+        $produtoTemp = new Produto($titulo, $categoria, $preco, $fotoVideo, $descricao, $idUsuario, $quantidade);
+       
+                
+        if(!atualizarProduto($produtoTemp->getId(),$produtoTemp->getTitulo(), $produtoTemp->getPreco(),$produtoTemp->getfotoVideo(), 
+                $produtoTemp->getDescricao(), $produtoTemp->getIdUsuario(),$produtoTemp->getQuantidade(),$produtoTemp->getCategoria()))
+        {
+            $mensagem ="Produto,";
+            throw new CampoPreenchidoErradoException($mensagem);
+        }
     }
     public function recuperarServico($id)
     {
         
     }
-    public function recuperarProduto($id)
+    public function recuperarProduto($idUsuario)
     {
-        //TODO: Buscar no banco de dados o anuncio com o id.
+        $produtoLista =  recuperarProduto($idUsuario);
+        foreach ($produtoLista as $anuncioString) 
+        {
+            $produto = new Produto($anuncioString['name'], $anuncioString['category_id'], $anuncioString['Preco'], $anuncioString['Foto_Video']
+                    , $anuncioString['Descricao'], $anuncioString['usuario_id'], $anuncioString['Quantidade']);
+            $produto->setId($anuncioString['id']);
+            $produto->setdataPublicacao($anuncioString['Data_Publicacao']);
+            $produto->setdataVencimento($anuncioString['Data_Vencimento']);
+        }
+        return $produto;
     }
     public function autenticarAnuncio($anuncio)
     {
@@ -187,11 +242,11 @@ class Controller
     }
     public function checarAnuncio()
     {
-
+        
     }
     public function enviarAlerta()
     {
-
+        
     }
     public function buscarUsuario($nome)
     {
