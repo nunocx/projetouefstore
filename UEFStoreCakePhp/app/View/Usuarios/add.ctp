@@ -10,7 +10,7 @@
           		 <p class="help-block">Exemplo: name@exemplo.com </p>
         
            <?php echo $this->Form->input('name',array('label'=>'Nome:', 'class'=>'form-control')); 
-           		 echo $this->Form->input('Senha',array('type'=>'password','label'=>'Senha:', 'class'=>'form-control'));
+           		 echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
            		 echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
            		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
            	<?php	 echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>

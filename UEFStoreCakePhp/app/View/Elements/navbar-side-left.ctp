@@ -5,7 +5,7 @@ $categories = $this->requestAction('categories/indexView');
 	<ul>
 	<h3>Categorias</h3>
 		<?php  foreach ($categories as $category): ?>
-		<li><a href="#"><?php echo $category['Category']['name'];?></a></li>
+		<li><a href="<?php echo $this->Html->url('/categories/view/'.$category['Category']['id']); ?>"><?php echo $category['Category']['name'];?></a></li>
 		<?php  endforeach; ?>
 	</ul>
 </div>		

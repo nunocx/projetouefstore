@@ -26,7 +26,18 @@ a{text-decoration:none;}
 .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
-img{max-width:100%;}
+img.top{
+	max-width:40%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+img.product{
+	max-width:40%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
 /*end reset*/
 @font-face {
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -45,6 +56,14 @@ body {
 	-webkit-transition:all .2s linear; /* safari and chrome */
 	-o-transition:all .2s linear; /* opera */
 	-ms-transition:all .2s linear;
+}
+h4.header{
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 6em;
+	display: block;
+	font-size: 22px;
 }
 .header {
 	background: #1A695C;
@@ -76,7 +95,7 @@ body {
 	left:0;
 	border-width:18px 0px 18px 18px;
 	border-style:solid;
-	border-color:rgba(255, 0, 0, 0) rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) #000;
+	border-color:rgba(255, 0, 0, 0) rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) #23272a;
 }
 .search_box form input[type="text"] {
 	border: none;
@@ -257,7 +276,7 @@ body {
 
 }
 .header_bottom{
-	padding:6%  0 2%;
+	padding:padding:0.5%  0 0.5%;
 }
 .slider-text{
 	float:left;
@@ -531,8 +550,8 @@ body {
 }
 .images_1_of_4 {
 	width:20.72%;
-	padding:1.5%; 
-	text-align: center;
+	padding:1.5%;
+ 	text-align: center;
 	position: relative;
 	background:#FFF;
 }
@@ -562,6 +581,10 @@ body {
 .price-details p span.rupees{
 	font-size:22px;
 	color:#23272a;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
 }
 .add-cart{
 	display: inline-block;
