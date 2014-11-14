@@ -31,4 +31,40 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authError' => 'You can´t access that page',
+            'authorize' => array('Controller')
+        )
+    );
+
+/**
+ * isAuthorized
+ * @var user Usuário que irá logar
+ * Método que verifica se o usuário está logado.
+ */
+ 
+    public function isAuthorized($user)
+    {
+        return TRUE;
+    }
+     
+/**
+ * beforeFilter
+ * Método que define os comandos que poderão ser usados pelo usuário.
+ * A função allow() define os métodos que poderão ser usados pelo usuário quando não estiver logado.
+ * logged_in é setado quando o componente Auth autentica o usuário.
+ * current_user recebe o usuário logado do componente Auth, podendo ser acessado nas subclasses.
+ */
+
+    public function beforeFilter()
+    {
+        $this->Auth->allow('login');
+        $this->set('logged_in', $this->Auth->loggedIn());
+        $this->set('current_user', $this->Auth->user());
+    }
 }

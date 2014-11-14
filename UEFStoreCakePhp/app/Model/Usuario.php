@@ -18,7 +18,7 @@ class Usuario extends AppModel {
 		'Email' => array(
 			'notEmpty' => array(
 				'rule' => array('email', true),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
+				'message' => 'Campo deve ser preenchido obrigatoriamente.',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -28,7 +28,7 @@ class Usuario extends AppModel {
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
+				'message' => 'Campo deve ser preenchido obrigatoriamente.',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -36,19 +36,26 @@ class Usuario extends AppModel {
 			),
 		),
 		'Senha' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+                'Not empty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Campo deve ser preenchido obrigatoriamente.'
+                ),
+                'Match passwords' => array(
+                    'rule' => 'matchPasswords',
+                    'message' => 'As senhas não conferem.'
+                )
+            ),
+            'password_confirmation' => array(
+                'Not empty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Por favor, confirme sua senha.'
+                )
+            )
 		),
 		'Telefone1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
+				'message' => 'Campo deve ser preenchido obrigatoriamente.',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -58,7 +65,7 @@ class Usuario extends AppModel {
 		'Data_Nascimento' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
+				'message' => 'Campo deve ser preenchido obrigatoriamente.',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -68,7 +75,7 @@ class Usuario extends AppModel {
 		'Sexo' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
+				'message' => 'Campo deve ser preenchido obrigatoriamente.',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule
@@ -77,6 +84,36 @@ class Usuario extends AppModel {
 		),
 	);
 
+/**
+ * matchPasswords
+ * @var senha a conferir
+ * Método de checar a confirmação de senha.
+ */
+
+	public function matchPasswords($data)
+    {
+        if($data['password'] == $this->data['User']['password_confirmation'])
+        {
+            return TRUE;
+        }
+        $this->invalidate('password_confirmation', 'Suas senhas não combinam.');
+        return FALSE;
+    }
+
+/**
+ * beforeSave
+ * @var options Apenas para eviar conflito de versão no CakePHP, não faz nada.
+ * Método que aplica um hash na senha antes de salvá-la.
+ */
+
+    public function beforeSave($options = array())
+    {
+        if(isset($this->data['User']['password']))
+        {
+            $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']); 
+        } 
+        return TRUE;
+    }
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
