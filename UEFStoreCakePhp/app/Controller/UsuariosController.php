@@ -98,9 +98,7 @@ class UsuariosController extends AppController {
 		if (!$this->Usuario->exists()) {
 			throw new NotFoundException(__('Invalid usuario'));
 		}
-		if($this->request->is('get')) {
-            throw new MethodNotAllowedException('Você não tem permissão para deletar este usuário!');
-        }
+		$this->request->allowMethod('post', 'delete');
 		if ($this->Usuario->delete()) {
 			$this->Session->setFlash(__('The usuario has been deleted.'));
 		} else {
@@ -110,66 +108,4 @@ class UsuariosController extends AppController {
 	}
 }
 
-/**
- * beforeFilter
- * Método herdado de AppController, define os comandos que podem ser usados por padrão pelo usuário.
- */
-	public function beforeFilter()
-	{
-		parent::beforeFilter();
-		$this->Auth->allow('login', 'add');      
-	}
-	
-/**
- * isAuthorized
- * @var user Usuário
- * Método que define um conjunto de objetos de autorização necessários para autorizar usuários em cada pedido.
- */
-
-	public function isAuthorized($user)
-	{
-		if($user['role'] == 'admin')
-		{
-			return TRUE;
-		}
-		if(in_array($this->action, array('edit', 'delete')))
-		{
-			if($user['id'] != $this->request->params['pass'][0])
-			{
-				return FALSE;
-			}
-		}
-		return TRUE;
-	}
-
-/**
- * login
- * Método de login.
- * Chama o método do componente Auth de efetuar login.
- * Se for executado com sucesso, redireciona a página usando o redirect() do Auth, definido no AppController.
- * Retorna mensagem de erro se houver algum erro.
- */
-
-	public function login()
-	{
-		if($this->request->is('post'))
-		{
-			if($this->Auth->login())
-			{
-				$this->redirect($this->Auth->redirect());
-			} else {
-				$this->Session->setFlash('Seu usuário e/ou senha está incorreto.');
-			}
-		}
-	}
-
-/**
- * logout
- * Método de logout.
- * Redireciona a página usando o redirect() do Auth, definido no AppController.
- */
-
-	public function logout()
-	{
-		$this->redirect($this->Auth->logout());
-	}
+  

@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `u961758316_uefs`.`usuarios` (
   `Email` VARCHAR(255) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `Senha` VARCHAR(255) NOT NULL,
-  `privilegio` enum('admin', 'usuario') NOT NULL, DEFAULT 'usuario',
   `Telefone1` VARCHAR(255) NOT NULL DEFAULT 0,
   `Data_Nascimento` DATE NULL,
   `Sexo` CHAR NOT NULL,
@@ -153,21 +152,21 @@ COLLATE = utf8_general_ci;
 -- -----------------------------------------------------
 -- Table `u961758316_uefs`.`administradors`
 -- -----------------------------------------------------
---CREATE TABLE IF NOT EXISTS `u961758316_uefs`.`administradors` (
---  `id` INT NOT NULL AUTO_INCREMENT,
---  `Email` VARCHAR(255) NOT NULL,
---  `name` VARCHAR(255) NOT NULL,
---  `Senha` VARCHAR(255) NOT NULL,
---  `Telefone1` VARCHAR(255) NOT NULL DEFAULT 0,
---  `Telefone2` VARCHAR(255) NULL DEFAULT 0,
---  `Data_Nascimento` DATE NULL,
---  `Foto` VARCHAR(255) NULL,
---  `Status` INT NULL DEFAULT 1,
---  PRIMARY KEY (`id`),
---  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC))
---ENGINE = InnoDB
---DEFAULT CHARACTER SET = utf8
---COLLATE = utf8_general_ci;
+CREATE TABLE IF NOT EXISTS `u961758316_uefs`.`administradors` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `Senha` VARCHAR(255) NOT NULL,
+  `Telefone1` VARCHAR(255) NOT NULL DEFAULT 0,
+  `Telefone2` VARCHAR(255) NULL DEFAULT 0,
+  `Data_Nascimento` DATE NULL,
+  `Foto` VARCHAR(255) NULL,
+  `Status` INT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
 
 
 -- -----------------------------------------------------
