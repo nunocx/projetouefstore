@@ -55,8 +55,6 @@ class MensagemsController extends AppController {
 				$this->Session->setFlash(__('The mensagem could not be saved. Please, try again.'));
 			}
 		}
-		$administradors = $this->Mensagem->Administrador->find('list');
-		$this->set(compact('administradors'));
 	}
 
 /**
@@ -81,8 +79,6 @@ class MensagemsController extends AppController {
 			$options = array('conditions' => array('Mensagem.' . $this->Mensagem->primaryKey => $id));
 			$this->request->data = $this->Mensagem->find('first', $options);
 		}
-		$administradors = $this->Mensagem->Administrador->find('list');
-		$this->set(compact('administradors'));
 	}
 
 /**

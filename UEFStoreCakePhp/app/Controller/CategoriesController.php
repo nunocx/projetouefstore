@@ -19,13 +19,12 @@ class CategoriesController extends AppController {
  * index method
  *
  * @return void
- 	
  */
 	public function index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->Paginator->paginate());
 	}
-	public function indexView() {
+public function indexView() {
         $categories = $this->paginate();
         if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
             return $categories;
@@ -33,7 +32,6 @@ class CategoriesController extends AppController {
             $this->set('categories', $categories);
         }
     }
-
 
 /**
  * view method

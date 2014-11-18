@@ -30,8 +30,8 @@
                 ?>
             </p>
                 <p>
-            <?php 
-               echo $this->Form->file('Foto',array('class'=>'form-control'));
+           <?php 
+              echo $this->Upload->edit('Usuario', $this->Form->fields['Usuario.id']);
             ?>
                   </p>
            

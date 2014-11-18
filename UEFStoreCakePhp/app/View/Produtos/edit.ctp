@@ -8,7 +8,7 @@
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
-         	echo $this->Form->file('Foto_Video',array('label'=>'Foto/Video:', 'class'=>'form-control'));
+         	echo $this->Upload->edit('Produto', $this->Form->fields['Produto.id']);
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
          ?>
          <p><?php

@@ -24,8 +24,6 @@ class ProdutosController extends AppController {
 		$this->Produto->recursive = 0;
 		$this->set('produtos', $this->Paginator->paginate());
 	}
-
-
 	public function indexView() {
         $produtos = $this->paginate();
         if ($this->request->is('requested')) {   //Se for requisição de outra view/element:

@@ -6,6 +6,7 @@ App::uses('AppModel', 'Model');
  * @property Usuario $Usuario
  * @property Category $Category
  * @property Comentario $Comentario
+ * @property Negociacao $Negociacao
  * @property Report $Report
  */
 class Produto extends AppModel {
@@ -39,26 +40,6 @@ class Produto extends AppModel {
 		'Preco' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'Data_Publicacao' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'Data_Vencimento' => array(
-			'date' => array(
-				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -130,6 +111,19 @@ class Produto extends AppModel {
 	public $hasMany = array(
 		'Comentario' => array(
 			'className' => 'Comentario',
+			'foreignKey' => 'produto_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Negociacao' => array(
+			'className' => 'Negociacao',
 			'foreignKey' => 'produto_id',
 			'dependent' => false,
 			'conditions' => '',

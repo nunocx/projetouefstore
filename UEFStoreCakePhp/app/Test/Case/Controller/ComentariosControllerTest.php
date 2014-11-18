@@ -16,9 +16,10 @@ class ComentariosControllerTest extends ControllerTestCase {
 		'app.comentario',
 		'app.usuario',
 		'app.produto',
-		'app.categor',
+		'app.category',
 		'app.servico',
-		'app.report'
+		'app.report',
+		'app.terceiro'
 	);
 
 /**

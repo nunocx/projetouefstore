@@ -13,15 +13,7 @@ class MensagemsControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.mensagem',
-		'app.administrador',
-		'app.anuncioterceiro',
-		'app.category',
-		'app.produto',
-		'app.usuario',
-		'app.comentario',
-		'app.servico',
-		'app.report'
+		'app.mensagem'
 	);
 
 /**

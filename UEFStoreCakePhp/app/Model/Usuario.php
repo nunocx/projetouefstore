@@ -4,9 +4,11 @@ App::uses('AppModel', 'Model');
  * Usuario Model
  *
  * @property Comentario $Comentario
+ * @property Negociacao $Negociacao
  * @property Produto $Produto
  * @property Report $Report
  * @property Servico $Servico
+ * @property Terceiro $Terceiro
  */
 class Usuario extends AppModel {
 
@@ -56,9 +58,9 @@ class Usuario extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'Data_Nascimento' => array(
-			'date' => array(
-				'rule' => array('date'),
+		'Sexo' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -66,9 +68,9 @@ class Usuario extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'Sexo' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+		'regra' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -88,6 +90,19 @@ class Usuario extends AppModel {
 	public $hasMany = array(
 		'Comentario' => array(
 			'className' => 'Comentario',
+			'foreignKey' => 'usuario_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Negociacao' => array(
+			'className' => 'Negociacao',
 			'foreignKey' => 'usuario_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -127,6 +142,19 @@ class Usuario extends AppModel {
 		),
 		'Servico' => array(
 			'className' => 'Servico',
+			'foreignKey' => 'usuario_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Terceiro' => array(
+			'className' => 'Terceiro',
 			'foreignKey' => 'usuario_id',
 			'dependent' => false,
 			'conditions' => '',

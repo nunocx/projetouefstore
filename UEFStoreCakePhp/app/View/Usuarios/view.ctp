@@ -29,6 +29,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
+  <?php echo 'Suas Fotos';
+	echo $this->Upload->view('Usuario', $usuario['Usuario']['id']);
+
+			 ?>
                             </div>
                             <!-- /.table-responsive -->
                         </div>

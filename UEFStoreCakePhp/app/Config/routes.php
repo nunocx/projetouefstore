@@ -35,7 +35,9 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
-
+// AJAX Multi Upload plugin
+//Router::connect('/:subdomain/ajax_multi_upload/:controller', array('plugin' => 'ajax_multi_upload'), $ops);
+//Router::connect('/:subdomain/ajax_multi_upload/:controller/:action/*', array('plugin' => 'ajax_multi_upload'), $ops);
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.

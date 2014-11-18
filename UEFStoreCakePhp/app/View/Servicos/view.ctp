@@ -1,6 +1,12 @@
 <div class="servicos view">
 <h3><?php echo __('Servico'); ?></h3>
 	<dl>
+		
+		<?php echo h($servico['Servico']['Descricao']);
+			echo $this->Upload->view('Servico', $servico['Servico']['id']);
+
+			 ?>
+
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($servico['Servico']['id']); ?>
@@ -16,6 +22,8 @@
 			<?php echo h($servico['Servico']['Descricao']); ?>
 			&nbsp;
 		</dd>
+
+
 		<dt><?php echo __('Preco'); ?></dt>
 		<dd>
 			<?php echo h($servico['Servico']['Preco']); ?>

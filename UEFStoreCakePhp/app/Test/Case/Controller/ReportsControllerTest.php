@@ -18,7 +18,9 @@ class ReportsControllerTest extends ControllerTestCase {
 		'app.usuario',
 		'app.comentario',
 		'app.servico',
-		'app.category'
+		'app.category',
+		'app.terceiro',
+		'app.negociacao'
 	);
 
 /**

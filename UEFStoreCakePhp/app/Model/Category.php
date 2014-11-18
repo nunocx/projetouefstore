@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Produto $Produto
  * @property Servico $Servico
+ * @property Terceiro $Terceiro
  */
 class Category extends AppModel {
 
@@ -49,6 +50,19 @@ class Category extends AppModel {
 		),
 		'Servico' => array(
 			'className' => 'Servico',
+			'foreignKey' => 'category_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Terceiro' => array(
+			'className' => 'Terceiro',
 			'foreignKey' => 'category_id',
 			'dependent' => false,
 			'conditions' => '',

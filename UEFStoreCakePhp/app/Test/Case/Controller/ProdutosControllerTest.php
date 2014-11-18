@@ -18,6 +18,7 @@ class ProdutosControllerTest extends ControllerTestCase {
 		'app.comentario',
 		'app.servico',
 		'app.category',
+		'app.terceiro',
 		'app.report'
 	);
 

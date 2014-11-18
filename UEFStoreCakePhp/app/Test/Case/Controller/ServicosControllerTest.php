@@ -18,6 +18,8 @@ class ServicosControllerTest extends ControllerTestCase {
 		'app.comentario',
 		'app.produto',
 		'app.category',
+		'app.terceiro',
+		'app.negociacao',
 		'app.report'
 	);
 
