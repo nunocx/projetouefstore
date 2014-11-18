@@ -15,10 +15,6 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator');
 
-
-
-	
-
 /**
  * index method
  *
@@ -50,7 +46,7 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function add() {
-        	if ($this->request->is('post')) {
+		if ($this->request->is('post')) {
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->request->data)) {
 				$this->Session->setFlash(__('The usuario has been saved.'));
@@ -59,7 +55,6 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
 		}
-		
 	}
 
 /**
@@ -107,5 +102,3 @@ class UsuariosController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 }
-
-  

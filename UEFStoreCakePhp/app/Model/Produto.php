@@ -19,9 +19,9 @@ class Produto extends AppModel {
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -29,19 +29,19 @@ class Produto extends AppModel {
 		'Descricao' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'Preco' => array(
 			'numeric' => array(
-				'rule' => array('decimal',2),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -49,18 +49,19 @@ class Produto extends AppModel {
 		'Data_Publicacao' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,				//'last' => false, // Stop validation after this rule
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'Data_Vencimento' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -68,18 +69,19 @@ class Produto extends AppModel {
 		'Quantidade' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,				//'last' => false, // Stop validation after this rule
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'usuario_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -87,9 +89,9 @@ class Produto extends AppModel {
 		'category_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

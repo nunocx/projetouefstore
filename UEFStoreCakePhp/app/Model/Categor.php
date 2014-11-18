@@ -1,12 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Category Model
+ * Categor Model
  *
  * @property Produto $Produto
  * @property Servico $Servico
  */
-class Category extends AppModel {
+class Categor extends AppModel {
 
 /**
  * Validation rules
@@ -14,7 +14,7 @@ class Category extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'name' => array(
+		'Nome' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -36,7 +36,7 @@ class Category extends AppModel {
 	public $hasMany = array(
 		'Produto' => array(
 			'className' => 'Produto',
-			'foreignKey' => 'category_id',
+			'foreignKey' => 'categor_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -49,7 +49,7 @@ class Category extends AppModel {
 		),
 		'Servico' => array(
 			'className' => 'Servico',
-			'foreignKey' => 'category_id',
+			'foreignKey' => 'categor_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

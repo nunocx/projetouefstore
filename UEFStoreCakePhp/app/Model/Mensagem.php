@@ -16,9 +16,9 @@ class Mensagem extends AppModel {
 		'Assunto' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -26,9 +26,9 @@ class Mensagem extends AppModel {
 		'Texto' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -36,9 +36,9 @@ class Mensagem extends AppModel {
 		'Data' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

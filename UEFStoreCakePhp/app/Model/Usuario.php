@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
  * @property Servico $Servico
  */
 class Usuario extends AppModel {
+
 /**
  * Validation rules
  *
@@ -17,10 +18,10 @@ class Usuario extends AppModel {
 	public $validate = array(
 		'Email' => array(
 			'notEmpty' => array(
-				'rule' => array('email', true),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -28,9 +29,9 @@ class Usuario extends AppModel {
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -38,9 +39,9 @@ class Usuario extends AppModel {
 		'Senha' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -48,9 +49,9 @@ class Usuario extends AppModel {
 		'Telefone1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -58,9 +59,9 @@ class Usuario extends AppModel {
 		'Data_Nascimento' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -68,15 +69,14 @@ class Usuario extends AppModel {
 		'Sexo' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

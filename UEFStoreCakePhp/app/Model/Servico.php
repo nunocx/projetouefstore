@@ -19,10 +19,9 @@ class Servico extends AppModel {
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
-
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -30,9 +29,9 @@ class Servico extends AppModel {
 		'Descricao' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -40,9 +39,9 @@ class Servico extends AppModel {
 		'Preco' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -50,9 +49,9 @@ class Servico extends AppModel {
 		'Data_Publicacao' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -60,9 +59,9 @@ class Servico extends AppModel {
 		'Data_Vencimento' => array(
 			'date' => array(
 				'rule' => array('date'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -70,9 +69,9 @@ class Servico extends AppModel {
 		'usuario_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -80,9 +79,9 @@ class Servico extends AppModel {
 		'category_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Campo deve ser preenchido obrigatóriamente.',
-				'allowEmpty' => false,
-				'required' => true,
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

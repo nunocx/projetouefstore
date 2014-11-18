@@ -34,9 +34,8 @@ img.top{
 }
 img.product{
 	max-width:40%;
-	display: block;
-    margin-left: auto;
-    margin-right: auto
+	float: left;
+    
 }
 /*end reset*/
 @font-face {
@@ -66,7 +65,7 @@ h4.header{
 	font-size: 22px;
 }
 .header {
-	background: #1A695C;
+	background: #CCCCCC;
 	padding:20px 0;
 }
 .header_top {
@@ -154,8 +153,8 @@ h4.header{
 	position: relative;
 	left: 980px;
 	/* background: #49c5bf; */
-	width: 300px;
-	height: 50px;
+	/*width: 300px;*/
+	height: 5px;
 }
 
 

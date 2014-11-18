@@ -1,21 +1,11 @@
 
 <div class="navigation">
 <div class="Caixa_Login">
-	<form class="form-group" method="post" action="">
-	
-        <?php echo $this->Form->input('Login',array('class'=>'form-group')); ?>
-        <?php echo $this->Form->input('Password',array('class'=>'form-group', 'type'=>'password')); ?>
-        <button type="submit" class="btn btn-default">Entrar</button>
-        <a class="btn btn-default" href="<?php echo $this->Html->url('/usuarios/add', true)?>">Cadastre-se</a>
-
-        
-        <?php echo $this->Form->end(); ?>
-       
-
 		
-     </form>
-
-
+		<?php echo $this->Html->link('Login','/login', array('class' => 'link'));?>
+		or
+        <?php echo $this->Html->link('Sign up','/usuarios/add',	array('class' => 'link'));?>
+        
 </div>
 <?php echo $this->Html->image('logo.png');?>
 
