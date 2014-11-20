@@ -66,18 +66,18 @@ class ComentariosController extends AppController {
 		$this->set(compact('usuarios', 'servicos', 'produtos'));	
 	}
 	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
-		//$this->request->data['Comentario']['servico_id'] = $id_serv;
-		//$this->request->data['Comentario']['produto_id'] = $id_prod;
-		//$this->request->data['Comentario']['usuario_id'] = $id_user;
-		if($id_serv != null)
-		echo $id_user .$id_prod .$id_serv;
-		
+			$this->request->data['Comentario']['produto_id'] = $id_prod;
+			$this->request->data['Comentario']['servico_id'] = $id_serv;
+			$this->request->data['Comentario']['usuario_id'] = $id_user;
+				//debug($this->request->data) or die ();
 		if ($this->request->is('post')) {
 			$this->Comentario->create();
+	
 			if ($this->Comentario->save($this->request->data)) {
 				$this->Session->setFlash(__('The comentario has been saved.'));
 				return $this->redirect(array('action' => 'index'));
-			} else {
+			}
+			 else {
 				$this->Session->setFlash(__('The comentario could not be saved. Please, try again.'));
 			}
 		}

@@ -15,48 +15,24 @@ $servicos = $this->requestAction('servicos/index');
  				<th><?php echo __('Negociações'); ?></th>
  				<th><?php echo __('Comentar'); ?></th>
  			</tr>
- 			<tr>
-
-	 			<?php 
-	 			
-	 			foreach ($negociacao as $negociacaos): 
-						$id = $usuarios['Usuario']['id'];
-							//debug($usuarios) or die ();
-						$iid = $negociacaos['Negociacao']['interessado'];
-						if( $id == $iid ):
-						?>
-				 				<?php 
-				 					 
-								foreach ($produtos as $produto) :?>
-								 <td>
-								 <?php	if($negociacaos['Negociacao']['produto_id'] == $produto['Produto']['id'])
-									 	echo $produto['Produto']['name']; ?> 
-								 </td>
-								 		<?php
-								 			$r = 0;
-									 		foreach ($comentarios as $comentario):
-									 		//echo 'l';
-									 		//	debug(	$comentario['Comentario']['produto_id'] . $produto['Produto']['id']	) or die();
-									 		if(($comentario['Comentario']['produto_id'] ==  $produto['Produto']['id'])) 
-									 			if ($negociacaos['Negociacao']['status'] == 0):
-									 				if($r==1)
-									 				break;
-									 		?>	
-									 			<td>
-									 				<?php	//echo $comentario['Comentario']['Texto'];
-
-									 				 echo $this->Html->link(__('Comente'), array('controller' => 'comentarios', 'action' => 'add/'.$id.'/'.$produto['Produto']['id'].'/'.NULL.'')); 
-									 				 $r =1;
-									 				?>
-
-									 			</td>
-									 			
-									 		<?php endif; 
-									 		endforeach; ?>
-									 			
-			 					<?php endforeach; ?>
-		 			<?php endif; ?>
+ 			
+ 			<!-- Achando as negociações que o usuario escolhido possue -->
+ 			<?php  	foreach ($negociacao as $negocio):  ?>
+	 		<tr>
+	 			<?php 	if ($negocio['Negociacao']['interessado'] == $usuarios['Usuario']['id'] ):  ?>	
+	 					<td> <?php echo $negocio['Negociacao']['produto_id'] ?></td>
+	 					<td>
+	 					<?php if(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['produto_id'] != null ): ?> 
+	 					<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['produto_id'].'/'.null); ?>"> Comente este produto now ! </a> </li>					
+	 					<?php elseif(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['servico_id'] != null ): ?>
+	 						<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['servico_id'].'/'.null); ?>"> Comente este produto now ! </a> </li>	
+	 					<?php else:?>
+	 						<h1> Você não tem permissão para comentar este produto. </h1>
+	 					<?php endif; ?>
+	 					</td>
+	 			<?php endif;?>
+	 		</tr>
  			<?php endforeach; ?>
- 			</tr>
+ 		
  	</table>
 
