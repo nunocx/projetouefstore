@@ -57,8 +57,10 @@ class ProdutosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Produto->create();
 			if ($this->Produto->save($this->request->data)) {
-				$this->Session->setFlash(__('The produto has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//$this->Session->setFlash(__('The produto has been saved.'));
+
+				$id_ = $this->Produto->id;
+				return $this->redirect(array('action' => 'etapa2/'.$id_));
 			} else {
 				$this->Session->setFlash(__('The produto could not be saved. Please, try again.'));
 			}
@@ -66,6 +68,22 @@ class ProdutosController extends AppController {
 		$usuarios = $this->Produto->Usuario->find('list');
 		$categories = $this->Produto->Category->find('list');
 		$this->set(compact('usuarios', 'categories'));
+	}
+	public function etapa2($id = null) {
+		if (!$this->Produto->exists($id)) {
+			throw new NotFoundException(__('Invalid Produto'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Produto->save($this->request->data)) {
+				$this->Session->setFlash(__('Produto foi salvo'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Houve um erro, tente novamente.'));
+			}
+		} else {
+			$options = array('conditions' => array('Produto.' . $this->Produto->primaryKey => $id));
+			$this->request->data = $this->Produto->find('first', $options);
+		}
 	}
 
 /**
@@ -76,6 +94,7 @@ class ProdutosController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		
 		if (!$this->Produto->exists($id)) {
 			throw new NotFoundException(__('Invalid produto'));
 		}

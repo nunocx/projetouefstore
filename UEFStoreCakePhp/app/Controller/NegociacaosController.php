@@ -25,6 +25,15 @@ class NegociacaosController extends AppController {
 		$this->set('negociacaos', $this->Paginator->paginate());
 	}
 
+	public function negocios() {
+        $negociacao = $this->paginate();
+        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+            return $negociacao;
+        } else {  //Senão envia para a view padrão
+            $this->set('negociacaos', $negociacao);
+        }
+    }
+
 /**
  * view method
  *

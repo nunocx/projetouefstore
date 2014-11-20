@@ -20,11 +20,15 @@ class TerceirosController extends AppController {
  *
  * @return void
  */
-	public function index() {
-		$this->Terceiro->recursive = 0;
-		$this->set('terceiros', $this->Paginator->paginate());
-	}
-
+public function index() {
+			
+			$terceiros = $this->paginate();
+	        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+	            return $terceiros;
+	        } else {  //Senão envia para a view padrão
+	            $this->set('terceiros', $terceiros);
+	        }
+		}
 /**
  * view method
  *

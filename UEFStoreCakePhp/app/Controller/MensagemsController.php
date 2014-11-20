@@ -20,10 +20,15 @@ class MensagemsController extends AppController {
  *
  * @return void
  */
-	public function index() {
-		$this->Mensagem->recursive = 0;
-		$this->set('mensagems', $this->Paginator->paginate());
-	}
+		public function index() {
+			
+			$mensagems = $this->paginate();
+	        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+	            return $mensagems;
+	        } else {  //Senão envia para a view padrão
+	            $this->set('mensagems', $mensagems);
+	        }
+		}
 
 /**
  * view method

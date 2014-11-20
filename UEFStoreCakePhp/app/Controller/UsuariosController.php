@@ -24,11 +24,6 @@ class UsuariosController extends AppController {
 		$this->Usuario->recursive = 0;
 		$this->set('usuarios', $this->Paginator->paginate());
 	}
-	public function negociacoes()
-	{
-			$this->Usuario->recursive = 0;
-		$this->set('usuarios', $this->Paginator->paginate());
-	}
 
 /**
  * view method
@@ -45,6 +40,13 @@ class UsuariosController extends AppController {
 		$this->set('usuario', $this->Usuario->find('first', $options));
 	}
 
+	public function negocios($id = null) {
+      
+        $options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+		$this->set('usuarios', $this->Usuario->find('first', $options));
+
+    }
+
 /**
  * add method
  *
@@ -54,8 +56,10 @@ class UsuariosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash(__('The usuario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//$this->Session->setFlash(__('The usuario has been saved.'));
+				
+				 $id_= $this->Usuario->id;
+				return $this->redirect(array('action' => 'etapa2/'.$id_));
 			} else {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
@@ -78,7 +82,23 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash(__('The usuario has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Os dados nao foram editados.'));
+			}
+		} else {
+			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+			$this->request->data = $this->Usuario->find('first', $options);
+		}
+	}
+	public function etapa2($id = null) {
+		if (!$this->Usuario->exists($id)) {
+			throw new NotFoundException(__('Invalid usuario'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Usuario->save($this->request->data)) {
+				$this->Session->setFlash(__('Usuario foi salvo'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Houve um erro, tente novamente. Edite seu perfil.'));
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));

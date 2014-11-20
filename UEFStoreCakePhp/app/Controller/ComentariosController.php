@@ -21,8 +21,13 @@ class ComentariosController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Comentario->recursive = 0;
-		$this->set('comentarios', $this->Paginator->paginate());
+		
+		$comentario = $this->paginate();
+        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+            return $comentario;
+        } else {  //Senão envia para a view padrão
+            $this->set('comentarios', $comentario);
+        }
 	}
 
 /**
@@ -58,8 +63,30 @@ class ComentariosController extends AppController {
 		$usuarios = $this->Comentario->Usuario->find('list');
 		$servicos = $this->Comentario->Servico->find('list');
 		$produtos = $this->Comentario->Produto->find('list');
-		$this->set(compact('usuarios', 'servicos', 'produtos'));
+		$this->set(compact('usuarios', 'servicos', 'produtos'));	
 	}
+	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
+		//$this->request->data['Comentario']['servico_id'] = $id_serv;
+		//$this->request->data['Comentario']['produto_id'] = $id_prod;
+		//$this->request->data['Comentario']['usuario_id'] = $id_user;
+		if($id_serv != null)
+		echo $id_user .$id_prod .$id_serv;
+		
+		if ($this->request->is('post')) {
+			$this->Comentario->create();
+			if ($this->Comentario->save($this->request->data)) {
+				$this->Session->setFlash(__('The comentario has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The comentario could not be saved. Please, try again.'));
+			}
+		}
+		$usuarios = $this->Comentario->Usuario->find('list');
+		$servicos = $this->Comentario->Servico->find('list');
+		$produtos = $this->Comentario->Produto->find('list');
+		$this->set(compact('usuarios', 'servicos', 'produtos'));	
+	}
+
 
 /**
  * edit method

@@ -25,7 +25,14 @@
                                             <td><?php echo h($usuario['Usuario']['Telefone2']); ?>&nbsp;</td>
                                             <td><?php echo h($usuario['Usuario']['Sexo']); ?>&nbsp;</td>
                                             <td><?php echo (h($usuario['Usuario']['VotosPositivos'])+h($usuario['Usuario']['VotosNegativos']))/2; ?></td>
-                                        	<td> <?php echo h($usuario['Usuario']['Foto']); ?>&nbsp;</td>
+                                        	<td> 
+                                        		 <!--- comando para poder ver a IMG -->
+
+		  <?php 
+		  	echo $this->Upload->view('Usuario', $usuario['Usuario']['id']);
+		  ?>
+
+                                        	&nbsp;</td>
                                         </tr>
                                     </tbody>
                                 </table>

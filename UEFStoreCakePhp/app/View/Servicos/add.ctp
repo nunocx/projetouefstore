@@ -1,12 +1,13 @@
 <div class="servicos form">
-<?php echo $this->Form->create('Servico'); ?>
+<?php echo $this->Form->create('Servico',array('type' => 'file')); ?>
 	<fieldset>
 		<legend><h3><?php echo __('Cadastrar Serviço'); ?></h3></legend>
 	<div class="form-group">
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
-         	echo $this->Form->file('Foto_Video',array('label'=>'Foto/Video:', 'class'=>'form-control'));
+         	
+         	
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
          	echo $this->Form->hidden('ACombinar',array('label'=>'Preço a combinar', 'class'=>'form-control'));
          ?>

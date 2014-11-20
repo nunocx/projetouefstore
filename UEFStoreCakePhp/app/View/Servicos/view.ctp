@@ -41,7 +41,12 @@
 		</dd>
 		<dt><?php echo __('Foto Video'); ?></dt>
 		<dd>
-			<?php echo h($servico['Servico']['Foto_Video']); ?>
+			
+			 <!--- comando para poder ver a IMG -->
+
+		  <?php 
+		  	echo $this->Upload->view('Servico', $servico['Servico']['id']);
+		  ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Bloqueado'); ?></dt>
