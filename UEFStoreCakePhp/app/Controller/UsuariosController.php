@@ -24,6 +24,11 @@ class UsuariosController extends AppController {
 		$this->Usuario->recursive = 0;
 		$this->set('usuarios', $this->Paginator->paginate());
 	}
+	public function negociacoes()
+	{
+			$this->Usuario->recursive = 0;
+		$this->set('usuarios', $this->Paginator->paginate());
+	}
 
 /**
  * view method
