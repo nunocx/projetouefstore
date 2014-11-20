@@ -1,9 +1,10 @@
+DROP DATABASE IF EXISTS `u961758316_uefs` ;
 -- phpMyAdmin SQL Dump
 -- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Nov-2014 às 16:26
+-- Generation Time: 21-Nov-2014 às 00:40
 -- Versão do servidor: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -57,12 +58,12 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `comentarios` (
 `id` int(11) NOT NULL,
-  `Data` date NOT NULL,
+  `Data` date DEFAULT NULL,
   `Texto` text NOT NULL,
-  `usuario_id` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
   `servico_id` int(11) DEFAULT NULL,
   `produto_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=116 ;
 
 --
 -- Extraindo dados da tabela `comentarios`
@@ -170,7 +171,20 @@ INSERT INTO `comentarios` (`id`, `Data`, `Texto`, `usuario_id`, `servico_id`, `p
 (99, '0000-00-00', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus', 11, 8, 13),
 (100, '0000-00-00', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing', 69, 11, 19),
 (101, '0000-00-00', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', 17, 46, 43),
-(102, '0000-00-00', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.', 79, 49, 4);
+(102, '0000-00-00', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.', 79, 49, 4),
+(103, '0000-00-00', 'a', 1, NULL, 8),
+(104, '0000-00-00', '11', 1, NULL, 8),
+(105, '2014-11-20', '112', 1, NULL, 8),
+(106, '2014-11-20', 'assaas', 1, NULL, 8),
+(107, '2014-01-01', 'daa caa', 1, NULL, 8),
+(108, '2014-11-20', 'asa', 1, NULL, 8),
+(109, '2014-11-20', 'sdasda', 1, NULL, 8),
+(110, '2014-11-20', 'sadsad', 2, NULL, 40),
+(111, NULL, '1', 2, NULL, 40),
+(112, NULL, '1', 2, NULL, 40),
+(113, NULL, 'dadsa', 2, NULL, 40),
+(114, NULL, 'dasda', 1, NULL, 8),
+(115, NULL, 'asdasda', 1, NULL, 25);
 
 -- --------------------------------------------------------
 
@@ -217,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `negociacaos` (
   `interessado` int(11) DEFAULT NULL,
   `data_final` date DEFAULT NULL,
   `status` int(11) DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=105 ;
 
 --
 -- Extraindo dados da tabela `negociacaos`
@@ -325,7 +339,9 @@ INSERT INTO `negociacaos` (`id`, `usuario_id`, `produto_id`, `servico_id`, `inte
 (99, 52, 44, 35, 1, '0000-00-00', 2),
 (100, 78, 11, 10, 2, '0000-00-00', 2),
 (101, 25, 31, 17, 1, '0000-00-00', 2),
-(102, 29, 31, 50, 2, '0000-00-00', 1);
+(102, 29, 31, 50, 2, '0000-00-00', 1),
+(103, 1, 1, 1, 1, '2014-12-04', 0),
+(104, 22, 20, 2, 1, '2014-12-04', 0);
 
 -- --------------------------------------------------------
 
@@ -347,14 +363,14 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `CondicaoUso` text,
   `usuario_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=103 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=114 ;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `Data_Vencimento`, `Quantidade`, `Foto_Video`, `Bloqueado`, `Expirado`, `CondicaoUso`, `usuario_id`, `category_id`) VALUES
-(1, 'sdasda', 'dsadadsa', 1212, '2014-11-19', '2014-11-19', 1, NULL, 0, 0, '', 1, 1),
+(1, 'sdasda', 'dsadadsa', 1212, '2014-11-19', '2014-11-19', 1, NULL, 0, 0, '', 1, 2),
 (2, 'asksaso', 'oskaoaskoas', 111, '2014-11-20', '2014-11-20', 11, NULL, 0, 0, '', 1, 1),
 (3, 'Suspendisse', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing', 9.47, '2008-11-14', '2017-11-14', 994, NULL, 2, 2, 'Lorem', 79, 2),
 (4, 'accumsan', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et', 9.09, '2010-08-14', '2021-10-14', 81, NULL, 2, 1, 'Lorem ipsum dolor', 8, 4),
@@ -455,7 +471,18 @@ INSERT INTO `produtos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `
 (99, 'ullamcorper', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.', 5.08, '2011-04-14', '2026-09-14', 412, NULL, 1, 1, 'Lorem ipsum dolor', 65, 9),
 (100, 'Integer', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing', 7.64, '2017-10-14', '2029-01-14', 720, NULL, 1, 1, 'Lorem ipsum', 22, 8),
 (101, 'enim.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.', 5.82, '2001-04-14', '2012-09-14', 798, NULL, 2, 2, 'Lorem ipsum dolor', 86, 8),
-(102, 'semper', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.', 6.41, '2006-01-14', '2018-05-14', 25, NULL, 1, 2, 'Lorem ipsum', 81, 2);
+(102, 'semper', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.', 6.41, '2006-01-14', '2018-05-14', 25, NULL, 1, 2, 'Lorem ipsum', 81, 2),
+(103, 'asas', 'sada', 1212, '2014-11-20', '2014-11-20', 1221, NULL, 0, 0, '', 1, 2),
+(104, 'asask', 'ppslpsa', 1111111, '2014-11-20', '0000-00-00', 11, NULL, 0, 0, '', 1, 2),
+(105, 'assaok', 'sakoasko', 11, '2014-11-20', '2014-11-20', 11, NULL, 0, 0, '', 1, 2),
+(106, 'askaok', 'skaosako', 11000, '2014-11-01', '2015-01-01', 1, NULL, 0, 0, '', 1, 2),
+(107, 'sadd', 'sadada', 11, NULL, '2014-12-20', 111, NULL, 0, 0, '', 1, 2),
+(108, '121', '121', 11, '2014-11-20', '2014-12-20', 11, NULL, 0, 0, '', 1, 2),
+(109, '121', '121', 11, '2014-11-20', '2014-12-20', 11, NULL, 0, 0, '', 1, 2),
+(110, '121w', '121w', 111, '2014-11-20', '2014-12-20', 11, NULL, 0, 0, '', 1, 2),
+(111, '212', '1212', 12, '2014-11-20', '2014-12-20', 21, NULL, 0, 0, '', 1, 2),
+(112, 'aa', 'aa', 11, '2014-11-20', '2014-12-20', 11, NULL, 0, 0, '', 1, 2),
+(113, '11', '11', 11, '2014-11-20', '2014-12-20', 11, NULL, 0, 0, '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -517,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `ACombinar` int(11) DEFAULT '0',
   `usuario_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
 -- Extraindo dados da tabela `servicos`
@@ -609,7 +636,9 @@ INSERT INTO `servicos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `
 (83, 'nisl', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 8.2, '2013-09-14', '2014-01-15', NULL, 2, 2, 1, 8, 4),
 (84, 'mattis', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 8.72, '2017-05-14', '2003-08-14', NULL, 2, 1, 1, 24, 2),
 (85, 'Duis', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna', 6.16, '2025-10-14', '2021-12-14', NULL, 2, 1, 2, 82, 3),
-(86, 'nisi.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus', 2.83, '2003-05-14', '2011-10-14', NULL, 1, 1, 2, 100, 8);
+(86, 'nisi.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus', 2.83, '2003-05-14', '2011-10-14', NULL, 1, 1, 2, 100, 8),
+(87, 'sadda', 'dada', 11111, '2014-11-20', '2014-11-20', NULL, 0, 0, NULL, 1, 2),
+(88, 'asda', 'sada', 111, '2014-11-20', '2014-12-20', NULL, 0, 0, NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -656,14 +685,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `hash_change_password` varchar(255) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `role`, `hash_change_password`, `created`, `modified`) VALUES
-(1, 'ArthurHagnês', '4ea29bda296b03619d0e5214dbc2648881720689', 'arthur@hotmail.com', NULL, 'admin', 'fc7fc56609a46d3dfe8356983f2d4a8446582f2286e2b5dd57da5881f78652b8', '2014-11-20 13:50:03', '2014-11-20 14:18:40');
+(1, 'ArthurHagnês', '4ea29bda296b03619d0e5214dbc2648881720689', 'arthur@hotmail.com', NULL, 'admin', 'fc7fc56609a46d3dfe8356983f2d4a8446582f2286e2b5dd57da5881f78652b8', '2014-11-20 13:50:03', '2014-11-20 14:18:40'),
+(2, 'admin', 'afebb4a30fffa1f413fd3045a5646d1fad3bd17a', 'admin@hotmail.com', NULL, 'admin', NULL, '2014-11-21 00:40:05', '2014-11-21 00:40:05');
 
 -- --------------------------------------------------------
 
@@ -686,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `VotosPositivos` int(11) DEFAULT '0',
   `VotosNegativos` int(11) DEFAULT '0',
   `regra` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -800,7 +830,12 @@ INSERT INTO `usuarios` (`id`, `Email`, `name`, `Senha`, `Telefone1`, `Data_Nasci
 (107, 'augue@aliquetodioEtiam.com', 'Maxwell', 'ZTV35AUI1DT', '(207) 819-5832', '0000-00-00', 'M', '(789) 194-8288', NULL, 2, 0, 0, 0, 1),
 (108, 'pede.et@nibh.co.uk', 'Brooke', 'CHX32TAC1BP', '(398) 367-5168', '0000-00-00', 'F', '(946) 194-8101', NULL, 1, 0, 0, 0, 1),
 (109, 'dapibus@temporbibendum.com', 'Paki', 'ONA35RNV9DM', '(950) 214-0461', '0000-00-00', 'F', '(517) 184-1664', NULL, 3, 0, 0, 0, 1),
-(110, 'vitae.risus@sit.net', 'Jacqueline', 'VXZ46LQR5OM', '(271) 991-4145', '0000-00-00', 'F', '(423) 724-5672', NULL, 3, 0, 0, 0, 1);
+(110, 'vitae.risus@sit.net', 'Jacqueline', 'VXZ46LQR5OM', '(271) 991-4145', '0000-00-00', 'F', '(423) 724-5672', NULL, 3, 0, 0, 0, 1),
+(111, 'lol@hotmial.com', 'sdaasa', 'oksaoskok', 'oksaoskoak', '2014-11-20', 'M', 'dsadads', NULL, 0, 0, 0, 0, 0),
+(112, 'losssl@hotmial.com', 'sdaasa', 'oksaoskok', 'oksaoskoakd', '2014-11-20', 'M', 'dsadads', NULL, 0, 0, 0, 0, 0),
+(113, 'sadsadsasdas', 'adsa', 'adsdasd', 'dassdasda', '2014-11-20', 'M', 'assadadsa', NULL, 0, 0, 0, 0, 0),
+(115, 'aaaaaaaa@hotdmail.com', 'asoksaokaso', '111', '11111', '2014-11-20', 'M', '1111', NULL, 0, 0, 0, 0, 0),
+(116, 'sadasdasdadsad', 'sadadsasdasda', 'dsasdadasdasd', 'adsasdasdasdad', '2014-11-20', 'M', 'asdadasdadsasdada', NULL, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -879,7 +914,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=103;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=116;
 --
 -- AUTO_INCREMENT for table `mensagems`
 --
@@ -889,12 +924,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 -- AUTO_INCREMENT for table `negociacaos`
 --
 ALTER TABLE `negociacaos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=103;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=103;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=114;
 --
 -- AUTO_INCREMENT for table `reports`
 --
@@ -904,7 +939,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 -- AUTO_INCREMENT for table `servicos`
 --
 ALTER TABLE `servicos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `terceiros`
 --
@@ -914,12 +949,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=111;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=117;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
