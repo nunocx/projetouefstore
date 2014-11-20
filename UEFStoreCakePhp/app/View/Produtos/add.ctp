@@ -11,14 +11,18 @@
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
          ?>
          <p><?php
-			echo $this->Form->input('Data_Publicacao',array(
+		         //$timestamp = strtotime('0');
+		         
+			echo $this->Form->hidden('Data_Publicacao',array('disable'=>'true',
 							 'label' => 'Data de Publicação:',
 							'dateFormat' => 'DMY'
                            , 'minYear' => date('Y') - 90
                            , 'maxYear' => date('Y') - 0 ));?>
 		</p>
 		<p><?php
-			echo $this->Form->input('Data_Vencimento',array(
+					
+
+			echo $this->Form->hidden('Data_Vencimento',array('disable'=>'true',
 							 'label' => 'Data de Vencimento:',
 							'dateFormat' => 'DMY'
                            , 'minYear' => date('Y') - 90

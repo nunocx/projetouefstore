@@ -54,8 +54,26 @@ class ProdutosController extends AppController {
  * @return void
  */
 	public function add() {
+
+
+	
+					//echo date('d', $timestamp); 
 		if ($this->request->is('post')) {
+			
+			$this->request->data['Produto']['Data_Publicacao']['day'] = date('d');
+			$this->request->data['Produto']['Data_Publicacao']['month'] = date('m');
+			$this->request->data['Produto']['Data_Publicacao']['year'] = date('Y');	
+				$timestamp = strtotime("+30 days");
+			$this->request->data['Produto']['Data_Vencimento']['day'] = date('d', $timestamp);
+			$this->request->data['Produto']['Data_Vencimento']['month'] = date('m', $timestamp);
+			$this->request->data['Produto']['Data_Vencimento']['year'] = date('Y', $timestamp);	
+			
 			$this->Produto->create();
+			
+			
+
+			//echo date('d', $timestamp).'/'.date('m', $timestamp).'/'.date('Y', $timestamp);
+			//debug($this->request->data['Produto']['Data_Vencimento'])or die ();
 			if ($this->Produto->save($this->request->data)) {
 				//$this->Session->setFlash(__('The produto has been saved.'));
 

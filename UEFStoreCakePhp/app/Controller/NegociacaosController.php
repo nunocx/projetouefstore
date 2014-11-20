@@ -56,7 +56,35 @@ class NegociacaosController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Negociacao->create();
+
+				$timestamp = strtotime("+14 days");
+			$this->request->data['Negociacao']['data_final']['day'] = date('d', $timestamp);
+			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
+			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
+
+				$this->Negociacao->create();
+			if ($this->Negociacao->save($this->request->data)) {
+				$this->Session->setFlash(__('The negociacao has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The negociacao could not be saved. Please, try again.'));
+			}
+		}
+		$usuarios = $this->Negociacao->Usuario->find('list');
+		$produtos = $this->Negociacao->Produto->find('list');
+		$servicos = $this->Negociacao->Servico->find('list');
+		$this->set(compact('usuarios', 'produtos', 'servicos'));
+	}
+	public function adds($userI =null, $userV = null, $serv=null,$prod=null) {
+		
+		if ($this->request->is('post')) {
+
+				$timestamp = strtotime("+14 days");
+			$this->request->data['Negociacao']['data_final']['day'] = date('d', $timestamp);
+			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
+			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
+
+				$this->Negociacao->create();
 			if ($this->Negociacao->save($this->request->data)) {
 				$this->Session->setFlash(__('The negociacao has been saved.'));
 				return $this->redirect(array('action' => 'index'));
