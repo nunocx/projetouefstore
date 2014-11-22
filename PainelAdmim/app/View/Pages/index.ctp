@@ -18,7 +18,7 @@
 					</div>
 					<div class="col-xs-6 text-right">
 						<p class="announcement-heading"><?php echo $users_count?></p>
-						<p class="announcement-text"> Admins </p>
+						<p class="announcement-text"> Admin </p>
 					</div>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="#">
+			<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios');?>">
 				<div class="panel-footer announcement-bottom">
 					<div class="row">
 						<div class="col-xs-6">

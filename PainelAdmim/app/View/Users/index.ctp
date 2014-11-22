@@ -1,7 +1,18 @@
+<?php
+$breadcrumb = array(
+  array(
+    'label' => 'Home',
+    'link'  => '/'
+  ),array (
+    'label' => 'Lista Admins'
+  )
+);
+echo $this->element('breadcrumb',array('links' => $breadcrumb));
+?>
 <div class="row">
   <div class="col-lg-10"><h3><?php echo __('Users')?></h3></div>
   <div class="col-lg-2">
-    <?php echo $this->Html->link(__('Add User'),'/users/add',array('class' => 'btn btn-default pull-right','style' => 'margin-top: 15px')) ?>
+    <?php echo $this->Html->link(__('Adicionar Admin'),'/users/add',array('class' => 'btn btn-default pull-right','style' => 'margin-top: 15px')) ?>
   </div>
 </div>
 
@@ -61,7 +72,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __('Cancel') ?></button>
-        <?php echo $this->Html->link(__('Delete'),'/users/delete/#{uid}',array('class' => 'btn btn-danger delete-user-link')) ?>
+        <?php echo $this->Html->link(__('Delete'),'/users/delete/'.$user['User']['id'],array('class' => 'btn btn-danger delete-user-link')) ?>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

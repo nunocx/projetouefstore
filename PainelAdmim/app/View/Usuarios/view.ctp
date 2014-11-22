@@ -1,352 +1,142 @@
+<?php
+$breadcrumb = array(
+	array(
+		'label' => 'Home',
+		'link'	=> '/'
+	),array (
+		'label' => 'Busca usuarios',
+		'link'	=> '/usuarios'
+	),
+	array (
+		'label' => 'Vizualizar usuario'
+	)
+);
+
+echo $this->element('breadcrumb',array('links' => $breadcrumb));
+
+?>
+
 <div class="usuarios view">
-<h2><?php echo __('Usuario'); ?></h2>
+<h3><?php echo __('Usuario:&nbsp;&nbsp;&nbsp;'. $usuario['Usuario']['name']); ?></h3>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Email'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Senha'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Senha']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Telefone1'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Telefone1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Nascimento'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Data_Nascimento']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Sexo'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Sexo']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Telefone2'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Telefone2']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Foto'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Foto']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Strikes'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Strikes']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Status'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['Status']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('VotosPositivos'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['VotosPositivos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('VotosNegativos'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['VotosNegativos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Regra'); ?></dt>
-		<dd>
-			<?php echo h($usuario['Usuario']['regra']); ?>
-			&nbsp;
-		</dd>
+
+		<dt><?php echo __('Email: '.$usuario['Usuario']['Email']); ?></dt>
+		<dt><?php echo __('Senha: '.$usuario['Usuario']['Senha']); ?></dt>
+		<dt><?php echo __('Telefone: '.$usuario['Usuario']['Telefone1']); ?></dt>
+		<dt><?php echo __('Telefone: '.$usuario['Usuario']['Telefone2']); ?></dt>
+		<dt><?php echo __('Data Nascimento: '.$usuario['Usuario']['Data_Nascimento']); ?></dt>
+		<dt><?php echo __('Sexo: '.$usuario['Usuario']['Sexo']); ?></dt>
+		<dt><?php echo __('Strikes: '.$usuario['Usuario']['Strikes']); ?></dt>
+		<dt><?php echo __('Reputação: '.($usuario['Usuario']['VotosPositivos']+$usuario['Usuario']['VotosNegativos'])/2 ); ?></dt>
+		<?php if( $usuario['Usuario']['regra']  == 3)
+				$regra = 'Bloqueado';
+			else
+				$regra = 'Usuario';
+		?>
+		<dt><?php echo __('Regra: '.$regra ); ?></dt>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Usuario'), array('action' => 'edit', $usuario['Usuario']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Usuario'), array('action' => 'delete', $usuario['Usuario']['id']), array(), __('Are you sure you want to delete # %s?', $usuario['Usuario']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Usuarios'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Negociacaos'), array('controller' => 'negociacaos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Negociacao'), array('controller' => 'negociacaos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Produtos'), array('controller' => 'produtos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Produto'), array('controller' => 'produtos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Servicos'), array('controller' => 'servicos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Servico'), array('controller' => 'servicos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Terceiros'), array('controller' => 'terceiros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Terceiro'), array('controller' => 'terceiros', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Comentarios'); ?></h3>
-	<?php if (!empty($usuario['Comentario'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Data'); ?></th>
-		<th><?php echo __('Texto'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Servico Id'); ?></th>
-		<th><?php echo __('Produto Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($usuario['Comentario'] as $comentario): ?>
-		<tr>
-			<td><?php echo $comentario['id']; ?></td>
-			<td><?php echo $comentario['Data']; ?></td>
-			<td><?php echo $comentario['Texto']; ?></td>
-			<td><?php echo $comentario['usuario_id']; ?></td>
-			<td><?php echo $comentario['servico_id']; ?></td>
-			<td><?php echo $comentario['produto_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'comentarios', 'action' => 'view', $comentario['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comentarios', 'action' => 'edit', $comentario['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comentarios', 'action' => 'delete', $comentario['id']), array(), __('Are you sure you want to delete # %s?', $comentario['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+	<?php echo $this->Html->link(__('Editar Usuario'),'/usuarios/edit/'. $usuario['Usuario']['id'],array('class' => 'btn btn-default pull-left','style' => 'margin-top: 15px')) ?>
+	<br/>
+	<br/>
+	<br/>
+	
 </div>
+
+
 <div class="related">
-	<h3><?php echo __('Related Negociacaos'); ?></h3>
+	<h3><?php echo __('Negocições'); ?></h3>
 	<?php if (!empty($usuario['Negociacao'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Produto Id'); ?></th>
-		<th><?php echo __('Servico Id'); ?></th>
-		<th><?php echo __('Interessado'); ?></th>
-		<th><?php echo __('Data Final'); ?></th>
-		<th><?php echo __('Status'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($usuario['Negociacao'] as $negociacao): ?>
+		<table class="table table-bordered">
 		<tr>
-			<td><?php echo $negociacao['id']; ?></td>
-			<td><?php echo $negociacao['usuario_id']; ?></td>
-			<td><?php echo $negociacao['produto_id']; ?></td>
-			<td><?php echo $negociacao['servico_id']; ?></td>
-			<td><?php echo $negociacao['interessado']; ?></td>
-			<td><?php echo $negociacao['data_final']; ?></td>
-			<td><?php echo $negociacao['status']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'negociacaos', 'action' => 'view', $negociacao['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'negociacaos', 'action' => 'edit', $negociacao['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'negociacaos', 'action' => 'delete', $negociacao['id']), array(), __('Are you sure you want to delete # %s?', $negociacao['id'])); ?>
-			</td>
+			<th><?php echo __('Usuario'); ?></th>
+			<th><?php echo __('Produto'); ?></th>
+			<th><?php echo __('Servico'); ?></th>
+			<th><?php echo __('Interessado Id'); ?></th>
+			<th><?php echo __('Data Final'); ?></th>
+			<th><?php echo __('Status'); ?></th>
 		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Negociacao'), array('controller' => 'negociacaos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+		<?php foreach ($usuario['Negociacao'] as $negociacao): ?>
+			<tr>
+				<td><?php echo $negociacao['usuario_id']; ?></td>
+				<td><?php echo $negociacao['produto_id']; ?></td>
+				<td><?php echo $negociacao['servico_id']; ?></td>
+				<td><?php echo $negociacao['interessado']; ?></td>
+				<td><?php echo $negociacao['data_final']; ?></td>
+				<td><?php echo $negociacao['status']; ?></td>
+			</tr>
+		<?php endforeach; ?>
+		</table>
+	<?php else:
+			echo'Não há negociações';
+	endif; ?>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Produtos'); ?></h3>
+	<h3><?php echo __('Produtos'); ?></h3>
 	<?php if (!empty($usuario['Produto'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Descricao'); ?></th>
 		<th><?php echo __('Preco'); ?></th>
-		<th><?php echo __('Data Publicacao'); ?></th>
-		<th><?php echo __('Data Vencimento'); ?></th>
 		<th><?php echo __('Quantidade'); ?></th>
-		<th><?php echo __('Foto Video'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th><?php echo __('Expirado'); ?></th>
-		<th><?php echo __('CondicaoUso'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Category Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo __('Usuario'); ?></th>
+		<th><?php echo __('Categoria Id'); ?></th>
+		<th class="actions"><?php echo __('Ações'); ?></th>
 	</tr>
 	<?php foreach ($usuario['Produto'] as $produto): ?>
 		<tr>
-			<td><?php echo $produto['id']; ?></td>
 			<td><?php echo $produto['name']; ?></td>
-			<td><?php echo $produto['Descricao']; ?></td>
 			<td><?php echo $produto['Preco']; ?></td>
-			<td><?php echo $produto['Data_Publicacao']; ?></td>
-			<td><?php echo $produto['Data_Vencimento']; ?></td>
 			<td><?php echo $produto['Quantidade']; ?></td>
-			<td><?php echo $produto['Foto_Video']; ?></td>
-			<td><?php echo $produto['Bloqueado']; ?></td>
-			<td><?php echo $produto['Expirado']; ?></td>
-			<td><?php echo $produto['CondicaoUso']; ?></td>
-			<td><?php echo $produto['usuario_id']; ?></td>
+			<td><?php echo $usuario['Usuario']['name']; ?></td>
 			<td><?php echo $produto['category_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'produtos', 'action' => 'view', $produto['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'produtos', 'action' => 'edit', $produto['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'produtos', 'action' => 'delete', $produto['id']), array(), __('Are you sure you want to delete # %s?', $produto['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
-<?php endif; ?>
+<?php else:
+			echo'Não há Produtos';
+			endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Produto'), array('controller' => 'produtos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Reports'); ?></h3>
-	<?php if (!empty($usuario['Report'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Texto'); ?></th>
-		<th><?php echo __('Data'); ?></th>
-		<th><?php echo __('Produto Id'); ?></th>
-		<th><?php echo __('Servico Id'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($usuario['Report'] as $report): ?>
-		<tr>
-			<td><?php echo $report['id']; ?></td>
-			<td><?php echo $report['Texto']; ?></td>
-			<td><?php echo $report['Data']; ?></td>
-			<td><?php echo $report['produto_id']; ?></td>
-			<td><?php echo $report['servico_id']; ?></td>
-			<td><?php echo $report['usuario_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'reports', 'action' => 'view', $report['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'reports', 'action' => 'edit', $report['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'reports', 'action' => 'delete', $report['id']), array(), __('Are you sure you want to delete # %s?', $report['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
 <div class="related">
-	<h3><?php echo __('Related Servicos'); ?></h3>
+	<h3><?php echo __('Serviços'); ?></h3>
 	<?php if (!empty($usuario['Servico'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table class="table table-bordered">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Descricao'); ?></th>
 		<th><?php echo __('Preco'); ?></th>
-		<th><?php echo __('Data Publicacao'); ?></th>
-		<th><?php echo __('Data Vencimento'); ?></th>
-		<th><?php echo __('Foto Video'); ?></th>
-		<th><?php echo __('Bloqueado'); ?></th>
-		<th><?php echo __('Expirado'); ?></th>
-		<th><?php echo __('ACombinar'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Category Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo __('A Combinar'); ?></th>
+		<th><?php echo __('Usuario'); ?></th>
+		<th><?php echo __('Categoria Id'); ?></th>
+		<th class="actions"><?php echo __('Ações'); ?></th>
 	</tr>
 	<?php foreach ($usuario['Servico'] as $servico): ?>
 		<tr>
-			<td><?php echo $servico['id']; ?></td>
 			<td><?php echo $servico['name']; ?></td>
-			<td><?php echo $servico['Descricao']; ?></td>
 			<td><?php echo $servico['Preco']; ?></td>
-			<td><?php echo $servico['Data_Publicacao']; ?></td>
-			<td><?php echo $servico['Data_Vencimento']; ?></td>
-			<td><?php echo $servico['Foto_Video']; ?></td>
-			<td><?php echo $servico['Bloqueado']; ?></td>
-			<td><?php echo $servico['Expirado']; ?></td>
-			<td><?php echo $servico['ACombinar']; ?></td>
-			<td><?php echo $servico['usuario_id']; ?></td>
+			<td>
+			<?php 
+				if ($servico['ACombinar'] ==1)
+					echo 'Sim';
+				else
+					echo 'Não';?>
+			</td>
+			<td><?php echo $usuario['Usuario']['name']; ?></td>
 			<td><?php echo $servico['category_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'servicos', 'action' => 'view', $servico['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'servicos', 'action' => 'edit', $servico['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'servicos', 'action' => 'delete', $servico['id']), array(), __('Are you sure you want to delete # %s?', $servico['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
-<?php endif; ?>
+<?php else:
+			echo'Não há Serviços';
+			endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Servico'), array('controller' => 'servicos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Terceiros'); ?></h3>
-	<?php if (!empty($usuario['Terceiro'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('NomeEmpresa'); ?></th>
-		<th><?php echo __('Imagem'); ?></th>
-		<th><?php echo __('ValorPago'); ?></th>
-		<th><?php echo __('Category Id'); ?></th>
-		<th><?php echo __('DataInicio'); ?></th>
-		<th><?php echo __('Link'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($usuario['Terceiro'] as $terceiro): ?>
-		<tr>
-			<td><?php echo $terceiro['id']; ?></td>
-			<td><?php echo $terceiro['name']; ?></td>
-			<td><?php echo $terceiro['NomeEmpresa']; ?></td>
-			<td><?php echo $terceiro['Imagem']; ?></td>
-			<td><?php echo $terceiro['ValorPago']; ?></td>
-			<td><?php echo $terceiro['category_id']; ?></td>
-			<td><?php echo $terceiro['DataInicio']; ?></td>
-			<td><?php echo $terceiro['link']; ?></td>
-			<td><?php echo $terceiro['usuario_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'terceiros', 'action' => 'view', $terceiro['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'terceiros', 'action' => 'edit', $terceiro['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'terceiros', 'action' => 'delete', $terceiro['id']), array(), __('Are you sure you want to delete # %s?', $terceiro['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Terceiro'), array('controller' => 'terceiros', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>

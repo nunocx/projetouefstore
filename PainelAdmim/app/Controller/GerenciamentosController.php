@@ -24,4 +24,8 @@ class GerenciamentosController extends AppController {
 		
 		$this->set('gerenciamentos','Olá mundo estou no gerenciamento de tarefas');
 	}
+	public function relatorios() {
+		
+		$this->set('gerenciamentos','Olá mundo estou no gerenciamento de tarefas');
+	}
 }

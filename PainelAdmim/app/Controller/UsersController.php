@@ -2,7 +2,7 @@
 class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('add', 'logout', 'change_password', 'remember_password', 'remember_password_step_2');
+		$this->Auth->allow('add','logout', 'change_password', 'remember_password', 'remember_password_step_2');
 	}
 
 	public function index() {
@@ -85,7 +85,7 @@ class UsersController extends AppController {
 				$this->Error->set($this->User->invalidFields());
 			}
 		}
-		$this->set('label', 'Register user');
+		$this->set('label', 'Cadastrar Admininstrador');
 		$this->render('_form');
 	}
 
@@ -123,7 +123,7 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->read(null, $id);
 			unset($this->request->data['User']['password']);
 		}
-		$this->set('label', 'Edit user');
+		$this->set('label', 'Editar Dados');
 		$this->render('_form');
 	}
 
@@ -133,6 +133,7 @@ class UsersController extends AppController {
 		}
 
 		$this->User->id = $id;
+		//debug($id) or die();
 
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));

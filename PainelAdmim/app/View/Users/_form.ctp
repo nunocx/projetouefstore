@@ -22,7 +22,7 @@
 	      <?php if(AuthComponent::user('role') == 'admin'){?>
         <?php echo $this->Form->input('role', array(
             'label' => __('Role'),
-            'options' => array('admin' => __('Admin'), 'author' => __('Author')),
+            'options' => array('admin' => __('Admin')),
             'selected' => !empty( $user['role'] ) ? $user['role'] : ''));?>
 	      <?php }?>
       

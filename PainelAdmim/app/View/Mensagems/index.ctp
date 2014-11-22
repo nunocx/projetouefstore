@@ -1,5 +1,17 @@
+
+<?php
+$breadcrumb = array(
+	array(
+		'label' => 'Home',
+		'link'	=> '/'
+	),array (
+		'label' => 'Mensagens'
+	)
+);
+echo $this->element('breadcrumb',array('links' => $breadcrumb));
+?>
 <div class="mensagems index">
-	<h2><?php echo __('Mensagems'); ?></h2>
+	<h2><?php echo __('Mensagens'); ?></h2>
 	<table class="table table-bordered">
 	<thead>
 	<tr>
@@ -17,7 +29,7 @@
 		<td><?php echo h($mensagem['Mensagem']['Emisor']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $mensagem['Mensagem']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $mensagem['Mensagem']['id']), array(), __('Are you sure you want to delete # %s?', $mensagem['Mensagem']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $mensagem['Mensagem']['id']), array(), __('Você deseja deletar esta menssagem?')); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -25,15 +37,15 @@
 	</table>
 	<p><?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} total, começando no registro {:start}, terminando no {:end}')
 	));
 	?></p>
 	<div class="pagination">
     	<ul class="pagination">
             <?php
-                echo $this->Paginator->prev(__('prev'), array('tag' => 'li'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+                echo $this->Paginator->prev(__('Antes'), array('tag' => 'li'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
                 echo $this->Paginator->numbers(array('separator' => '','currentTag' => 'a', 'currentClass' => 'active','tag' => 'li','first' => 1));
-                echo $this->Paginator->next(__('next'), array('tag' => 'li','currentClass' => 'disabled'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+                echo $this->Paginator->next(__('Depois'), array('tag' => 'li','currentClass' => 'disabled'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
             ?>
         </ul>
 	</div>
@@ -41,6 +53,6 @@
 <div class="actions">
 	<h3><?php echo __('Ações Relacionadas'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Enviar Mensagem'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Enviar Menssagem'), array('action' => 'add')); ?></li>
 	</ul>
 </div>

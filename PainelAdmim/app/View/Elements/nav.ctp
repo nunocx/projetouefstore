@@ -55,7 +55,6 @@
 						class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="<?php echo $this->params->webroot?>me"><i class="fa fa-user"></i> Profile</a></li>
-					<li><a href="<?php echo $this->params->webroot?>me/edit"><i class="fa fa-gear"></i> Settings</a></li>
 					<li class="divider"></li>
 					<li><a href="<?php echo $this->params->webroot?>logout"><i class="fa fa-power-off"></i> Log Out</a></li>
 				</ul>

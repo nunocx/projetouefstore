@@ -12,7 +12,7 @@
 		  <?php echo $this->Form->input('email', array('label' => __('Email')));?>
 		  <?php echo $this->Form->input('password', array('label' => __('Password')));?>
 		  <div class="form-group">
-		  	<?php echo $this->Html->link(__('Forgot your password?'),array('controller' => 'users','action' => 'remember_password')) ?>
+		  	<?php // echo $this->Html->link(__('Forgot your password?'),array('controller' => 'users','action' => 'remember_password')) ?>
 		  </div>
 		  <div class="checkbox">
 		    <label>

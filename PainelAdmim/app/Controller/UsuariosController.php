@@ -80,6 +80,7 @@ class UsuariosController extends AppController {
 			$this->request->data = $this->Usuario->find('first', $options);
 		}
 	}
+	
 
 /**
  * delete method
