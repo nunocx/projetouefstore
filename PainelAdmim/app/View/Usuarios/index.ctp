@@ -14,9 +14,9 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 	<h2><?php echo __('Usuarios'); ?></h2>
 
 		<div>
-			<form style="margin-left: -15px;" class="navbar-form navbar-left" role="search">
+			<form method="get" action="<?php echo $this->Html->url('/usuarios/search', true)?>" style="margin-left: -15px;" class="navbar-form navbar-left" role="search">
 		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
+		          <input type="text" name="termo" class="form-control" placeholder="Sua busca">
 		        </div>
 	        	<button type="submit" class="btn btn-primary">Buscar</button>
 	      </form>
