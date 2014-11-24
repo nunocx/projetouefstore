@@ -102,4 +102,18 @@ class UsuariosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function search() {
+
+		$termo = "'%" . $this->request->query['termo']. "%'";
+		$busca = "SELECT * 
+		FROM  `u961758316_uefs`.`usuarios`
+		WHERE `usuarios`.`name` LIKE ".$termo;
+
+		if ($termo = NULL) {
+			throw new NotFoundException(__('Invalid busca'));
+		}
+		$usuarios = $this->Usuario->query($busca);
+	 	$this->set('usuarios', $usuarios);
+	}
 }
