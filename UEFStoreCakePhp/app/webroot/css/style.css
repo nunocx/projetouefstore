@@ -65,7 +65,11 @@ h4.header{
 	font-size: 22px;
 }
 .header {
-	background: #CCCCCC;
+	 background: -webkit-gradient(linear, left top, left bottom, from(#2aa893), to(#2F4F4F));
+     background: -moz-linear-gradient(top, #2aa893, #2F4F4F);
+     filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
+
+	/**background:#2aa893;/** #CCCCCC**/
 	padding:20px 0;
 }
 .header_top {
@@ -79,14 +83,15 @@ h4.header{
 	padding-top:0px;
 }
 .search_box span{
-   color: #009999;
+   color: #99e5e5;
    margin-right:10px;
 }
 .search_box form{
-	 background:#151719;
+	 background:#ffffff;
 	 position: relative;
 	 display:inline-block;
 	 padding-left:18px;
+	 margin-top: 1px;
 }
 .search_box form:after{
 	content:'';
@@ -113,15 +118,15 @@ h4.header{
 	cursor: pointer;
 	background: url(../img/images/search.png) no-repeat center;
 	display:inline-block;
-	width:24px;
-	height:24px;
+	width:30px;
+	height:30px;
 	vertical-align:middle;
 	outline:none;
 	padding:0;
 }
 /** Navigation **/
 .navigation{
-	/* background:#49c5bf; */
+	/* background:#176b66; */
 	padding:5px 0;
 	position:relative;
 }
@@ -152,8 +157,8 @@ h4.header{
 	font-family: 'Ubuntu Condensed', sans-serif; 
 	position: relative;
 	left: 980px;
-	/* background: #49c5bf; */
-	/*width: 300px;*/
+	/* background: #176b66; 
+	width: 300px;*/
 	height: 5px;
 }
 
@@ -186,8 +191,8 @@ h4.header{
 }
 .nav a {
     padding:16px 33px;
-    color:#49c5bf;
-    border-top:1px solid #49c5b;
+    color: #99e5e5;
+    border-top:1px solid 000;
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -338,7 +343,9 @@ h4.header{
 }
 .content_top h3{
 	font-size:25px;
-	color:#;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2aa893), to(#2F4F4F));
+     background: -moz-linear-gradient(top, #2aa893, #2F4F4F);
+     filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
 	padding-bottom:15px;
 }
 .line{
@@ -408,7 +415,7 @@ h4.header{
   text-align:center;	
 }
 .ocarousel_window_slides a:hover p{
- color:#49c5bf;
+ color:#176b66;
  text-decoration:underline;
 }
 .ocarousel_indicators {
@@ -422,19 +429,31 @@ h4.header{
 	width: 20%;
 	padding-right:2%;
 } 
+.content-bottom-rightt{
+	font-size: 0.8cm;
+	background: #176b66;
+	float: right;
+	width:150px;
+	height:800px;
+	margin-right: -40px;
+	padding-right: 20%;
+
+
+}
 .content-bottom-right{
 	float:left;
-	width:75.8%;
+	width:700px; /** anteriormente 75.8%**/
 	padding-left:2%;
 	border-left:1px solid #D7D7D7;
 } 
+
 /** categories **/
 .categories h3,.buters-guide h3,.content-bottom-right h3,.preview-page h3{
 	font-size:1.1em;
 	color:#FFF;
 	padding:10px;
 	padding-left:25px;
-	background:#49c5bf;
+	background:#176b66;
 	position:relative;
 	margin-bottom:5px;
 }
@@ -448,7 +467,7 @@ h4.header{
 	border-color: rgba(255, 0, 0, 0) rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) #ebebeb;
 }
 .content-bottom-right h3,.preview-page h3{
-	background:#23272a !important;
+	background: #000 !important; /*#176b66*/
 	margin-bottom:10px !important;
 	padding-left:10px !important;
 }
@@ -459,7 +478,9 @@ h4.header{
 	top:0;
 	border-width:22px 15px 20px 0px;
 	border-style: solid;
-	border-color: rgba(255, 0, 0, 0) #ebebeb rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) ;
+	background: #000; /*#176b66*/
+	border-color: rgba(255, 0, 0, 0) #ebebeb rgba(0, 0, 255, 0) rgba(0, 128, 0, 0);
+
 }
 .categories li a{
 	display:block;
@@ -473,7 +494,8 @@ h4.header{
 	border:none;
 }
 .categories li a:hover{
-	color:#49c5bf;
+	/**color:#176b66;**/
+	color:#176b66;
 }	
 .buters-guide{
 	margin-top:2em;
@@ -485,7 +507,7 @@ h4.header{
 	padding:8px 0;
 }
 .buters-guide p span{
-	color:#49c5bf;
+	color:#176b66;
 	font-size:16px;
 }
 .add-banner{
@@ -503,16 +525,16 @@ h4.header{
 .banner-desc h4{
 	display:block;
 	font-size:25px;
-	color:#49c5bf;
+	color:#176b66;
 	margin-bottom:10px;
 }
 .banner-desc a{
-	background:#49c5bf !important;
+	background:#176b66 !important;
 	padding:5px 15px !important;
 	display:inline-block !important;
 }
 .banner-desc a:hover{
-	background:#49c5bf !important;
+	background:#176b66 !important;
 }
 .add-banner2{
 	background:url("../img/images/banner-bg.png") repeat-x;
@@ -561,7 +583,7 @@ h4.header{
 	max-width: 100%;
 }
 .images_1_of_4  h4  a{
-	color:#49c5bf;
+	color:#176b66;
 	font-size:16px;
 	padding-bottom:5px;
 }
@@ -629,7 +651,7 @@ h4.header{
 }
 .product-articles p{
 	font-size:15px;
-	color:#49c5bf;
+	color:#176b66;
 	line-height:1.6em;
 	padding:5px 0;
 }
@@ -638,7 +660,7 @@ h4.header{
 	font-size:18px;
 }
 .product-articles p a{
-	color:#49c5bf;
+	color:#176b66;
 	font-size;14px;
 }
 .product-articles p a:hover{
@@ -655,7 +677,10 @@ h4.header{
 }
 /*** Footer ***/
 .footer {
-	background:#2AA893;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2aa893), to(#2F4F4F));
+     background: -moz-linear-gradient(top, #2aa893, #2F4F4F);
+     filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
+	/**background:#2AA893;**/
 	padding:3% 0;
 }
 .footer-nav{
@@ -722,7 +747,7 @@ h4.header{
 }
 .back-links li {
 	display:inline-block;
-	color: #ccc;
+	color: #99e5e5;
 	font-size:13px;
 	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
@@ -730,12 +755,12 @@ h4.header{
 	padding-left:0;
 }
 .back-links li a {
-	color: #FFF;
+	color: #000;
 	padding-left:5px;
 }
 .back-links  a:hover {
 	text-decoration:underline;
-	color:#49c5bf;
+	color:#176b66;
 }
 .image {
 	clear: both;
@@ -745,6 +770,7 @@ h4.header{
 }
 .group:before, .group:after {
 	content: "";
+
 	display: table;
 }
 .group:after {
@@ -795,7 +821,7 @@ h4.header{
 }
 .span_3_of_2  h2 {
 	font-size: 1.2em;
-	color:#49c5bf;
+	color:#176b66;
 	font-weight: normal;
 	margin-top: 0px;
 }
@@ -814,7 +840,7 @@ h4.header{
 }
 .price p span {
 	font-size:2em;
-	color:#49c5bf;
+	color:#176b66;
 	font-family:'Ubuntu Condensed', sans-serif;
 }
 .available {
@@ -869,7 +895,7 @@ h4.header{
 	text-decoration: underline;
 }
 .wish-list li a:hover {
-	color:#49c5bf;
+	color:#176b66;
 	text-decoration:none;
 }
 .wish-list li.wish{
@@ -916,7 +942,7 @@ h4.header{
 	background:#000;
 }
 .checkbox-buttons label:hover{
-	border:2px solid #49c5bf;
+	border:2px solid #176b66;
 }
 .checkbox-buttons input[type="checkbox"],
 .checkbox-buttons input[type="radio"] {
@@ -924,7 +950,7 @@ h4.header{
 }
 .checkbox-buttons input[type="checkbox"]:checked + label,
 .checkbox-buttons input[type="radio"]:checked + label {
-	border:2px solid #49c5bf;
+	border:2px solid #176b66;
 } 
 .colors-share{
 	margin-top:15px;
@@ -992,7 +1018,7 @@ h4.header{
 	font-size:0.85em;
 	display: block;
 	padding:8px 10px;
-	background:#49c5bf;
+	background:#176b66;
 	color: #FFF;
 	text-decoration: none;
 	outline: 0;
@@ -1015,7 +1041,7 @@ h4.header{
   margin-top:10px;
 }
 .popular-products li > h4 > a{
-	color: #49c5bf;
+	color: #176b66;
 	font-size: 14px;
 	padding-bottom: 5px;
 }
@@ -1024,7 +1050,7 @@ h4.header{
 }
 .popular-products li .price-number p span.line-through{
 	text-decoration:line-through;
-	color:#49c5bf;
+	color:#176b66;
 }
 .preview-page{
 	padding:2% 0;
@@ -1085,7 +1111,7 @@ h4.header{
 .product-tags .button a {
 	font-size:1em;
 	padding:10px 15px;
-	background:#49c5bf;
+	background:#176b66;
 	color: #FFF;
 	text-decoration: none;
 	outline: 0;
@@ -1116,7 +1142,7 @@ h4.header{
 }
 .review h4 a:hover{
 	text-decoration:none;
-	color:#49c5bf;
+	color:#176b66;
 }
 .review ul{
 	margin-top:10px;
@@ -1152,7 +1178,7 @@ h4.header{
 	font-family :verdana, arial, helvetica, helve, sans-serif;
 }
 .your-review label span.red{
-	color:#49c5bf;
+	color:#176b66;
 	display:inline;
 }
 .your-review input[type="text"],.your-review textarea{
@@ -1175,7 +1201,7 @@ h4.header{
     font-size:1em;
 	padding:10px 15px;
 	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
-	background:#49c5bf;
+	background:#176b66;
 	color: #FFF;
 	text-decoration: none;
 	border:none;
@@ -1224,7 +1250,7 @@ h4.header{
 	margin-top:20px;
 }
 .community-poll p {
-	color: #49c5bf;
+	color: #176b66;
 	font-size: 0.95em;
 	padding:5px  0;
 }
@@ -1295,7 +1321,7 @@ h4.header{
 	font-size:16px;
 	padding:10px 25px;
 	font-family: 'Ubuntu Condensed', sans-serif;
-	background:#49c5bf;
+	background:#176b66;
 	color: #FFF;
 	border:none;
 	text-decoration: none;
