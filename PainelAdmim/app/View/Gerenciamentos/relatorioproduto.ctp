@@ -13,11 +13,7 @@
 		<div class="container">
 			<div class="col-lg-1">
 				
-				<button type="button" class="btn btn-primary"> Gerar Relatórios Gerais</button><br />
-				<p></p>
-				<button type="button" class="btn btn-primary"> Gerar Relatórios Usuarios</button><br />
-				<p></p>
-				<button type="button" class="btn btn-primary"> Gerar Relatórios Anuncios</button><br />
+				
 			</div>
 			<div class="col-lg-3">
 			</div>

@@ -18,7 +18,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 		<div class="container">
 			<div class="col-lg-3">
 				<h3>Relatórios</h3>
-				<button type="button" class="btn btn-primary"> Gerar Relatórios Gerais</button><br />
+			<a href="<?php echo $this->Html->url('relatorioproduto') ?>" class="btn btn-danger"> Gerar Relatórios Gerais</a><br />		
 				<p></p>
 				<button type="button" class="btn btn-primary"> Gerar Relatórios Usuarios</button><br />
 				<p></p>
