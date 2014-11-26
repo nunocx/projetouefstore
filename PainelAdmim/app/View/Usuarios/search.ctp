@@ -52,7 +52,7 @@
 			if($i == $atual) { ?>
 					<li><a class="ativo" href="#"><?php echo $i ?></a></li>
 		<?php 	} else { ?>
-					<li><a href="?pg=<?php echo $i?>"> <?php echo $i ?> </a></li>
+					<li><a href="?pg=<?php echo $i; ?>&termo=<?php echo $_GET['termo']; ?>"> <?php echo $i ?> </a></li>
 		<?php	}
 		} ?>
 	</ul>

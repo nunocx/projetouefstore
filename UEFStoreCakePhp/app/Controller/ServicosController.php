@@ -145,4 +145,23 @@ class ServicosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */	
+	public function search($termo) {
+		$busca = "SELECT * 
+		FROM  `u961758316_uefs`.`servicos`
+		WHERE `servicos`.`name` LIKE ".$termo."OR `servicos`.`Descricao` LIKE ".$termo;
+
+		if ($termo = NULL) {
+			throw new NotFoundException(__('Invalid busca'));
+		}
+		$servicos = $this->Servico->query($busca);
+	 	return $servicos;
+
+	}
 }

@@ -44,8 +44,9 @@
 								</li>
 								<div class="search_box" align="right">
 							  	<span>Buscar</span>
-					     		<form>
-					     			<input type="text" value=""><input type="submit" value="">
+					     		<form name="busca" method="get" action="<?php echo $this->Html->url('/buscas/search_all', true)?>">
+					     			<input type="text" name="termo" value="">
+									<input type="submit" value="">
 					     		</form>
 					    		<div class="clear"></div>
 					    </div>

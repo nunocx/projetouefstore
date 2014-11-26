@@ -152,4 +152,23 @@ class ProdutosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function search($termo){
+		$busca = "SELECT * 
+		FROM  `u961758316_uefs`.`produtos`
+		WHERE `produtos`.`name` LIKE ".$termo." OR `produtos`.`Descricao` LIKE ".$termo;
+
+		if ($termo = NULL) {
+			throw new NotFoundException(__('Invalid busca'));
+		}
+		$produtos = $this->Produto->query($busca);
+	 	return $produtos;
+	}
 }
