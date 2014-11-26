@@ -40,6 +40,19 @@ class ProdutosController extends AppController {
 		$this->set('produto', $this->Produto->find('first', $options));
 	}
 
+	/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function buscaProdutos($comando) {
+		$resultado = $this->Produto->query($comando); //fazer busca no banco de dados
+		//debug($resultado) or die();
+		return $resultado;
+	}
+
 /**
  * add method
  *
