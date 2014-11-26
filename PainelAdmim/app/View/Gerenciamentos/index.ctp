@@ -36,7 +36,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 
 			</div>
 			<div class="col-lg-3">
-				<h3>Executar Manutenções</h3>
+				<h3>Manutenções do Portal</h3>
 				<p></p>
 				<?php echo $this->Html->link(__('Update Datas Produtos'),'/produtos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
