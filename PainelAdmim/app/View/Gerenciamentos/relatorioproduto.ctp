@@ -3,7 +3,7 @@
 <h4>Digite o intervalo de tempo</h2> 
 
 
-<form method="get" action="<?php echo $this->Html->url('/gerenciamentos/funcrelatorioproduto', true) ?>">
+<form method="get" action="<?php echo $this->Html->url('/gerenciamentos/relatorioproduto', true) ?>">
   De: <input type="date" name="dataInicio"><br>
   Até: <input type="date" name="dataFim"><br>
   <input type="submit" value="Gerar Relatório">

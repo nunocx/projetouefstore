@@ -1593,3 +1593,33 @@ h4.header{
    	text-align:center;
    }
 }
+/*busca de anúncios*/
+.tab {
+border-bottom: 1px solid #CCC;
+margin-bottom: 10px;
+height: 34px;
+font-size: 14px;
+}
+.left {
+float: left;
+}
+.tab a.active {
+margin-top: -1px;
+color: #000;
+background: #fff;
+padding: 8px 10px 5px;
+height: 35px;
+}
+.tab a {
+display: block;
+padding: 7px 10px 4px 10px;
+border: 1px solid #CCC;
+border-bottom: 0px;
+border-radius: 4px 4px 0 0;
+float: left;
+margin-right: 10px;
+text-decoration: none;
+color: #666;
+background: #f4f4f4;
+height: 33px;
+}

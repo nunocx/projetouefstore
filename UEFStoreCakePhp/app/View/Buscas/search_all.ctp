@@ -15,12 +15,19 @@
 					$contador = count($resultado2);
 				}?>
 			<div class="section group">
+				<h3>Resultado da busca</h3>
+				<!--<div class="tab">
+					<div class="left">
+						<a class="gallery active" href="#"> Fotos Maiores </a>
+						<a class="list" href="<?php echo $this->Html->url('/produtos/searchview/'.$_GET['termo']) ?>" >Exibição em Lista</a>
+					</div>
+				</div>-->
+
 		<?php for($j = 0; $j < $contador; $j++) {
 				$arrayTemp = $resultado[$j];
 				$arrayTemp2 = $resultado2[$j];
 
 						if($arrayTemp != NULL) { ?>
-
 
 							<div class="grid_1_of_4 images_1_of_4">
 								<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>">
@@ -40,7 +47,7 @@
 													$this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>">Mais Info</a>
 												</h4>
 										     </div>
-										 <div class="clear"></div>
+										<div class="clear"></div>
 								</div>
 						    </div>
 
