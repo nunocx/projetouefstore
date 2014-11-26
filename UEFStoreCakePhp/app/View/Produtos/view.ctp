@@ -9,9 +9,7 @@
 		</dd>
 		<div id="content">
 		  <div class="col1">
-		    <img class="product" src="img/<?php echo $produto['Produto']['id']; ?>.jpg"/>
-		    <img class="product" src="img/<?php echo $produto['Produto']['id']; ?>.jpg"/></div></img>
-
+		  
 		  </div>
 		  <div class="col2">
 		    <p>por R$<?php echo $produto['Produto']['Preco']?>,00</p>
@@ -26,6 +24,9 @@
 					 	<br/><a class="botaobolado" href="#">Comprar</a><br/><br/>
 		<dt><?php echo __('Vendedor:'); ?></dt>
 		<dd>
+
+			<?php $idLogin  = 0 ; echo $this->Html->link(__('Entre em contato'), array('controller' => 'negociacaos', 'action' => 'add', $idLogin ,$produto['Usuario']['id'],null,$produto['Produto']['id'])); ?>
+
 			<?php echo $this->Html->link($produto['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?>
 			&nbsp;
 		</dd>
@@ -37,9 +38,9 @@
 			&nbsp;
 		</dd>
 		<div class="description">
-		
-		
-		
+		<?php 
+		//	echo $this->Upload->view('Produto', $produto['Produto']['id']);
+		?>
 		<br/><br/>
 		<?php echo __('Publicado em:'); ?></dt>
 		<dd>
@@ -80,5 +81,4 @@
 </div>
 
 <div class="related">
-	<h3><?php echo __('Comentários'); ?></h3>
-	<?php if (!empty($produto['Comentario'])): ?>
+			</div>

@@ -121,27 +121,49 @@ class UsuariosController extends AppController {
 	public function block($id = null)
 	{
 		$i = $id;
-		if ($id = NULL) {
-			throw new NotFoundException(__('Invalid'));
+		//$date = date('Y-m-d');					
+		if (!$this->Usuario->exists($i)) {
+			throw new NotFoundException(__('Invalid usuario'));
 		}
+			
+			$selc = " SELECT *
+						FROM `u961758316_uefs`.`usuarios` 
+						WHERE `usuarios`.`id` = $i ";
+			$b = $this->Usuario->query($selc);			
+			
+			foreach ($b as $bs) {
+				//debug($bs) or die();
+				$statusUser = $bs['usuarios']['Status'];
+				$nomeUser = $bs['usuarios']['name'];
+			}
+			
+			//debug($statusUser) or die();
+
+			if($statusUser == 0)
+			{
+			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW())";
+				$this->Usuario->query($sql);
+			$update = " UPDATE `u961758316_uefs`.`usuarios`
+						SET `usuarios`.`status` = 1 ; 
+						WHERE `usuarios`.`id` = $i ";
+			$this->Usuario->query($update);
 		
-		$update = " UPDATE `u961758316_uefs`.`usuarios`
-					SET `usuarios`.`status` = 1 ; 
-					WHERE `usuarios`.`id` = $i ";
-		$this->Usuario->query($update);
-		$selc = " SELECT *
-					FROM `u961758316_uefs`.`usuarios` 
-					WHERE `usuarios`.`id` = $i ";
-		$b = $this->Usuario->query($selc);			
+			
+			
+			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'));
+			}
+			else
+			{
+					$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW())";
+			
+					$update = " UPDATE `u961758316_uefs`.`usuarios`
+						SET `usuarios`.`status` = 0 ; 
+						WHERE `usuarios`.`id` = $i ";
+					$this->Usuario->query($update);
 		
-		
-		foreach ($b as $bs) {
-			//debug($bs) or die();
-			$b = $bs['usuarios']['name'];
-		}
-		//debug($b) or die();
-		$this->Session->setFlash(__('Usuário [ <b>'.$b.'</b> ] foi Bloqueado'));
-		return $this->redirect('/');
+					$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Desbloquiado'));
+			}
+			return $this->redirect('/');
 	}
 
 }

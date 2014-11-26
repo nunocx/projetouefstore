@@ -20,7 +20,7 @@ class UploadHelper extends AppHelper {
 		$baseUrl = $results['baseUrl'];
 		$files = $results['files'];
 
-		$str = "<dt>" . __("Files") . "</dt>\n<dd>";
+		$str = "<dt>" . __("Files") . "</dt>\n";
 		$count = 0;
 		$webroot = Router::url("/") . "ajax_multi_upload";
 		foreach ($files as $file) {
@@ -34,11 +34,11 @@ class UploadHelper extends AppHelper {
 				$str .= "<a href='$delUrl'><img src='" . Router::url("/") . 
 					"ajax_multi_upload/img/delete.png' alt='Delete' /></a> ";
 			}
-			$str .= "<img src='" . Router::url("/") . "ajax_multi_upload/img/fileicons/$type.png' /> ";
-			$str .= "<a href='$url'>" . $f . "</a> ($filesize)";
+			//$str .= "<img src='" . Router::url("/") . "ajax_multi_upload/img/fileicons/$type.png' /> ";
+			$str .= " <a href='$url'> <img src='$url' with='100px' height ='100px'/> </a> ";
 			$str .= "<br />\n";
 		}
-		$str .= "</dd>\n"; 
+		$str .= "\n"; 
 		return $str;
 	}
 
