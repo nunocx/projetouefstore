@@ -164,6 +164,22 @@ CREATE TABLE IF NOT EXISTS `u961758316_uefs`.`categories` (
 ENGINE = InnoDB;
 
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `user_bloq`
+--
+
+CREATE TABLE IF NOT EXISTS `user_bloq` (
+`id` int(11) NOT NULL,
+  `Usuario_id` int(11) NOT NULL,
+  `dataBloq` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+
+
 -- -----------------------------------------------------
 -- Table `u961758316_uefs`.`negociacaos`
 -- -----------------------------------------------------
