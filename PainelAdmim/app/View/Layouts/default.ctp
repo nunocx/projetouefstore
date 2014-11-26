@@ -32,7 +32,14 @@
 
 	<div id="page-wrapper">
 
-		<?php echo $this->Session->flash(); ?>
+	<?php 
+	$sms = $this->Session->flash();
+	if( $sms  != null):?> 
+		<div class="alert alert-info alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<?php echo $sms; ?>
+		</div>
+	<?php endif; ?>
 		<?php echo $this->fetch('content'); ?>
 
 	</div>

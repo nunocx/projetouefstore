@@ -39,7 +39,7 @@
 						</li>
 								
 								<li>
-									<a href="#">Faça a sua Doação</a>
+									<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QTEN3EAAQDLJJ">Faça a sua Doação</a>
 									
 								</li>
 								<div class="search_box" align="right">

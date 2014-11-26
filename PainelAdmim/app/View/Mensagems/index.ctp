@@ -29,7 +29,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 		<td><?php echo h($mensagem['Mensagem']['Emisor']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $mensagem['Mensagem']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $mensagem['Mensagem']['id']), array(), __('Você deseja deletar esta menssagem?')); ?>
+			<?php echo $this->Html->link(__('Delete'), array('action' => 'delete', $mensagem['Mensagem']['id']), array(), __('Você deseja deletar esta menssagem?')); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

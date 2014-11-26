@@ -17,11 +17,9 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 		<div class="container">
 			<div class="col-lg-3">
 				<h3>Relatórios</h3>
-				<a href="<?php echo $this->Html->url('relatorioproduto') ?>" class="btn btn-danger"> Gerar Relatórios Gerais</a><br />
+				<a href="<?php echo $this->Html->url('relatorios') ?>" class="btn btn-danger"> Ir para Relatórios Gerais</a><br />
 				<p></p>
-				<button type="button" class="btn btn-danger"> Gerar Relatórios Usuarios</button><br />
-				<p></p>
-				<button type="button" class="btn btn-danger"> Gerar Relatórios Anuncios</button><br />
+				
 			</div>
 			<div class="col-lg-3">
 				<h3>Usuários</h3>
@@ -38,7 +36,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 
 			</div>
 			<div class="col-lg-3">
-				<h3>Executar Manutenções</h3>
+				<h3>Manutenções do Portal</h3>
 				<p></p>
 				<?php echo $this->Html->link(__('Update Datas Produtos'),'/produtos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
