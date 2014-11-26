@@ -116,4 +116,33 @@ class UsuariosController extends AppController {
 		$usuarios = $this->Usuario->query($busca);
 	 	$this->set('usuarios', $usuarios);
 	}
+
+
+	public function block($id = null)
+	{
+		$i = $id;
+		if ($id = NULL) {
+			throw new NotFoundException(__('Invalid'));
+		}
+		
+		$update = " UPDATE `u961758316_uefs`.`usuarios`
+					SET `usuarios`.`status` = 1 ; 
+					WHERE `usuarios`.`id` = $i ";
+		$this->Usuario->query($update);
+		$selc = " SELECT *
+					FROM `u961758316_uefs`.`usuarios` 
+					WHERE `usuarios`.`id` = $i ";
+		$b = $this->Usuario->query($selc);			
+		
+		
+		foreach ($b as $bs) {
+			//debug($bs) or die();
+			$b = $bs['usuarios']['name'];
+		}
+		//debug($b) or die();
+		$this->Session->setFlash(__('Usuário [ <b>'.$b.'</b> ] foi Bloqueado'));
+		return $this->redirect('/');
+	}
+
 }
+

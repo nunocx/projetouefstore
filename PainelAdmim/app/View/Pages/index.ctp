@@ -2,7 +2,6 @@
 	<div class="col-lg-12">
 		<h1>Bem-Vindo <small>Portal Gerenciamento UEFStore</small></h1>
 		<div class="alert alert-success alert-dismissable">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			Você pode acessar as funcionalidades por esta pagina ou acessando pela barra lateral.
 		</div>
 	</div>

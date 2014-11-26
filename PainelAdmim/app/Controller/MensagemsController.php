@@ -93,7 +93,8 @@ class MensagemsController extends AppController {
 		if (!$this->Mensagem->exists()) {
 			throw new NotFoundException(__('Invalid mensagem'));
 		}
-		$this->request->allowMethod('post', 'delete');
+		//debug($id) or die(); tira essse metodo que ja ta de boas :D 
+		$this->request->allowMethod('post','delete');
 		if ($this->Mensagem->delete()) {
 			$this->Session->setFlash(__('The mensagem has been deleted.'));
 		} else {

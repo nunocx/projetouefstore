@@ -37,6 +37,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 	</dl>
 
 	<?php echo $this->Html->link(__('Editar Usuario'),'/usuarios/edit/'. $usuario['Usuario']['id'],array('class' => 'btn btn-default pull-left','style' => 'margin-top: 15px')) ?>
+		<?php echo $this->Html->link(__('Bloquear Usuario'),'/usuarios/block/'. $usuario['Usuario']['id'],array('class' => 'btn btn-danger pull-left','style' => 'margin-top: 15px; margin-left: 10px')) ?>
 	<br/>
 	<br/>
 	<br/>
