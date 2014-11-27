@@ -55,17 +55,17 @@ class NegociacaosController extends AppController {
  * @return void
  */
 	public function add() {
+
 		if ($this->request->is('post')) {
 
 				$timestamp = strtotime("+14 days");
 			$this->request->data['Negociacao']['data_final']['day'] = date('d', $timestamp);
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
 			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
-
 				$this->Negociacao->create();
 			if ($this->Negociacao->save($this->request->data)) {
-				$this->Session->setFlash(__('The negociacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('negociação feita'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The negociacao could not be saved. Please, try again.'));
 			}
@@ -75,10 +75,27 @@ class NegociacaosController extends AppController {
 		$servicos = $this->Negociacao->Servico->find('list');
 		$this->set(compact('usuarios', 'produtos', 'servicos'));
 	}
-	public function adds($userI =null, $userV = null, $serv=null,$prod=null) {
+	public function adds($userInteressado =null, $usario_id = null, $servico=null,$produto=null) {
+		
+
 		
 		if ($this->request->is('post')) {
 
+		
+			$this->request->data['Negociacao']['interessado'] = $userInteressado;
+			$this->request->data['Negociacao']['usuario_id'] = $usario_id;
+			
+			if($produto!='null')
+					$this->request->data['Negociacao']['produto_id'] = $produto;
+			else
+					$this->request->data['Negociacao']['produto_id'] = null;
+			
+			if($servico!='null')
+					$this->request->data['Negociacao']['servico_id'] = $servico;
+			else
+					$this->request->data['Negociacao']['servico_id'] = null;
+					
+			
 				$timestamp = strtotime("+14 days");
 			$this->request->data['Negociacao']['data_final']['day'] = date('d', $timestamp);
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
@@ -86,10 +103,10 @@ class NegociacaosController extends AppController {
 
 				$this->Negociacao->create();
 			if ($this->Negociacao->save($this->request->data)) {
-				$this->Session->setFlash(__('The negociacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('negociação feita'));
+				return $this->redirect('/');
 			} else {
-				$this->Session->setFlash(__('The negociacao could not be saved. Please, try again.'));
+					$this->Session->setFlash(__('negociação não feita'));
 			}
 		}
 		$usuarios = $this->Negociacao->Usuario->find('list');

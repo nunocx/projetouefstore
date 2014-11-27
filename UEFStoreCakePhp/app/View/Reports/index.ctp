@@ -3,19 +3,16 @@
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('Texto'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data'); ?></th>
 			<th><?php echo $this->Paginator->sort('produto_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('servico_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
-			<th class="actions"><?php echo __('Ações'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($reports as $report): ?>
 	<tr>
-		<td><?php echo h($report['Report']['id']); ?>&nbsp;</td>
 		<td><?php echo h($report['Report']['Texto']); ?>&nbsp;</td>
 		<td><?php echo h($report['Report']['Data']); ?>&nbsp;</td>
 		<td>
@@ -27,27 +24,25 @@
 		<td>
 			<?php echo $this->Html->link($report['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $report['Usuario']['id'])); ?>
 		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $report['Report']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $report['Report']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $report['Report']['id']), array(), __('Are you sure you want to delete # %s?', $report['Report']['id'])); ?>
-		</td>
+		
 	</tr>
 <?php endforeach; ?>
 	</tbody>
 	</table>
-	
-	<p>
-	<?php
+
+
+	<p><?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros no  total {:count}, começando no registro {:start}, terminando no {:end}')
+	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} registros de {:count} total, começando no registro {:start}, terminando no {:end}')
 	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous '), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__(' next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+	?></p>
+	<div class="pagination">
+    	<ul class="pagination">
+            <?php
+                echo $this->Paginator->prev(__('Antes'), array('tag' => 'li'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+                echo $this->Paginator->numbers(array('separator' => '','currentTag' => 'a', 'currentClass' => 'active','tag' => 'li','first' => 1));
+                echo $this->Paginator->next(__('Depois'), array('tag' => 'li','currentClass' => 'disabled'), null, array('tag' => 'li','class' => 'disabled','disabledTag' => 'a'));
+            ?>
+        </ul>
 	</div>
-</div>
+	</div>
