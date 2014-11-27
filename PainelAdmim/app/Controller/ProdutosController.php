@@ -120,4 +120,12 @@ class ProdutosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function attStatusProdutos()
+	{
+			$sql = "SELECT * FROM `u961758316_uefs`.`produtos`; UPDATE `u961758316_uefs`.`produtos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
+			$this->Produto->query($sql);
+			return $this->redirect('/');
+
+	}
 }
