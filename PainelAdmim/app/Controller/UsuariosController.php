@@ -141,25 +141,25 @@ class UsuariosController extends AppController {
 
 			if($statusUser == 0)
 			{
-			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW())";
-				$this->Usuario->query($sql);
-			$update = " UPDATE `u961758316_uefs`.`usuarios`
+			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW());
+			 UPDATE `u961758316_uefs`.`usuarios`
 						SET `usuarios`.`status` = 1 ; 
-						WHERE `usuarios`.`id` = $i ";
-			$this->Usuario->query($update);
-		
-			
-			
+						WHERE `usuarios`.`id` = $i
+			";
+				$this->Usuario->query($sql);
+			//$update = " ";
+			//$this->Usuario->query($update);			
 			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'));
 			}
 			else
 			{
-					$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW())";
-			
-					$update = " UPDATE `u961758316_uefs`.`usuarios`
+					$sql = "DELETE FROM `u961758316_uefs`.`user_bloq` WHERE `user_bloq`.`usuario_id` = $i;
+					UPDATE `u961758316_uefs`.`usuarios`
 						SET `usuarios`.`status` = 0 ; 
-						WHERE `usuarios`.`id` = $i ";
-					$this->Usuario->query($update);
+						WHERE `usuarios`.`id` = $i";
+					$this->Usuario->query($sql);		
+					//$update = " ";
+					//$this->Usuario->query($update);
 		
 					$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Desbloquiado'));
 			}

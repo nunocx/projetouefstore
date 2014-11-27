@@ -79,6 +79,3 @@
 	</ul>
 </table>
 </div>
-
-<div class="related">
-			</div>

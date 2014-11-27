@@ -47,13 +47,3 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Administrador'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Anuncioterceiros'), array('controller' => 'anuncioterceiros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Anuncioterceiro'), array('controller' => 'anuncioterceiros', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Mensagems'), array('controller' => 'mensagems', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mensagem'), array('controller' => 'mensagems', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

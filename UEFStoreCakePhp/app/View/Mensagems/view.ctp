@@ -38,14 +38,3 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Mensagem'), array('action' => 'edit', $mensagem['Mensagem']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Mensagem'), array('action' => 'delete', $mensagem['Mensagem']['id']), array(), __('Are you sure you want to delete # %s?', $mensagem['Mensagem']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Mensagems'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mensagem'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Administradors'), array('controller' => 'administradors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Administrador'), array('controller' => 'administradors', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

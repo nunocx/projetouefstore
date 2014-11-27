@@ -71,7 +71,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 				<td><?php echo $negociacao['usuario_id']; ?></td>
 				<td><?php echo $negociacao['produto_id']; ?></td>
 				<td><?php echo $negociacao['servico_id']; ?></td>
-				<td><?php echo $negociacao['interessado']; ?></td>
+				<td><?php echo $usuario['Usuario']['name']; ?></td>
 				<td><?php echo $negociacao['data_final']; ?></td>
 				<td><?php echo $negociacao['status']; ?></td>
 			</tr>

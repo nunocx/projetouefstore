@@ -49,8 +49,8 @@ class MensagemsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();
 			if ($this->Mensagem->save($this->request->data)) {
-				$this->Session->setFlash(__('The mensagem has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Mensagem foi enviada com sucesso.'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The mensagem could not be saved. Please, try again.'));
 			}
@@ -94,12 +94,12 @@ class MensagemsController extends AppController {
 			throw new NotFoundException(__('Invalid mensagem'));
 		}
 		//debug($id) or die(); tira essse metodo que ja ta de boas :D 
-		$this->request->allowMethod('post','delete');
+		//$this->request->allowMethod('post','delete');
 		if ($this->Mensagem->delete()) {
-			$this->Session->setFlash(__('The mensagem has been deleted.'));
+			$this->Session->setFlash(__('Mensagem Deletada.'));
 		} else {
-			$this->Session->setFlash(__('The mensagem could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('Mensagem não foi deletada.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect('/');
 	}
 }

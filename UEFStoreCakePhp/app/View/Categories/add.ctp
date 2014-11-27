@@ -12,14 +12,3 @@
 	</fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Lista Categorias'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Lista Produtos'), array('controller' => 'produtos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Produto'), array('controller' => 'produtos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista Servicos'), array('controller' => 'servicos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Servico'), array('controller' => 'servicos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
