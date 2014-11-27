@@ -19,10 +19,10 @@
 						</li>
 						
 						<li>
-							<a href="#">FAQ </a>
+							<a href="<?php echo $this->Html->url('/faqs/', true)?>">FAQ</a>
 						</li>
 						<li>
-							<a href="#">Fale Conosco </a>
+							<a href="<?php echo $this->Html->url('/faleConoscos/', true)?>">Fale Conosco</a>
 									<!--- SE PRECISAR DE SUBMENUS, ESSE É O CÓDIGO -
 									<ul>
 										<li><a href="#">Flowers & Plants</a></li>

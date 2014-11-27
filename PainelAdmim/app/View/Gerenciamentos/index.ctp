@@ -38,13 +38,13 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 			<div class="col-lg-3">
 				<h3>Manutenções do Portal</h3>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Produtos'),'/produtos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Update Datas Produtos'),'/produtos/attStatusProdutos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Serviços'),'/produtos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Update Datas Serviços'),'/servicos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Negociações'),'/produtos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Update Datas Negociações'),'/negociacoes',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Status Usuarios '),'/produtos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Update Status Usuarios '),'/usuarios',array('class' => 'btn btn-warning')) ?>
 				
 
 			</div>
