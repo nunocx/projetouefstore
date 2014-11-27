@@ -109,6 +109,7 @@ class NegociacaosController extends AppController {
 					$this->Session->setFlash(__('negociação não feita'));
 			}
 		}
+		
 		$usuarios = $this->Negociacao->Usuario->find('list');
 		$produtos = $this->Negociacao->Produto->find('list');
 		$servicos = $this->Negociacao->Servico->find('list');

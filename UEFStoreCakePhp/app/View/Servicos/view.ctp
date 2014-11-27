@@ -67,6 +67,8 @@
 		<dt><?php echo __('Usuario'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($servico['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?>
+			<?php $idLogin  = 0 ; echo $this->Html->link(__('Entre em contato'), array('controller' => 'negociacaos', 'action' => 'adds', $idLogin ,$servico['Usuario']['id'],$servico['Servico']['id'],'null')); ?>
+
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Category'); ?></dt>

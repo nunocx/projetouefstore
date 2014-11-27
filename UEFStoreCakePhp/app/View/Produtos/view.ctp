@@ -25,7 +25,7 @@
 		<dt><?php echo __('Vendedor:'); ?></dt>
 		<dd>
 
-			<?php $idLogin  = 0 ; echo $this->Html->link(__('Entre em contato'), array('controller' => 'negociacaos', 'action' => 'add', $idLogin ,$produto['Usuario']['id'],null,$produto['Produto']['id'])); ?>
+			<?php $idLogin  = 0 ; echo $this->Html->link(__('Entre em contato'), array('controller' => 'negociacaos', 'action' => 'adds', $idLogin ,$produto['Usuario']['id'],'null',$produto['Produto']['id'])); ?>
 
 			<?php echo $this->Html->link($produto['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?>
 			&nbsp;
