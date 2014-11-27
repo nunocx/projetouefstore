@@ -43,11 +43,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	  <div class="content_bottom">
     	    <div class="wrap">
 
-<div class="content-bottom-rightt"><h2>Anuncios Terceirizados
-</h2> <br /> <center><img border="0" alt="an˙ncio 1" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="An˙ncio 1" <br /> <br /> <br />
-<br /> <center><img border="0" alt="an˙ncio 2" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="An˙ncio 2" <br /> <br /> <br />
-</p>
-</div>
+			<div class="content-bottom-rightt"><h2>Anuncios Terceirizados
+			</h2> <br /> <center><img border="0" alt="an˙ncio 1" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="An˙ncio 1" <br /> <br /> <br />
+			<br /> <center><img border="0" alt="an˙ncio 2" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="An˙ncio 2" <br /> <br /> <br />
+			</p>
+			</div>
 
     	    	<div class="content-bottom-left">
     	    		<!--- Categorias -->
@@ -64,16 +64,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			    </div>
 			    <!--- END CONTENT -->
 			    <div class="product-articles">
-			      <h3></h3>
-			      <ul>
-			      <li>
-			       <div class="article">
-			      	<p><span>Voc√™ j√° pode se cadastrar</span></p>
-			      	<p>Criamos um formul√°rio simples e eficiente onde voc√™ usu√°rio pode se cadastrar de forma r√°pida e segura.</p>
-			      	<p><a href="#"></a></p>
-			      </div>
-			      </li>
-			      </ul>
 			    </div>
 		      </div>
 		      <div class="clear"></div>
