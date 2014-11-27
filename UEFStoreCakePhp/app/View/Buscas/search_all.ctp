@@ -1,5 +1,8 @@
 	<?php
 		$atual = (isset($_GET['pg'])) ? intval($_GET['pg']) : 1;
+		$termo = "'%".$_GET['termo']."%'";
+			$produtos = $this->requestAction('/produtos/search/'.$termo);
+			$servicos = $this->requestAction('/servicos/search/'.$termo);
 			$pagArquivo = array_chunk($produtos, 10);
 			$pagArquivo2 = array_chunk($servicos, 10);
 			$contar = count($pagArquivo)+count($pagArquivo2);
@@ -19,7 +22,7 @@
 				<!--<div class="tab">
 					<div class="left">
 						<a class="gallery active" href="#"> Fotos Maiores </a>
-						<a class="list" href="<?php echo $this->Html->url('/produtos/searchview/'.$_GET['termo']) ?>" >Exibição em Lista</a>
+						<a class="list" href="<?php// echo $this->Html->url('/produtos/searchview/'.$_GET['termo']) ?>" >Exibição em Lista</a>
 					</div>
 				</div>-->
 
