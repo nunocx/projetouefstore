@@ -21,23 +21,18 @@
 		<table class="table table-bordered">
 		<thead>
 		<tr>
-				<th>Cod</th>
 				<th>E-mail</th>
 				<th>Nome</th>
-				<th>Status</th>
 				<th class="actions"><?php echo __('Ações'); ?></th>
 		</tr>
 		</thead>
 		<tbody>
 		<?php foreach ($resultado as $valor): ?>
 		<tr>
-			<td><?php echo $valor['usuarios']['id']; ?>&nbsp;</td>
 			<td><?php echo $valor['usuarios']['Email']; ?>&nbsp;</td>
 			<td><?php echo $valor['usuarios']['name']; ?>&nbsp;</td>
-			<td><?php echo $valor['usuarios']['id']; ?>&nbsp;</td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('action' => 'view', $valor['usuarios']['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $valor['usuarios']['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

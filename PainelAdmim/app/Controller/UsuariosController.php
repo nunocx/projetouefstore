@@ -105,7 +105,7 @@ class UsuariosController extends AppController {
 
 	public function search() {
 
-		$termo = "'%" . $this->request->query['termo']. "%'";
+		$termo = "'" . $this->request->query['termo']. "%'";
 		$busca = "SELECT * 
 		FROM  `u961758316_uefs`.`usuarios`
 		WHERE `usuarios`.`name` LIKE ".$termo;
