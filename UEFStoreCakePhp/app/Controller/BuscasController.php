@@ -15,12 +15,10 @@ class BuscasController extends AppController {
 	 * @return void
 	 */
 	public function search_All() {
-		$termo = "'%" . $this->request->query['termo']. "%'";
+		$termo = $this->request->query['termo'];
 		$produtos = $this->requestAction('/produtos/search/'.$termo);
-		//debug($produtos) or die();
-		//print_r($produtos);
 		$servicos = $this->requestAction('/servicos/search/'.$termo);
-		//debug($servicos) or die();
+
 		$this->set('produtos', $produtos);
 		$this->set('servicos', $servicos);
 	}
