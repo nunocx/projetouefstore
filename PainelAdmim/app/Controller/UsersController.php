@@ -78,7 +78,7 @@ class UsersController extends AppController {
 					# Store log
 					CakeLog::info('The user '.AuthComponent::user('username').' (ID: '.AuthComponent::user('id').') registered user (ID: '.$this->User->id.')','users');
 				}
-				$this->Session->setFlash(__('The user has been saved'), 'flash_success');
+				$this->Session->setFlash(__('The user has been saved'));
 				$this->redirect('/home');
 			} else {
 				# Create a loop with validation errors
@@ -114,10 +114,10 @@ class UsersController extends AppController {
 				# Store log
 				CakeLog::info('The user '.AuthComponent::user('username').' (ID: '.AuthComponent::user('id').') edited user (ID: '.$this->User->id.')','users');
 
-				$this->Session->setFlash(__('The user has been saved'), 'flash_success');
+				$this->Session->setFlash(__('The user has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'flash_fail');
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data = $this->User->read(null, $id);
@@ -143,11 +143,11 @@ class UsersController extends AppController {
 			# Store log
 			CakeLog::info('The user '.AuthComponent::user('username').' (ID: '.AuthComponent::user('id').') deleted user (ID: '.$this->User->id.')','users');
 
-			$this->Session->setFlash(__('User deleted'), 'flash_success');
+			$this->Session->setFlash(__('User deleted'));
 			$this->redirect('/home');
 		}
 
-		$this->Session->setFlash(__('User was not deleted'), 'flash_fail');
+		$this->Session->setFlash(__('User was not deleted'));
 
 		$this->redirect('/home');
 	}
@@ -183,7 +183,7 @@ class UsersController extends AppController {
 					$this->redirect(array('/home'));
 				}
 			} else {
-				$this->Session->setFlash('Passwords do not match.', 'flash_fail');
+				$this->Session->setFlash('Passwords do not match.');
 			}
 		}
 	}
@@ -198,7 +198,7 @@ class UsersController extends AppController {
 			$user = $this->User->findByEmail($this->request->data['User']['email']);
 
 			if (empty($user)) {
-				$this->Session->setFlash('This email does not exist in our database.', 'flash_fail');
+				$this->Session->setFlash('This email does not exist in our database.');
 				$this->redirect(array('action' => 'login'));
 			}
 
@@ -223,7 +223,7 @@ class UsersController extends AppController {
 					->viewVars(array('hash' => $hash))
 					->send();
 
-			$this->Session->setFlash('Check your e-mail to continue the process of recovering password.', 'flash_success');
+			$this->Session->setFlash('Check your e-mail to continue the process of recovering password.');
 
 		}
 	}
