@@ -9,7 +9,9 @@
          	
          	
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
-         	echo $this->Form->input('ACombinar',array('label'=>'Preço a combinar', 'class'=>'form-control'));
+         	
+         	echo $this->Form->checkbox('ACombinar',array('value' => '1','hiddenField'=>'0', 'label'=>'Preço a combinar'));
+         	echo $this->Form->label('Pre&ccedil;o a combinar');
          ?>
          <p><?php
 			echo $this->Form->hidden('Data_Publicacao',array('disable'=>'true',
