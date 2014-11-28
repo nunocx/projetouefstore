@@ -38,8 +38,10 @@
 			&nbsp;
 		</dd>
 		<div class="description">
-		<?php 
-		//	echo $this->Upload->view('Produto', $produto['Produto']['id']);
+		
+		<?php
+		// esse comando puxa as imagens da pasta files/produtos/id/Imagens todas...  e mostra  mesma forma pra serviço e usuario  
+			echo $this->Upload->view('Produto', $produto['Produto']['id']);
 		?>
 		<br/><br/>
 		<?php echo __('Publicado em:'); ?></dt>
