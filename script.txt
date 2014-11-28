@@ -88,8 +88,8 @@ CREATE TABLE IF NOT EXISTS `u961758316_uefs`.`mensagems` (
   `Assunto` VARCHAR(255) NOT NULL,
   `Texto` TEXT NOT NULL,
   `Data` DATE NULL,
-  `Destinatario` VARCHAR(255) NULL,
-  `Emisor` VARCHAR(255) NULL,
+  `Destinatario` INT NOT NULL,
+  `Emisor` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8

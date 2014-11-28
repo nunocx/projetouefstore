@@ -43,10 +43,56 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	  <div class="content_bottom">
     	    <div class="wrap">
 
-			<div class="content-bottom-rightt"><h2>Anuncios Terceirizados
-			</h2> <br /> <center><img border="0" alt="anúncio 1" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="Anúncio 1" <br /> <br /> <br />
-			<br /> <center><img border="0" alt="anúncio 2" src="http://uuuiiii.zip.net/ArrumaBlog.gif" title="Anúncio 2" <br /> <br /> <br />
+			<div class="content-bottom-rightt"> 
+<center>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- reggaetonbrasileiro_main_Blog1_728x90_as -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0122532760620531"
+     data-ad-slot="5487486867"></ins>
+
+     
+<script type="text/javascript">
+	bb_bid = "1683374";
+	bb_lang = "pt-BR";
+	bb_name = "custom";
+	bb_limit = "4";
+	bb_format = "bbm";
+</script>
+<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+
+
+
+<script type="text/javascript">
+	bb_bid = "1683374";
+	bb_lang = "pt-BR";
+	bb_name = "custom";
+	bb_limit = "4";
+	bb_format = "bbm";
+</script>
+<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+
+
+
+<script type="text/javascript">
+	bb_bid = "1683374";
+	bb_lang = "pt-BR";
+	bb_name = "custom";
+	bb_limit = "4";
+	bb_format = "bbm";
+</script>
+<script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
 			</p>
+
+
+
+
+			
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 			</div>
 
     	    	<div class="content-bottom-left">
@@ -61,7 +107,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		             <?php echo $this->Session->flash(); ?>
                      <?php echo $this->fetch('content'); ?>
 			    
-			    </div>
+			    </div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- reggaetonbrasileiro_main_Blog1_728x90_as -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0122532760620531"
+     data-ad-slot="5487486867"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 			    <!--- END CONTENT -->
 			    <div class="product-articles">
 			    </div>

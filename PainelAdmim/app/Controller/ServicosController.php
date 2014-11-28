@@ -107,4 +107,17 @@ class ServicosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function buscaServicos($comando) {
+		$resultado = $this->Servico->query($comando); //fazer busca no banco de dados
+		//debug($resultado) or die();
+		return $resultado;
+	}
 }

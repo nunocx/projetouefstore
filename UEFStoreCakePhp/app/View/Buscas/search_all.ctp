@@ -1,11 +1,18 @@
 	<?php
 		$atual = (isset($_GET['pg'])) ? intval($_GET['pg']) : 1;
-		$termo = "'%".$_GET['termo']."%'";
+		$termo = $_GET['termo'];
+		if($atual != 1) {
 			$produtos = $this->requestAction('/produtos/search/'.$termo);
 			$servicos = $this->requestAction('/servicos/search/'.$termo);
+		}
 			$pagArquivo = array_chunk($produtos, 10);
 			$pagArquivo2 = array_chunk($servicos, 10);
-			$contar = count($pagArquivo)+count($pagArquivo2);
+			if(count($pagArquivo) > count($pagArquivo2)){
+				$contar = count($pagArquivo);
+			} else {
+				$contar = count($pagArquivo2);
+			}
+			//$contar = count($pagArquivo)+count($pagArquivo2);
 			$resultado = $pagArquivo[$atual-1];
 			$resultado2 = $pagArquivo2[$atual-1];
 			?>
