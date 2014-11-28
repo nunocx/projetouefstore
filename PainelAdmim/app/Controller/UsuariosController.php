@@ -142,9 +142,17 @@ class UsuariosController extends AppController {
 			if($statusUser == 0)
 			{
 			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW());
-			 UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 1 ; 
-						WHERE `usuarios`.`id` = $i
+					 UPDATE `u961758316_uefs`.`usuarios`
+								SET `usuarios`.`status` = 1  
+								WHERE `usuarios`.`id` = $i;
+					
+					UPDATE `u961758316_uefs`.`produtos`,`u961758316_uefs`.`servicos`
+								SET 
+								`produtos`.`Expirado` = 1,
+								`servicos`.`Expirado` = 1,
+								`produtos`.`Bloqueado` = 1,
+								`servicos`.`Bloqueado` = 1  
+								WHERE `servicos`.`usuario_id` = $i AND `produtos`.`usuario_id` = $i;
 			";
 				$this->Usuario->query($sql);
 			//$update = " ";
@@ -153,10 +161,13 @@ class UsuariosController extends AppController {
 			}
 			else
 			{
-					$sql = "DELETE FROM `u961758316_uefs`.`user_bloq` WHERE `user_bloq`.`usuario_id` = $i;
-					UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 0 ; 
-						WHERE `usuarios`.`id` = $i";
+					$sql = " DELETE FROM `u961758316_uefs`.`user_bloq` WHERE `user_bloq`.`usuario_id` = $i;
+							UPDATE `u961758316_uefs`.`usuarios`
+								SET `usuarios`.`status` = 0 
+								WHERE `usuarios`.`id` = $i;
+							UPDATE `u961758316_uefs`.`produtos` SET `Bloqueado` = '0',`Expirado`='0' WHERE `produtos`.`usuario_id` = $i;
+							UPDATE `u961758316_uefs`.`servicos` SET `Bloqueado` = '0',`Expirado`='0' WHERE `servicos`.`usuario_id` = $i;
+					";
 					$this->Usuario->query($sql);		
 					//$update = " ";
 					//$this->Usuario->query($update);

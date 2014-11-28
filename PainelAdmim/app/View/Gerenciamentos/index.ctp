@@ -30,21 +30,21 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 			<div class="col-lg-3">
 				<h3>Anuncios</h3>
 				<p></p>
-				<?php echo $this->Html->link(__('Lista Produtos '),'/produtos',array('class' => 'btn btn-info')) ?>
+				<?php echo $this->Html->link(__('Listar Produtos '),'/produtos',array('class' => 'btn btn-info')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Lista Serviços '),'/servicos',array('class' => 'btn btn-info')) ?>
+				<?php echo $this->Html->link(__('Listar Serviços '),'/servicos',array('class' => 'btn btn-info')) ?>
 
 			</div>
 			<div class="col-lg-3">
 				<h3>Manutenções do Portal</h3>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Produtos'),'/produtos/attStatusProdutos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Checar validade Produtos'),'/produtos/attStatusProdutos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Serviços'),'/servicos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Checar validade Serviços'),'/produtos/attStatusServicos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Datas Negociações'),'/negociacoes',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Checar validade Negociações'),'/produtos/attStatusNeg',array('class' => 'btn btn-warning')) ?>
 				<p></p>
-				<?php echo $this->Html->link(__('Update Status Usuarios '),'/usuarios',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Checar validade Usuarios'),'/produtos/attStatusUsuarios',array('class' => 'btn btn-warning')) ?>
 				
 
 			</div>
