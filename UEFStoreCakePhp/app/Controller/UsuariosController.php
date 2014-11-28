@@ -40,6 +40,13 @@ class UsuariosController extends AppController {
 		$this->set('usuario', $this->Usuario->find('first', $options));
 	}
 
+	public function negocios($id = null) {
+      
+        $options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+		$this->set('usuarios', $this->Usuario->find('first', $options));
+
+    }
+
 /**
  * add method
  *
@@ -49,8 +56,10 @@ class UsuariosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Usuario->create();
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash(__('The usuario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//$this->Session->setFlash(__('The usuario has been saved.'));
+				
+				 $id_= $this->Usuario->id;
+				return $this->redirect(array('action' => 'etapa2/'.$id_));
 			} else {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
@@ -73,14 +82,29 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash(__('The usuario has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Os dados nao foram editados.'));
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
 			$this->request->data = $this->Usuario->find('first', $options);
 		}
 	}
-	
+	public function etapa2($id = null) {
+		if (!$this->Usuario->exists($id)) {
+			throw new NotFoundException(__('Invalid usuario'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Usuario->save($this->request->data)) {
+				$this->Session->setFlash(__('Usuario foi salvo'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Houve um erro, tente novamente. Edite seu perfil.'));
+			}
+		} else {
+			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+			$this->request->data = $this->Usuario->find('first', $options);
+		}
+	}
 
 /**
  * delete method
@@ -102,69 +126,4 @@ class UsuariosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-
-	public function search() {
-
-		$termo = "'%" . $this->request->query['termo']. "%'";
-		$busca = "SELECT * 
-		FROM  `u961758316_uefs`.`usuarios`
-		WHERE `usuarios`.`name` LIKE ".$termo;
-
-		if ($termo = NULL) {
-			throw new NotFoundException(__('Invalid busca'));
-		}
-		$usuarios = $this->Usuario->query($busca);
-	 	$this->set('usuarios', $usuarios);
-	}
-
-
-	public function block($id = null)
-	{
-		$i = $id;
-		//$date = date('Y-m-d');					
-		if (!$this->Usuario->exists($i)) {
-			throw new NotFoundException(__('Invalid usuario'));
-		}
-			
-			$selc = " SELECT *
-						FROM `u961758316_uefs`.`usuarios` 
-						WHERE `usuarios`.`id` = $i ";
-			$b = $this->Usuario->query($selc);			
-			
-			foreach ($b as $bs) {
-				//debug($bs) or die();
-				$statusUser = $bs['usuarios']['Status'];
-				$nomeUser = $bs['usuarios']['name'];
-			}
-			
-			//debug($statusUser) or die();
-
-			if($statusUser == 0)
-			{
-			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW());
-			 UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 1 ; 
-						WHERE `usuarios`.`id` = $i
-			";
-				$this->Usuario->query($sql);
-			//$update = " ";
-			//$this->Usuario->query($update);			
-			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'));
-			}
-			else
-			{
-					$sql = "DELETE FROM `u961758316_uefs`.`user_bloq` WHERE `user_bloq`.`usuario_id` = $i;
-					UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 0 ; 
-						WHERE `usuarios`.`id` = $i";
-					$this->Usuario->query($sql);		
-					//$update = " ";
-					//$this->Usuario->query($update);
-		
-					$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Desbloquiado'));
-			}
-			return $this->redirect('/');
-	}
-
 }
-
