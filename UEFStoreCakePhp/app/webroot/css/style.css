@@ -32,6 +32,15 @@ img.top{
     margin-left: auto;
     margin-right: auto
 }
+a.linkTop{
+	color: black;
+	/* background:#23272a !important; */
+	-webkit-appearance: button;
+	padding: 5px;
+	/* padding-left:30px; */
+	/* margin-bottom:20px; */
+	position:relative;
+}
 img.product{
 	max-width:40%;
 	float: left;
@@ -1012,11 +1021,11 @@ h4.header{
 	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 .span_3_of_2 .button {
-	float: right;
+	
 }
 .span_3_of_2 .button a {
 	font-size:0.85em;
-	display: block;
+	
 	padding:8px 10px;
 	background:#176b66;
 	color: #FFF;
@@ -1026,6 +1035,9 @@ h4.header{
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
+}
+div#horizontalTab{
+	border: 1px solid #DFDFDF
 }
 .span_3_of_2 .button a:hover {
 	 text-shadow: 0px 0px 1px #000;
@@ -1104,10 +1116,7 @@ h4.header{
 	margin-top: 15px;
 	line-height: 3em;
 }
-.span_3_of_2 .button {
-	float: right;
-	margin-top: 1%;
-}
+
 .product-tags .button a {
 	font-size:1em;
 	padding:10px 15px;
@@ -1592,34 +1601,4 @@ h4.header{
    	width:100%;
    	text-align:center;
    }
-}
-/*busca de anúncios*/
-.tab {
-border-bottom: 1px solid #CCC;
-margin-bottom: 10px;
-height: 34px;
-font-size: 14px;
-}
-.left {
-float: left;
-}
-.tab a.active {
-margin-top: -1px;
-color: #000;
-background: #fff;
-padding: 8px 10px 5px;
-height: 35px;
-}
-.tab a {
-display: block;
-padding: 7px 10px 4px 10px;
-border: 1px solid #CCC;
-border-bottom: 0px;
-border-radius: 4px 4px 0 0;
-float: left;
-margin-right: 10px;
-text-decoration: none;
-color: #666;
-background: #f4f4f4;
-height: 33px;
 }

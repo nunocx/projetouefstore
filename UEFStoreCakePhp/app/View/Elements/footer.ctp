@@ -7,7 +7,7 @@
 		   	<ul>
 		   		<li><a href="#">Termos de Uso</a> : </li>
 		   		<li><a href="#">Política de Privacidade</a> : </li>
-		   		<li><a href="contact.html">Fale Conosco</a> : </li>
+		   		<li><a href="contatos">Fale Conosco</a> : </li>
 		   		<li><a href="#">Mapa do Site</a></li>
 		   	</ul>
 		   </div>		

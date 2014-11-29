@@ -2,9 +2,9 @@
 <div class="navigation">
 <div class="Caixa_Login">
 		
-		<?php echo $this->Html->link('Login','/login', array('class' => 'link'));?>
+		<?php echo $this->Html->link('Login','/usuarios/login', array('class' => 'linkTop'));?>
 		or
-        <?php echo $this->Html->link('Sign up','/usuarios/add',	array('class' => 'link'));?>
+        <?php echo $this->Html->link('Sign up','/usuarios/add',	array('class' => 'linkTop'));?>
         
 </div>
 <?php echo $this->Html->image('logo.png');?>
@@ -19,10 +19,10 @@
 						</li>
 						
 						<li>
-							<a href="<?php echo $this->Html->url('/faqs/', true)?>">FAQ</a>
+							<a href="#">FAQ </a>
 						</li>
 						<li>
-							<a href="<?php echo $this->Html->url('/faleConoscos/', true)?>">Fale Conosco</a>
+							<a href="<?php echo $this->Html->url('/contatos',true);?>">Fale Conosco </a>
 									<!--- SE PRECISAR DE SUBMENUS, ESSE É O CÓDIGO -
 									<ul>
 										<li><a href="#">Flowers & Plants</a></li>
@@ -39,7 +39,7 @@
 						</li>
 								
 								<li>
-									<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QTEN3EAAQDLJJ">Faça a sua Doação</a>
+									<a href="#">Faça a sua Doação</a>
 									
 								</li>
 								<div class="search_box" align="right">
