@@ -155,7 +155,7 @@ class ServicosController extends AppController {
 	public function search($termo) {
 		$busca = "SELECT * 
 		FROM  `servicos`
-		WHERE `servicos`.`name` LIKE '%".$termo."%' OR `servicos`.`Descricao` LIKE '%".$termo."%'";
+		WHERE `servicos`.`name` LIKE '%".$termo."%' AND `servicos`.`Bloqueado` = 0 AND `servicos`.`Expirado` = 0";
 
 		if ($termo = NULL) {
 			throw new NotFoundException(__('Invalid busca'));

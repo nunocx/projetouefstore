@@ -161,9 +161,7 @@ class ProdutosController extends AppController {
 	 * @return void
 	 */
 	public function search($termo){
-		$busca = "SELECT * 
-		FROM  `produtos`
-		WHERE `produtos`.`name` LIKE '%".$termo."%' OR `produtos`.`Descricao` LIKE '%".$termo."%'";
+		$busca = "SELECT * FROM  `produtos` WHERE `produtos`.`name` LIKE '%".$termo."%' AND `produtos`.`Bloqueado` = 0 AND `produtos`.`Expirado` = 0";
 //debug($busca) or die();
 		if ($termo = NULL) {
 			throw new NotFoundException(__('Invalid busca'));

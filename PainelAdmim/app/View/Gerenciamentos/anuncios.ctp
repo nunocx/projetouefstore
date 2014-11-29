@@ -1,29 +1,13 @@
 
-<?php
-$breadcrumb = array(
-	array(
-		'label' => 'Home',
-		'link'	=> '/'
-	),array (
-		'label' => 'Relatorios'
-	),array (
-		'label' => 'Anúncios'
-	)
-);
-
-$this->requestAction('/gerenciamentos/visao_geral');
-echo $this->element('breadcrumb',array('links' => $breadcrumb));
-?>
-
 <div class="Gerenciamento index">
 	<h2><?php echo __('UEFStore - Anúncios'); ?></h2>
 	<div area-central>
 		<div class="bloco">
 			<div class="GCUXF0KCDCB">
-					<span class="blogg-title"> Anúncios </span>
-					<a href="#">Mais estatísticas »</a>
+				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios')?>">« Voltar a Visão Geral </a>
+				<span class="blogg-title"> Anúncios </span>
 			</div>
-			<?php echo $this->Html->image('relatorios/ultimos-anuncios.png')?>
+			<?php echo $this->Html->image('relatorios/ultimosanuncios.png')?>
 		</div>
 
 		<div class="bloco2">
@@ -36,7 +20,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 						<tr>
 							<td>Anúncios cadastrados</td>
 							<td class="GCUXF0KCHCB">
-								<a class="gwt-Anchor" href="#pendingcomments">
+								<a class="gwt-Anchor" href="#">
 									<?php
 									$comando = "SELECT COUNT(*) FROM `produtos`;";
 									$comando2 = "SELECT COUNT(*) FROM `servicos`;";

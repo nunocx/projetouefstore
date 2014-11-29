@@ -1,17 +1,4 @@
-
-<?php
-$breadcrumb = array(
-	array(
-		'label' => 'Home',
-		'link'	=> '/'
-	),array (
-		'label' => 'Relatorios'
-	)
-);
-
-$this->requestAction('/gerenciamentos/visao_geral');
-echo $this->element('breadcrumb',array('links' => $breadcrumb));
-?>
+<?php $this->requestAction('/gerenciamentos/visao_geral/'); ?>
 
 <div class="Gerenciamento index">
 	<h2><?php echo __('UEFStore - Visão Geral'); ?></h2>
@@ -46,9 +33,14 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 								</td>
 							</tr>
 							<tr>
-								<td>Comentários publicados</td>
+								<td>Usuários Ativos</td>
 								<td class="GCUXF0KCHCB">
-									<a class="gwt-Anchor" href="#publishedcomments"><span>15</span> »</a>
+									<?php
+									$comando = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`Strikes` < 3;";
+									
+									$tam = $this->requestAction('/usuarios/buscaUsuarios/'.$comando);
+									?>
+									<a class="gwt-Anchor" href="#publishedcomments"><span><?php echo $tam[0][0]['COUNT(*)'] ?></span> »</a>
 								</td>
 							</tr>
 							<tr>

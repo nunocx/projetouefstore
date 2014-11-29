@@ -117,6 +117,11 @@ class UsuariosController extends AppController {
 	 	$this->set('usuarios', $usuarios);
 	}
 
+	public function buscaUsuarios($comando){
+		$resultado = $this->Usuario->query($comando);
+		return $resultado;
+	}
+
 
 	public function block($id = null)
 	{
