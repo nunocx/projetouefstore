@@ -123,7 +123,37 @@ class ProdutosController extends AppController {
 
 	public function attStatusProdutos()
 	{
-			$sql = "SELECT * FROM `u961758316_uefs`.`produtos`; UPDATE `u961758316_uefs`.`produtos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
+			$sql = "SELECT * FROM `u961758316_uefs`.`produtos`; 
+			UPDATE `u961758316_uefs`.`produtos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
+			$this->Session->setFlash(__('Produtos Checados.'));
+			$this->Produto->query($sql);
+			return $this->redirect('/');
+
+	}
+	public function attStatusServicos()
+	{
+			$sql = "SELECT * FROM `u961758316_uefs`.`servicos`; 
+			UPDATE `u961758316_uefs`.`servicos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
+			$this->Session->setFlash(__('Serviços Checados.'));
+			$this->Produto->query($sql);
+			return $this->redirect('/');
+
+	}
+	public function attStatusNeg()
+	{
+			$sql = "SELECT * FROM `u961758316_uefs`.`negociacaos`; 
+			UPDATE `u961758316_uefs`.`negociacaos` SET `Status` = 1 WHERE (NOW() > `Data_Final`)";
+			$this->Session->setFlash(__('Negociações Checadas.'));
+			$this->Produto->query($sql);
+			return $this->redirect('/');
+
+	}
+	public function attStatusUsuarios()
+	{
+			$sql = "SELECT * FROM `u961758316_uefs`.`usuarios`; 
+			UPDATE `u961758316_uefs`.`usuarios` SET `Status` = '1' WHERE (`usuarios`.`Strikes`>=	 3)";
+
+			$this->Session->setFlash(__('Usuarios Checados.'));
 			$this->Produto->query($sql);
 			return $this->redirect('/');
 

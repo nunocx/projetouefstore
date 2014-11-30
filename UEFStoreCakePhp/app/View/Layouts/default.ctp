@@ -1,10 +1,5 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
+<html>
 <?php
 	echo $this->element('header');
 ?>
@@ -13,17 +8,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   	  		<div class="wrap">
 				<div class="header_top">
 						<div class="header_top_right">
-
-						</div>
-			     <div class="clear"></div>
-  		    </div>     
-  		    <!--- MENU PRINCIPAL-->
+						</div>			    
+  		    	</div>
   		    <?php
   		    	echo $this->element('nav-top-menu');
-  		    ?> 
+  		    ?> 	
 	  	     <div class="clear"></div>
 	      </div>
-   		</div>
+   	</div>
    
    <!------------End Header ------------>
   <div class="main">
