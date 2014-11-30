@@ -58,15 +58,17 @@ class ServicosController extends AppController {
 
 		if ($this->request->is('post')) {
 
-			$this->request->data['Servico']['Data_Publicacao']['day'] = date('d');
+		
+			
+			$this->Servico->create();
+
+				$this->request->data['Servico']['Data_Publicacao']['day'] = date('d');
 			$this->request->data['Servico']['Data_Publicacao']['month'] = date('m');
 			$this->request->data['Servico']['Data_Publicacao']['year'] = date('Y');	
 				$timestamp = strtotime("+30 days");
 			$this->request->data['Servico']['Data_Vencimento']['day'] = date('d', $timestamp);
 			$this->request->data['Servico']['Data_Vencimento']['month'] = date('m', $timestamp);
 			$this->request->data['Servico']['Data_Vencimento']['year'] = date('Y', $timestamp);	
-			
-			$this->Servico->create();
 
 			if ($this->Servico->save($this->request->data)) {
 				//$this->Session->setFlash(__('The servico has been saved.'));
@@ -95,7 +97,7 @@ class ServicosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Servico->save($this->request->data)) {
 				$this->Session->setFlash(__('The servico has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+						return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
 			}
@@ -115,7 +117,7 @@ class ServicosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Servico->save($this->request->data)) {
 				$this->Session->setFlash(__('Servico foi salvo'));
-				return $this->redirect(array('action' => 'index'));
+					return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('Houve um erro, tente novamente.'));
 			}
@@ -143,7 +145,7 @@ class ServicosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The servico could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 	}
 
 

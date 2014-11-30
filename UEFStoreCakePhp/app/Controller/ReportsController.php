@@ -50,7 +50,7 @@ class ReportsController extends AppController {
 			$this->Report->create();
 			if ($this->Report->save($this->request->data)) {
 				$this->Session->setFlash(__('The report has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The report could not be saved. Please, try again.'));
 			}
@@ -75,7 +75,7 @@ class ReportsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Report->save($this->request->data)) {
 				$this->Session->setFlash(__('The report has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+						return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The report could not be saved. Please, try again.'));
 			}
@@ -107,6 +107,5 @@ class ReportsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The report could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
-	}
+				return $this->redirect('/');
 }

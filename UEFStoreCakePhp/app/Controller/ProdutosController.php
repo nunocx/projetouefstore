@@ -60,6 +60,10 @@ class ProdutosController extends AppController {
 					//echo date('d', $timestamp); 
 		if ($this->request->is('post')) {
 			
+		
+			
+			$this->Produto->create();
+			
 			$this->request->data['Produto']['Data_Publicacao']['day'] = date('d');
 			$this->request->data['Produto']['Data_Publicacao']['month'] = date('m');
 			$this->request->data['Produto']['Data_Publicacao']['year'] = date('Y');	
@@ -67,8 +71,6 @@ class ProdutosController extends AppController {
 			$this->request->data['Produto']['Data_Vencimento']['day'] = date('d', $timestamp);
 			$this->request->data['Produto']['Data_Vencimento']['month'] = date('m', $timestamp);
 			$this->request->data['Produto']['Data_Vencimento']['year'] = date('Y', $timestamp);	
-			
-			$this->Produto->create();
 			
 			
 
@@ -94,7 +96,7 @@ class ProdutosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Produto->save($this->request->data)) {
 				$this->Session->setFlash(__('Produto foi salvo'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('Houve um erro, tente novamente.'));
 			}
@@ -118,10 +120,10 @@ class ProdutosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Produto->save($this->request->data)) {
-				$this->Session->setFlash(__('The produto has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('O Produto foi editado.'));
+				return $this->redirect('/');
 			} else {
-				$this->Session->setFlash(__('The produto could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('O Produto não pode ser editado, tente novamente.'));
 			}
 		} else {
 			$options = array('conditions' => array('Produto.' . $this->Produto->primaryKey => $id));
@@ -146,11 +148,11 @@ class ProdutosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Produto->delete()) {
-			$this->Session->setFlash(__('The produto has been deleted.'));
+			$this->Session->setFlash(__('Produto Deletado.'));
 		} else {
-			$this->Session->setFlash(__('The produto could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('Produto não foi deletado, tente novamente'));
 		}
-		return $this->redirect(array('action' => 'index'));
+	return $this->redirect('/');
 	}
 
 	/**

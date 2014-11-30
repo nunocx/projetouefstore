@@ -2,14 +2,12 @@
 <div class="navigation">
 <div class="Caixa_Login">
 		
-		<?php echo $this->Html->link('Login','/usuarios/login', array('class' => 'linkTop'));?>
-		or
-        <?php echo $this->Html->link('Sign up','/usuarios/add',	array('class' => 'linkTop'));?>
+		<?php echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));?>
+		
+        <?php echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));?>
         
 </div>
 <?php echo $this->Html->image('logo.png');?>
-
-
 <div class="clear"></div>
 	<div id="Caixa_Menu">
   		    	<a class="toggleMenu" href="#">Menu</a>
@@ -39,7 +37,7 @@
 						</li>
 								
 								<li>
-									<a href="#">Faça a sua Doação</a>
+									<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QTEN3EAAQDLJJ">Faça a sua Doação</a>
 									
 								</li>
 								<div class="search_box" align="right">

@@ -81,7 +81,8 @@ class NegociacaosController extends AppController {
 		
 		if ($this->request->is('post')) {
 
-		
+			$this->Negociacao->create();
+			
 			$this->request->data['Negociacao']['interessado'] = $userInteressado;
 			$this->request->data['Negociacao']['usuario_id'] = $usario_id;
 			
@@ -101,7 +102,7 @@ class NegociacaosController extends AppController {
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
 			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
 
-				$this->Negociacao->create();
+			
 			if ($this->Negociacao->save($this->request->data)) {
 				$this->Session->setFlash(__('negociação feita'));
 				return $this->redirect('/');
@@ -130,7 +131,7 @@ class NegociacaosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Negociacao->save($this->request->data)) {
 				$this->Session->setFlash(__('The negociacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The negociacao could not be saved. Please, try again.'));
 			}
@@ -162,6 +163,6 @@ class NegociacaosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The negociacao could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect('/');
 	}
 }

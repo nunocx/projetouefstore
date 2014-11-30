@@ -54,7 +54,7 @@ public function index() {
 			$this->Terceiro->create();
 			if ($this->Terceiro->save($this->request->data)) {
 				$this->Session->setFlash(__('The terceiro has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+						return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The terceiro could not be saved. Please, try again.'));
 			}
@@ -78,7 +78,7 @@ public function index() {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Terceiro->save($this->request->data)) {
 				$this->Session->setFlash(__('The terceiro has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+						return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The terceiro could not be saved. Please, try again.'));
 			}
@@ -109,6 +109,6 @@ public function index() {
 		} else {
 			$this->Session->setFlash(__('The terceiro could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 	}
 }
