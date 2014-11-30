@@ -3,7 +3,6 @@
 <div class="Caixa_Login">
 		
 		<?php echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));?>
-		
         <?php echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));?>
         
 </div>
