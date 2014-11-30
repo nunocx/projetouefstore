@@ -13,25 +13,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   	  		<div class="wrap">
 				<div class="header_top">
 						<div class="header_top_right">
+
 						</div>
 			     <div class="clear"></div>
   		    </div>     
   		    <!--- MENU PRINCIPAL-->
   		    <?php
   		    	echo $this->element('nav-top-menu');
-  		    ?>
-  		     
-
-			   <div class="slider-text">
-
-	  	       </div>
-	  	       <div class="slider-img">
-	  	      	
-	  	       </div>
+  		    ?> 
 	  	     <div class="clear"></div>
 	      </div>
    		</div>
-   </div>
+   
    <!------------End Header ------------>
   <div class="main">
       <div class="content">
@@ -85,10 +78,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </script>
 <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
 			</p>
-
-
-
-
 			
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -107,8 +96,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		             <?php echo $this->Session->flash(); ?>
                      <?php echo $this->fetch('content'); ?>
 			    
-			    </div><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- reggaetonbrasileiro_main_Blog1_728x90_as -->
+			    </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
      data-ad-client="ca-pub-0122532760620531"
@@ -117,8 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 			    <!--- END CONTENT -->
-			    <div class="product-articles">
-			    </div>
+			    
 		      </div>
 		      <div class="clear"></div>
 		   </div>
