@@ -55,7 +55,7 @@ class MensagemsController extends AppController {
 			$this->Mensagem->create();
 			if ($this->Mensagem->save($this->request->data)) {
 				$this->Session->setFlash(__('The mensagem has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The mensagem could not be saved. Please, try again.'));
 			}
@@ -104,6 +104,6 @@ class MensagemsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The mensagem could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+	return $this->redirect('/');
 	}
 }

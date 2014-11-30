@@ -58,7 +58,7 @@ public function indexView() {
 			$this->Category->create();
 			if ($this->Category->save($this->request->data)) {
 				$this->Session->setFlash(__('The category has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
@@ -79,7 +79,7 @@ public function indexView() {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Category->save($this->request->data)) {
 				$this->Session->setFlash(__('The category has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.'));
 			}
@@ -107,6 +107,6 @@ public function indexView() {
 		} else {
 			$this->Session->setFlash(__('The category could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect('/');
 	}
 }

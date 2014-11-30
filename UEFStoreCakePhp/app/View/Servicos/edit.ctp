@@ -10,28 +10,14 @@
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
          	echo $this->Upload->edit('Servico', $this->Form->fields['Servico.id']);
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
-         	echo $this->Form->hidden('ACombinar',array('label'=>'Preço a combinar', 'class'=>'form-control'));
+         	echo $this->Form->checkbox('ACombinar',array('value' => '1','hiddenField'=>'0', 'label'=>'Preço a combinar'));
+         	echo $this->Form->label('Pre&ccedil;o a combinar');
          ?>
-         <p><?php
-			echo $this->Form->input('Data_Publicacao',array(
-							 'label' => 'Data de Publicação:',
-							'dateFormat' => 'DMY'
-                           , 'minYear' => date('Y') - 90
-                           , 'maxYear' => date('Y') - 0 ));?>
-		</p>
-		<p><?php
-			echo $this->Form->input('Data_Vencimento',array(
-							 'label' => 'Data de Vencimento:',
-							'dateFormat' => 'DMY'
-                           , 'minYear' => date('Y') - 90
-                           , 'maxYear' => date('Y') - 0 ));?>
-		</p>
-		<p><?php
-			echo $this->Form->input('Quantidade',array('class'=>'form-control'));?></p>
+        
+		
 		<?php
 			echo $this->Form->hidden('Bloqueado',array('value'=>'0'));
 			echo $this->Form->hidden('Expirado',array('value'=>'0'));
-			echo $this->Form->input('usuario_id',array( 'class'=>'form-control'));
 			echo $this->Form->input('category_id',array( 'class'=>'form-control'));
 		?>
 	</div>

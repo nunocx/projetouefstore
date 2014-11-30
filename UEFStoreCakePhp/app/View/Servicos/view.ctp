@@ -1,126 +1,126 @@
-<div class="servicos view">
-<h3><?php echo __('Servico'); ?></h3>
-	<dl>
-		
-		<?php echo h($servico['Servico']['Descricao']);
-			echo $this->Upload->view('Servico', $servico['Servico']['id']);
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<head>
+<title>Free Home Shoppe Website Template | Preview :: w3layouts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="../text/javascript" src="js/jquery-1.7.2.min.js"></script> 
+<script type="../text/javascript" src="js/move-top.js"></script>
+<script type="../text/javascript" src="js/easing.js"></script>
+<script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
+<link href="../css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/global.css">
+<script src="js/slides.min.jquery.js"></script>
+<script>
+		$(function(){
+			$('#products').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				effect: 'slide, fade',
+				crossfade: true,
+				slideSpeed: 350,
+				fadeSpeed: 500,
+				generateNextPrev: true,
+				generatePagination: false
+			});
+		});
+	</script>
+</head>
+<body>
+ 
+ <div class="main">
+    <div class="content">
+    	<div class="content_top">
+    		<h3><?php echo strtoupper($servico['Servico']['name'])?></h3>
+    		
+    	</div>
+    	<div class="section group">
+				<div class="cont-desc span_1_of_2">
+				  <div class="product-details">				
+					<div class="grid images_3_of_2">
+						<div id="container">
+						   <div id="products_example">
+							   <div id="products">
+								<div class="slides_container">
+									<a href="#" target="_blank"><img src="img/<?php echo $servico['Servico']['id']; ?>.jpg" alt=" " /></a>
+									
+								</div>
+								<ul class="pagination">
+									<li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li>
+									<li><a href="#"><img src="images/thumbnailslide-2.jpg" alt=" " /></a></li>
+									<li><a href="#"><img src="images/thumbnailslide-3.jpg" alt=" " /></a></li>
+									<li><a href="#"><img src="images/thumbnailslide-4.jpg" alt=" " /></a></li>
+									<li><a href="#"><img src="images/thumbnailslide-5.jpg" alt=" " /></a></li>
+									<li><a href="#"><img src="images/thumbnailslide-6.jpg" alt=" " /></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="desc span_3_of_2">
+					
+									
+					<div class="price">
+						<p>Publicado em: <?php echo ($servico['Servico']['Data_Publicacao']); ?></p>
+						<p>Preço: <span>R$<?php echo $servico['Servico']['Preco']?></span></p>
+						<p>Categoria:<?php echo $this->Html->link($servico['Category']['name'], array('controller' => 'categories', 'action' => 'view', $servico['Category']['id'])); ?></p>
+						<p>Vendedor: <?php echo $this->Html->link($servico['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?></p>
 
-			 ?>
 
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descricao'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Descricao']); ?>
-			&nbsp;
-		</dd>
+						<div class="button"><a href="#">Negociar</a></div>	
+					</div>
+					
+				<div class="share-desc">
+									
+					<div class="clear"></div>
+				</div>
+				 
+			</div>
+			<div class="clear"></div>
+		  </div>
+		<div class="product_desc">	
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li>Descrição do Serviço</li>
 
-
-		<dt><?php echo __('Preco'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Preco']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Publicacao'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Data_Publicacao']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Data Vencimento'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Data_Vencimento']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Foto Video'); ?></dt>
-		<dd>
+					<div class="clear"></div>
+				</ul>
+				<div class="resp-tabs-container">
+					<div class="product-desc">
+						<li><?php echo $servico['Servico']['Descricao']?></li>
+					</div>
+					</br>
+				</div>
 			
-			 <!--- comando para poder ver a IMG -->
-
-		  <?php 
-		  	echo $this->Upload->view('Servico', $servico['Servico']['id']);
-		  ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Bloqueado'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Bloqueado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Expirado'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['Expirado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('ACombinar'); ?></dt>
-		<dd>
-			<?php echo h($servico['Servico']['ACombinar']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Usuario'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($servico['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?>
-			<?php $idLogin  = 0 ; echo $this->Html->link(__('Entre em contato'), array('controller' => 'negociacaos', 'action' => 'adds', $idLogin ,$servico['Usuario']['id'],$servico['Servico']['id'],'null')); ?>
-
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Category'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($servico['Category']['name'], array('controller' => 'categories', 'action' => 'view', $servico['Category']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Servico'), array('action' => 'edit', $servico['Servico']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Servico'), array('action' => 'delete', $servico['Servico']['id']), array(), __('Are you sure you want to delete # %s?', $servico['Servico']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Servicos'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Servico'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comentarios'), array('controller' => 'comentarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comentario'), array('controller' => 'comentarios', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+			</div>
+		 </div>
+	 </div>
+	    
 <div class="related">
-	<h3><?php echo __('Related Comentarios'); ?></h3>
+	<h3><?php echo __('Comentários'); ?></h3>
 	<?php if (!empty($servico['Comentario'])): ?>
-	<table class="table table-bordered table-hover table-striped">
+		<table class="table table-bordered table-hover table-striped">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
+		
 		<th><?php echo __('Data'); ?></th>
 		<th><?php echo __('Texto'); ?></th>
 		<th><?php echo __('Usuario Id'); ?></th>
-		<th><?php echo __('Servico Id'); ?></th>
-		<th><?php echo __('Produto Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		
+		
+		
 	</tr>
 	<?php foreach ($servico['Comentario'] as $comentario): ?>
 		<tr>
-			<td><?php echo $comentario['id']; ?></td>
 			<td><?php echo $comentario['Data']; ?></td>
 			<td><?php echo $comentario['Texto']; ?></td>
 			<td><?php echo $comentario['usuario_id']; ?></td>
-			<td><?php echo $comentario['servico_id']; ?></td>
-			<td><?php echo $comentario['produto_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'comentarios', 'action' => 'view', $comentario['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'comentarios', 'action' => 'edit', $comentario['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'comentarios', 'action' => 'delete', $comentario['id']), array(), __('Are you sure you want to delete # %s?', $comentario['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
@@ -132,40 +132,9 @@
 		</ul>
 	</div>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Reports'); ?></h3>
-	<?php if (!empty($servico['Report'])): ?>
-	<table class="table table-bordered table-hover table-striped">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Texto'); ?></th>
-		<th><?php echo __('Data'); ?></th>
-		<th><?php echo __('Produto Id'); ?></th>
-		<th><?php echo __('Servico Id'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($servico['Report'] as $report): ?>
-		<tr>
-			<td><?php echo $report['id']; ?></td>
-			<td><?php echo $report['Texto']; ?></td>
-			<td><?php echo $report['Data']; ?></td>
-			<td><?php echo $report['produto_id']; ?></td>
-			<td><?php echo $report['servico_id']; ?></td>
-			<td><?php echo $report['usuario_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'reports', 'action' => 'view', $report['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'reports', 'action' => 'edit', $report['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'reports', 'action' => 'delete', $report['id']), array(), __('Are you sure you want to delete # %s?', $report['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
+</div>
+</div>
+</body>
+</html>
+

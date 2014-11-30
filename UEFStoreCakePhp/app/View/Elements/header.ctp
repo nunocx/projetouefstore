@@ -7,7 +7,7 @@
     </title>
     <?php
         echo $this->Html->meta('icon');
-        echo $this->Html->css(array('bootstrap.min','easy-responsive-tabs','etalage','style'));
+        echo $this->Html->css(array('bootstrap','bootstrap.min','easy-responsive-tabs','etalage','style'));
                 
         echo $this->Html->script(
             array('bootstrap','bootstrap.min','jquery','jquery.openCarousel','jquery.etalage.min','easyResponsiveTabs','easing','move-top','navigation','star-rating','jquery-1.9.0.min')
