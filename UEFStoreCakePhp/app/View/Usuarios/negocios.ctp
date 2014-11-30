@@ -9,7 +9,6 @@ $servicos = $this->requestAction('servicos/index');
 ?></h3>
  <!-- /.panel-heading -->
  <div class="panel-body">
-
  	<table class="table table-bordered table-hover table-striped">
  			<tr>
  				<th><?php echo __('Negociações'); ?></th>
@@ -17,10 +16,32 @@ $servicos = $this->requestAction('servicos/index');
  			</tr>
  			
  			<!-- Achando as negociações que o usuario escolhido possue -->
- 			<?php  	foreach ($negociacao as $negocio):  ?>
+ 			<?php 
+ 			 			foreach ($negociacao as $negocio):  ?>
 	 		<tr>
 	 			<?php 	if ($negocio['Negociacao']['interessado'] == $usuarios['Usuario']['id'] ):  ?>	
-	 					<td> <?php echo $negocio['Negociacao']['produto_id'] ?></td>
+	 					<td> 
+	 						<?php 
+	 						foreach ($produtos as $produto) {
+	 								if($produto['Produto']['id']==$negocio['Negociacao']['produto_id'] && $negocio['Negociacao']['produto_id']!=null){
+	 									echo $produto['Produto']['name'];
+	 									break;
+	 								}
+	 								else
+	 								{
+
+		 								foreach ($servicos as $servico)
+		 								{
+		 									if($servico['Servico']['id']==$negocio['Negociacao']['servico_id'] && $negocio['Negociacao']['servico_id']!=null)
+		 										echo $servico['Servico']['name'];
+		 									}
+		 									break;
+	 								}
+	 								
+	 							}
+	 						 ?>
+
+	 					</td>
 	 					<td>
 	 					<?php if(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['produto_id'] != null ): ?> 
 	 					<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['produto_id'].'/'.null); ?>"> Comente este produto now ! </a> </li>					
@@ -35,4 +56,5 @@ $servicos = $this->requestAction('servicos/index');
  			<?php endforeach; ?>
  		
  	</table>
-
+	</div>
+</div>

@@ -80,7 +80,7 @@ class UsuariosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Usuario->save($this->request->data)) {
 				$this->Session->setFlash(__('The usuario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+						return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('Os dados nao foram editados.'));
 			}
@@ -95,10 +95,10 @@ class UsuariosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash(__('Usuario foi salvo'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Usuario Cadastrado'));
+						return $this->redirect('/');
 			} else {
-				$this->Session->setFlash(__('Houve um erro, tente novamente. Edite seu perfil.'));
+				$this->Session->setFlash(__('Houve um erro, tente novamente, tente Editar seu perfil.'));
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
@@ -114,16 +114,6 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Usuario->id = $id;
-		if (!$this->Usuario->exists()) {
-			throw new NotFoundException(__('Invalid usuario'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Usuario->delete()) {
-			$this->Session->setFlash(__('The usuario has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The usuario could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
+		
 	}
 }

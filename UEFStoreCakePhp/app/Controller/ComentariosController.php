@@ -55,7 +55,7 @@ class ComentariosController extends AppController {
 			$this->Comentario->create();
 			if ($this->Comentario->save($this->request->data)) {
 				$this->Session->setFlash(__('The comentario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The comentario could not be saved. Please, try again.'));
 			}
@@ -74,11 +74,11 @@ class ComentariosController extends AppController {
 			$this->Comentario->create();
 	
 			if ($this->Comentario->save($this->request->data)) {
-				$this->Session->setFlash(__('The comentario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Anuncio Comentado com sucesso.'));
+				return $this->redirect('/');
 			}
 			 else {
-				$this->Session->setFlash(__('The comentario could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Comentario não pode ser enviado, tente novamente'));
 			}
 		}
 		$usuarios = $this->Comentario->Usuario->find('list');
@@ -134,6 +134,6 @@ class ComentariosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The comentario could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect('/');
 	}
 }
