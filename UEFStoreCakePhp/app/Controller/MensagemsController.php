@@ -53,15 +53,16 @@ class MensagemsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();
+
+			$this->request->data['Mensagem']['Data'] = date('Y-m-d');
 			if ($this->Mensagem->save($this->request->data)) {
-				$this->Session->setFlash(__('The mensagem has been saved.'));
+				$this->Session->setFlash(__('Obrigado sua mensagem foi enviada com sucesso.'));
 				return $this->redirect('/');
 			} else {
-				$this->Session->setFlash(__('The mensagem could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Occoreu um erro ao envio de sua mensagem.'));
 			}
 		}
 	}
-
 /**
  * edit method
  *

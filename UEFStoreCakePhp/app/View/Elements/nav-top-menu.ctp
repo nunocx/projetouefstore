@@ -19,7 +19,7 @@
 							<a href="#">FAQ </a>
 						</li>
 						<li>
-							<a href="<?php echo $this->Html->url('/contatos',true);?>">Fale Conosco </a>
+							<a href="<?php echo $this->Html->url('/mensagems/add',true);?>">Fale Conosco </a>
 									<!--- SE PRECISAR DE SUBMENUS, ESSE É O CÓDIGO -
 									<ul>
 										<li><a href="#">Flowers & Plants</a></li>

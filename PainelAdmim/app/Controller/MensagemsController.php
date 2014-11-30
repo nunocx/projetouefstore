@@ -48,6 +48,8 @@ class MensagemsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();
+
+			$this->request->data['Mensagem']['Data'] = date('Y-m-d');
 			if ($this->Mensagem->save($this->request->data)) {
 				$this->Session->setFlash(__('Mensagem foi enviada com sucesso.'));
 				return $this->redirect('/');

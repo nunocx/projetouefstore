@@ -6,7 +6,7 @@
 		   <div class="footer-nav">
 		   	<ul>
 		   		<li><a href="#">Termos de Uso</a> : </li>
-		   		<li><a href="<?php echo $this->Html->url('/contatos',true);?>">Fale Conosco</a></li>
+		   		<li><a href="<?php echo $this->Html->url('/mensagems/add',true);?>">Fale Conosco</a></li>
 		   	</ul>
 		   </div>		
         </div>

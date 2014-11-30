@@ -38,7 +38,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 			<div class="col-lg-3">
 				<h3>Manutenções do Portal</h3>
 				<p></p>
-				<?php echo $this->Html->link(__('“Bloquear Produtos Expirados”'),'/produtos/attStatusProdutos',array('class' => 'btn btn-warning')) ?>
+				<?php echo $this->Html->link(__('Bloquear Produtos Expirados'),'/produtos/attStatusProdutos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
 				<?php echo $this->Html->link(__('Bloquear Serviços Expirados'),'/produtos/attStatusServicos',array('class' => 'btn btn-warning')) ?>
 				<p></p>
