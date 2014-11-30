@@ -1,14 +1,22 @@
 
 <div class="navigation">
-<div class="Caixa_Login">
+
 		
-		<?php echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));?>
-        <?php echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));?>
-        
-</div>
+		
+       
 <?php echo $this->Html->image('logo.png');?>
 <div class="clear"></div>
 	<div id="Caixa_Menu">
+				
+					<div style="float: right;">
+
+							
+					<?php echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));?>
+					<?php echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));?>
+
+					</div>
+				<div class="clear"></div>
+
   		    	<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
 						<li>
@@ -49,6 +57,7 @@
 					    </div>
 							</ul>					
 					</div>
+
 </div>
 
 						
