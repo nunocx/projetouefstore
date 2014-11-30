@@ -20,7 +20,9 @@
              		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
              	<?php	 echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>
              		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
-             	<?php
+             	  
+              <?php
+                echo $this->Form->file('Usuario.Foto'); 
              		 echo $this->Form->radio('Sexo', array('M'=>'Masculino','F'=>'Feminino'));
              	?>
              	<p>

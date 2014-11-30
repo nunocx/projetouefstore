@@ -3,13 +3,28 @@
 	<fieldset>
 		<legend><h3><?php echo __('Cadastrar Serviço'); ?></h3></legend>
 	<div class="form-group">
+		</br >
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
+        ?>
+        </br >
+        <?php
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
+			?>
+		<p>
+		</br >
+		<?php
+			echo $this->Form->label('Foto Principal do Anuncio');
+         	echo $this->Form->file('Servico.Foto_Video'); 
          	
-         	
+         	?>
+         </p>
+         </br >
+         <?php
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
-         	
+         	?>
+         	</br >
+         <?php
          	echo $this->Form->checkbox('ACombinar',array('value' => '1','hiddenField'=>'0', 'label'=>'Preço a combinar'));
          	echo $this->Form->label('Pre&ccedil;o a combinar');
          ?>

@@ -1,15 +1,27 @@
 <div class="produtos form">
-<?php echo $this->Form->create('Produto'); ?>
+<?php echo $this->Form->create('Produto',array('type'=>'file')); ?>
 	<fieldset>
 		<legend><h3><?php echo __('Cadastrar Produto'); ?></h3></legend>
 	<div class="form-group">
+	</br >
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
+         	?>
+         	   </br >	
+         <?php
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
-        // 	echo $this->Form->file('Foto_Video',array('label'=>'Foto/Video:', 'class'=>'form-control'));
-         	
-         	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
          ?>
+         </br >
+		<?php
+			echo $this->Form->label('Foto Principal do Anuncio');
+         	echo $this->Form->file('Produto.Foto_Video');
+         ?>
+         </br>
+         <?php 
+         	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
+         ?>	
+         </p>
+         </br >
         
 		<p><?php
 			echo $this->Form->input('Quantidade',array('class'=>'form-control'));?></p>
