@@ -11,46 +11,35 @@
 				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios')?>">« Voltar a Visão Geral </a>
 					<span class="blogg-title"> Negociações no mês </span>
 			</div>
-
-			
-				
-					
-            	
-        	
-				<!--<div class="periodo">
-						<a href="?pg=sem">Semana</a>
-						<a href="?pg=mes">Mês</a>
-						<a href="?pg=ano">Ano</a>
-				</div>-->
-		<div class="tab">
-			<div class="left">
-			<?php
-				if(isset($_GET['pg'])) {
-					if($_GET['pg'] == "sem") {?>
-						<a  class="list active" href="?pg=sem">Semana</a>
-                		<a  class="gallery" id="listing-gallery-toggle-gallery"  rel="nofollow" href="?pg=mes"> Mês </a>
-                		<a  class="gallery" id="listing-gallery-toggle-gallery"  rel="nofollow" href="?pg=ano"> Ano </a>
-					<?php	echo $this->Html->image('relatorios/negociacoesSem.png');
-					} else if($_GET['pg'] == "mes") { ?>
+			<div class="tab">
+				<div class="left">
+				<?php
+					if(isset($_GET['pg'])) {
+						if($_GET['pg'] == "sem") {?>
+							<a  class="list active" href="?pg=sem">Semana</a>
+	                		<a  class="gallery" id="listing-gallery-toggle-gallery"  rel="nofollow" href="?pg=mes"> Mês </a>
+	                		<a  class="gallery" id="listing-gallery-toggle-gallery"  rel="nofollow" href="?pg=ano"> Ano </a>
+						<?php	echo $this->Html->image('relatorios/negociacoesSem.png');
+						} else if($_GET['pg'] == "mes") { ?>
+							<a class="gallery" id="listing-gallery-toggle-gallery" href="?pg=sem"  rel="nofollow">Semana</a>
+	                		<a   class="list active" href="?pg=mes"> Mês </a>
+	                		<a class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=ano"  rel="nofollow"> Ano </a>
+						<?php	echo $this->Html->image('relatorios/graficoGeral.png');
+						} else if($_GET['pg'] == "ano") { ?>
+							<a  class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=sem" rel="nofollow">Semana</a>
+	                		<a  class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=mes"  rel="nofollow" > Mês </a>
+	                		<a class="list active" href="?pg=ano" > Ano </a>
+						<?php	echo $this->Html->image('relatorios/negociacoesAno.png');
+						}
+					} else { ?>
 						<a class="gallery" id="listing-gallery-toggle-gallery" href="?pg=sem"  rel="nofollow">Semana</a>
-                		<a   class="list active" href="?pg=mes"> Mês </a>
-                		<a class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=ano"  rel="nofollow"> Ano </a>
+	                		<a   class="list active" href="?pg=mes"> Mês </a>
+	                		<a class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=ano"  rel="nofollow"> Ano </a>
 					<?php	echo $this->Html->image('relatorios/graficoGeral.png');
-					} else if($_GET['pg'] == "ano") { ?>
-						<a  class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=sem" rel="nofollow">Semana</a>
-                		<a  class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=mes"  rel="nofollow" > Mês </a>
-                		<a class="list active" href="?pg=ano" > Ano </a>
-					<?php	echo $this->Html->image('relatorios/negociacoesAno.png');
 					}
-				} else { ?>
-					<a class="gallery" id="listing-gallery-toggle-gallery" href="?pg=sem"  rel="nofollow">Semana</a>
-                		<a   class="list active" href="?pg=mes"> Mês </a>
-                		<a class="gallery" id="listing-gallery-toggle-gallery"  href="?pg=ano"  rel="nofollow"> Ano </a>
-				<?php	echo $this->Html->image('relatorios/graficoGeral.png');
-				}
-			?>
+				?>
+				</div>
 			</div>
-		</div>
 		</div>
 
 		<div class="bloco2">
