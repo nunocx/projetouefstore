@@ -6,7 +6,7 @@
 
 
 require_once "includes/connect_i.php";
-$sqlCommand = "SELECT id, name FROM usuarios WHERE Email='cursus.a.enim@Duisdignissim.edu'";
+$sqlCommand = "SELECT id, name FROM usuarios WHERE Email='". $this->Session->read('Auth.User.Email'). "'";
 $query = mysqli_query($myConnection, $sqlCommand) or die (mysqli_error());
 while($row = mysqli_fetch_array($query)){
 	$pid = $row["id"];
@@ -35,7 +35,7 @@ $outboxMessages = $result['numbers'];
 
 
 ?>
-<?php if('cursus.a.enim@Duisdignissim.edu') {?>
+<?php if($this->Session->read('Auth.User.Email')) {?>
 <?php echo $this->Html->link(__('Caixa de Entrada'), array('action' => 'pm_inbox')); ?> <?php if ($inboxMessagesNew > 0) { print "<b>(".$inboxMessagesNew.")</b>";}
 else{ print "(0)";} ?> <?php print $inboxMessagesTotal; ?>, <?php echo $this->Html->link(__('Caixa de Saída'), array('action' => 'pm_outbox')); ?> <?php print $outboxMessages; ?> <?php } else {print "You must be logged in first";}?> 
 
