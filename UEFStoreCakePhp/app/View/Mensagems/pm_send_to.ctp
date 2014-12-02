@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once "includes/connect_i.php";
 
 $sqlCommand = "SELECT id, name FROM usuarios WHERE Email='". $this->Session->read('Auth.User.Email'). "'";
