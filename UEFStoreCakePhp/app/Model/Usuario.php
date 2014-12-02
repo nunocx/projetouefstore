@@ -144,8 +144,8 @@ public function move_arquivos($imagem, $dir)
 		),
 		'Telefone1' => array(
 			'notEmpty' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('notEmpty'),
+				'message' => 'Coloque seu telefone',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
