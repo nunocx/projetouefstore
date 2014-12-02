@@ -31,3 +31,4 @@ $produtos = $this->requestAction('produtos/indexView');
 					</div>
 				 </div>
 	<?php endforeach;?>
+	
