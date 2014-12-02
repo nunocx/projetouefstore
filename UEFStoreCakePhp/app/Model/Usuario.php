@@ -144,7 +144,7 @@ public function move_arquivos($imagem, $dir)
 		),
 		'Telefone1' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -155,16 +155,6 @@ public function move_arquivos($imagem, $dir)
 		'Sexo' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'regra' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -222,34 +212,8 @@ public function move_arquivos($imagem, $dir)
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Report' => array(
-			'className' => 'Report',
-			'foreignKey' => 'usuario_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Servico' => array(
 			'className' => 'Servico',
-			'foreignKey' => 'usuario_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Terceiro' => array(
-			'className' => 'Terceiro',
 			'foreignKey' => 'usuario_id',
 			'dependent' => false,
 			'conditions' => '',
