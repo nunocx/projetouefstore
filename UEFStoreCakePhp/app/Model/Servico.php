@@ -39,7 +39,7 @@ class Servico extends AppModel {
 		),
 		'Preco' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
+				'rule' => array('decimal',2),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

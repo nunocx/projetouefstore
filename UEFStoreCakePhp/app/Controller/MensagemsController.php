@@ -125,6 +125,11 @@ public function beforeFilter()
 		public function add() {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();
+			
+			if($this->Auth->user('name') != null)
+				$this->request->data['Mensagem']['Emisor'] = $this->Auth->user('name');
+			else
+				$this->request->data['Mensagem']['Emisor'] = 'Anonimo';	
 
 			$this->request->data['Mensagem']['Data'] = date('Y-m-d');
 			if ($this->Mensagem->save($this->request->data)) {

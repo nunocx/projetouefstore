@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02-Dez-2014 às 03:37
+-- Generation Time: 02-Dez-2014 às 16:43
 -- Versão do servidor: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -60,7 +60,8 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   `Texto` text NOT NULL,
   `usuario_id` int(11) DEFAULT NULL,
   `servico_id` int(11) DEFAULT NULL,
-  `produto_id` int(11) DEFAULT NULL
+  `produto_id` int(11) DEFAULT NULL,
+  `statos` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
@@ -132,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `CondicaoUso` text,
   `usuario_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Truncate table before insert `produtos`
@@ -180,13 +181,20 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `ACombinar` int(11) DEFAULT '0',
   `usuario_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Truncate table before insert `servicos`
 --
 
 TRUNCATE TABLE `servicos`;
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `Data_Vencimento`, `Foto_Video`, `Bloqueado`, `Expirado`, `ACombinar`, `usuario_id`, `category_id`) VALUES
+(1, 'servico1', 'servico', 11, '2014-12-02', '2015-01-01', 'koala-2.jpg', 0, 0, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -211,6 +219,24 @@ CREATE TABLE IF NOT EXISTS `terceiros` (
 --
 
 TRUNCATE TABLE `terceiros`;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `user_bloq`
+--
+
+DROP TABLE IF EXISTS `user_bloq`;
+CREATE TABLE IF NOT EXISTS `user_bloq` (
+`id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `dataBloq` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Truncate table before insert `user_bloq`
+--
+
+TRUNCATE TABLE `user_bloq`;
 -- --------------------------------------------------------
 
 --
@@ -267,13 +293,20 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Truncate table before insert `usuarios`
 --
 
 TRUNCATE TABLE `usuarios`;
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `Email`, `name`, `Senha`, `Telefone1`, `Data_Nascimento`, `Sexo`, `Telefone2`, `Foto`, `Strikes`, `Status`, `VotosPositivos`, `VotosNegativos`, `username`, `password`, `created`) VALUES
+(1, 'arthru@hotmail.com', 'arthur@hotmail.com', 'art', '7534891139', '2014-12-02', 'M', '7534891139', 'koala.jpg', 0, 0, 0, 0, 'arthru@hotmail.com', '2e7baeeb58f97970b3d3f5fbee04b09900f5b6f7', '2014-12-02');
+
 --
 -- Indexes for dumped tables
 --
@@ -327,6 +360,12 @@ ALTER TABLE `terceiros`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_bloq`
+--
+ALTER TABLE `user_bloq`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -366,7 +405,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `reports`
 --
@@ -376,12 +415,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `servicos`
 --
 ALTER TABLE `servicos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `terceiros`
 --
 ALTER TABLE `terceiros`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_bloq`
+--
+ALTER TABLE `user_bloq`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -391,7 +435,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -17,7 +17,6 @@ echo $this->Form->hidden('id');?>
 		echo $this->Form->input('Status');
 		echo $this->Form->input('VotosPositivos');
 		echo $this->Form->input('VotosNegativos');
-		echo $this->Form->input('regra');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar')); ?>

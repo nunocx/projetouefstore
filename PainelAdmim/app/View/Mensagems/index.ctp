@@ -18,7 +18,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 			<th><?php echo $this->Paginator->sort('Assunto'); ?></th>
 			<th><?php echo $this->Paginator->sort('Data'); ?></th>
 			<th><?php echo $this->Paginator->sort('Emisor'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('Ações'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -49,10 +49,4 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
             ?>
         </ul>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Ações Relacionadas'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Enviar Menssagem'), array('action' => 'add')); ?></li>
-	</ul>
 </div>
