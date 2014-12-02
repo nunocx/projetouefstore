@@ -4,7 +4,7 @@ session_start();
 
 require_once "includes/connect_i.php";
 
-$sqlCommand = "SELECT id, name FROM usuarios WHERE Email='cursus.a.enim@Duisdignissim.edu'";
+$sqlCommand = "SELECT id, name FROM usuarios WHERE Email='". $this->Session->read('Auth.User.Email'). "'";
 $query = mysqli_query($myConnection, $sqlCommand) or die  (mysqli_error());
 
 while($row = mysqli_fetch_array($query)){
