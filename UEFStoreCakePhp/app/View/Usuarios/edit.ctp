@@ -3,7 +3,7 @@
       echo $this->Form->hidden('id');
  ?>
   <fieldset>
-    <legend><h3><?php echo __('Atualizar Dados Usuario'); ?></h3></legend>
+    <legend><h3><?php echo __('Atualizar Dados'); ?></h3></legend>
   
 
     <div class="form-group">
@@ -12,7 +12,7 @@
                <p class="help-block">Exemplo: name@exemplo.com </p>
         
            <?php echo $this->Form->input('name',array('label'=>'Nome:', 'class'=>'form-control')); 
-               echo $this->Form->input('Senha',array('label'=>'Senha:', 'class'=>'form-control'));
+               echo $this->Form->input('Senha',array('type'=>'password','label'=>'Senha:', 'class'=>'form-control'));
                echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  ?>
                <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
             <?php  echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>
@@ -22,6 +22,7 @@
             ?>
             <p>
             <?php
+             echo $this->Form->label('Foto ');
              echo $this->Form->file('Usuario.Foto'); 
                echo $this->Form->input('Data_Nascimento',
                 array( 'label' => 'Data de Nascimento:'

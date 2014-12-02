@@ -29,7 +29,11 @@ class ServicosController extends AppController {
             $this->set('servicos', $servicos);
         }
 	}
-
+	 public function beforeFilter()
+    {
+        parent::beforeFilter();
+         $this->Auth->allowedActions = array('index');                        
+    }
 /**
  * view method
  *

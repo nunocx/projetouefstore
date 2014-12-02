@@ -71,7 +71,7 @@ class AppController extends Controller {
         $this->Auth->loginRedirect = array(
             'plugin' => null,
             'controller' => 'pages',
-            'action' => '/',
+            'action' => 'home',
         );
 
         $this->Auth->authError = __('Você não possui autorização para executar esta ação.');

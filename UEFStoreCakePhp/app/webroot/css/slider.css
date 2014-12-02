@@ -1,4 +1,11 @@
 
+.avatarimg img
+{
+
+	width: 100px;
+	height: 100px;
+}
+
 #slider { 
 	background:#FFF;
 	border:1px solid #EEE;

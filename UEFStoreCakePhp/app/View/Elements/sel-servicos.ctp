@@ -8,7 +8,8 @@ $servicos = $this->requestAction('servicos/index');
 					<h4><a href="<?php echo $this->Html->url('/servicos/view/'.$servico['Servico']['id']); ?>">
 					<?php echo $servico['Servico']['name']?>
 					</a></h4>
-					<a href="<?php echo $this->Html->url('/servicos/view/'.$servico['Servico']['id']); ?>"><img src="servicos/view/img/<?php echo $servico['Servico']['id']; ?>.jpg" alt="" /></a>
+					<a href="<?php echo $this->Html->url('/servicos/view/'.$servico['Servico']['id']); ?>">
+					<?php echo $this->Html->image($servico['Servico']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 					 <div class="price-details">
 				       <div class="price-number">
 							<p><span class="rupees">R$<?php echo $servico['Servico']['Preco']?></span></p>

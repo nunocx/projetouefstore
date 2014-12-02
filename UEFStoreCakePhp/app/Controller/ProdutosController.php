@@ -32,6 +32,11 @@ class ProdutosController extends AppController {
             $this->set('produtos', $produtos);
         }
     }
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+         $this->Auth->allowedActions = array('indexView');                        
+    }
 
 /**
  * view method
