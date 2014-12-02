@@ -76,7 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<p>Categoria: <?php echo $this->Html->link($produto['Category']['name'], array('controller' => 'categories', 'action' => 'view', $produto['Category']['id'])); ?></p>
 						<p>Vendedor: <?php echo $this->Html->link($produto['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $produto['Usuario']['id'])); ?></p>
 
-						<div class="button"><a href="#">Negociar</a></div>	
+						<div class="button"><a href="#">Negociar</a></div>
+						<p></div><div class="button"><?php echo $this->Html->link(__('Mandar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$produto['Usuario']['id'], $produto['Produto']['id'])); ?></div>
 					</div>
 					
 				<div class="share-desc">
