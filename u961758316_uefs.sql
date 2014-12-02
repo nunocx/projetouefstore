@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02-Dez-2014 às 03:12
+-- Generation Time: 02-Dez-2014 às 03:37
 -- Versão do servidor: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -33,13 +33,20 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
 `id` int(11) NOT NULL,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Truncate table before insert `categories`
 --
 
 TRUNCATE TABLE `categories`;
+--
+-- Extraindo dados da tabela `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Moda');
+
 -- --------------------------------------------------------
 
 --
@@ -122,14 +129,10 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `Foto_Video` varchar(255) DEFAULT NULL,
   `Bloqueado` int(11) DEFAULT '0',
   `Expirado` int(11) DEFAULT '0',
-  `foto2` varchar(255) DEFAULT NULL,
+  `CondicaoUso` text,
   `usuario_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `foto3` varchar(255) DEFAULT NULL,
-  `foto4` varchar(255) DEFAULT NULL,
-  `foto5` varchar(255) DEFAULT NULL,
-  `foto6` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Truncate table before insert `produtos`
@@ -176,12 +179,7 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `Expirado` int(11) DEFAULT '0',
   `ACombinar` int(11) DEFAULT '0',
   `usuario_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `foto2` varchar(255) DEFAULT NULL,
-  `foto3` varchar(255) DEFAULT NULL,
-  `foto4` varchar(255) DEFAULT NULL,
-  `foto5` varchar(255) DEFAULT NULL,
-  `foto6` varchar(255) DEFAULT NULL
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
@@ -348,7 +346,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
@@ -368,7 +366,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `reports`
 --

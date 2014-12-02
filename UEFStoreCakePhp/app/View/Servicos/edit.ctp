@@ -17,7 +17,6 @@
 		<?php
 			echo $this->Form->label('Foto Principal do Anuncio');
          	echo $this->Form->file('Servico.Foto_Video'); 
-         	
          	?>
          </p>
          </br >
