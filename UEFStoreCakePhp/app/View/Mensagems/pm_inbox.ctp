@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 require_once "includes/connect_i.php";
 
