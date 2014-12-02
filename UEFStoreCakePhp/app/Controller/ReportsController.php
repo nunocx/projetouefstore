@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Report $Report
  * @property PaginatorComponent $Paginator
  */
-class ReportsController extends AppController {
+class ReportsController extends Controller {
 
 /**
  * Components

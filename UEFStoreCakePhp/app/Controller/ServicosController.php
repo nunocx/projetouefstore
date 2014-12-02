@@ -61,7 +61,7 @@ class ServicosController extends AppController {
 		
 			
 			$this->Servico->create();
-
+			$this->request->data['Servico']['usuario_id'] = $this->Auth->user('id');
 				$this->request->data['Servico']['Data_Publicacao']['day'] = date('d');
 			$this->request->data['Servico']['Data_Publicacao']['month'] = date('m');
 			$this->request->data['Servico']['Data_Publicacao']['year'] = date('Y');	
@@ -73,7 +73,7 @@ class ServicosController extends AppController {
 			if ($this->Servico->save($this->request->data)) {
 				//$this->Session->setFlash(__('The servico has been saved.'));
 				$id_ = $this->Servico->id;
-				return $this->redirect(array('action' => 'etapa2/'.$id_));
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
 			}

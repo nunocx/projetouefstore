@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<a href="#" target="_blank"><img src="img/<?php echo $produto['Produto']['id']; ?>.jpg" alt=" " /></a>
 									<?php
 		// esse comando puxa as imagens da pasta files/produtos/id/Imagens todas...  e mostra  mesma forma pra serviço e usuario  
-			echo $this->Upload->view('Produto', $produto['Produto']['id']);?>
+			//echo $this->Upload->view('Produto', $produto['Produto']['id']);?>
 								</div>
 								<ul class="pagination">
 									<li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li> <?php//Esses img src são os img das imagens na view de produto?>

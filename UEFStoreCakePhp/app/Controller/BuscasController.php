@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  * @property Usuario $Usuario
  * @property PaginatorComponent $Paginator
  */
-class BuscasController extends AppController {
+class BuscasController extends Controller {
 
 	/**
 	 * index method

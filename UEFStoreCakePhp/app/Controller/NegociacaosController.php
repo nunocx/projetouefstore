@@ -57,7 +57,7 @@ class NegociacaosController extends AppController {
 	public function add() {
 
 		if ($this->request->is('post')) {
-
+			$this->request->data['Negociacao']['interessado'] = $this->Auth->user('id');
 				$timestamp = strtotime("+14 days");
 			$this->request->data['Negociacao']['data_final']['day'] = date('d', $timestamp);
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
@@ -83,7 +83,7 @@ class NegociacaosController extends AppController {
 
 			$this->Negociacao->create();
 			
-			$this->request->data['Negociacao']['interessado'] = $userInteressado;
+			$this->request->data['Negociacao']['interessado'] = $this->Auth->user('id');
 			$this->request->data['Negociacao']['usuario_id'] = $usario_id;
 			
 			if($produto!='null')

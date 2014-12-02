@@ -1,5 +1,5 @@
 <?php
-class ContatosController extends AppController {
+class ContatosController extends Controller {
 
 public function index() {
 

@@ -47,7 +47,7 @@
 		<?php
 			echo $this->Form->hidden('Bloqueado',array('value'=>'0'));
 			echo $this->Form->hidden('Expirado',array('value'=>'0'));
-			echo $this->Form->input('usuario_id',array( 'class'=>'form-control'));
+			//echo $this->Form->input('usuario_id',array( 'class'=>'form-control'));
 			echo $this->Form->input('category_id',array( 'class'=>'form-control'));
 		?>
 	</div>

@@ -63,7 +63,7 @@ class ProdutosController extends AppController {
 		
 			
 			$this->Produto->create();
-			
+			$this->request->data['Produto']['usuario_id'] = $this->Auth->user('id');
 			$this->request->data['Produto']['Data_Publicacao']['day'] = date('d');
 			$this->request->data['Produto']['Data_Publicacao']['month'] = date('m');
 			$this->request->data['Produto']['Data_Publicacao']['year'] = date('Y');	
@@ -80,7 +80,8 @@ class ProdutosController extends AppController {
 				//$this->Session->setFlash(__('The produto has been saved.'));
 
 				$id_ = $this->Produto->id;
-				return $this->redirect(array('action' => 'etapa2/'.$id_));
+				return $this->redirect('/');
+
 			} else {
 				$this->Session->setFlash(__('The produto could not be saved. Please, try again.'));
 			}

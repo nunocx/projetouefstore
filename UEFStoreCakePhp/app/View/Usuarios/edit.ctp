@@ -1,5 +1,5 @@
 <div class="usuarios form">
-<?php echo $this->Form->create('Usuario');
+<?php echo $this->Form->create('Usuario',array('type'=>'file'));
       echo $this->Form->hidden('id');
  ?>
   <fieldset>
@@ -22,6 +22,7 @@
             ?>
             <p>
             <?php
+             echo $this->Form->file('Usuario.Foto'); 
                echo $this->Form->input('Data_Nascimento',
                 array( 'label' => 'Data de Nascimento:'
                            , 'dateFormat' => 'DMY'
@@ -31,7 +32,7 @@
             </p>
                 <p>
            <?php 
-              echo $this->Upload->edit('Usuario', $this->Form->fields['Usuario.id']);
+              //echo $this->Upload->edit('Usuario', $this->Form->fields['Usuario.id']);
             ?>
                   </p>
            

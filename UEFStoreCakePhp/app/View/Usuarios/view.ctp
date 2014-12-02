@@ -11,7 +11,7 @@
              <header>
                     <h1><strong><?php echo 'Nome: '.$usuario['Usuario']['name'] ?></strong></h1>
             </header>
-             <div class="avatarimg"><?php echo $this->Html->image('avatar.jpg'); ?></div> </br >
+             <div class="avatarimg"><?php echo $this->Html->image($usuario['Usuario']['Foto']); ?></div> </br >
                 <ul >
 
                     <li class = "glyphicon glyphicon-shopping-cart"><a href="#">Meus Anuncios</a></li><br />

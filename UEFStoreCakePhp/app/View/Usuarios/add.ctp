@@ -4,7 +4,6 @@
   		
       <legend>
         <h3> <?php echo __('Cadastro Usuario'); ?> </h3>
-             <?php echo ('Primeira Etapa'); ?>
       </legend>
 
 
@@ -37,12 +36,12 @@
              		 	
              	<?php
              		 
-             		 echo $this->Form->checkbox('Status', array( 'value' => '0','hiddenField' =>'1','class'=>'checkbox-inline')); ?>
+             		 echo $this->Form->checkbox('Status', array( 'value' => '1','hiddenField' =>'0','class'=>'checkbox-inline')); ?>
              	&nbsp;
              	<?php echo $this->Form->label('Aceitos os termos do portal');?>	
              
           </div>
-          	<button type="submit" class="btn btn-default">Proxima</button>
+          	<button type="submit" class="btn btn-default">Cadastrar</button>
           	<button type="reset" class="btn btn-default">Reset</button>
 	 </fieldset>
     <?php echo $this->Form->end(); ?>

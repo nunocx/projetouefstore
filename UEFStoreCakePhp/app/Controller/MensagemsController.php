@@ -20,6 +20,11 @@ class MensagemsController extends AppController {
  *
  * @return void
  */
+public function beforeFilter()
+    {
+        parent::beforeFilter();
+         $this->Auth->allowedActions = array('add');                        
+    }
 		public function index() {
 			
 			$mensagems = $this->paginate();

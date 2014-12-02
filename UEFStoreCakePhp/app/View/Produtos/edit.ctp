@@ -1,5 +1,5 @@
 <div class="produtos form">
-<?php echo $this->Form->create('Produto',array('judy_type(array)'=>'file')); 
+<?php echo $this->Form->create('Produto',array('type'=>'file')); 
 		echo $this->Form->hidden('id');
 ?>
 	<fieldset>
@@ -8,7 +8,7 @@
 		<?php
          	echo $this->Form->input('name',array('label'=>'Titulo:', 'class'=>'form-control'));
          	echo $this->Form->input('Descricao',array('rows'=>'3','label'=>'Descrição:', 'class'=>'form-control'));
-         	echo $this->Upload->edit('Produto', $this->Form->fields['Produto.id']);
+         //	echo $this->Upload->edit('Produto', $this->Form->fields['Produto.id']);
          	echo $this->Form->input('Preco',array('label'=>'Preço:', 'class'=>'form-control'));
          ?>
           </br >
