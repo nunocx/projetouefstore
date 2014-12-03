@@ -19,6 +19,12 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 				<h3>Relatórios</h3>
 				<a href="<?php echo $this->Html->url('relatorios?pg=mes&tipo=negociacao') ?>" class="btn btn-danger"> Relatórios</a><br />
 				<p></p>
+				<h3>Categorias</h3>
+				<?php echo $this->Html->link(__(' Cadastrar Categorias'),'/categories/add',array('class' => 'btn btn-danger')) ?>
+				<p></p>
+				<?php echo $this->Html->link(__(' Listar Categorias'),'/categories',array('class' => 'btn btn-danger')) ?>
+				<p></p>
+				<br />
 				
 			</div>
 			<div class="col-lg-3">
