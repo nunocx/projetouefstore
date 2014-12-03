@@ -14,7 +14,7 @@
 
 							
 					<?php 
-					if($t ==0)
+					if($t == 0)
 					{echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));
 					echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));}
 					else{

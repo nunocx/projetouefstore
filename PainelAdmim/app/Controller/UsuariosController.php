@@ -123,7 +123,7 @@ class UsuariosController extends AppController {
 	}
 
 
-	public function block($id = null)
+public function block($id = null)
 	{
 		$i = $id;
 		//$date = date('Y-m-d');					
@@ -133,35 +133,38 @@ class UsuariosController extends AppController {
 			
 			$selc = " SELECT *
 						FROM `u961758316_uefs`.`usuarios` 
-						WHERE `usuarios`.`id` = $i ";
+						WHERE `usuarios`.`id` = $i";
 			$b = $this->Usuario->query($selc);			
-			
+			//debug($b ) or die();
+
 			foreach ($b as $bs) {
 				//debug($bs) or die();
-				$statusUser = $bs['usuarios']['Status'];
+				$idS = $bs['usuarios']['id'];
+				$statusUser = $bs['usuarios']['Strikes'];
 				$nomeUser = $bs['usuarios']['name'];
+				break;
 			}
 			
 			//debug($statusUser) or die();
 
-			if($statusUser == 0)
+			if($statusUser == 1)
 			{
 			$sql = "INSERT INTO `u961758316_uefs`.`user_bloq`(`id`, `usuario_id`, `dataBloq`) VALUES (NULL,$i,NOW());
 			 UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 1 ; 
-						WHERE `usuarios`.`id` = $i
+						SET `usuarios`.`Strikes` = 0 
+						WHERE `usuarios`.`id` = $i AND $idS = $i ;
 			";
 				$this->Usuario->query($sql);
-			//$update = " ";
-			//$this->Usuario->query($update);			
+					
 			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'));
 			}
 			else
 			{
+
 					$sql = "DELETE FROM `u961758316_uefs`.`user_bloq` WHERE `user_bloq`.`usuario_id` = $i;
 					UPDATE `u961758316_uefs`.`usuarios`
-						SET `usuarios`.`status` = 0 ; 
-						WHERE `usuarios`.`id` = $i";
+						SET `usuarios`.`Strikes` = 1  
+						WHERE `usuarios`.`id` = $i AND $idS = $i";
 					$this->Usuario->query($sql);		
 					//$update = " ";
 					//$this->Usuario->query($update);
@@ -170,6 +173,7 @@ class UsuariosController extends AppController {
 			}
 			return $this->redirect('/');
 	}
+
 
 }
 

@@ -26,21 +26,20 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 		<dt><?php echo __('Telefone: '.$usuario['Usuario']['Telefone2']); ?></dt>
 		<dt><?php echo __('Data Nascimento: '.$usuario['Usuario']['Data_Nascimento']); ?></dt>
 		<dt><?php echo __('Sexo: '.$usuario['Usuario']['Sexo']); ?></dt>
-		<dt><?php echo __('Strikes: '.$usuario['Usuario']['Strikes']); ?></dt>
 		<dt><?php echo __('Reputação: '.($usuario['Usuario']['VotosPositivos']+$usuario['Usuario']['VotosNegativos'])/2 ); ?></dt>
 		
-		<?php if( $usuario['Usuario']['Status']  == 0)
+		<?php if( $usuario['Usuario']['Strikes']  == 0)
 				$regra = 'Usuario Bloqueado';
 			else
-				$regra = 'Usuario Desbloqueado';
+				$regra = 'Usuario Ativo';
 		?>
 		<dt><?php echo __($regra ); ?></dt>
 	</dl>
 
 	<?php echo $this->Html->link(__('Editar Usuario'),'/usuarios/edit/'. $usuario['Usuario']['id'],array('class' => 'btn btn-default pull-left','style' => 'margin-top: 15px')) ?>
 		<?php 
-		$s=$usuario['Usuario']['Status'];
-		if($s==0)
+		$s=$usuario['Usuario']['Strikes'];
+		if($s==1)
 		{ 
 				echo $this->Html->link(__('Bloquear Usuario'),'/usuarios/block/'. $usuario['Usuario']['id'],array('class' => 'btn btn-danger pull-left','style' => 'margin-top: 15px; margin-left: 10px')) ;
 		 }else 

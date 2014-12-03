@@ -48,6 +48,9 @@ class AppController extends Controller {
                 'fields' => array(
                     'username' => 'username',
                     ),
+                'scope' => array(
+                    'Usuario.Status' => 1,
+                    ),
                 ),
             'Form',
             );        
