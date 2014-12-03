@@ -20,7 +20,7 @@
 		<?php if(AuthComponent::user('id')){?>
 			<ul class="nav navbar-nav side-nav">
 				<li class="<?php echo $this->params->params['controller'] == 'pages' ? 'active' : ''?>">
-					  <a href="<?php echo $this->Html->url('http://uefstore.url.ph');?>">
+					  <a href="<?php echo $this->Html->url('http://127.0.0.1/www/projetouefstore/UEFStoreCakePhp/');?>">
 						<i class="glyphicon glyphicon-home"></i> Home </a></li>
 					<li>
                         <a href="<?php echo $this->Html->url('/gerenciamentos');?>"><i class="glyphicon glyphicon-cog"></i> Gerenciar Portal</a>

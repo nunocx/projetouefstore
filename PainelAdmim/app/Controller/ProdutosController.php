@@ -125,7 +125,7 @@ class ProdutosController extends AppController {
 	{
 			$sql = "SELECT * FROM `u961758316_uefs`.`produtos`; 
 			UPDATE `u961758316_uefs`.`produtos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
-			$this->Session->setFlash(__('Produtos Checados.'));
+			$this->Session->setFlash(__('Produtos Checados.'),'flash_success');
 			$this->Produto->query($sql);
 			return $this->redirect('/');
 
@@ -134,7 +134,7 @@ class ProdutosController extends AppController {
 	{
 			$sql = "SELECT * FROM `u961758316_uefs`.`servicos`; 
 			UPDATE `u961758316_uefs`.`servicos` SET `Expirado` = 1 WHERE (NOW() > `Data_Vencimento`)";
-			$this->Session->setFlash(__('Serviços Checados.'));
+			$this->Session->setFlash(__('Serviços Checados.'),'flash_success');
 			$this->Produto->query($sql);
 			return $this->redirect('/');
 
@@ -143,7 +143,7 @@ class ProdutosController extends AppController {
 	{
 			$sql = "SELECT * FROM `u961758316_uefs`.`negociacaos`; 
 			UPDATE `u961758316_uefs`.`negociacaos` SET `Status` = 1 WHERE (NOW() > `Data_Final`)";
-			$this->Session->setFlash(__('Negociações Checadas.'));
+			$this->Session->setFlash(__('Negociações Checadas.'),'flash_success');
 			$this->Produto->query($sql);
 			return $this->redirect('/');
 
@@ -153,7 +153,7 @@ class ProdutosController extends AppController {
 			$sql = "SELECT * FROM `u961758316_uefs`.`usuarios`; 
 			UPDATE `u961758316_uefs`.`usuarios` SET `Status` = '1' WHERE (`usuarios`.`Strikes`>=	 3)";
 
-			$this->Session->setFlash(__('Usuarios Checados.'));
+			$this->Session->setFlash(__('Usuarios Checados.'),'flash_success');
 			$this->Produto->query($sql);
 			return $this->redirect('/');
 
