@@ -33,6 +33,9 @@ img.top{
     margin-left: auto;
     margin-right: auto
 }
+.btn-newobject{
+	background-color: #669C4B;
+}
 a.linkTop{
 	color: black;
 	/* background:#23272a !important; */
@@ -41,16 +44,6 @@ a.linkTop{
 	/* padding-left:30px; */
 	/* margin-bottom:20px; */
 	position:relative;
-}
-
-.Caixa_Login
-{
-	font-family: 'Ubuntu Condensed', sans-serif; 
-	position: relative;
-	left: 980px;
-	/* background: #176b66; 
-	width: 300px;*/
-	height: 5px;
 }
 img.product{
 	max-width:40%;
@@ -85,9 +78,8 @@ h4.header{
 	font-size: 22px;
 }
 .header {
-	 background: -webkit-gradient(linear, left top, left bottom, from(#DEC37C), to(#A2802C));
-	 /*cores antigas from(#2aa893), to(#2F4F4F))*/
-     background: -moz-linear-gradient(top, #DEC37C, #A2802C);
+	 background: -webkit-gradient(linear, left top, left bottom, from(#2aa893), to(#2F4F4F));
+     background: -moz-linear-gradient(top, #2aa893, #2F4F4F);
      filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
 
 	/**background:#2aa893;/** #CCCCCC**/
@@ -96,8 +88,6 @@ h4.header{
 .header_top {
 	padding-bottom: 0px;
 }
-
-
 .logo {
 	float: left;
 }
@@ -152,8 +142,6 @@ h4.header{
 	/* background:#176b66; */
 	padding:5px 0;
 	position:relative;
-
-
 }
 .navigation span.left-ribbon{
 	position: absolute;
@@ -177,9 +165,6 @@ h4.header{
 	margin-top: -10px;
 
 }
-
-
-
 .Caixa_Login
 {
 	font-family: 'Ubuntu Condensed', sans-serif; 
@@ -443,7 +428,7 @@ h4.header{
   text-align:center;	
 }
 .ocarousel_window_slides a:hover p{
- color:#997923; /*tava antes #176b66*/
+ color:#176b66;
  text-decoration:underline;
 }
 .ocarousel_indicators {
@@ -459,7 +444,7 @@ h4.header{
 } 
 .content-bottom-rightt{
 	font-size: 0.8cm;
-	background: #997923; /*tava anterioemente em #176b66*/
+	background: #176b66;
 	float: right;
 	width:150px;
 	height:800px;
@@ -523,7 +508,7 @@ h4.header{
 }
 .categories li a:hover{
 	/**color:#176b66;**/
-	color:#997923;
+	color:#176b66;
 }	
 .buters-guide{
 	margin-top:2em;
@@ -535,7 +520,7 @@ h4.header{
 	padding:8px 0;
 }
 .buters-guide p span{
-	color:#997923; /*DER - antes era #176b66*/
+	color:#176b66;
 	font-size:16px;
 }
 .add-banner{
@@ -553,7 +538,7 @@ h4.header{
 .banner-desc h4{
 	display:block;
 	font-size:25px;
-	color:#997923; /*der tava #176b66*//
+	color:#176b66;
 	margin-bottom:10px;
 }
 .banner-desc a{

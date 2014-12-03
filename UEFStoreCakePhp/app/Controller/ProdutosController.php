@@ -21,8 +21,7 @@ class ProdutosController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Produto->recursive = 0;
-		$this->set('produtos', $this->Paginator->paginate());
+		
 	}
 	public function indexView() {
         $produtos = $this->paginate();
@@ -45,6 +44,18 @@ class ProdutosController extends AppController {
  * @param string $id
  * @return void
  */
+	public function my() {
+		$produtos = $this->paginate();
+        if($this->request->is('requested')){   //Se for requisição de outra view/element:
+            $buscaprodutos = "SELECT * FROM  `produtos` WHERE usuario_id=".$this->Auth->user('id')."";
+            $produtos = $this->Produto->query($buscaprodutos);
+
+            return $produtos;
+        } else {
+        	 $this->set('produtos', $produtos);
+        }
+
+	}
 	public function view($id = null) {
 		if (!$this->Produto->exists($id)) {
 			throw new NotFoundException(__('Invalid produto'));
@@ -169,6 +180,7 @@ class ProdutosController extends AppController {
 	 * @return void
 	 */
 	public function search($termo){
+
 		$busca = "SELECT * FROM  `produtos` WHERE `produtos`.`name` LIKE '%".$termo."%' AND `produtos`.`Bloqueado` = 0 AND `produtos`.`Expirado` = 0";
 //debug($busca) or die();
 		if ($termo = NULL) {
