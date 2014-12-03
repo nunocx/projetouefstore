@@ -44,7 +44,7 @@
 								<?php echo $arrayTemp['produtos']['name']?>
 								</a></h4>
 								<a href="<?php echo $this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>"></a>
-								<?php echo $this->Html->image($arrayTemp['produtos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
+								<?php  echo $this->Html->image( $arrayTemp['produtos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 								 <div class="price-details">
 							       <div class="price-number">
 										<p><span class="rupees">R$<?php echo $arrayTemp['produtos']['Preco']?></span></p>
@@ -55,7 +55,7 @@
 												<a href="
 												<?php 
 												echo 
-													$this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>">Mais Info</a>
+													$this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>">Mais Informações</a>
 												</h4>
 										     </div>
 										<div class="clear"></div>
@@ -70,14 +70,15 @@
 								<h4><a href="<?php echo $this->Html->url('/servicos/view/'.$arrayTemp2['servicos']['id']); ?>">
 								<?php echo $arrayTemp2['servicos']['name']?>
 								</a></h4>
-								<a href="<?php echo $this->Html->url('/servicos/view/'.$arrayTemp2['servicos']['id']); ?>"><img src="servicos/view/img/<?php echo $arrayTemp2['servicos']['id']; ?>.jpg" alt="" /></a>
+								<a href="<?php echo $this->Html->url('/servicos/view/'.$arrayTemp2['servicos']['id']); ?>"></a>
+								<?php  echo $this->Html->image( $arrayTemp2['servicos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 								 <div class="price-details">
 							       <div class="price-number">
 										<p><span class="rupees">R$ <?php echo $arrayTemp2['servicos']['Preco']?></span></p>
 								    </div>
 								       		<div class="add-cart">								
 												<h4>
-												<a href="<?php echo $this->Html->url('/servicos/view/'.$arrayTemp2['servicos']['id']); ?>">Mais Info</a>
+												<a href="<?php echo $this->Html->url('/servicos/view/'.$arrayTemp2['servicos']['id']); ?>">Mais Informações</a>
 												</h4>
 										     </div>
 										 <div class="clear"></div>

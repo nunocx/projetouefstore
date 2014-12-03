@@ -14,7 +14,7 @@ $produtos = $this->requestAction('produtos/indexView');
 					<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$produto['Produto']['id']); ?>">
 					<?php echo $produto['Produto']['name']?>
 					</a></h4>
-					
+					<a href="<?php echo $this->Html->url('/produtos/view/'.$produto['Produto']['id']); ?>"></a>
 
 					<?php echo $this->Html->image($produto['Produto']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 					 <div class="price-details">
@@ -31,5 +31,4 @@ $produtos = $this->requestAction('produtos/indexView');
 					</div>
 				 </div>
 	<?php endforeach;?>
-	
 	

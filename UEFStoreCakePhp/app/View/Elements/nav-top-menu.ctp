@@ -19,7 +19,6 @@
 					echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));}
 					else{
 						echo '<h2 style="color:#FFF;"> Bem Vindo '.$this->Session->read('Auth.User.name').' !</h2>';
-						echo $this->Html->link('	Novo Anúncio','/produtos/add/',	array('class' => 'linkTop btn btn-newobject'));
 						echo $this->Html->link('	Meu Perfil','/usuarios/view/'.$this->Session->read('Auth.User.id'),	array('class' => 'linkTop btn btn-warning'));
 						echo $this->Html->link('Sair','/usuarios/logout',	array('class' => 'linkTop btn btn-primary'));
 						
