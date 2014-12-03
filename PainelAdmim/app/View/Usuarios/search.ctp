@@ -7,12 +7,12 @@
 	?>
 
 	<div class="usuarios index">
-	<h2><?php echo __('Usuarios'); ?></h2>
+	<h2><?php echo __('Usuários'); ?></h2>
 
 		<div>
 			<form method="get" action="<?php echo $this->Html->url('/usuarios/search', true)?>" style="margin-left: -15px;" class="navbar-form navbar-left" role="search">
 		        <div class="form-group">
-		          <input type="text" name="termo" class="form-control" placeholder="Search">
+		          <input type="text" name="termo" class="form-control" placeholder="Sua Busca">
 		        </div>
 	        	<button type="submit" class="btn btn-primary">Buscar</button>
 	      </form>

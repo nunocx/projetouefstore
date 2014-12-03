@@ -66,7 +66,7 @@
 								<div class="search_box" align="right">
 							  	<span>Buscar</span>
 					     		<form name="busca" method="get" action="<?php echo $this->Html->url('/buscas/search_all', true)?>">
-					     			<input type="text" name="termo" value="">
+					     			<input type="text" name="termo" value="" placeholder="Buscar  anúncios">
 									<input type="submit" value="">
 					     		</form>
 					    		<div class="clear"></div>
