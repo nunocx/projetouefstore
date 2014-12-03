@@ -459,7 +459,8 @@ h4.header{
 } 
 .content-bottom-rightt{
 	font-size: 0.8cm;
-	background: #997923; /*tava anterioemente em #176b66*/
+	/* Parte responsavel pela cor do local da publicidade*/
+	background: #FFFFFF; /*tava anterioemente em #176b66*/
 	float: right;
 	width:150px;
 	height:800px;
