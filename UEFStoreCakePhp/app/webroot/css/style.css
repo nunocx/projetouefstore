@@ -481,8 +481,8 @@ h4.header{
 	font-size:1.1em;
 	color:#FFF;
 	padding:10px;
-	padding-left:25px;
-	background:#176b66;
+	padding-left:65px;
+	background:#A3812D;
 	position:relative;
 	margin-bottom:5px;
 }
@@ -493,7 +493,7 @@ h4.header{
 	top:0;
 	border-width:22px 0px 20px 15px;
 	border-style: solid;
-	border-color: rgba(255, 0, 0, 0) rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) #ebebeb;
+	border-color: rgba(255, 0, 0, 0) rgba(0, 0, 255, 0) rgba(0, 128, 0, 0) #000000;
 }
 .content-bottom-right h3,.preview-page h3{
 	background: #000 !important; /*#176b66*/
@@ -515,7 +515,7 @@ h4.header{
 	display:block;
 	font-size:15px;
 	padding:10px 15px;
-    color: #3EA896;
+    color: #49495A;
     background:url(../img/images/drop_arrow.png) no-repeat 0;
     border-bottom:1px solid #D6D6D6;
 }
@@ -643,7 +643,7 @@ h4.header{
 	font-size:0.85em;
 	display: block;
 	padding:6px 20px;
-	background:#8fa7ae;
+	background:#FF001D;
 	color: #FFF;
 	text-decoration: none;
 	outline: 0;
