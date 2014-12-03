@@ -6,7 +6,7 @@
 		<div class="bloco">
 			<div class="GCUXF0KCDCB">
 					<span class="blogg-title"> Negociações no mês </span>
-					<a href="<?php echo $this->Html->url('/gerenciamentos/negociacoes/') ?>">Mais estatísticas »</a>
+					<a href="<?php echo $this->Html->url('/gerenciamentos/negociacoes/?pg=mes') ?>">Mais estatísticas »</a>
 				</div>
 			<?php echo $this->Html->image('relatorios/graficoGeral.png')?>
 		</div>

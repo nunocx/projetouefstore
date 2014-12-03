@@ -773,30 +773,30 @@ class GerenciamentosController extends AppController {
 		$data2[4] = implode("-",array_reverse(explode("/",$data[4])));
 		$data2[5] = implode("-",array_reverse(explode("/",$data[5])));
 
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 0;";
 		$valores[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 0;";
 		$valores[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[5]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[5]."' AND `usuarios`.`Strikes` = 0;";
 		$valores[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
 
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores2[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores2[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores2[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 1;";
 		$valores2[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 1;";
 		$valores2[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[5]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[5]."' AND `usuarios`.`Strikes` = 1;";
 		$valores2[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
   
   	    $data1y = array($valores[0][0][0]['COUNT(*)'], $valores[1][0][0]['COUNT(*)'] , $valores[2][0][0]['COUNT(*)'] ,
@@ -819,8 +819,8 @@ class GerenciamentosController extends AppController {
 		$graph->img->SetAntiAliasing(false);
 		$graph->SetBox(false);
 
-		$b1plot = new BarPlot($data1y);
-		$b2plot = new BarPlot($data2y);
+		$b1plot = new BarPlot($data2y);
+		$b2plot = new BarPlot($data1y);
 
 		$gbplot = new GroupBarPlot(array($b1plot,$b2plot));
 
@@ -862,34 +862,34 @@ class GerenciamentosController extends AppController {
 		$data2[5] = implode("-",array_reverse(explode("/",$data[5])));
 		$data2[6] = implode("-",array_reverse(explode("/",$data[6])));
 
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[6]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[6]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[6] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
 
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[6]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[6]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[6] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
   
   	    $data1y = array($valores[0][0][0]['COUNT(*)'], $valores[1][0][0]['COUNT(*)'] , $valores[2][0][0]['COUNT(*)'] ,
@@ -911,8 +911,8 @@ class GerenciamentosController extends AppController {
 		$graph->img->SetAntiAliasing(false);
 		$graph->SetBox(false);
 
-		$b1plot = new BarPlot($data1y);
-		$b2plot = new BarPlot($data2y);
+		$b1plot = new BarPlot($data2y);
+		$b2plot = new BarPlot($data1y);
 
 		$gbplot = new GroupBarPlot(array($b1plot,$b2plot));
 
@@ -964,54 +964,54 @@ class GerenciamentosController extends AppController {
 		$data2[10] = implode("-",array_reverse(explode("/",$data[10])));
 		$data2[11] = implode("-",array_reverse(explode("/",$data[11])));
 
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 0;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 1;";
 	    $valores[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[6]."' AND `usuarios`.`created` < '".$data2[7]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[6]."' AND `usuarios`.`created` < '".$data2[7]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[6] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[7]."' AND `usuarios`.`created` < '".$data2[8]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[7]."' AND `usuarios`.`created` < '".$data2[8]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[7] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[8]."' AND `usuarios`.`created` < '".$data2[9]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[8]."' AND `usuarios`.`created` < '".$data2[9]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[8] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[9]."' AND `usuarios`.`created` < '".$data2[10]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[9]."' AND `usuarios`.`created` < '".$data2[10]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[9] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[10]."' AND `usuarios`.`created` < '".$data2[11]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[10]."' AND `usuarios`.`created` < '".$data2[11]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[10] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[11]."' AND `usuarios`.`Status` = 0;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[11]."' AND `usuarios`.`Strikes` = 1;";
 		$valores[11] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
 
-			    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[0]."' AND `usuarios`.`created` < '".$data2[1]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[0] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[1]."' AND `usuarios`.`created` < '".$data2[2]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[1] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Status` = 1;";
+	    $qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[2]."' AND `usuarios`.`created` < '".$data2[3]."' AND `usuarios`.`Strikes` = 0;";
 	    $valores2[2] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[3]."' AND `usuarios`.`created` < '".$data2[4]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[3] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[4]."' AND `usuarios`.`created` < '".$data2[5]."' AND `usuarios`.`Strikes` = 1;";
 		$valores2[4] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[5]."' AND `usuarios`.`created` < '".$data2[6]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[5] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[6]."' AND `usuarios`.`created` < '".$data2[7]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[6]."' AND `usuarios`.`created` < '".$data2[7]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[6] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[7]."' AND `usuarios`.`created` < '".$data2[8]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[7]."' AND `usuarios`.`created` < '".$data2[8]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[7] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[8]."' AND `usuarios`.`created` < '".$data2[9]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[8]."' AND `usuarios`.`created` < '".$data2[9]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[8] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[9]."' AND `usuarios`.`created` < '".$data2[10]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[9]."' AND `usuarios`.`created` < '".$data2[10]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[9] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[10]."' AND `usuarios`.`created` < '".$data2[11]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` >= '".$data2[10]."' AND `usuarios`.`created` < '".$data2[11]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[10] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
-		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[11]."' AND `usuarios`.`Status` = 1;";
+		$qtd = "SELECT COUNT(*) FROM `usuarios` WHERE `usuarios`.`created` = '".$data2[11]."' AND `usuarios`.`Strikes` = 0;";
 		$valores2[11] = $this->requestAction('/usuarios/buscaUsuarios/'.$qtd);
 		
 	    $ydata = array($valores[0][0][0]['COUNT(*)'], $valores[1][0][0]['COUNT(*)'] , $valores[2][0][0]['COUNT(*)'] ,
@@ -1057,8 +1057,8 @@ class GerenciamentosController extends AppController {
 		$graph->SetBox(false);
 
 	    // Create the bar plots
-		$b1plot = new BarPlot($ydata);
-		$b2plot = new BarPlot($ydatas);
+		$b1plot = new BarPlot($ydatas);
+		$b2plot = new BarPlot($ydata);
 
 		// Create the grouped bar plot
 		$gbplot = new GroupBarPlot(array($b1plot,$b2plot));

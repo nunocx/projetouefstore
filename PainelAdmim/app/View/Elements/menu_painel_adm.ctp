@@ -29,6 +29,7 @@
 									<a class="gwt-Anchor" href="<?php echo $this->Html->url('/gerenciamentos/usuarios/') ?>"><span><?php echo $tam[0][0]['COUNT(*)'] ?></span> »</a>
 								</td>
 							</tr>
+							
 					</tbody>
 				</table>
-				</div>
+</div>		

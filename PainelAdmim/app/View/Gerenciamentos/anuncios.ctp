@@ -8,7 +8,7 @@
 	<div area-central>
 		<div class="bloco">
 			<div class="GCUXF0KCDCB">
-				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios')?>">« Voltar a Visão Geral </a>
+				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios?pg=mes')?>">« Voltar a Visão Geral </a>
 				<span class="blogg-title"> Anúncios </span>
 			</div>
 
@@ -44,7 +44,9 @@
 		</br></br>
 			<span class="blogg-subtitle">Produtos e Seviços</span>
 			</br>
-			<?php	echo $this->Html->image('relatorios/produtosServicos.png'); ?>
+			<?php	echo $this->Html->image('relatorios/produtosServicos.png');
+					echo $this->Html->image('relatorios/legenda.png');
+			?>
 		</div>
 		<div class="bloco2">
 			<?php

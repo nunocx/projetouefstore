@@ -17,7 +17,7 @@ echo $this->element('breadcrumb',array('links' => $breadcrumb));
 		<div class="container">
 			<div class="col-lg-3">
 				<h3>Relatórios</h3>
-				<a href="<?php echo $this->Html->url('relatorios') ?>" class="btn btn-danger"> Relatórios</a><br />
+				<a href="<?php echo $this->Html->url('relatorios?pg=mes&tipo=negociacao') ?>" class="btn btn-danger"> Relatórios</a><br />
 				<p></p>
 				
 			</div>

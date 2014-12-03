@@ -7,7 +7,7 @@
 	<div area-central>
 		<div class="bloco">
 			<div class="GCUXF0KCDCB">
-				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios')?>">« Voltar a Visão Geral </a>
+				<a href="<?php echo $this->Html->url('/gerenciamentos/relatorios?pg=mes')?>">« Voltar a Visão Geral </a>
 				<span class="blogg-title"> Usuários </span>
 			</div>
 
