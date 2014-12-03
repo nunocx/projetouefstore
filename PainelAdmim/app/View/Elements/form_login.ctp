@@ -16,7 +16,7 @@
 		  </div>
 		  <div class="checkbox">
 		    <label>
-		      <input type="checkbox" name="data[User][remember_me]" value="S"> <?php echo __('Remember me')?>
+		      <input type="checkbox" name="data[User][remember_me]" value="S"> <?php echo __('Salvar dados.')?>
 		    </label>
 		  </div>
 		  <button type="submit" class="btn btn-default"><?php echo __('Login')?></button>
