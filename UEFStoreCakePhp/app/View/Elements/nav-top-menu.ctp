@@ -16,7 +16,9 @@
 					<?php 
 					if($t == 0)
 					{echo $this->Html->link('Entrar','/usuarios/login', array('class' => 'linkTop btn btn-default'));
-					echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));}
+					echo $this->Html->link('Cadastre-se','/usuarios/add',	array('class' => 'linkTop btn btn-default'));
+					echo $this->Html->link('Acessar Painel Admin','http://uefstore.url.ph/PainelAdmin/',	array('class' => 'linkTop btn btn-default'));
+					}
 					else{
 						echo '<h2 style="color:#FFF;"> Bem Vindo '.$this->Session->read('Auth.User.name').' !</h2>';
 						echo $this->Html->link('	Novo Anúncio','/produtos/add/',	array('class' => 'linkTop btn btn-newobject'));
