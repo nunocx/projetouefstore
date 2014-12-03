@@ -593,12 +593,17 @@ h4.header{
 	display:block;
 }
 .images_1_of_4  img {
-	max-width: 100%;
+	max-width: 120px;
+	min-height: 120px;
+	min-width: 120px;
+	max-height: 120px;
 }
 .images_1_of_4  h4  a{
 	color:#176b66;
 	font-size:16px;
 	padding-bottom:5px;
+	max-height: 52px;
+	min-height: 52px;
 }
 .images_1_of_4  p {
 	font-size:22px;
