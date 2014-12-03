@@ -34,6 +34,17 @@ class ServicosController extends AppController {
         parent::beforeFilter();
          $this->Auth->allowedActions = array('index');                        
     }
+    public function my() {
+		$servico = $this->paginate();
+        if($this->request->is('requested')){   //Se for requisição de outra view/element:
+            $buscaservico = "SELECT * FROM  `servicos` WHERE usuario_id=".$this->Auth->user('id')."";
+            $servico = $this->Servico->query($buscaservico);
+            return $servico;
+        } else {
+        	 $this->set('servico', $servico);
+        }
+
+	}
 /**
  * view method
  *
