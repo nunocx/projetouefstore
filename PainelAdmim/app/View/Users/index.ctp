@@ -10,7 +10,7 @@ $breadcrumb = array(
 echo $this->element('breadcrumb',array('links' => $breadcrumb));
 ?>
 <div class="row">
-  <div class="col-lg-10"><h3><?php echo __('Users')?></h3></div>
+  <div class="col-lg-10"><h3><?php echo __('Admininstradores')?></h3></div>
   <div class="col-lg-2">
     <?php echo $this->Html->link(__('Adicionar Admin'),'/users/add',array('class' => 'btn btn-default pull-right','style' => 'margin-top: 15px')) ?>
   </div>
