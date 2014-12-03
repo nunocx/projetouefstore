@@ -27,8 +27,7 @@
 								<?php echo $arrayTemp['produtos']['name']?>
 								</a></h4>
 								<a href="<?php echo $this->Html->url('/produtos/view/'.$arrayTemp['produtos']['id']); ?>"></a>
-
-								<?php  echo $this->Html->image( $arrayTemp['Produto']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
+								<?php echo $this->Html->image($arrayTemp['produtos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 								 <div class="price-details">
 							       <div class="price-number">
 										<p><span class="rupees">R$<?php echo $arrayTemp['produtos']['Preco']?></span></p>

@@ -1,13 +1,20 @@
 <?php
 $ok = $this->Session->read('Auth.User.Status');
 //if($ok == 1)
-$produtos = $this->requestAction('produtos/indexView');
+if(isset($produtos)){
+	$produtos = $this->requestAction('produtos/my');
+} else {
+	echo "Não tem produtos";
+}
+
 
 
 ?>
-<h3>Todos os produtos</h3>
+
+<h3>Meus produtos</h3>
 				
 	<?php 
+
 	//if($ok == 1)
 	foreach ($produtos as $produto):?>
 				<div class="grid_1_of_4 images_1_of_4">
@@ -31,5 +38,3 @@ $produtos = $this->requestAction('produtos/indexView');
 					</div>
 				 </div>
 	<?php endforeach;?>
-	
-	
