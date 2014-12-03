@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02-Dez-2014 às 22:17
+-- Generation Time: 02-Dez-2014 às 16:43
 -- Versão do servidor: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `u961758316_uefs`
 --
+DROP DATABASE `u961758316_uefs`;
+CREATE DATABASE IF NOT EXISTS `u961758316_uefs` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `u961758316_uefs`;
 
 -- --------------------------------------------------------
 
@@ -26,11 +29,17 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
 `id` int(11) NOT NULL,
   `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
+--
+-- Truncate table before insert `categories`
+--
+
+TRUNCATE TABLE `categories`;
 --
 -- Extraindo dados da tabela `categories`
 --
@@ -44,6 +53,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- Estrutura da tabela `comentarios`
 --
 
+DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE IF NOT EXISTS `comentarios` (
 `id` int(11) NOT NULL,
   `Data` date DEFAULT NULL,
@@ -54,40 +64,18 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   `statos` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `inbox`
+-- Truncate table before insert `comentarios`
 --
 
-CREATE TABLE IF NOT EXISTS `inbox` (
-`id` int(11) NOT NULL,
-  `usuarios_id` tinyint(5) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `from_id` tinyint(4) NOT NULL,
-  `from_email` varchar(150) NOT NULL,
-  `title` varchar(150) NOT NULL,
-  `content` longtext NOT NULL,
-  `viewed` enum('0','1') NOT NULL DEFAULT '0',
-  `recieve_date` varchar(120) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
-
---
--- Extraindo dados da tabela `inbox`
---
-
-INSERT INTO `inbox` (`id`, `usuarios_id`, `email`, `from_id`, `from_email`, `title`, `content`, `viewed`, `recieve_date`) VALUES
-(51, 89, 'Suki Snow', 101, 'Pellentesque.tincidunt@dolor.com', 'teste', 'dertyuio', '0', 'Monday, 1st December 2014, 9:10:14 pm'),
-(72, 31, 'Izaya Orihara', 101, 'Pellentesque.tincidunt@dolor.com', 'yuyuyuy', 'tytytytyt', '0', 'Monday, 1st December 2014, 9:28:29 pm'),
-(74, 77, 'Adara Wong', 101, 'Pellentesque.tincidunt@dolor.com', 'Lorem ipsum dolor', 'oi', '0', 'Monday, 1st December 2014, 9:39:43 pm'),
-(75, 82, 'Vivien Barnes', 101, 'Pellentesque.tincidunt@dolor.com', 'o', '0', '0', 'Monday, 1st December 2014, 9:48:49 pm');
-
+TRUNCATE TABLE `comentarios`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `mensagems`
 --
 
+DROP TABLE IF EXISTS `mensagems`;
 CREATE TABLE IF NOT EXISTS `mensagems` (
 `id` int(11) NOT NULL,
   `Assunto` varchar(255) NOT NULL,
@@ -97,12 +85,18 @@ CREATE TABLE IF NOT EXISTS `mensagems` (
   `Emisor` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Truncate table before insert `mensagems`
+--
+
+TRUNCATE TABLE `mensagems`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `negociacaos`
 --
 
+DROP TABLE IF EXISTS `negociacaos`;
 CREATE TABLE IF NOT EXISTS `negociacaos` (
 `id` int(11) NOT NULL,
   `usuario_id` int(11) DEFAULT NULL,
@@ -113,29 +107,18 @@ CREATE TABLE IF NOT EXISTS `negociacaos` (
   `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `outbox`
+-- Truncate table before insert `negociacaos`
 --
 
-CREATE TABLE IF NOT EXISTS `outbox` (
-`id` int(11) NOT NULL,
-  `usuarios_id` tinyint(5) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `to_usuarios_id` tinyint(4) NOT NULL,
-  `to_email` varchar(150) NOT NULL,
-  `title` varchar(150) NOT NULL,
-  `content` longtext NOT NULL,
-  `senddate` varchar(120) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
-
+TRUNCATE TABLE `negociacaos`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `produtos`
 --
 
+DROP TABLE IF EXISTS `produtos`;
 CREATE TABLE IF NOT EXISTS `produtos` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -152,12 +135,18 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Truncate table before insert `produtos`
+--
+
+TRUNCATE TABLE `produtos`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `reports`
 --
 
+DROP TABLE IF EXISTS `reports`;
 CREATE TABLE IF NOT EXISTS `reports` (
 `id` int(11) NOT NULL,
   `Texto` text NOT NULL,
@@ -167,12 +156,18 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Truncate table before insert `reports`
+--
+
+TRUNCATE TABLE `reports`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `servicos`
 --
 
+DROP TABLE IF EXISTS `servicos`;
 CREATE TABLE IF NOT EXISTS `servicos` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -189,6 +184,11 @@ CREATE TABLE IF NOT EXISTS `servicos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
+-- Truncate table before insert `servicos`
+--
+
+TRUNCATE TABLE `servicos`;
+--
 -- Extraindo dados da tabela `servicos`
 --
 
@@ -201,6 +201,7 @@ INSERT INTO `servicos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `
 -- Estrutura da tabela `terceiros`
 --
 
+DROP TABLE IF EXISTS `terceiros`;
 CREATE TABLE IF NOT EXISTS `terceiros` (
 `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -213,12 +214,36 @@ CREATE TABLE IF NOT EXISTS `terceiros` (
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Truncate table before insert `terceiros`
+--
+
+TRUNCATE TABLE `terceiros`;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `user_bloq`
+--
+
+DROP TABLE IF EXISTS `user_bloq`;
+CREATE TABLE IF NOT EXISTS `user_bloq` (
+`id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `dataBloq` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Truncate table before insert `user_bloq`
+--
+
+TRUNCATE TABLE `user_bloq`;
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
 `id` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -232,6 +257,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
+-- Truncate table before insert `users`
+--
+
+TRUNCATE TABLE `users`;
+--
 -- Extraindo dados da tabela `users`
 --
 
@@ -242,21 +272,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `role`, `has
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user_bloq`
---
-
-CREATE TABLE IF NOT EXISTS `user_bloq` (
-`id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `dataBloq` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
 `id` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
@@ -276,6 +295,11 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `created` date NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+--
+-- Truncate table before insert `usuarios`
+--
+
+TRUNCATE TABLE `usuarios`;
 --
 -- Extraindo dados da tabela `usuarios`
 --
@@ -300,12 +324,6 @@ ALTER TABLE `comentarios`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `inbox`
---
-ALTER TABLE `inbox`
- ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `mensagems`
 --
 ALTER TABLE `mensagems`
@@ -315,12 +333,6 @@ ALTER TABLE `mensagems`
 -- Indexes for table `negociacaos`
 --
 ALTER TABLE `negociacaos`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `outbox`
---
-ALTER TABLE `outbox`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -348,15 +360,15 @@ ALTER TABLE `terceiros`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `user_bloq`
 --
 ALTER TABLE `user_bloq`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -380,11 +392,6 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 ALTER TABLE `comentarios`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `inbox`
---
-ALTER TABLE `inbox`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
---
 -- AUTO_INCREMENT for table `mensagems`
 --
 ALTER TABLE `mensagems`
@@ -394,11 +401,6 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `negociacaos`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `outbox`
---
-ALTER TABLE `outbox`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `produtos`
 --
@@ -420,14 +422,14 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 ALTER TABLE `terceiros`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `user_bloq`
 --
 ALTER TABLE `user_bloq`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `usuarios`
