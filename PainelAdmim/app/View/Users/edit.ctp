@@ -1,7 +1,7 @@
 <?php
 $breadcrumb = array(
 	array(
-		'label' => 'Users',
+		'label' => 'administrador',
 		'link'	=> '/users/home'
 	),
 	array(
@@ -9,7 +9,7 @@ $breadcrumb = array(
 		'link'	=> '/users/view/'.$user['User']['id']
 	),
 	array(
-		'label'	=> 'edit'
+		'label'	=> 'editar'
 	)
 );
 echo $this->element('breadcrumb',array('links' => $breadcrumb));

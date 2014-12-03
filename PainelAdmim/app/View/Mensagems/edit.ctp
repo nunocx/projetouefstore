@@ -1,7 +1,7 @@
 <div class="mensagems form">
 <?php echo $this->Form->create('Mensagem'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Mensagem'); ?></legend>
+		<legend><?php echo __('Editar Mensagem'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('Assunto');

@@ -70,10 +70,10 @@ class UsuariosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Usuario->save($this->request->data)) {
-				$this->Session->setFlash(__('The usuario has been saved.'));
+				$this->Session->setFlash(__('Usuario Editado'),'flash_success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Usuario não foi editado'),'flash_fail');
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
@@ -156,7 +156,7 @@ public function block($id = null)
 			";
 				$this->Usuario->query($sql);
 					
-			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'));
+			$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Bloqueado'),'flash_success');
 			}
 			else
 			{
@@ -169,7 +169,7 @@ public function block($id = null)
 					//$update = " ";
 					//$this->Usuario->query($update);
 		
-					$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Desbloquiado'));
+					$this->Session->setFlash(__('Usuário [ <b>'.$nomeUser.'</b> ] foi Desbloquiado'),'flash_success');
 			}
 			return $this->redirect('/');
 	}

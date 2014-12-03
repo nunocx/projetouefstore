@@ -2,7 +2,7 @@
 <?php
 $breadcrumb = array(
 	array(
-		'label' => 'Home',
+		'label' => 'home',
 		'link'	=> '/'
 	),array (
 		'label' => 'gerenciamento'

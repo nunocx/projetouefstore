@@ -2,10 +2,10 @@
 <?php
 $breadcrumb = array(
 	array(
-		'label' => 'Home',
+		'label' => 'home',
 		'link'	=> '/'
 	),array (
-		'label' => 'Mensagens'
+		'label' => 'mensagens'
 	)
 );
 echo $this->element('breadcrumb',array('links' => $breadcrumb));

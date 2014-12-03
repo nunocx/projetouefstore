@@ -1,10 +1,10 @@
 <?php
 $breadcrumb = array(
   array(
-    'label' => 'Home',
+    'label' => 'home',
     'link'  => '/'
   ),array (
-    'label' => 'Lista Admins'
+    'label' => 'lista administradores'
   )
 );
 echo $this->element('breadcrumb',array('links' => $breadcrumb));

@@ -1,3 +1,19 @@
+
+<?php
+$breadcrumb = array(
+	array(
+		'label' => 'home',
+		'link'	=> '/'
+	),array (
+		'label' => 'gerenciamento',
+		'link'	=> '/gerenciamentos'
+	),
+	array (
+		'label' => 'serviços'
+	)
+);
+echo $this->element('breadcrumb',array('links' => $breadcrumb));
+?>
 <div class="servicos index">
 	<h2><?php echo __('Servicos'); ?></h2>
 	<table class="table table-bordered">

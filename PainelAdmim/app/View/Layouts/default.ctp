@@ -35,7 +35,7 @@
 	<?php 
 	$sms = $this->Session->flash();
 	if( $sms  != null):?> 
-		<div class="alert alert-info alert-dismissable">
+		<div>
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			<?php echo $sms; ?>
 		</div>

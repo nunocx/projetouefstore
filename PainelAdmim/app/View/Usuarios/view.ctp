@@ -1,14 +1,14 @@
 <?php
 $breadcrumb = array(
 	array(
-		'label' => 'Home',
+		'label' => 'home',
 		'link'	=> '/'
 	),array (
-		'label' => 'Busca usuarios',
+		'label' => 'busca usuarios',
 		'link'	=> '/usuarios'
 	),
 	array (
-		'label' => 'Vizualizar usuario'
+		'label' => $usuario['Usuario']['name']
 	)
 );
 

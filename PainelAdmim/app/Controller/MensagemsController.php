@@ -98,9 +98,9 @@ class MensagemsController extends AppController {
 		//debug($id) or die(); tira essse metodo que ja ta de boas :D 
 		//$this->request->allowMethod('post','delete');
 		if ($this->Mensagem->delete()) {
-			$this->Session->setFlash(__('Mensagem Deletada.'));
+			$this->Session->setFlash(__('Mensagem Deletada.'),'flash_success');
 		} else {
-			$this->Session->setFlash(__('Mensagem não foi deletada.'));
+			$this->Session->setFlash(__('Mensagem não foi deletada.'),'flash_fail');
 		}
 		return $this->redirect('/');
 	}
