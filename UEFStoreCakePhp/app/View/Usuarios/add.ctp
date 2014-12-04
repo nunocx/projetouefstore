@@ -40,11 +40,7 @@
              		 	
              	<?php
              		 echo '</br>';
-             		 echo $this->Form->checkbox('Status', array( 'value' => '1','hiddenField' =>'0','class'=>'checkbox-inline')); 
-             		 echo $this->Form->hidden('Strikes', array( 'value' => '1'));
-             		 
-
-             		 ?>
+             		 echo $this->Form->checkbox('Status', array( 'value' => '1','hiddenField' =>'0','class'=>'checkbox-inline')); ?>
              	&nbsp;
              	<?php echo $this->Form->label('Aceitos os termos do portal');?>	
              

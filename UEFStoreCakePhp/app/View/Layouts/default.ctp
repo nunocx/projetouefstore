@@ -7,15 +7,13 @@
 	<div class="header">
   	  		<div class="wrap">
 				<div class="header_top">
-
 						<div class="header_top_right">
 						</div>			    
   		    	</div>
-
   		    <?php
-  		    	echo $this->element('nav-top-menu'); 
+  		    	echo $this->element('nav-top-menu');
   		    ?> 	
-	  	     <div class="clear">  </div> 
+	  	     <div class="clear"></div>
 	      </div>
    	</div>
    
