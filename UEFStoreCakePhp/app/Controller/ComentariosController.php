@@ -1,4 +1,26 @@
 <?php
+/**
+ * @author Adriano Cavalcante <nuno.cavalcante@gmail.com>
+ * @author Arthur Hagnês <arthurecomp@gmail.com>
+ * @author Dermeval Neves <dermevalneves@gmail.com>
+ * @author Fabio Santos <fabiosantos1388@gmail.com>
+ * @author Higor Vital <h.vitall96@gmail.com>
+ * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author Joacy Mesquita <joacymsilva@gmail.com>
+ * @author Kaique Cabral <kaaiquecabral@gmail.com>
+ * @author Leno Oliveira <lenoosouza@gmail.com>
+ * @author Marcelo Bião <marcelobiao2@gmail.com>
+ * @author Nielson Vágno <nielsonvagno@gmail.com>
+ * @author Sillas Senna <ssennarm@gmail.com>
+ * @version 1.0
+ * @copyright 2014, SoftComp Empreendimentos, 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @package Controller
+ * @subpackage ComentariosController
+ * @example Classe ComentariosController()
+ * @link http://cakephp.org CakePHP(tm) Project 
+ * @since CakePHP(tm) v 0.2.9
+ * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 App::uses('AppController', 'Controller');
 /**
  * Comentarios Controller
@@ -16,7 +38,7 @@ class ComentariosController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
+ * método index
  *
  * @return void
  */
@@ -42,7 +64,7 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * add method
+ * método add - para adicionar comentários
  *
  * @return void
  */
@@ -61,6 +83,10 @@ class ComentariosController extends AppController {
 		$produtos = $this->Comentario->Produto->find('list');
 		$this->set(compact('usuarios', 'servicos', 'produtos'));	
 	}
+
+	/**
+	*método adds
+	*/
 	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
 
 
@@ -97,7 +123,7 @@ class ComentariosController extends AppController {
 
 
 /**
- * edit method
+ * método edit - para editar um comentário
  *
  * @throws NotFoundException
  * @param string $id
@@ -108,7 +134,7 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * delete method
+ * método delete - para deletar um comentário
  *
  * @throws NotFoundException
  * @param string $id
