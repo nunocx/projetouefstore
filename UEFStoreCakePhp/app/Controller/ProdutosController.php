@@ -86,6 +86,14 @@ class ProdutosController extends AppController {
 		$this->set('produto', $this->Produto->find('first', $options));
 	}
 
+	public function prodCategoria($id = null){
+
+		$busca = "SELECT * FROM  `produtos` WHERE `produtos`.`category_id`= $id";
+		$produtos = $this->Produto->query($busca);
+		//debug($produtos) or die();
+		return  $produtos;
+	}
+
 /**
  * add method
  *

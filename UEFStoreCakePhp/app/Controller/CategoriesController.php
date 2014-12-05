@@ -65,8 +65,14 @@ public function indexView() {
 		if (!$this->Category->exists($id)) {
 			throw new NotFoundException(__('Invalid category'));
 		}
+		//$produtos = $this->requestAction('/produtos/prodCategoria/'.$id);
+		//$servicos = $this->requestAction('/servicos/servCategoria/'.$id);
+		
 		$options = array('conditions' => array('Category.' . $this->Category->primaryKey => $id));
 		$this->set('category', $this->Category->find('first', $options));
+		//debug($produtos) or die();
+	//	$this->set('produtos', $produtos);
+	//	$this->set('servicos', $servicos);	
 	}
 
 /**

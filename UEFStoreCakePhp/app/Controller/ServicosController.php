@@ -81,6 +81,13 @@ class ServicosController extends AppController {
 		$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
 		$this->set('servico', $this->Servico->find('first', $options));
 	}
+	public function servCategoria($id = null){
+		
+		$busca = "SELECT * FROM  `servicos` WHERE `servicos`.`category_id`= $id";
+		$servicos = $this->Servico->query($busca);
+		//debug($servicos) or die();
+		return  $servicos;
+	}
 
 /**
  * add method
