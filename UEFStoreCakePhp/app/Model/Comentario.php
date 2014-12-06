@@ -34,6 +34,18 @@ class Comentario extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			
+			'minLength' => array(
+                            'rule' => array('minLength', 20),
+                            'required' => true,
+                            'message' => 'Mínimo de 20 caracteres'
+            ),
+
+            'maxLength' => array(
+                            'rule' => array('maxLength', 150),
+                            'required' => true,
+                            'message' => 'Máximo de 150 caracteres'
+            ),
 		),
 		'usuario_id' => array(
 			'numeric' => array(

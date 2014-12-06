@@ -112,6 +112,7 @@ public function move_arquivos($imagem, $dir)
  * @var array
  */
 	public $validate = array(
+		
 		'Email' => array(
 			'notEmpty' => array(
 				'rule' => array('email'),
@@ -122,6 +123,7 @@ public function move_arquivos($imagem, $dir)
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -132,6 +134,7 @@ public function move_arquivos($imagem, $dir)
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'Senha' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -141,10 +144,33 @@ public function move_arquivos($imagem, $dir)
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'minLength' => array(
+                            'rule' => array('minLength', 6),
+                            'required' => true,
+                            'message' => 'Sua senha precisa conter pelo menos 6 caracteres'
+            ),
 		),
+
+		'Senha_Confirmacao' => array(
+                    'notEmpty' => array(
+                            'rule' => 'notEmpty',
+                            'required' => true,
+                            'message' => 'Confirme sua senha'
+                    ),
+                    'minLength' => array(
+                            'rule' => array('minLength', 6),
+                            'required' => true,
+                            'message' => 'Sua senha precisa conter pelo menos 6 caracteres'
+                    ),
+                    'passwordConfirmation' => array(
+                            'rule'    => array('passwordConfirmation'),
+                    		'message' => 'As duas senhas não conferem'
+                    ),
+       	),
+
 		'Telefone1' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+				'rule' => array('phone', null, 'us'),
 				'message' => 'Coloque seu telefone',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -152,6 +178,7 @@ public function move_arquivos($imagem, $dir)
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'Sexo' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -165,6 +192,21 @@ public function move_arquivos($imagem, $dir)
 		
 	);
 
+	public function passwordConfirmation($data){
+         
+        $password = $this->data['Usuario']['Senha'];
+        $password_confirmation = $this->data['Usuario']['Senha_Confirmacao'];
+              
+        if($password===$password_confirmation){
+             
+            return true;
+        }
+        else{
+             
+            return false;   
+        }
+         
+    }
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

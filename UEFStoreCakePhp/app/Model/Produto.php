@@ -17,6 +17,7 @@ class Produto extends AppModel {
  * @var array
  */
 	public $validate = array(
+		
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -26,7 +27,20 @@ class Produto extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+
+			'minLength' => array(
+                            'rule' => array('minLength', 10),
+                            'required' => true,
+                            'message' => 'Nome muito curto'
+            ),
+
+            'maxLength' => array(
+                            'rule' => array('maxLength', 30),
+                            'required' => true,
+                            'message' => 'Nome muito longo'
+            ),
 		),
+
 		'Descricao' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -36,7 +50,20 @@ class Produto extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+
+			'minLength' => array(
+                            'rule' => array('minLength', 20),
+                            'required' => true,
+                            'message' => 'Mínimo de 20 caracteres'
+            ),
+
+            'maxLength' => array(
+                            'rule' => array('maxLength', 150),
+                            'required' => true,
+                            'message' => 'Máximo de 150 caracteres'
+            ),
 		),
+
 		'Preco' => array(
 			'numeric' => array(
 				'rule' => array('decimal',2),
@@ -47,6 +74,7 @@ class Produto extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'Quantidade' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -57,6 +85,7 @@ class Produto extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'usuario_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -67,6 +96,7 @@ class Produto extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		
 		'category_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

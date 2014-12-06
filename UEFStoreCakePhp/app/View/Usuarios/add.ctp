@@ -14,7 +14,10 @@
             		 <p class="help-block">Exemplo: name@exemplo.com </p>
           
              <?php echo $this->Form->input('name',array('label'=>'Nome:', 'class'=>'form-control'));  echo '</br>';
-             		 echo $this->Form->input('Senha',array('type'=>'password','label'=>'Senha:', 'class'=>'form-control')); echo '</br>';
+             		 
+                 echo $this->Form->input('Senha',array('type'=>'password','label'=>'Senha:', 'class'=>'form-control')); echo '</br>';
+                 echo $this->Form->input('Senha_Confirmacao',array('type'=>'password','label'=>'Senha (Confirmação):', 'class'=>'form-control')); echo '</br>';
+
              		 echo $this->Form->input('Telefone1',array('label'=>'Celular:', 'class'=>'form-control'));  echo '</br>'; ?>
              		 <p class="help-block">Exemplo: (DD) XXXX-XXXX </p>
              	<?php	 echo $this->Form->input('Telefone2',array('label'=>'Telefone (opcional):', 'class'=>'form-control')); ?>
