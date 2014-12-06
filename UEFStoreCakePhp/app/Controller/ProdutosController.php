@@ -53,6 +53,12 @@ class ProdutosController extends AppController {
             $this->set('produtos', $produtos);
         }
     }
+
+    public function ultimosProdutos(){
+    	$produtos = $this->Produto->query("SELECT * FROM `produtos` ORDER BY `Data_Publicacao` DESC");
+    	return $produtos;
+    }
+
     public function beforeFilter()
     {
         parent::beforeFilter();

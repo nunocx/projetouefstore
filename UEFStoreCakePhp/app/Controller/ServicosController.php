@@ -51,6 +51,12 @@ class ServicosController extends AppController {
             $this->set('servicos', $servicos);
         }
 	}
+
+	public function ultimosServicos(){
+    	$servicos = $this->Servico->query("SELECT * FROM `servicos` ORDER BY `Data_Publicacao` DESC");
+    	return $servicos;
+    }
+
 	 public function beforeFilter()
     {
         parent::beforeFilter();
