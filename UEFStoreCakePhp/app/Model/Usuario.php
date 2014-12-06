@@ -170,7 +170,7 @@ public function move_arquivos($imagem, $dir)
 
 		'Telefone1' => array(
 			'notEmpty' => array(
-				'rule' => array('phone', null, 'us'),
+				'rule' => 'notEmpty',
 				'message' => 'Coloque seu telefone',
 				//'allowEmpty' => false,
 				//'required' => false,
