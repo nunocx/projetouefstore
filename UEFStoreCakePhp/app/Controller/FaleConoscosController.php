@@ -5,7 +5,7 @@
  * @author Dermeval Neves <dermevalneves@gmail.com>
  * @author Fabio Santos <fabiosantos1388@gmail.com>
  * @author Higor Vital <h.vitall96@gmail.com>
- * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author Jéssica Santos <jessica22san@gmail.com>
  * @author Joacy Mesquita <joacymsilva@gmail.com>
  * @author Kaique Cabral <kaaiquecabral@gmail.com>
  * @author Leno Oliveira <lenoosouza@gmail.com>
@@ -17,7 +17,7 @@
  * @package Controller
  * @subpackage FaleConoscosController
  * @example Classe FaleConoscosController()
- * @link http://cakephp.org CakePHP(tm) Project 
+ * @link http://cakephp.org CakePHP(tm) Project
  * @since CakePHP(tm) v 0.2.9
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -25,17 +25,15 @@
 App::uses('Controller', 'Controller');
 
 /**
- * Application Controller
- *
- * Add your application-wide methods in the class below, your controllers
- * will inherit them.
- *
- * @package		app.Controller
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * Classe FaleConoscosController
+ * @access public
  */
 class  FaleConoscosController extends AppController {
 
-	public function index(){
+    /**
+     * Método index -
+     */
+    public function index(){
 		$this->set('faleConoscos',"fale conosco aqui ");
 	}
 }

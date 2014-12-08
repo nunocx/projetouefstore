@@ -5,7 +5,7 @@
  * @author Dermeval Neves <dermevalneves@gmail.com>
  * @author Fabio Santos <fabiosantos1388@gmail.com>
  * @author Higor Vital <h.vitall96@gmail.com>
- * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author Jéssica Santos <jessica22san@gmail.com>
  * @author Joacy Mesquita <joacymsilva@gmail.com>
  * @author Kaique Cabral <kaaiquecabral@gmail.com>
  * @author Leno Oliveira <lenoosouza@gmail.com>
@@ -24,6 +24,7 @@
 App::uses('AppController', 'Controller');
 /**
  * Produtos Controller
+ * @access public
  *
  * @property Produto $Produto
  * @property PaginatorComponent $Paginator
@@ -37,15 +38,14 @@ class ProdutosController extends AppController {
  */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		
-	}
-	public function indexView() {
+
+	//public function index() {	}
+
+    /**
+     * método indexView - mostra a view
+     * @return array
+     */
+    public function indexView() {
         $produtos = $this->paginate();
         if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
             return $produtos;
@@ -54,25 +54,29 @@ class ProdutosController extends AppController {
         }
     }
 
+    /**
+     * Método ultimosProdutos mostra os últimos produtos anunciados na home
+     * @return mixed
+     */
     public function ultimosProdutos(){
     	$produtos = $this->Produto->query("SELECT * FROM `produtos` ORDER BY `Data_Publicacao` DESC");
     	return $produtos;
     }
 
+    /**
+     * Método beforeFilter
+     */
     public function beforeFilter()
     {
         parent::beforeFilter();
          $this->Auth->allowedActions = array('indexView');                        
     }
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function my() {
+    /**
+     * Método my
+     * @return array|mixed
+     */
+    public function my() {
 		$produtos = $this->paginate();
         if($this->request->is('requested')){   //Se for requisição de outra view/element:
             $buscaprodutos = "SELECT * FROM  `produtos` WHERE usuario_id=".$this->Auth->user('id')."";
@@ -101,7 +105,7 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * add method
+ * Método add - adiciona um novo produto
  *
  * @return void
  */
@@ -142,7 +146,13 @@ class ProdutosController extends AppController {
 		$categories = $this->Produto->Category->find('list');
 		$this->set(compact('usuarios', 'categories'));
 	}
-	public function etapa2($id = null) {
+
+    /**
+     * Método etapa2
+     * @param null $id
+     * @throws NotFoundException
+     */
+    public function etapa2($id = null) {
 		if (!$this->Produto->exists($id)) {
 			throw new NotFoundException(__('Invalid Produto'));
 		}
@@ -160,7 +170,7 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * edit method
+ * Método edit - edita as informações do produto cadastrado
  *
  * @throws NotFoundException
  * @param string $id
@@ -188,7 +198,7 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * delete method
+ * Método delete - deleta um produto cadastrado
  *
  * @throws NotFoundException
  * @param string $id
@@ -208,14 +218,13 @@ class ProdutosController extends AppController {
 	return $this->redirect('/');
 	}
 
-	/**
-	 * delete method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
-	public function search($termo){
+    /**
+     * Método search - busca um produto cadastrado
+     * @param $termo
+     * @return mixed
+     * @throws NotFoundException
+     */
+    public function search($termo){
 
 		$busca = "SELECT * FROM  `produtos` WHERE `produtos`.`name` LIKE '%".$termo."%' AND `produtos`.`Bloqueado` = 0 AND `produtos`.`Expirado` = 0";
 //debug($busca) or die();
