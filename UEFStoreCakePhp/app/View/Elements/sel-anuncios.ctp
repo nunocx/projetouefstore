@@ -28,10 +28,10 @@ for ($i=0; $i < 20; $i++) {
 	<?php 
 	foreach ($produtoss as $produtos):?>
 				<div class="grid_1_of_4 images_1_of_4">
-					<h4><a href="<?php echo $this->Html->url('/produtoss/view/'.$produtos['produtos']['id']); ?>">
+					<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$produtos['produtos']['id']); ?>">
 					<?php echo $produtos['produtos']['name']?>
 					</a></h4>
-					<a href="<?php echo $this->Html->url('/produtoss/view/'.$produtos['produtos']['id']); ?>"></a>
+					<a href="<?php echo $this->Html->url('/produtos/view/'.$produtos['produtos']['id']); ?>"></a>
 
 					<?php echo $this->Html->image($produtos['produtos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 					 <div class="price-details">
@@ -40,7 +40,7 @@ for ($i=0; $i < 20; $i++) {
 					    </div>
 					       		<div class="add-cart">								
 									<h4>
-									<a href="<?php echo $this->Html->url('/produtoss/view/'.$produtos['produtos']['id']); ?>">
+									<a href="<?php echo $this->Html->url('/produtos/view/'.$produtos['produtos']['id']); ?>">
 									Mais Informações</a>
 									</h4>
 							     </div>
