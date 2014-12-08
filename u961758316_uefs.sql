@@ -192,8 +192,6 @@ TRUNCATE TABLE `servicos`;
 -- Extraindo dados da tabela `servicos`
 --
 
-INSERT INTO `servicos` (`id`, `name`, `Descricao`, `Preco`, `Data_Publicacao`, `Data_Vencimento`, `Foto_Video`, `Bloqueado`, `Expirado`, `ACombinar`, `usuario_id`, `category_id`) VALUES
-(1, 'servico1', 'servico', 11, '2014-12-02', '2015-01-01', 'koala-2.jpg', 0, 0, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -266,8 +264,7 @@ TRUNCATE TABLE `users`;
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `role`, `hash_change_password`, `created`, `modified`) VALUES
-(1, 'ArthurHagnês', '4ea29bda296b03619d0e5214dbc2648881720689', 'arthur@hotmail.com', NULL, 'admin', 'fc7fc56609a46d3dfe8356983f2d4a8446582f2286e2b5dd57da5881f78652b8', '2014-11-20 13:50:03', '2014-11-20 14:18:40'),
-(2, 'admin', 'afebb4a30fffa1f413fd3045a5646d1fad3bd17a', 'admin@hotmail.com', NULL, 'admin', NULL, '2014-11-21 00:40:05', '2014-11-21 00:40:05');
+(1, 'admin', 'afebb4a30fffa1f413fd3045a5646d1fad3bd17a', 'admin@hotmail.com', NULL, 'admin', NULL, '2014-11-21 00:40:05', '2014-11-21 00:40:05');
 
 -- --------------------------------------------------------
 
@@ -304,8 +301,7 @@ TRUNCATE TABLE `usuarios`;
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `Email`, `name`, `Senha`, `Telefone1`, `Data_Nascimento`, `Sexo`, `Telefone2`, `Foto`, `Strikes`, `Status`, `VotosPositivos`, `VotosNegativos`, `username`, `password`, `created`) VALUES
-(1, 'arthru@hotmail.com', 'arthur@hotmail.com', 'art', '7534891139', '2014-12-02', 'M', '7534891139', 'koala.jpg', 0, 0, 0, 0, 'arthru@hotmail.com', '2e7baeeb58f97970b3d3f5fbee04b09900f5b6f7', '2014-12-02');
+
 
 --
 -- Indexes for dumped tables

@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `outbox` (
   `title` varchar(150) NOT NULL,
   `content` longtext NOT NULL,
   `senddate` varchar(120) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
 
 --
 -- Indexes for dumped tables
