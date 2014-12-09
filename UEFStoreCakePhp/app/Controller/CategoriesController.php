@@ -23,6 +23,8 @@
  */
 App::uses('AppController', 'Controller');
 /**
+ * Classe CategoriesController
+ * @access public
  * @property Category $Category
  * @property PaginatorComponent $Paginator
  */
@@ -30,26 +32,23 @@ class CategoriesController extends Controller {
 	
 /**
  * Components
- *
  * @var array
  */
 	public $components = array('Paginator');
 	
 
-/**
- * metódo index
- *
- * @return void
- */
-	public function index() {
-		
-	}
+	//public function index(){}
 
+    /**
+     * Método indexView
+     * Laço condicional if: se for requisição de outra view/element retorna categories, senão envia para outra view.
+     * @return array
+     */
 public function indexView() {
         $categories = $this->paginate();
-        if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+        if ($this->request->is('requested')) {
             return $categories;
-        } else {  //Senão envia para a view padrão
+        } else {
             $this->set('categories', $categories);
         }
     }
@@ -57,7 +56,7 @@ public function indexView() {
 /**
  * método view - para a visualização das categorias
  *
- * @throws NotFoundException
+ * @throws NotFoundException   Se for inválida
  * @param string $id
  * @return void
  */
@@ -75,34 +74,10 @@ public function indexView() {
 	//	$this->set('servicos', $servicos);	
 	}
 
-/**
- * método add - para adicionar categoria
- *
- * @return void
- */
-	public function add() {
-		
-	}
 
-/**
- * método edit - para editar uma categoria
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		
-	}
+	//public function add() {}
 
-/**
- * método delete - para deletar uma categoria
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		
-	}
+//	public function edit($id = null) {}
+
+//	public function delete($id = null) {}
 }

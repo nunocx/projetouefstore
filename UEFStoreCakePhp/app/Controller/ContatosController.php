@@ -5,7 +5,7 @@
  * @author Dermeval Neves <dermevalneves@gmail.com>
  * @author Fabio Santos <fabiosantos1388@gmail.com>
  * @author Higor Vital <h.vitall96@gmail.com>
- * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author Jéssica Santos <jessica22san@gmail.com>
  * @author Joacy Mesquita <joacymsilva@gmail.com>
  * @author Kaique Cabral <kaaiquecabral@gmail.com>
  * @author Leno Oliveira <lenoosouza@gmail.com>
@@ -21,12 +21,12 @@
  * @since CakePHP(tm) v 0.2.9
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-class ContatosController extends Controller {
 
 /**
-* método index
-*/
-public function index() {
+ * Classe ContatosController
+ * @access public
+ */
+class ContatosController extends Controller {
 
-	}
+//public function index() {}
 }

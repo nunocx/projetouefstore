@@ -40,10 +40,12 @@ a.linkTop{
 	color: black;
 	/* background:#23272a !important; */
 	-webkit-appearance: button;
-	padding: 5px;
+	/*padding: 5px; / tamanho do botão de login-entrar
 	/* padding-left:30px; */
 	/* margin-bottom:20px; */
 	position:relative;
+	
+
 }
 img.product{
 	max-width:40%;
@@ -78,8 +80,8 @@ h4.header{
 	font-size: 22px;
 }
 .header {
-	 background: -webkit-gradient(linear, left top, left bottom, from(#2aa893), to(#2F4F4F));
-     background: -moz-linear-gradient(top, #2aa893, #2F4F4F);
+	 background: -webkit-gradient(linear, left top, left bottom, from(#BCBCBC), to(#BCBCBC));
+     background: -moz-linear-gradient(top, #BCBCBC, #BCBCBC);
      filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
 
 	/**background:#2aa893;/** #CCCCCC**/
@@ -97,14 +99,21 @@ h4.header{
 }
 .search_box span{
    color: #99e5e5;
-   margin-right:10px;
+   margin-right:10px; /*tamanho da área de pesquisa */
 }
 .search_box form{
 	 background:#ffffff;
 	 position: relative;
 	 display:inline-block;
+<<<<<<< HEAD
 	 padding-left:0px;
 	 margin-top: 1px;
+=======
+	 padding-left:62px;
+	 margin-top: 2px;
+	 font-size: 20px; /*tamanho da letra de pesquisa */
+
+>>>>>>> origin/master
 }
 .search_box form:after{
 	content:'';
@@ -118,7 +127,7 @@ h4.header{
 	border: none;
 	outline: none;
 	background: none;
-	font-size:0.85em;
+	font-size:0.99em;
 	color: #997923;
 	font-family: 'Ubuntu Condensed', sans-serif;
 	width:75%;
@@ -451,7 +460,7 @@ h4.header{
 	width:150px;
 	height:800px;
 	margin-right: -40px;
-	padding-right: 20%;
+	padding-right: 20%; /*posição do banner lateral */
 
 
 }
@@ -468,7 +477,7 @@ h4.header{
 	color:#FFF;
 	padding:10px;
 	padding-left:65px;
-	background:#A3812D;
+	background:#f26522;
 	position:relative;
 	margin-bottom:5px;
 }
@@ -484,7 +493,7 @@ h4.header{
 .content-bottom-right h3,.preview-page h3{
 	background: #000 !important; /*#176b66*/
 	margin-bottom:10px !important;
-	padding-left:10px !important;
+	padding-left:25px !important;
 }
 .content-bottom-right h3:before,.preview-page h3:before{
 	content:'';
@@ -501,16 +510,17 @@ h4.header{
 	display:block;
 	font-size:15px;
 	padding:10px 15px;
-    color: #49495A;
-    background:url(../img/images/drop_arrow.png) no-repeat 0;
-    border-bottom:1px solid #D6D6D6;
+    color: #000; /* cor da categoria #49495A*/
+    background:url(../img/images/drop_arrow.png) #BCBCBC no-repeat 0; /* Cor do fundo do menu */
+    border-bottom:1px solid #fff; /*#D6D6D6;*/
 }
 .categories li:last-child a{
 	border:none;
 }
 .categories li a:hover{
 	/**color:#176b66;**/
-	color:#176b66;
+	color:#fcfcfc;
+	font-size:15px;
 }	
 .buters-guide{
 	margin-top:2em;
@@ -634,7 +644,7 @@ h4.header{
 	font-size:0.85em;
 	display: block;
 	padding:6px 20px;
-	background:#A3812D;
+	background: #f26522;
 	color: #FFF;
 	text-decoration: none;
 	outline: 0;
@@ -860,7 +870,7 @@ h4.header{
 }
 .price p span {
 	font-size:2em;
-	color:#176b66;
+	color: #000; /*Cor do preço #176b66*/
 	font-family:'Ubuntu Condensed', sans-serif;
 }
 .available {
@@ -1038,7 +1048,7 @@ h4.header{
 	font-size:0.85em;
 	
 	padding:8px 10px;
-	background:#176b66;
+	background:#f26522; /* Cor do Botão Negociar #176b66*/;
 	color: #FFF;
 	text-decoration: none;
 	outline: 0;

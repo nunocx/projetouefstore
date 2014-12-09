@@ -5,7 +5,7 @@
  * @author Dermeval Neves <dermevalneves@gmail.com>
  * @author Fabio Santos <fabiosantos1388@gmail.com>
  * @author Higor Vital <h.vitall96@gmail.com>
- * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author Jéssica Santos <jessica22san@gmail.com>
  * @author Joacy Mesquita <joacymsilva@gmail.com>
  * @author Kaique Cabral <kaaiquecabral@gmail.com>
  * @author Leno Oliveira <lenoosouza@gmail.com>
@@ -25,29 +25,24 @@
 App::uses('AppController', 'Controller');
 
 /**
- * Static content controller
- *
- * Override this controller by placing a copy in controllers directory of an application
- *
- * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
+ *Classe PagesController
+ * @access public
  */
 class PagesController extends AppController {
 
 /**
- * This controller does not use a model
+ * Este controller não usa o model
  *
  * @var array
  */
 	public $uses = array();
 
 /**
- * Displays a view
- *
- * @param mixed What page to display
+ * Método display - mostra view
+ * @param mixed o que a página mostra
  * @return void
- * @throws NotFoundException When the view file could not be found
- *	or MissingViewException in debug mode.
+ * @throws NotFoundException quando a view não pode ser encontrada
+ *	ou MissingViewException no modo debug.
  */
 	public function display() {
 		$path = func_get_args();

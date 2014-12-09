@@ -24,13 +24,15 @@
 App::uses('AppController', 'Controller');
 
 /**
+ * Classe BuscasController
+ * @access public
  * @property Usuario $Usuario
  * @property PaginatorComponent $Paginator
  */
 class BuscasController extends Controller {
 
 	/**
-	 * método index
+	 * método search_All - busca por todos produtos e servicos
 	 *
 	 * @return void
 	 */
