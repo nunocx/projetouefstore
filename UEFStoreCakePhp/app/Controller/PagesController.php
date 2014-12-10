@@ -38,11 +38,11 @@ class PagesController extends AppController {
 	public $uses = array();
 
 /**
- * Método display - mostra view
- * @param mixed o que a página mostra
+ * display
+ * Esse método exibe a view das páginas.
  * @return void
- * @throws NotFoundException quando a view não pode ser encontrada
- *	ou MissingViewException no modo debug.
+ * @throws NotFoundException Quando a view não pode ser encontrada
+ * @throws MissingViewException Para fim de debug.
  */
 	public function display() {
 		$path = func_get_args();

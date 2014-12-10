@@ -38,8 +38,8 @@ class ReportsController extends Controller {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
+ * index
+ * Método index, mostra todas as denúncias paginadas.
  * @return void
  */
 	public function index() {
@@ -48,10 +48,10 @@ class ReportsController extends Controller {
 	}
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
+ * view
+ * Método view para visualizar uma denúncia.
+ * @throws NotFoundException Caso a denúncia não seja encontrada.
+ * @param id Id da denúncia.
  * @return void
  */
 	public function view($id = null) {
@@ -63,8 +63,8 @@ class ReportsController extends Controller {
 	}
 
 /**
- * add method
- *
+ * add
+ * Método padrão para adicionar nova denúncia.
  * @return void
  */
 	public function add() {
@@ -84,10 +84,10 @@ class ReportsController extends Controller {
 	}
 
 /**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
+ * edit
+ * Método padrão para editar as informações de uma denúncia.
+ * @throws NotFoundException Caso a denúncia não seja encontrada.
+ * @param id Id da denúncia.
  * @return void
  */
 	public function edit($id = null) {
@@ -113,9 +113,9 @@ class ReportsController extends Controller {
 
 /**
  * delete method
- *
- * @throws NotFoundException
- * @param string $id
+ * Método padrão para excluir uma denúncia.
+ * @throws NotFoundException Caso a denúncia não seja encontrada.
+ * @param id Id da denúncia.
  * @return void
  */
 	public function delete($id = null) {

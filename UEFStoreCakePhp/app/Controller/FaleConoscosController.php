@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
 class  FaleConoscosController extends AppController {
 
     /**
-     * Método index -
+     * index
      */
     public function index(){
 		$this->set('faleConoscos',"fale conosco aqui ");

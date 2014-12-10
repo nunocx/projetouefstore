@@ -25,6 +25,8 @@
 App::uses('Controller', 'Controller');
 /**
  * @access public
+ * Classe AppController
+ * É a classe de onde herdam todos os Controllers, os métodos desta classe são públicos em todo o sistema.
  */
  
 class AppController extends Controller {
@@ -36,6 +38,12 @@ class AppController extends Controller {
    
    public $helpers = array('Html', 'Form', 'Session');
       
+/**
+ * beforeFilter
+ * Esse método é responsável pelo filtro de autenticação que permite ou não um controller a efetuar qualquer método antes de executá-lo.
+ * O componente Auth é o responsável por fazer essa verificação, autenticando um usuário para autorizar o método, ou não autorizando caso contrário.
+ * Nesse método são definidos parâmetros para as ações e redirecionamento de login e logout.
+ */
    public function beforeFilter()
    {
         $this->Auth->authenticate = array(
@@ -75,6 +83,13 @@ class AppController extends Controller {
         $this->Auth->allowedActions = array('display');        
    }
    
+
+/**
+* @deprecated
+* isAuthorized
+* Este método verifica se um usuário tem autorização para algum método.
+* @param user Usuário a checar autorização.
+*/
    public function isAuthorized($user)
    {
      //somente o admin tem acesso a /admin/controller/action

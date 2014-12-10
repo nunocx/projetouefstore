@@ -38,9 +38,10 @@ class MensagemsController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
+ * beforeFilter
+ * Método herdado do AppController para filtrar a autorização do usuário aos métodos da classe.
  * @return void
+ * @see AppController
  */
 public function beforeFilter()
     {
@@ -49,8 +50,8 @@ public function beforeFilter()
     }
 	
 /**
- * index method
- *
+ * index
+ * Método index, mostra todas as mensagens paginadas.
  * @return void
  */
 		public function index(){
@@ -73,6 +74,16 @@ public function beforeFilter()
 			
 			
 		}
+
+/**
+* pm_send_to
+* Esse método envia uma mensagem de um usuário para outro.
+* O método busca o usuário destinatário no banco de dados através de um sql simples.
+* Após o destinatário ser encontrado, a mensagem é ligada aos usuários emissor e destinatário, e caso seja referente a um produto, é ligada a este.
+* @param id Id do emissor
+* @param id1 Id do destinatário
+* @throws NotFoundException Caso o destinatário não seja encontrado, ou se o produto ou serviço ao qual a mensagem (pode) se referir não exista.
+*/
 		public function pm_send_to($id = NULL,$id1 = NULL) {
 				
 				$i = $id;
@@ -144,6 +155,12 @@ public function beforeFilter()
 			
 			
 		}
+
+		/**
+		* add
+		* @deprecated
+		* Método de adição padrão de mensagem.
+		*/
 		public function add() {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();

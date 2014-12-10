@@ -38,10 +38,10 @@ class ServicosController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
+ * index
+ * Método index, mostra todos os serviços paginados.
  * @return void
- */	
+ */
 	public function index() {
 		
 		$servicos = $this->paginate();
@@ -52,16 +52,37 @@ class ServicosController extends AppController {
         }
 	}
 
+/**
+     * ultimosServicos
+     * Esse médoto mostra os serviços ordenados por data de publicação em ordem decrescente.
+     * @return mixed
+     */
+
 	public function ultimosServicos(){
     	$servicos = $this->Servico->query("SELECT * FROM `servicos` ORDER BY `Data_Publicacao` DESC");
     	return $servicos;
     }
+
+	/**
+	 * beforeFilter
+	 * Método herdado do AppController para filtrar a autorização do usuário aos métodos da classe.
+	 * @return void
+	 * @see AppController
+	 */
 
 	 public function beforeFilter()
     {
         parent::beforeFilter();
          $this->Auth->allowedActions = array('index');                        
     }
+
+/**
+     * my
+     * Esse método retorna os serviços do usuário autenticado atualmente.
+     * O usuário autenticado é identificado através do componente Auth.
+     * @return array Serviços do usuário.
+     */
+
     public function my() {
 		$servico = $this->paginate();
         if($this->request->is('requested')){   //Se for requisição de outra view/element:
@@ -73,13 +94,14 @@ class ServicosController extends AppController {
         }
 
 	}
+
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+* view
+* Método view padrão para visualizar um serviço.
+* @param id Id do serviço.
+* @throws NotFoundException Caso o serviço não seja encontrado.
+*/
+
 	public function view($id = null) {
 		if (!$this->Servico->exists($id)) {
 			throw new NotFoundException(__('Invalid servico'));
@@ -96,8 +118,9 @@ class ServicosController extends AppController {
 	}
 
 /**
- * add method
- *
+ * add
+ * Método padrão para adicionar um novo serviço.
+ * A validade é setada para 30 dias após a publicação, usando o timestamp para incrementar a data a partir da data inicial.
  * @return void
  */
 	public function add() {
@@ -134,12 +157,14 @@ class ServicosController extends AppController {
 	}
 
 /**
- * edit method
+ * edit
+ * Método para edição padrão das informações do serviço.
  *
- * @throws NotFoundException
- * @param string $id
+ * @throws NotFoundException Caso o serviço não seja encontrado.
+ * @param id Id do serviço.
  * @return void
  */
+
 	public function edit($id = null) {
 		if (!$this->Servico->exists($id)) {
 			throw new NotFoundException(__('Invalid servico'));
@@ -160,6 +185,14 @@ class ServicosController extends AppController {
 		$this->set(compact('usuarios', 'categories'));
 	}
 
+	/**
+     * etapa2
+     * Segunda etapa para adição de serviço.
+     * Esse método finaliza a adição do serviço.
+     * @param id Id do serviço.
+     * @throws NotFoundException Caso o serviço não seja encontrado.
+     */
+
 	public function etapa2($id = null) {
 		if (!$this->Servico->exists($id)) {
 			throw new NotFoundException(__('Invalid Servico'));
@@ -178,10 +211,11 @@ class ServicosController extends AppController {
 	}
 
 /**
- * delete method
+ * delete
+ * Método padrão para deletar um serviço cadastrado.
  *
- * @throws NotFoundException
- * @param string $id
+ * @throws NotFoundException Caso o serviço não seja encontrado.
+ * @param id Id do serviço.
  * @return void
  */
 	public function delete($id = null) {
@@ -199,11 +233,13 @@ class ServicosController extends AppController {
 	}
 
 
-	/**
-	 * index method
-	 *
-	 * @return void
-	 */	
+    /**
+     * search
+     * Método de busca um serviço cadastrado, através de um termo que esteja contido no nome do serviço desejado.
+     * @param termo O termo que deve estar contido no título do serviço.
+     * @return array Serviços que correpondem à busca.
+     * @throws NotFoundException Caso não seja encontrado nenhum serviço com o termo.
+     */
 	public function search($termo) {
 		$busca = "SELECT * 
 		FROM  `servicos`

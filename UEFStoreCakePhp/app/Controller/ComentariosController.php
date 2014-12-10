@@ -53,7 +53,7 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * view method
+ * view
  *
  * @throws NotFoundException
  * @param string $id
@@ -64,8 +64,9 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * método add - para adicionar comentários
- *
+ * add
+ * Esse método adiciona um novo comentário no banco.
+ * Caso um problema ocorra ao salvar o comentário, um erro é exibido na tela.
  * @return void
  */
 	public function add() {
@@ -85,7 +86,14 @@ class ComentariosController extends AppController {
 	}
 
 	/**
-	*método adds
+	* adds
+	* Esse método adiciona um comentário e liga ao usuário e o produto ou serviço ao qual o comentário se refere.
+	* Antes de salvar o comentário, o Auth é usado para a autorizar o usuário.
+	* Caso o id de produto ou serviço não exista, um erro é exibido. Caso algum erro ocorra ao salvar o comentário, um erro é exibido.
+	* Caso o comentário seja devidamente adicionado, o usuário é redirecionado e uma mensagem de sucesso é exibida.
+	* @param id_user Id do usuário
+	* @param id_prod Id do produto
+	* @param id_serv Id do serviço
 	*/
 	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
 

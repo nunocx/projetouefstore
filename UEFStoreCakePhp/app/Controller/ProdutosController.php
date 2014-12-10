@@ -42,7 +42,8 @@ class ProdutosController extends AppController {
 	//public function index() {	}
 
     /**
-     * método indexView - mostra a view
+     * indexView
+     * Esse método retorna todos os produtos paginados para a view.
      * @return array
      */
     public function indexView() {
@@ -55,7 +56,8 @@ class ProdutosController extends AppController {
     }
 
     /**
-     * Método ultimosProdutos mostra os últimos produtos anunciados na home
+     * ultimosProdutos
+     * Esse médoto mostra os produtos ordenados por data de publicação em ordem decrescente.
      * @return mixed
      */
     public function ultimosProdutos(){
@@ -63,9 +65,12 @@ class ProdutosController extends AppController {
     	return $produtos;
     }
 
-    /**
-     * Método beforeFilter
-     */
+	/**
+	 * beforeFilter
+	 * Método herdado do AppController para filtrar a autorização do usuário aos métodos da classe.
+	 * @return void
+	 * @see AppController
+	 */
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -73,8 +78,10 @@ class ProdutosController extends AppController {
     }
 
     /**
-     * Método my
-     * @return array|mixed
+     * my
+     * Esse método retorna os produtos do usuário autenticado atualmente.
+     * O usuário autenticado é identificado através do componente Auth.
+     * @return array Produtos do usuário.
      */
     public function my() {
 		$produtos = $this->paginate();
@@ -87,6 +94,12 @@ class ProdutosController extends AppController {
         	 $this->set('produtos', $produtos);
         }
 
+/**
+* view
+* Método view padrão para visualizar um produto.
+* @param id Id do produto.
+* @throws NotFoundException Caso o produto não seja encontrado.
+*/
 	}
 	public function view($id = null) {
 		if (!$this->Produto->exists($id)) {
@@ -95,6 +108,12 @@ class ProdutosController extends AppController {
 		$options = array('conditions' => array('Produto.' . $this->Produto->primaryKey => $id));
 		$this->set('produto', $this->Produto->find('first', $options));
 	}
+
+/**
+* prodCategoria
+* Esse método retorna todos os produtos de uma determinada categoria.
+* @param id Id da categoria.
+*/
 
 	public function prodCategoria($id = null){
 
@@ -105,8 +124,9 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * Método add - adiciona um novo produto
- *
+ * add
+ * Método padrão para adicionar um novo produto.
+ * A validade é setada para 30 dias após a publicação, usando o timestamp para incrementar a data a partir da data inicial.
  * @return void
  */
 	public function add() {
@@ -148,9 +168,11 @@ class ProdutosController extends AppController {
 	}
 
     /**
-     * Método etapa2
-     * @param null $id
-     * @throws NotFoundException
+     * etapa2
+     * Segunda etapa para adição de produto.
+     * Esse método finaliza a adição do produto.
+     * @param id Id do produto.
+     * @throws NotFoundException Caso o produto não seja encontrado.
      */
     public function etapa2($id = null) {
 		if (!$this->Produto->exists($id)) {
@@ -170,10 +192,11 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * Método edit - edita as informações do produto cadastrado
+ * edit
+ * Método para edição padrão das informações do produto.
  *
- * @throws NotFoundException
- * @param string $id
+ * @throws NotFoundException Caso o produto não seja encontrado.
+ * @param id Id do produto.
  * @return void
  */
 	public function edit($id = null) {
@@ -198,10 +221,11 @@ class ProdutosController extends AppController {
 	}
 
 /**
- * Método delete - deleta um produto cadastrado
+ * delete
+ * Método padrão para deletar um produto cadastrado.
  *
- * @throws NotFoundException
- * @param string $id
+ * @throws NotFoundException Caso o produto não seja encontrado.
+ * @param id Id do produto.
  * @return void
  */
 	public function delete($id = null) {
@@ -219,10 +243,11 @@ class ProdutosController extends AppController {
 	}
 
     /**
-     * Método search - busca um produto cadastrado
-     * @param $termo
-     * @return mixed
-     * @throws NotFoundException
+     * search
+     * Método de busca um produto cadastrado, através de um termo que esteja contido no nome do produto desejado.
+     * @param termo O termo que deve estar contido no título do produto.
+     * @return array Produtos que correpondem à busca.
+     * @throws NotFoundException Caso não seja encontrado nenhum produto com o termo.
      */
     public function search($termo){
 
