@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author Adriano Cavalcante <nuno.cavalcante@gmail.com>
  * @author Arthur Hagnês <arthurecomp@gmail.com>
@@ -77,6 +76,7 @@ public function upload($imagem = array(), $dir = 'img')
 } 
 
 /** 
+ * Método checa_dir
  * Verifica se o diretório existe, se não ele cria. 
  * @access public 
  * @param string $dir 
@@ -91,6 +91,7 @@ public function checa_dir($dir)
 }  
   
 /** 
+ * Método checa_nome
  * Verifica se o nome do arquivo já existe, se existir adiciona um numero ao nome e verifica novamente 
  * @access public 
  * @param Array $imagem
@@ -114,6 +115,7 @@ public function checa_nome($imagem, $dir)
 }  
   
 /** 
+ * Método trata_nome
  * Trata o nome removendo espaços, acentos e caracteres em maiúsculo. 
  * @access public 
  * @param String $imagem_nome
@@ -125,6 +127,7 @@ public function trata_nome($imagem_nome)
 }  
   
 /** 
+ * Método move_arquivos
  * Move o arquivo para a pasta de destino. 
  * @access public 
  * @param Array $imagem 
