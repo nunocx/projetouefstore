@@ -104,9 +104,9 @@ class ComentariosController extends AppController {
 		$this->request->data['Comentario']['produto_id'] = null;
 		$this->request->data['Comentario']['servico_id'] = null;
 
-		if($id_prod!=null)
+		if($id_prod!='null')
 			$this->request->data['Comentario']['produto_id'] = $id_prod;
-		if($id_serv!=null)
+		if($id_serv!='null')
 			$this->request->data['Comentario']['servico_id'] = $id_serv;
 		
 			$this->request->data['Comentario']['usuario_id'] = $this->Auth->user('id');

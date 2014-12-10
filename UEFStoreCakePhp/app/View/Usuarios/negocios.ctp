@@ -44,9 +44,9 @@ $servicos = $this->requestAction('servicos/index');
 	 					</td>
 	 					<td>
 	 					<?php if(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['produto_id'] != null ): ?> 
-	 					<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['produto_id'].'/'.null); ?>"> Comente este produto now ! </a> </li>					
+	 					<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['produto_id'].'/'.'null'); ?>"> Comente este produto ! </a> </li>					
 	 					<?php elseif(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['servico_id'] != null ): ?>
-	 						<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['servico_id'].'/'.null); ?>"> Comente este produto now ! </a> </li>	
+	 						<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.'null'.'/'.$negocio['Negociacao']['servico_id']); ?>"> Comente este serviço ! </a> </li>	
 	 					<?php else:?>
 	 						<h1> Você não tem permissão para comentar este produto. </h1>
 	 					<?php endif; ?>
