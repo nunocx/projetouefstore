@@ -49,7 +49,7 @@
 
              		 ?>
              	&nbsp;
-             	<?php echo $this->Form->label('Aceitos os termos do portal');?>	
+             	<?php echo $this->Form->label('Aceitos os');?> <a href="<?php echo $this->Html->url('/termosDeUsos',true);?>">Termos e Condições </a>	
              
           </div>
           	<button type="submit" class="btn btn-default">Cadastrar</button>

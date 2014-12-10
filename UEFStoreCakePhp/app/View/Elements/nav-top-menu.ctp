@@ -58,6 +58,10 @@
 								</li>
 							</ul></ul> ---->
 						</li>
+
+						<li>
+							<a href="<?php echo $this->Html->url('/termosDeUsos',true);?>">Termos e Condições </a>
+						</li>
 								
 								<li>
 									<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QTEN3EAAQDLJJ">Faça a sua Doação</a>
