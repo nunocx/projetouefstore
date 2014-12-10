@@ -1,0 +1,35 @@
+                                                        MM                                          
+                                                  5##@ÐWWM CCJJ                                     
+                                              $$%A55 77777CC                                        
+                                             3$$   ==77                                             
+                                     AAAAA  J3   ===     JJJ                                        
+                                   AAAAAA  JJ   ===      JJJ                                        
+                                   AAAA     J   ==       JJJ                                        
+     AAAA      AAAA   AAAAAAAAA    AAAA     J3  ==       JJJJJJJ   JJJJJJJJ      JJJJ  JJJJJJJJJ    
+     AAAA      AAAA  AAAAAAAAAAAA  AAAA       $  ==      JJJJJJJ JJJJJJJJJJJJ  JJJJJJJJJJJJJJJJJJ   
+     AAAA      AAAA AAAAAAAAAAAAAA AAAAAAA     %%  ==    JJJ    JJJJ      JJJJJJJJ   JJJJJJJJJJJJJ  
+     AAAA      AAAA AAAA           AAAAAAA       A  =7   JJJJ   JJJJ      JJJJJJJJ   JJJJJJJJJJJJJ  
+      AAAAAAAAAAAA   AAAAAAAAA     AAAA          A5  77  JJJJJJJ JJJJJJJJJJJJ JJJJ   JJJJJJJJJJ     
+        AAAAAAAA      AAAAAAAAA    AAAA          A5   77   JJJJJ  JJJJJJJJJJ  JJJJ     JJJJJJJJJ    
+                                                %A5  777                                            
+                                            J3$$%   =77                                             
+                             ..‘",,*!¦((=7CCJ3 ======                                               
+                                 ¦¦(((=========                                                     
+                                                                                              
+
+PASSOS:
+
+1- INSTALE XAMPP.
+2- COLOQUE OS ARQUIVOS DO PROJETO DENTRO DE HTDOCS. 		 	|| caminho : xampp/htdocs/ 
+3- RODE O SCRIPT [admin.sql] QUE ESTÁ DENTRO DA PASTA [SQL]		|| caminho : sql/admin.sql 
+4- ABRA O NAVEGADOR DIGITE: 127.0.0.1/www/projetouefstore/PainelAdmim
+5- SIGA OS PASSOS NA PASTA [IMG] 					|| caminho : img/
+6- RODE O SCRIPT [ u961758316_uefs.sql ] QUE ESTÁ DENTRO DA PASTA [SQL]	|| caminho : sql/u961758316_uefs.sql 
+7- PRONTO ! PAINEL ADMIN FUNCIONANDO E SITE INTEGRADO.
+8- ACESSE O SEU SITE AGORA POR, 127.0.0.1/www/projetouefstore/UEFStoreCakePhp
+9- CADASTRE COMO USUARIO.
+
+
+OBS.:   NO PAINEL DE ADMIN
+	LOGIN: admin@hotmail.com
+	SENHA: admin
