@@ -59,8 +59,8 @@ class NegociacaosController extends AppController {
 /**
  * view
  * Método view padrão para visualizar a negociação.
- * @throws NotFoundException
- * @param id Id da negociação.
+ * @throws NotFoundException Caso a negociação não seja encontrada.
+ * @param int id Id da negociação.
  * @return void
  */
 	public function view($id = null) {
@@ -153,7 +153,7 @@ class NegociacaosController extends AppController {
  * edit
  * Método padrão de atualização de informação da negociação.
  * @throws NotFoundException Caso a negociação não exista.
- * @param id Id da negociação a ser editada.
+ * @param int id Id da negociação a ser editada.
  * @return void
  */
 	public function edit($id = null) {
@@ -181,7 +181,7 @@ class NegociacaosController extends AppController {
  * delete
  * Método padrão para excluir a negociação.
  * @throws NotFoundException Caso a negociação não exista.
- * @param id Id da negociação a ser excluída.
+ * @param int id Id da negociação a ser excluída.
  * @return void
  */
 	public function delete($id = null) {
