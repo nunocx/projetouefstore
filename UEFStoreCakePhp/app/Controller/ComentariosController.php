@@ -91,9 +91,9 @@ class ComentariosController extends AppController {
 	* Antes de salvar o comentário, o Auth é usado para a autorizar o usuário.
 	* Caso o id de produto ou serviço não exista, um erro é exibido. Caso algum erro ocorra ao salvar o comentário, um erro é exibido.
 	* Caso o comentário seja devidamente adicionado, o usuário é redirecionado e uma mensagem de sucesso é exibida.
-	* @param int id_user Id do usuário
-	* @param int id_prod Id do produto
-	* @param int id_serv Id do serviço
+	* @param int $id_user Id do usuário
+	* @param int $id_prod Id do produto
+	* @param int $id_serv Id do serviço
 	*/
 	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
 
