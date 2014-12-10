@@ -135,10 +135,17 @@ h4.header{
 	border: none;
 	outline: none;
 	background: none;
+<<<<<<< HEAD
 	font-size:0.99em;
 	color: black;
 	font-family: 'Ubuntu Condensed', sans-serif;
 	width:80%;
+=======
+	font-size:16px;
+	color: #997923;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	width: 220px;
+>>>>>>> origin/master
 	padding:0px;
 	-webkit-apperance:none;
 	margin:0;

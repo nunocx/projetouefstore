@@ -724,32 +724,49 @@ class GerenciamentosController extends AppController {
 
 	public function anuciosProdutosServicos() {
 		App::import('Vendor', 'jpgraph/jpgraph');
-    	App::import('Vendor', 'jpgraph/jpgraph_pie');
-    	App::import('Vendor', 'jpgraph/jpgraph_pie3d');
+    	App::import('Vendor', 'jpgraph/jpgraph_bar');
 
 	    $qtd = "SELECT COUNT(*) FROM `produtos` WHERE `produtos`.`Bloqueado` = 0;";
 	    $data[0] = $this->requestAction('/produtos/buscaProdutos/'.$qtd);
 
 		$qtd = "SELECT COUNT(*) FROM `servicos` WHERE `servicos`.`Bloqueado` = 0;";
 	    $data[1] = $this->requestAction('/servicos/buscaServicos/'.$qtd);
-//debug($data) or die();
-	    $graph = new PieGraph(350,250);
 
-		$theme_class= new VividTheme;
-		$graph->SetTheme($theme_class);
+	    $graph = new Graph(400,350);
 
-		// Set A title for the plot
-		$graph->title->Set("Porcentagem de Produtos e Serviços");
+		$graph->SetScale('textlin');
 
-		// Create
-		$p1 = new PiePlot3D(array($data[0][0][0]['COUNT(*)'], $data[1][0][0]['COUNT(*)']));
-		$graph->Add($p1);
+		$graph->ygrid->SetFill(false);
+		$graph->xaxis->SetTickLabels(" ");
+		$graph->yaxis->HideLine(false);
+		$graph->yaxis->HideTicks(false,false);
 
-		$p1->ShowBorder();
-		$p1->SetColor('black');
-		$p1->ExplodeSlice(1);
+	    // Create the linear plot
+	    $theme_class=new UniversalTheme;
+		$graph->img->SetAntiAliasing(false);
+		$graph->SetBox(false);
+		$graph->SetBox(false);
 
-		$gdImgHandler = $graph->Stroke(_IMG_HANDLER);
+		// Create the bar plots
+		$b1plot = new BarPlot($data[0][0][0]['COUNT(*)']);
+		$b2plot = new BarPlot($data[1][0][0]['COUNT(*)']);
+
+		// Create the grouped bar plot
+		$gbplot = new GroupBarPlot(array($b1plot,$b2plot));
+		// ...and add it to the graPH
+		$graph->Add($gbplot);
+
+		$b1plot->SetColor("white");
+		$b1plot->SetFillColor("#cc1111");
+		$b1plot->SetLegend('Produtos');
+
+		$b2plot->SetColor("white");
+		$b2plot->SetFillColor("#11cccc");
+		$b2plot->SetLegend('Serviços');
+
+		$graph->title->Set("Quantidade de anúncios");
+	    
+	    $gdImgHandler = $graph->Stroke(_IMG_HANDLER);
 
 		$fileName = "img/relatorios/produtosServicos.png";
 		$graph->img->Stream($fileName);

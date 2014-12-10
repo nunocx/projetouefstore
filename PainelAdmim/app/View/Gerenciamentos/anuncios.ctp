@@ -45,7 +45,6 @@
 			<span class="blogg-subtitle">Produtos e Seviços</span>
 			</br>
 			<?php	echo $this->Html->image('relatorios/produtosServicos.png');
-					echo $this->Html->image('relatorios/legenda.png');
 			?>
 		</div>
 		<div class="bloco2">
