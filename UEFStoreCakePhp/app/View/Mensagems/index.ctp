@@ -1,6 +1,3 @@
-<div class="mensagems index">
-	<h3><?php echo __('Mensagem'); ?></h3>
-	
 
 <?php
 
@@ -37,7 +34,7 @@ $outboxMessages = $result['numbers'];
 ?>
 <?php if($this->Session->read('Auth.User.Email')) {?>
 <?php echo $this->Html->link(__('Caixa de Entrada'), array('action' => 'pm_inbox')); ?> <?php if ($inboxMessagesNew > 0) { print "<b>(".$inboxMessagesNew.")</b>";}
-else{ print "(0)";} ?> <?php print $inboxMessagesTotal; ?>, <?php echo $this->Html->link(__('Caixa de Saída'), array('action' => 'pm_outbox')); ?> <?php print $outboxMessages; ?> <?php } else {print "You must be logged in first";}?> 
+else{ print "(0)";} ?> <?php print $inboxMessagesTotal; ?>, <?php echo $this->Html->link(__('Caixa de Saída'), array('action' => 'pm_outbox')); ?> <?php print $outboxMessages; ?> <?php } else {print "Você precisa estar logado";}?> 
 
 	
-</div>
+
