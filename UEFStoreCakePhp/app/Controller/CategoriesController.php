@@ -42,7 +42,7 @@ class CategoriesController extends Controller {
     /**
      * Método indexView
      * Esse método separa as categorias num array de paginação, se for requisitado por outra view, retorna esse array, caso contrário, seta a propriedade categories para esse array.
-     * @return array de categorias paginadas
+     * @return array Categorias paginadas
      */
 public function indexView() {
         $categories = $this->paginate();
