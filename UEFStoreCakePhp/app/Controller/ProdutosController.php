@@ -100,7 +100,6 @@ class ProdutosController extends AppController {
 
 		$busca = "SELECT * FROM  `produtos` WHERE `produtos`.`category_id`= $id";
 		$produtos = $this->Produto->query($busca);
-		//debug($produtos) or die();
 		return  $produtos;
 	}
 
