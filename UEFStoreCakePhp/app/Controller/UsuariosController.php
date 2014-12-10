@@ -86,7 +86,7 @@ class UsuariosController extends AppController {
 /**
 * view
 * Método view padrão para visualizar um usuário.
-* @param id Id do usuário.
+* @param int id Id do usuário.
 * @throws NotFoundException Caso o usuário não seja encontrado.
 */
 
@@ -101,7 +101,7 @@ class UsuariosController extends AppController {
     /**
     * negocios
     * Método que retorna as negociações do usuário.
-    * @param Id do usuário.
+    * @param int id Id do usuário.
     */
 
     public function negocios($id = null) {
@@ -136,7 +136,7 @@ class UsuariosController extends AppController {
  * Método para edição padrão das informações do usuário.
  *
  * @throws NotFoundException Caso o usuário não seja encontrado.
- * @param id Id do usuário.
+ * @param int id Id do usuário.
  * @return void
  */
     public function edit($id = null) {
@@ -159,7 +159,7 @@ class UsuariosController extends AppController {
  * delete
  * Método padrão para excluir o usuário.
  *
- * @param id Id do usuário.
+ * @param int id Id do usuário.
  * @return void
  */
     public function delete($id = null) {
