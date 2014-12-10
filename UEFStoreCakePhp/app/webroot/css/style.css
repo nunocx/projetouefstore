@@ -37,8 +37,8 @@ img.top{
 	padding-top: 45px;
 }
 .logotop{
-	position:fixed;
-	top:5px;
+	position:absolute;
+	top:15px;
 }
 .btn-newobject{
 	background-color: #669C4B;
