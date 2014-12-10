@@ -1,3 +1,6 @@
+<div class="mensagems index">
+	<h3><?php echo __('Minhas Mensagens - Caixa de Entrada'); ?></h3>
+
 <?php
 
 
@@ -28,9 +31,9 @@ $inboxMessages = $result['numbers'];
 </head>
 
 <body>
-<table width="800" border="0">
+<table width="675" border="0">
 	<tr>
-		<td><?php require_once "index.ctp"; ?></td>
+		<td align="center"><?php require_once "index.ctp"; ?></td>
 	</tr>
 </table>
 <br />
@@ -41,9 +44,9 @@ $result = mysql_query($sql);
 $count = mysql_num_rows($result);
 
 ?>
-<table width="800" border="0">
+<table width="800" height="100" border="0">
 	<form name="form1" method="post" action="pm_inbox">
-		<tr>
+		<tr height="25">
 			<td width="41" align="center">#</td>
 			<td width="490">Título:</td>
 			<td width ="255">De:</td>
@@ -65,8 +68,9 @@ $count = mysql_num_rows($result);
 		</tr>
 		<?php } ?>
 		<?php } ?>
+		<tr height="25"></tr>
 		<tr>
-			<td colspan="3" align="center"><?php if($inboxMessages > 0){ ?><input type="submit" name="delete" id="delete" value="Deletar Mensagem Selecionada" /><?php } else { print "Não há mensagens na sua caixa de entrada"; } ?></td>
+			<td colspan="3" align="center"><?php if($inboxMessages > 0){ ?><input type="submit" name="delete" id="delete" value="Deletar Mensagem(s) Selecionada(s)" /><?php } else { print "Não há mensagens na sua caixa de entrada"; } ?></td>
 		</tr>
 		<?php
 		if(isset($_POST['delete'])){
@@ -97,3 +101,5 @@ $count = mysql_num_rows($result);
 
 </body>
 </html>
+
+</div>

@@ -84,10 +84,11 @@ public function beforeFilter()
 * @param id1 Id do destinatário
 * @throws NotFoundException Caso o destinatário não seja encontrado, ou se o produto ou serviço ao qual a mensagem (pode) se referir não exista.
 */
-		public function pm_send_to($id = NULL,$id1 = NULL) {
+			public function pm_send_to($id = NULL,$id1 = NULL,$id2 = NULL) {
 				
 				$i = $id;
 				$ip = $id1;
+				$ip2 = $id2;
 
 				if($ip>0){
 
@@ -118,9 +119,38 @@ public function beforeFilter()
 			}
 			//debug($usuario['usuarios']['name']) or die ();
 			$this->set('idProduct', $produtos['produtos']['id']);
+			$this->set('idServico', "");
 
+			}else if($ip2 > 0){
+			$sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE `usuarios`.`id` = $i"; 
+			$usuario = $this->Mensagem->query($sql);
+
+			if($usuario ==null)
+			{
+				throw new NotFoundException("Usuário não encontrado!");
 			}
 
+			foreach ($usuario as $usuarios) {
+				$usuario = $usuarios;
+			}
+			//debug($usuario['usuarios']['name']) or die ();
+			$this->set('idUser', $usuario['usuarios']['id']);
+			
+			$sql = "SELECT * FROM `u961758316_uefs`.`servicos` WHERE `servicos`.`id` = $ip2"; 
+			$servico = $this->Mensagem->query($sql);
+
+			if($servico ==null)
+			{
+				throw new NotFoundException("Produto não encontrado!");
+			}
+
+			foreach ($servico as $servicos) {
+				$servico = $servicos;
+			}
+			$this->set('idServico', $servicos['servicos']['id']);
+			$this->set('idProduct', "");
+
+			}
 			else{
 
 						$sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE `usuarios`.`id` = $i"; 
@@ -138,6 +168,7 @@ public function beforeFilter()
 			$this->set('idUser', $usuario['usuarios']['id']);
 
 			$this->set('idProduct', "");
+			$this->set('idServico', "");
 
 			}
 

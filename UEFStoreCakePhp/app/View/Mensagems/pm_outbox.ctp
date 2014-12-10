@@ -1,3 +1,6 @@
+<div class="mensagems index">
+	<h3><?php echo __('Minhas Mensagens - Caixa de Saida'); ?></h3>
+
 <?php
 
 require_once "includes/connect_i.php";
@@ -27,9 +30,9 @@ $outboxMessages = $result['numbers'];
 </head>
 
 <body>
-<table width="800" border="0">
+<table width="675" border="0">
 	<tr>
-		<td><?php require_once "index.ctp"; ?></td>
+		<td align="center"><?php require_once "index.ctp"; ?></td>
 	</tr>
 </table>
 <br />
@@ -40,9 +43,9 @@ $result = mysql_query($sql);
 $count = mysql_num_rows($result);
 
 ?>
-<table width="800" border="0">
+<table width="800" height="100" border="0">
 	<form name="form1" method="post" action="pm_outbox">
-		<tr>
+		<tr height="25">
 			<td width="41" align="center">#</td>
 			<td width="490">Título:</td>
 			<td width ="255">Para:</td>
@@ -56,6 +59,7 @@ $count = mysql_num_rows($result);
 			<td width ="255"><?php echo $this->Html->link(__($rows['to_email']), array('controller' => 'usuarios', 'action' => 'view', $rows['to_usuarios_id'] )); ?></td>
 		</tr>
 		<?php } ?>
+		<tr height="25"></tr>
 		<tr>
 			<td colspan="3" align="center"><?php if($outboxMessages > 0){ ?><input type="submit" name="delete" id="delete" value="Deletar Mensagem Selecionada" /><?php } else { print "Não há mensagens na sua caixa de saída"; } ?></td>
 			</tr>
@@ -88,3 +92,5 @@ $count = mysql_num_rows($result);
 
 </body>
 </html>
+
+</div>
