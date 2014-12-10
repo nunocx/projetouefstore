@@ -29,7 +29,7 @@ class Produto extends AppModel {
 			),
 
 			'minLength' => array(
-                            'rule' => array('minLength', 10),
+                            'rule' => array('minLength', 3),
                             'required' => true,
                             'message' => 'Nome muito curto'
             ),

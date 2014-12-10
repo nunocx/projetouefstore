@@ -27,17 +27,36 @@ class UsuariosController extends AppController {
     public $name = 'Usuarios';
     
     public $uses = array('Usuario');
+
+    /**
+     * beforeFilter
+     * Método herdado do AppController para filtrar a autorização do usuário aos métodos da classe.
+     * @return void
+     * @see AppController
+     */
     public function beforeFilter()
     {
         parent::beforeFilter();
          $this->Auth->allowedActions = array('add');                        
     }
 
+/**
+ * index
+ * Método index, retorna uma mensagem para o usuario autenticado atualmente.
+ * @return void
+ */
+
     public function index()
     {
         $this->set('ola',$this->Auth->user('name'));
     }
 
+/**
+* login
+* Método de login, utiliza os parâmetros herdados do AppController para autenticar um usuário e redirecioná-lo.
+* Caso a autenticação falhe, é exibida uma mensagem de erro.
+* @see AppController
+*/
 
     public function login()
     {
@@ -52,11 +71,25 @@ class UsuariosController extends AppController {
         }
     }
 
+/**
+* logout
+* Método de logout, utiliza os parâmetros herdados do AppController para desautenticar um usuário e redirecioná-lo.
+* @see AppController
+*/
+
     public function logout()
     {
         $this->Session->setFlash(__('Deslogado com sucesso.'));
         $this->redirect($this->Auth->logout());
     }
+
+/**
+* view
+* Método view padrão para visualizar um usuário.
+* @param int $id Id do usuário.
+* @throws NotFoundException Caso o usuário não seja encontrado.
+*/
+
     public function view($id = null) {
         if (!$this->Usuario->exists($id)) {
             throw new NotFoundException(__('Invalid usuario'));
@@ -65,17 +98,25 @@ class UsuariosController extends AppController {
         $this->set('usuario', $this->Usuario->find('first', $options));
     }
 
+    /**
+    * negocios
+    * Método que retorna as negociações do usuário.
+    * @param int $id Id do usuário.
+    */
+
     public function negocios($id = null) {
       
         $options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
         $this->set('usuarios', $this->Usuario->find('first', $options));
 
     }
-    /**
- * add method
- *
+
+/**
+ * add
+ * Método padrão para adicionar um novo usuário.
  * @return void
  */
+
     public function add() {
         if ($this->request->is('post')) {
             $this->Usuario->create();
@@ -91,10 +132,11 @@ class UsuariosController extends AppController {
     }
 
 /**
- * edit method
+ * edit
+ * Método para edição padrão das informações do usuário.
  *
- * @throws NotFoundException
- * @param string $id
+ * @throws NotFoundException Caso o usuário não seja encontrado.
+ * @param int $id Id do usuário.
  * @return void
  */
     public function edit($id = null) {
@@ -114,10 +156,10 @@ class UsuariosController extends AppController {
         }
     }
 /**
- * delete method
+ * delete
+ * Método padrão para excluir o usuário.
  *
- * @throws NotFoundException
- * @param string $id
+ * @param int $id Id do usuário.
  * @return void
  */
     public function delete($id = null) {

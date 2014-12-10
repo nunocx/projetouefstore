@@ -1,3 +1,6 @@
+<div class="mensagems index">
+	<h3><?php echo __('Mensagem'); ?></h3>
+
 <?php
 
 require_once "includes/connect_i.php";
@@ -42,43 +45,33 @@ mysqli_free_result($query);
 </head>
 
 <body>
-<table width="800" border="0">
+<table width="675" border="0">
 	<tr>
-		<td><?php require_once "index.ctp"; ?></td>
+		<td align="center"><?php require_once "index.ctp"; ?></td>
 	</tr>
 </table><br />
 
-<table width="800" border="0">
+<table width="700" border="0">
+<tr height="30">
 	<td width="185">Título:</td>
 	<td width="605"><input type="text" name="from_username" id="from_username" size="40" value="<?php print $Htitle; ?>"  readonly="readonly" style="border:hidden"></td>
 </tr>
-<tr>
-			<td width="185"></td>
-			<td width="605"><input type="text" name="espaco" id="espcao" size="40" style="border:hidden" readonly></td>
-			</tr>
 
-<tr>
+<tr height="30">
 	<td>Para:</td>
 	<td><input type="text" name="from_username" id="from_username" size="40" value="<?php print $Hfrom_username; ?>" style="border:hidden" readonly></td>
-	</tr>
-<tr>
-	<tr>
-			<td width="185"></td>
-			<td width="605"><input type="text" name="espaco" id="espcao" size="40" style="border:hidden" readonly></td>
-			</tr>
-	
+</tr>
+<tr height="40">
 	<td>Data Enviada:</td>
 	<td><?php print $Hrecievedate; ?></td>
-	</tr>
-	<tr>
-			<td width="185"></td>
-			<td width="605"><input type="text" name="espaco" id="espcao" size="40" style="border:hidden" readonly></td>
-			</tr>
-	
-	<tr>
-	<td valign="top">Corpo da Mensagem:</td>
+</tr>
+<tr>
+	<td valign="top">Mensagem:</td>
+ </tr>
+<tr>
+	<td></td>
 	<td width="605">
-		<form><textarea name="content"  id="content"  cols="42" rows="10"
+		<form><textarea name="content"  id="content"  cols="60" rows="10"
 				readonly>
 <?php print $Hcontent; ?>
 </textarea>
@@ -88,3 +81,5 @@ mysqli_free_result($query);
 </table>
 </body>
 </html>
+
+</div>

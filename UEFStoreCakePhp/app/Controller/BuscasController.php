@@ -28,11 +28,13 @@ App::uses('AppController', 'Controller');
  * @access public
  * @property Usuario $Usuario
  * @property PaginatorComponent $Paginator
+ * Esta classe é responsável por métodos de busca de produtos e serviços.
  */
 class BuscasController extends Controller {
 
 	/**
-	 * método search_All - busca por todos produtos e servicos
+	 * search_All
+	 * Esse método busca por todos produtos e servicos.
 	 *
 	 * @return void
 	 */

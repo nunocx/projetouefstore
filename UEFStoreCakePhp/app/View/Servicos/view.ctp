@@ -14,6 +14,8 @@
 						</div>
 					</div>
 				</div>
+
+				<?php $abc = -1;?>
 				<div class="desc span_3_of_2">									
 					<div class="price">
 						<p>Publicado em: <?php echo ($servico['Servico']['Data_Publicacao']); ?></p>
@@ -21,8 +23,9 @@
 						<p>Categoria: <?php echo $this->Html->link($servico['Category']['name'], array('controller' => 'categories', 'action' => 'view', $servico['Category']['id'])); ?></p>
 						<p>Vendedor: <?php echo $this->Html->link($servico['Usuario']['name'], array('controller' => 'usuarios', 'action' => 'view', $servico['Usuario']['id'])); ?></p>
 
-						<div class="button"><a href="#">Negociar</a></div>
-						<p></div><div class="button"><?php echo $this->Html->link(__('Mandar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$servico['Usuario']['id'], $servico['Servico']['id'])); ?></div>
+						<div class="button"><?php $idLogin  = 0 ; echo $this->Html->link(__('Negociar'), array('controller' => 'negociacaos', 'action' => 'adds', $idLogin ,$servico['Usuario']['id'],$servico['Servico']['id'],'null')); ?></div>
+
+						<p></div><div class="button"><?php echo $this->Html->link(__('Enviar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$servico['Usuario']['id'] , $abc ,$servico['Servico']['id'])); ?></div>
 					</div>
 					
 				<div class="share-desc">

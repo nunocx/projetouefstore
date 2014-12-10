@@ -32,7 +32,7 @@ class CategoriesController extends Controller {
 	
 /**
  * Components
- * @var array
+ * @var array Paginação de categorias.
  */
 	public $components = array('Paginator');
 	
@@ -41,8 +41,8 @@ class CategoriesController extends Controller {
 
     /**
      * Método indexView
-     * Laço condicional if: se for requisição de outra view/element retorna categories, senão envia para outra view.
-     * @return array
+     * Esse método separa as categorias num array de paginação, se for requisitado por outra view, retorna esse array, caso contrário, seta a propriedade categories para esse array.
+     * @return array Categorias paginadas
      */
 public function indexView() {
         $categories = $this->paginate();
@@ -54,10 +54,10 @@ public function indexView() {
     }
 
 /**
- * método view - para a visualização das categorias
- *
- * @throws NotFoundException   Se for inválida
- * @param string $id
+ * view
+ * Método de visualização geral de categoria, faz uma consulta sql e retorna a primeira categoria com a id selecionada.
+ * @throws NotFoundException Se a categoria não existir.
+ * @param string $id Id da categoria
  * @return void
  */
 	public function view($id = null) {

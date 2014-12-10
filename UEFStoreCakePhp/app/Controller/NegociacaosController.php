@@ -38,8 +38,8 @@ class NegociacaosController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
+ * index
+ * Método index para retornar todas as negociações paginadas.
  * @return void
  */
 	public function index() {
@@ -57,10 +57,10 @@ class NegociacaosController extends AppController {
     }
 
 /**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
+ * view
+ * Método view padrão para visualizar a negociação.
+ * @throws NotFoundException Caso a negociação não seja encontrada.
+ * @param int $id Id da negociação.
  * @return void
  */
 	public function view($id = null) {
@@ -72,10 +72,11 @@ class NegociacaosController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
+* add
+* @deprecated
+* Método de adição padrão de negociação, só pode ser efetuado caso o usuário seja autorizado através do componente Auth.
+* A data limite é setada para 14 dias após o início da negociação, usando o timestamp para incrementar a data a partir da data inicial.
+*/
 	public function add() {
 
 		if ($this->request->is('post')) {
@@ -97,6 +98,15 @@ class NegociacaosController extends AppController {
 		$servicos = $this->Negociacao->Servico->find('list');
 		$this->set(compact('usuarios', 'produtos', 'servicos'));
 	}
+
+	/**
+	* adds
+	* Método para adicionar negociação.
+	* Esse método recebe as informações de usuario interessado, dono do anúncio e serviço ou produto da negociação.
+	* As informações são ligadas aos usuários e anúncios indicados.
+	* A data limite é setada para 14 dias após o início da negociação, usando o timestamp para incrementar a data a partir da data inicial.
+	*/
+
 	public function adds($userInteressado =null, $usario_id = null, $servico=null,$produto=null) {
 		
 
@@ -124,12 +134,12 @@ class NegociacaosController extends AppController {
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
 			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
 
-			
+				$this->Negociacao->create();
 			if ($this->Negociacao->save($this->request->data)) {
-				$this->Session->setFlash(__('negociação feita'));
+				$this->Session->setFlash(__('Negociação Feita'));
 				return $this->redirect('/');
 			} else {
-					$this->Session->setFlash(__('negociação não feita'));
+					$this->Session->setFlash(__('Negociação não feita'));
 			}
 		}
 		
@@ -140,10 +150,10 @@ class NegociacaosController extends AppController {
 	}
 
 /**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
+ * edit
+ * Método padrão de atualização de informação da negociação.
+ * @throws NotFoundException Caso a negociação não exista.
+ * @param int $id Id da negociação a ser editada.
  * @return void
  */
 	public function edit($id = null) {
@@ -168,10 +178,10 @@ class NegociacaosController extends AppController {
 	}
 
 /**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
+ * delete
+ * Método padrão para excluir a negociação.
+ * @throws NotFoundException Caso a negociação não exista.
+ * @param int $id Id da negociação a ser excluída.
  * @return void
  */
 	public function delete($id = null) {

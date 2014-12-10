@@ -38,9 +38,9 @@ class ComentariosController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * método index
- *
- * @return void
+ * index
+ * Método index padrão para listar os comentários paginados.
+ * @return array Comentarios listados.
  */
 	public function index() {
 		
@@ -53,10 +53,10 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * view method
- *
+ * view
+ * 
  * @throws NotFoundException
- * @param string $id
+ * @param int $id
  * @return void
  */
 	public function view($id = null) {
@@ -64,8 +64,9 @@ class ComentariosController extends AppController {
 	}
 
 /**
- * método add - para adicionar comentários
- *
+ * add
+ * Esse método adiciona um novo comentário no banco.
+ * Caso um problema ocorra ao salvar o comentário, um erro é exibido na tela.
  * @return void
  */
 	public function add() {
@@ -85,7 +86,14 @@ class ComentariosController extends AppController {
 	}
 
 	/**
-	*método adds
+	* adds
+	* Esse método adiciona um comentário e liga ao usuário e o produto ou serviço ao qual o comentário se refere.
+	* Antes de salvar o comentário, o Auth é usado para a autorizar o usuário.
+	* Caso o id de produto ou serviço não exista, um erro é exibido. Caso algum erro ocorra ao salvar o comentário, um erro é exibido.
+	* Caso o comentário seja devidamente adicionado, o usuário é redirecionado e uma mensagem de sucesso é exibida.
+	* @param int $id_user Id do usuário
+	* @param int $id_prod Id do produto
+	* @param int $id_serv Id do serviço
 	*/
 	public function adds($id_user = null, $id_prod = null,$id_serv = null) {
 
@@ -126,7 +134,7 @@ class ComentariosController extends AppController {
  * método edit - para editar um comentário
  *
  * @throws NotFoundException
- * @param string $id
+ * @param int $id
  * @return void
  */
 	public function edit($id = null) {
@@ -137,7 +145,7 @@ class ComentariosController extends AppController {
  * método delete - para deletar um comentário
  *
  * @throws NotFoundException
- * @param string $id
+ * @param int $id
  * @return void
  */
 	public function delete($id = null) {

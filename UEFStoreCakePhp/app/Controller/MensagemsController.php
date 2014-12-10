@@ -38,9 +38,10 @@ class MensagemsController extends AppController {
 	public $components = array('Paginator');
 
 /**
- * index method
- *
+ * beforeFilter
+ * Método herdado do AppController para filtrar a autorização do usuário aos métodos da classe.
  * @return void
+ * @see AppController
  */
 public function beforeFilter()
     {
@@ -49,8 +50,8 @@ public function beforeFilter()
     }
 	
 /**
- * index method
- *
+ * index
+ * Método index, mostra todas as mensagens paginadas.
  * @return void
  */
 		public function index(){
@@ -73,10 +74,21 @@ public function beforeFilter()
 			
 			
 		}
-		public function pm_send_to($id = NULL,$id1 = NULL) {
+
+/**
+* pm_send_to
+* Esse método envia uma mensagem de um usuário para outro.
+* O método busca o usuário destinatário no banco de dados através de um sql simples.
+* Após o destinatário ser encontrado, a mensagem é ligada aos usuários emissor e destinatário, e caso seja referente a um produto, é ligada a este.
+* @param int $id Id do emissor
+* @param int $id1 Id do destinatário
+* @throws NotFoundException Caso o destinatário não seja encontrado, ou se o produto ou serviço ao qual a mensagem (pode) se referir não exista.
+*/
+			public function pm_send_to($id = NULL,$id1 = NULL,$id2 = NULL) {
 				
 				$i = $id;
 				$ip = $id1;
+				$ip2 = $id2;
 
 				if($ip>0){
 
@@ -107,9 +119,38 @@ public function beforeFilter()
 			}
 			//debug($usuario['usuarios']['name']) or die ();
 			$this->set('idProduct', $produtos['produtos']['id']);
+			$this->set('idServico', "");
 
+			}else if($ip2 > 0){
+			$sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE `usuarios`.`id` = $i"; 
+			$usuario = $this->Mensagem->query($sql);
+
+			if($usuario ==null)
+			{
+				throw new NotFoundException("Usuário não encontrado!");
 			}
 
+			foreach ($usuario as $usuarios) {
+				$usuario = $usuarios;
+			}
+			//debug($usuario['usuarios']['name']) or die ();
+			$this->set('idUser', $usuario['usuarios']['id']);
+			
+			$sql = "SELECT * FROM `u961758316_uefs`.`servicos` WHERE `servicos`.`id` = $ip2"; 
+			$servico = $this->Mensagem->query($sql);
+
+			if($servico ==null)
+			{
+				throw new NotFoundException("Produto não encontrado!");
+			}
+
+			foreach ($servico as $servicos) {
+				$servico = $servicos;
+			}
+			$this->set('idServico', $servicos['servicos']['id']);
+			$this->set('idProduct', "");
+
+			}
 			else{
 
 						$sql = "SELECT * FROM `u961758316_uefs`.`usuarios` WHERE `usuarios`.`id` = $i"; 
@@ -127,6 +168,7 @@ public function beforeFilter()
 			$this->set('idUser', $usuario['usuarios']['id']);
 
 			$this->set('idProduct', "");
+			$this->set('idServico', "");
 
 			}
 
@@ -144,6 +186,12 @@ public function beforeFilter()
 			
 			
 		}
+
+		/**
+		* add
+		* @deprecated
+		* Método de adição padrão de mensagem.
+		*/
 		public function add() {
 		if ($this->request->is('post')) {
 			$this->Mensagem->create();
