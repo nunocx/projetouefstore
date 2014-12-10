@@ -1,16 +1,16 @@
 <?php
 /**
  * @author Adriano Cavalcante <nuno.cavalcante@gmail.com>
- * @author Arthur Hagnês <arthurecomp@gmail.com>
+ * @author Arthur HagnÃªs <arthurecomp@gmail.com>
  * @author Dermeval Neves <dermevalneves@gmail.com>
  * @author Fabio Santos <fabiosantos1388@gmail.com>
  * @author Higor Vital <h.vitall96@gmail.com>
- * @author JÃ©ssica Santos <jessica22san@gmail.com>
+ * @author JÃƒÂ©ssica Santos <jessica22san@gmail.com>
  * @author Joacy Mesquita <joacymsilva@gmail.com>
  * @author Kaique Cabral <kaaiquecabral@gmail.com>
  * @author Leno Oliveira <lenoosouza@gmail.com>
- * @author Marcelo Bião <marcelobiao2@gmail.com>
- * @author Nielson Vágno <nielsonvagno@gmail.com>
+ * @author Marcelo BiÃ£o <marcelobiao2@gmail.com>
+ * @author Nielson VÃ¡gno <nielsonvagno@gmail.com>
  * @author Sillas Senna <ssennarm@gmail.com>
  * @version 1.0
  * @copyright 2014, SoftComp Empreendimentos, 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -26,7 +26,7 @@ App::uses('Controller', 'Controller');
 /**
  * @access public
  * Classe AppController
- * É a classe de onde herdam todos os Controllers, os métodos desta classe são públicos em todo o sistema.
+ * Ã‰ a classe de onde herdam todos os Controllers, os mÃ©todos desta classe sÃ£o pÃºblicos em todo o sistema.
  */
  
 class AppController extends Controller {
@@ -40,9 +40,9 @@ class AppController extends Controller {
       
 /**
  * beforeFilter
- * Esse método é responsável pelo filtro de autenticação que permite ou não um controller a efetuar qualquer método antes de executá-lo.
- * O componente Auth é o responsável por fazer essa verificação, autenticando um usuário para autorizar o método, ou não autorizando caso contrário.
- * Nesse método são definidos parâmetros para as ações e redirecionamento de login e logout.
+ * Esse mÃ©todo Ã© responsÃ¡vel pelo filtro de autenticaÃ§Ã£o que permite ou nÃ£o um controller a efetuar qualquer mÃ©todo antes de executÃ¡-lo.
+ * O componente Auth Ã© o responsÃ¡vel por fazer essa verificaÃ§Ã£o, autenticando um usuÃ¡rio para autorizar o mÃ©todo, ou nÃ£o autorizando caso contrÃ¡rio.
+ * Nesse mÃ©todo sÃ£o definidos parÃ¢metros para as aÃ§Ãµes e redirecionamento de login e logout.
  */
    public function beforeFilter()
    {
@@ -78,7 +78,7 @@ class AppController extends Controller {
             'action' => 'home',
         );
 
-        $this->Auth->authError = __('Você não possui autorização para executar esta ação.');
+        $this->Auth->authError = __('VocÃª nÃ£o possui autorizaÃ§Ã£o para executar esta aÃ§Ã£o.');
         
         $this->Auth->allowedActions = array('display');        
    }
@@ -87,8 +87,8 @@ class AppController extends Controller {
 /**
 * @deprecated
 * isAuthorized
-* Este método verifica se um usuário tem autorização para algum método.
-* @param user Usuário a checar autorização.
+* Este mÃ©todo verifica se um usuÃ¡rio tem autorizaÃ§Ã£o para algum mÃ©todo.
+* @param Usuario $user UsuÃ¡rio a checar autorizaÃ§Ã£o.
 */
    public function isAuthorized($user)
    {
