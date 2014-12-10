@@ -225,6 +225,16 @@ public function move_arquivos($imagem, $dir)
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'Status' => array(
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Campo Obrigatório.',
+				//'allowEmpty' => true,
+				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		
 	);
 
