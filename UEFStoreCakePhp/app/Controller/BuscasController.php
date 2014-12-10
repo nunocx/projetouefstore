@@ -33,7 +33,8 @@ App::uses('AppController', 'Controller');
 class BuscasController extends Controller {
 
 	/**
-	 * método search_All - busca por todos produtos e servicos
+	 * search_All
+	 * Esse método busca por todos produtos e servicos.
 	 *
 	 * @return void
 	 */
