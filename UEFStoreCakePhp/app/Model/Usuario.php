@@ -54,8 +54,8 @@ class Usuario extends AppModel {
 /**
 * upload
 * Método para fazer upload de uma imagem no banco de dados.
-* @param imagem Array com informações da imagem
-* @param dir Diretório da imagem.
+* @param array $imagem Array com informações da imagem
+* @param string $dir Diretório da imagem.
 */
     
 public function upload($imagem = array(), $dir = 'img')  
@@ -79,8 +79,7 @@ public function upload($imagem = array(), $dir = 'img')
 /** 
  * Verifica se o diretório existe, se não ele cria. 
  * @access public 
- * @param Array $imagem 
- * @param String $data 
+ * @param string $dir 
 */   
 public function checa_dir($dir)  
 {  
@@ -94,9 +93,9 @@ public function checa_dir($dir)
 /** 
  * Verifica se o nome do arquivo já existe, se existir adiciona um numero ao nome e verifica novamente 
  * @access public 
- * @param Array $imagem 
- * @param String $data 
- * @return nome da imagem 
+ * @param Array $imagem
+ * @param String $data
+ * @return string Nome da imagem 
 */   
 public function checa_nome($imagem, $dir)  
 {  
@@ -117,8 +116,7 @@ public function checa_nome($imagem, $dir)
 /** 
  * Trata o nome removendo espaços, acentos e caracteres em maiúsculo. 
  * @access public 
- * @param Array $imagem 
- * @param String $data 
+ * @param String $imagem_nome
 */   
 public function trata_nome($imagem_nome)  
 {  
