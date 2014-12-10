@@ -98,7 +98,7 @@ class ServicosController extends AppController {
 /**
 * view
 * Método view padrão para visualizar um serviço.
-* @param int id Id do serviço.
+* @param int $id Id do serviço.
 * @throws NotFoundException Caso o serviço não seja encontrado.
 */
 
@@ -161,7 +161,7 @@ class ServicosController extends AppController {
  * Método para edição padrão das informações do serviço.
  *
  * @throws NotFoundException Caso o serviço não seja encontrado.
- * @param int id Id do serviço.
+ * @param int $id Id do serviço.
  * @return void
  */
 
@@ -189,7 +189,7 @@ class ServicosController extends AppController {
      * etapa2
      * Segunda etapa para adição de serviço.
      * Esse método finaliza a adição do serviço.
-     * @param int id Id do serviço.
+     * @param int $id Id do serviço.
      * @throws NotFoundException Caso o serviço não seja encontrado.
      */
 
@@ -215,7 +215,7 @@ class ServicosController extends AppController {
  * Método padrão para deletar um serviço cadastrado.
  *
  * @throws NotFoundException Caso o serviço não seja encontrado.
- * @param int id Id do serviço.
+ * @param int $id Id do serviço.
  * @return void
  */
 	public function delete($id = null) {
@@ -236,7 +236,7 @@ class ServicosController extends AppController {
     /**
      * search
      * Método de busca um serviço cadastrado, através de um termo que esteja contido no nome do serviço desejado.
-     * @param string termo O termo que deve estar contido no título do serviço.
+     * @param string $termo O termo que deve estar contido no título do serviço.
      * @return array Serviços que correpondem à busca.
      * @throws NotFoundException Caso não seja encontrado nenhum serviço com o termo.
      */
