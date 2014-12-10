@@ -1,5 +1,5 @@
 <div class="usuarios view">
-<h3><?php echo __('Minhas Negociações');
+<h3><?php echo __('Minhas Vendas');
 
 $negociacao = $this->requestAction('negociacaos/negocios');
 $produtos = $this->requestAction('produtos/indexView');
@@ -12,14 +12,14 @@ $servicos = $this->requestAction('servicos/index');
  	<table class="table table-bordered table-hover table-striped">
  			<tr>
  				<th><?php echo __('Negociações'); ?></th>
- 				<th><?php echo __('Comentar'); ?></th>
+ 				<th><?php echo __('Permita o comentário.'); ?></th>
  			</tr>
  			
  			<!-- Achando as negociações que o usuario escolhido possue -->
  			<?php 
  			 			foreach ($negociacao as $negocio):  ?>
 	 		<tr>
-	 			<?php 	if ($negocio['Negociacao']['interessado'] == $usuarios['Usuario']['id'] ):  ?>	
+	 			<?php 	if ($negocio['Negociacao']['usuario_id'] == $usuarios['Usuario']['id'] ):  ?>	
 	 					<td> 
 	 						<?php 
 	 						foreach ($produtos as $produto) {
@@ -42,12 +42,11 @@ $servicos = $this->requestAction('servicos/index');
 
 	 					</td>
 	 					<td>
-	 					<?php if(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['produto_id'] != null ): ?> 
-	 					<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['produto_id'].'/'.null); ?>"> Comente este produto ! </a> </li>					
-	 					<?php elseif(($negocio['Negociacao']['status']==1 ) && $negocio['Negociacao']['servico_id'] != null ): ?>
-	 						<li><a href="<?php echo $this->Html->url('/comentarios/adds/'.$usuarios['Usuario']['id'].'/'.$negocio['Negociacao']['servico_id'].'/'.null); ?>"> Comente este serviço ! </a> </li>	
+	 					<?php if($negocio['Negociacao']['produto_id'] != null ): ?> 
+	 					<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.$negocio['Negociacao']['produto_id'].'/'.'null'); ?>"> Permita comentar este produto ! </a> </li>					
+	 					<?php elseif($negocio['Negociacao']['servico_id'] != null ): ?>
+	 						<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.'null'.'/'.$negocio['Negociacao']['servico_id']); ?>"> Permita comentar este serviço ! </a> </li>	
 	 					<?php else:?>
-	 						<h1> Você não tem permissão para comentar este produto. </h1>
 	 					<?php endif; ?>
 	 					</td>
 	 			<?php endif;?>

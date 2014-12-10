@@ -36,4 +36,9 @@ class  TermosDeUsosController extends AppController {
     public function index(){
 		$this->set('termosDeUsos');
 	}
+	public function beforeFilter()
+    {
+        parent::beforeFilter();
+         $this->Auth->allowedActions = array('index');                        
+    }
 }

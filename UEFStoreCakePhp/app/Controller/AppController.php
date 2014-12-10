@@ -79,8 +79,7 @@ class AppController extends Controller {
         );
 
         $this->Auth->authError = __('Você não possui autorização para executar esta ação.');
-        
-        $this->Auth->allowedActions = array('display');        
+        $this->Auth->allowedActions = array('display','pages');
    }
    
 

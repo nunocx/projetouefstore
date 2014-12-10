@@ -44,6 +44,7 @@ class PagesController extends AppController {
  * @throws NotFoundException Quando a view não pode ser encontrada
  * @throws MissingViewException Para fim de debug.
  */
+
 	public function display() {
 		$path = func_get_args();
 

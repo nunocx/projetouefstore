@@ -40,7 +40,7 @@
 						</li>
 						
 						<li>
-							<a href="#">FAQ </a>
+						<!--	<a href="#">FAQ </a> -->
 						</li>
 						<li>
 							<a href="<?php echo $this->Html->url('/mensagems/add',true);?>">Fale Conosco </a>

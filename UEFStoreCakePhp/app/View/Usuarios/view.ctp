@@ -14,10 +14,11 @@
                     <?php  endif; ?>
                      <li class = "glyphicon glyphicon-envelope">&nbsp;<?php echo $this->Html->link('Enviar Mensagem', array('controller' => 'mensagems', 'action' => 'pm_send_to/'.$usuario['Usuario']['id'])); ?> </li><br />
                      <?php if($this->Session->read('Auth.User.id')==$usuario['Usuario']['id']) { ?>
+                       <li class = "glyphicon glyphicon-usd ">&nbsp;<?php echo $this->Html->link('Minhas Vendas', array('controller' => 'usuarios', 'action' => 'vendas/'.$usuario['Usuario']['id'])); ?> </li><br />
                        <li class = "glyphicon glyphicon-shopping-cart">&nbsp;<?php echo $this->Html->link('Meus Produtos', array('controller' => 'produtos', 'action' => 'my/'.$usuario['Usuario']['id'])); ?> </li><br />
                      <li class = "glyphicon glyphicon-bullhorn">&nbsp;<?php echo $this->Html->link('Meus Serviços', array('controller' => 'servicos', 'action' => 'my/'.$usuario['Usuario']['id'])); ?> </li><br />
                      <li class = "glyphicon glyphicon-envelope">&nbsp;<?php echo $this->Html->link('Minhas Mensagens', array('controller' => 'mensagems', 'action' => 'pm_inbox/'.$usuario['Usuario']['id'])); ?> </li><br />
-                     <li class = "glyphicon glyphicon-usd">&nbsp;<?php echo $this->Html->link('Minhas Negociações', array('controller' => 'usuarios', 'action' => 'negocios/'.$usuario['Usuario']['id'])); ?> </li><br />
+                     <li class = "glyphicon glyphicon-transfer">&nbsp;<?php echo $this->Html->link('Minhas Negociações', array('controller' => 'usuarios', 'action' => 'negocios/'.$usuario['Usuario']['id'])); ?> </li><br />
                       <li class = "glyphicon glyphicon-wrench">&nbsp;<?php echo $this->Html->link('Editar Dados', array('controller' => 'usuarios', 'action' => 'edit/'.$usuario['Usuario']['id'])); ?> </li><br />
                       <?php  } ?>
                 </ul>

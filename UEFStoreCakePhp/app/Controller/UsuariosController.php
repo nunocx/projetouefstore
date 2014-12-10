@@ -110,6 +110,18 @@ class UsuariosController extends AppController {
         $this->set('usuarios', $this->Usuario->find('first', $options));
 
     }
+    public function vendas($id = null) {
+      
+        $options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+        $this->set('usuarios', $this->Usuario->find('first', $options));
+
+    }
+     public function puxarUser($id = null) {
+      
+        $options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
+      return $this->Usuario->find('first', $options);
+    }
+
 
 /**
  * add

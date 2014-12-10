@@ -129,6 +129,28 @@ class ComentariosController extends AppController {
 		$this->set(compact('usuarios', 'servicos', 'produtos'));	
 	}
 
+	public function permissao($id_user = null, $id_prod = null,$id_serv = null) {
+
+		$x = $this->Auth->user('id');
+
+		if($id_prod != 'null')
+		{ 
+
+			$this->Comentario->query("UPDATE `u961758316_uefs`.`negociacaos`  SET `status` = '1' 
+					WHERE `negociacaos`.`usuario_id` = $x AND `negociacaos`.`produto_id` = $id_prod AND `negociacaos`.`interessado` = $id_user;
+					");
+		}
+		else
+			{$this->Comentario->query(
+
+				"UPDATE `u961758316_uefs`.`negociacaos`  SET `status` = '1' 
+					WHERE `negociacaos`.`usuario_id` = $x AND `negociacaos`.`servico_id` = $id_serv AND `negociacaos`.`interessado` = $id_user;
+					");	}		
+       	$usuario10=  $this->requestAction('usuarios/puxarUser/'.$id_user);
+		$this->Session->setFlash(__('Permissão de comentario concedida para '.$usuario10['Usuario']['name']));
+		return $this->redirect('/');
+	}
+
 
 /**
  * método edit - para editar um comentário

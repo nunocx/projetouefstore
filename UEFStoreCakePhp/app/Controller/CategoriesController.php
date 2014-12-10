@@ -37,7 +37,12 @@ class CategoriesController extends Controller {
 	public $components = array('Paginator');
 	
 
-	//public function index(){}
+	 public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allowedActions = array('view');                        
+    	//$this->Auth->allow('view')); 
+    }
 
     /**
      * Método indexView
