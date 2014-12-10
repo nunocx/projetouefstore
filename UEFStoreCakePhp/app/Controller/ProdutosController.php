@@ -97,7 +97,7 @@ class ProdutosController extends AppController {
 /**
 * view
 * Método view padrão para visualizar um produto.
-* @param id Id do produto.
+* @param int $id Id do produto.
 * @throws NotFoundException Caso o produto não seja encontrado.
 */
 	}
@@ -112,7 +112,7 @@ class ProdutosController extends AppController {
 /**
 * prodCategoria
 * Esse método retorna todos os produtos de uma determinada categoria.
-* @param int id Id da categoria.
+* @param int $id Id da categoria.
 */
 
 	public function prodCategoria($id = null){
@@ -171,7 +171,7 @@ class ProdutosController extends AppController {
      * etapa2
      * Segunda etapa para adição de produto.
      * Esse método finaliza a adição do produto.
-     * @param int id Id do produto.
+     * @param int $id Id do produto.
      * @throws NotFoundException Caso o produto não seja encontrado.
      */
     public function etapa2($id = null) {
@@ -196,7 +196,7 @@ class ProdutosController extends AppController {
  * Método para edição padrão das informações do produto.
  *
  * @throws NotFoundException Caso o produto não seja encontrado.
- * @param int id Id do produto.
+ * @param int $id Id do produto.
  * @return void
  */
 	public function edit($id = null) {
@@ -225,7 +225,7 @@ class ProdutosController extends AppController {
  * Método padrão para deletar um produto cadastrado.
  *
  * @throws NotFoundException Caso o produto não seja encontrado.
- * @param int id Id do produto.
+ * @param int $id Id do produto.
  * @return void
  */
 	public function delete($id = null) {
@@ -245,7 +245,7 @@ class ProdutosController extends AppController {
     /**
      * search
      * Método de busca um produto cadastrado, através de um termo que esteja contido no nome do produto desejado.
-     * @param string termo O termo que deve estar contido no título do produto.
+     * @param string $termo O termo que deve estar contido no título do produto.
      * @return array Produtos que correpondem à busca.
      * @throws NotFoundException Caso não seja encontrado nenhum produto com o termo.
      */
