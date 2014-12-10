@@ -80,8 +80,8 @@ public function beforeFilter()
 * Esse método envia uma mensagem de um usuário para outro.
 * O método busca o usuário destinatário no banco de dados através de um sql simples.
 * Após o destinatário ser encontrado, a mensagem é ligada aos usuários emissor e destinatário, e caso seja referente a um produto, é ligada a este.
-* @param int id Id do emissor
-* @param int id1 Id do destinatário
+* @param int $id Id do emissor
+* @param int $id1 Id do destinatário
 * @throws NotFoundException Caso o destinatário não seja encontrado, ou se o produto ou serviço ao qual a mensagem (pode) se referir não exista.
 */
 			public function pm_send_to($id = NULL,$id1 = NULL,$id2 = NULL) {
