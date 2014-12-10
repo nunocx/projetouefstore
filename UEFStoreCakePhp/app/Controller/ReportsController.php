@@ -51,7 +51,7 @@ class ReportsController extends Controller {
  * view
  * Método view para visualizar uma denúncia.
  * @throws NotFoundException Caso a denúncia não seja encontrada.
- * @param id Id da denúncia.
+ * @param int id Id da denúncia.
  * @return void
  */
 	public function view($id = null) {
@@ -87,7 +87,7 @@ class ReportsController extends Controller {
  * edit
  * Método padrão para editar as informações de uma denúncia.
  * @throws NotFoundException Caso a denúncia não seja encontrada.
- * @param id Id da denúncia.
+ * @param int id Id da denúncia.
  * @return void
  */
 	public function edit($id = null) {
@@ -115,7 +115,7 @@ class ReportsController extends Controller {
  * delete method
  * Método padrão para excluir uma denúncia.
  * @throws NotFoundException Caso a denúncia não seja encontrada.
- * @param id Id da denúncia.
+ * @param int id Id da denúncia.
  * @return void
  */
 	public function delete($id = null) {
