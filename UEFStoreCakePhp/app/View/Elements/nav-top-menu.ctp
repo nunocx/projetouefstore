@@ -6,9 +6,9 @@
 		
 		
        
-<?php echo $this->Html->image('logo.png');?>
+<?php echo $this->Html->image('logo.png', array('class'=>'logotop'));?>
 <div class="clear"></div>
-	<div id="Caixa_Menu">
+	<div class="Caixa_Menu">
 				
 					<div style="float: right;">
 
@@ -64,7 +64,7 @@
 									
 								</li>
 								<div class="search_box" align="right">
-							  	<span>Buscar</span>
+							  	<!---Apaguei o nome "Buscar" pq já tinha dentro da caixa de busca-->
 					     		<form name="busca" method="get" action="<?php echo $this->Html->url('/buscas/search_all', true)?>">
 					     			<input type="text" name="termo" value="" placeholder="Buscar  anúncios">
 									<input type="submit" value="">

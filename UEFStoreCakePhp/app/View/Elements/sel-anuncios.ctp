@@ -23,7 +23,7 @@ for ($i=0; $i < 20; $i++) {
 }
 
 ?>
-<h3>Últimos os anúncios</h3>
+<h3>Últimos anúncios</h3>
 				
 	<?php 
 	foreach ($produtoss as $produtos):?>

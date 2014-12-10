@@ -33,6 +33,13 @@ img.top{
     margin-left: auto;
     margin-right: auto
 }
+.Caixa_Menu{
+	padding-top: 45px;
+}
+.logotop{
+	position:fixed;
+	top:5px;
+}
 .btn-newobject{
 	background-color: #669C4B;
 }
@@ -85,7 +92,7 @@ h4.header{
      filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#2aa893', EndColorStr='#2F4F4F');
 
 	/**background:#2aa893;/** #CCCCCC**/
-	padding:20px 0;
+	
 }
 .header_top {
 	padding-bottom: 0px;
@@ -98,13 +105,14 @@ h4.header{
 	padding-top:0px;
 }
 .search_box span{
-   color: #99e5e5;
+   color: white;
    margin-right:10px; /*tamanho da área de pesquisa */
 }
 .search_box form{
 	 background:#ffffff;
 	 position: relative;
 	 display:inline-block;
+	 padding-top:7px;
 <<<<<<< HEAD
 	 padding-left:0px;
 	 margin-top: 1px;
@@ -128,9 +136,9 @@ h4.header{
 	outline: none;
 	background: none;
 	font-size:0.99em;
-	color: #997923;
+	color: black;
 	font-family: 'Ubuntu Condensed', sans-serif;
-	width:75%;
+	width:80%;
 	padding:0px;
 	-webkit-apperance:none;
 	margin:0;
@@ -213,7 +221,7 @@ h4.header{
 }
 .nav a {
     padding:16px 33px;
-    color: #99e5e5;
+    color: white;
     border-top:1px solid 000;
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
