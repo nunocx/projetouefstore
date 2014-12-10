@@ -124,12 +124,12 @@ class NegociacaosController extends AppController {
 			$this->request->data['Negociacao']['data_final']['month'] = date('m', $timestamp);
 			$this->request->data['Negociacao']['data_final']['year'] = date('Y', $timestamp);	
 
-			
+				$this->Negociacao->create();
 			if ($this->Negociacao->save($this->request->data)) {
-				$this->Session->setFlash(__('negociação feita'));
+				$this->Session->setFlash(__('Negociação Feita'));
 				return $this->redirect('/');
 			} else {
-					$this->Session->setFlash(__('negociação não feita'));
+					$this->Session->setFlash(__('Negociação não feita'));
 			}
 		}
 		
