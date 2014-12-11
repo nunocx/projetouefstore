@@ -29,7 +29,7 @@
 						<div class="button"><?php echo $this->Html->link(__('Enviar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$produto['Usuario']['id'], $produto['Produto']['id'])); ?>
 						</div>
 						<?php else:?>
-						<div class="button"><?php echo $this->Html->link(__('Deletar Anúncio'), array('controller' => 'servicos', 'action' => 'delete/',$produto['Produto']['id'],$produto['Usuario']['id'])); ?></div>
+						<div class="button"><?php echo $this->Html->link(__('Deletar Anúncio'), array('controller' => 'produtos', 'action' => 'delete/',$produto['Produto']['id'],$produto['Usuario']['id'])); ?></div>
 						<?php endif; ?>
 
 						
