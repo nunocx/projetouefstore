@@ -43,9 +43,15 @@ $servicos = $this->requestAction('servicos/index');
 	 					</td>
 	 					<td>
 	 					<?php if($negocio['Negociacao']['produto_id'] != null ): ?> 
-	 					<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.$negocio['Negociacao']['produto_id'].'/'.'null'); ?>"> Permita comentar este produto ! </a> </li>					
+	 					<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.$negocio['Negociacao']['produto_id'].'/'.'null'); ?>"> Permita que <?php 
+	 							$usuario_s = $this->requestAction('/usuarios/puxarUser/'.$negocio['Negociacao']['interessado']);
+	 					echo $usuario_s['Usuario']['name']; ?> comente o produto ! </a> </li>					
 	 					<?php elseif($negocio['Negociacao']['servico_id'] != null ): ?>
-	 						<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.'null'.'/'.$negocio['Negociacao']['servico_id']); ?>"> Permita comentar este serviço ! </a> </li>	
+	 						<li><a href="<?php echo $this->Html->url('/comentarios/permissao/'.$negocio['Negociacao']['interessado'].'/'.'null'.'/'.$negocio['Negociacao']['servico_id']); ?>"> Permita que <?php 
+	 						$usuario_s = $this->requestAction('/usuarios/puxarUser/'.$negocio['Negociacao']['interessado']);
+	 						echo $usuario_s['Usuario']['name']; 
+
+	 						?> comente o serviço ! </a> </li>	
 	 					<?php else:?>
 	 					<?php endif; ?>
 	 					</td>
