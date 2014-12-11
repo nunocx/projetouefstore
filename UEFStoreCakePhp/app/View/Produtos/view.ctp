@@ -23,7 +23,16 @@
 
 						<div class="button"><?php $idLogin  = 0 ; echo $this->Html->link(__('Negociar'), array('controller' => 'negociacaos', 'action' => 'adds', $idLogin ,$produto['Usuario']['id'],'null',$produto['Produto']['id'])); ?></div>
 
-						<p></div><div class="button"><?php echo $this->Html->link(__('Enviar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$produto['Usuario']['id'], $produto['Produto']['id'])); ?></div>
+						<p></div>
+
+						<?php if($produto['Usuario']['id'] != $this->Session->read('Auth.User.id')):?>
+						<div class="button"><?php echo $this->Html->link(__('Enviar Mensagem'), array('controller' => 'mensagems', 'action' => 'pm_send_to/',$produto['Usuario']['id'], $produto['Produto']['id'])); ?>
+						</div>
+						<?php else:?>
+						<div class="button"><?php echo $this->Html->link(__('Deletar Anúncio'), array('controller' => 'servicos', 'action' => 'delete/',$produto['Produto']['id'],$produto['Usuario']['id'])); ?></div>
+						<?php endif; ?>
+
+						
 					</div>
 					
 				<div class="share-desc">

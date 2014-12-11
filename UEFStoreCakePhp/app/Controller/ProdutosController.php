@@ -227,17 +227,20 @@ class ProdutosController extends AppController {
  * @param int $id Id do produto.
  * @return void
  */
-	public function delete($id = null) {
-		$this->Produto->id = $id;
+	public function delete($id = null,$id_user = null) {
+		if($id_user == $this->Auth->user('id'))
+		{$this->Produto->id = $id;
 		if (!$this->Produto->exists()) {
 			throw new NotFoundException(__('Invalid produto'));
 		}
-		$this->request->allowMethod('post', 'delete');
 		if ($this->Produto->delete()) {
 			$this->Session->setFlash(__('Produto Deletado.'));
 		} else {
 			$this->Session->setFlash(__('Produto não foi deletado, tente novamente'));
 		}
+	}else{
+		$this->Session->setFlash(__('Você não pode deletar esse produto'));
+	}
 	return $this->redirect('/');
 	}
 
