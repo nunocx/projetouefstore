@@ -218,18 +218,24 @@ class ServicosController extends AppController {
  * @param int $id Id do serviço.
  * @return void
  */
-	public function delete($id = null) {
-		$this->Servico->id = $id;
-		if (!$this->Servico->exists()) {
-			throw new NotFoundException(__('Invalid servico'));
+	public function delete($id = null,$id_user = null) {
+		if($id_user == $this->Auth->user('id')){
+			$this->Servico->id = $id;
+			if (!$this->Servico->exists()) {
+				throw new NotFoundException(__('Invalid servico'));
+			}
+			if ($this->Servico->delete()) {
+				$this->Session->setFlash(__('Anúncio deletado'));
+			} else {
+				$this->Session->setFlash(__('The servico could not be deleted. Please, try again.'));
+			}
+					
 		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Servico->delete()) {
-			$this->Session->setFlash(__('The servico has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The servico could not be deleted. Please, try again.'));
+		else
+		{
+			$this->Session->setFlash(__('Você não pode deletar este anúncio.'));
 		}
-				return $this->redirect('/');
+		return $this->redirect('/');
 	}
 
 

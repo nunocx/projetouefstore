@@ -2,13 +2,10 @@
 $ok = $this->Session->read('Auth.User.Status');
 //if($ok == 1)
 if(isset($produtos)){
-	$produtos = $this->requestAction('produtos/my');
+	$produtos = $this->requestAction('produtos/my/');
 } else {
 	echo "Não tem produtos";
 }
-
-
-
 ?>
 
 <h3>Meus produtos</h3>
@@ -18,19 +15,18 @@ if(isset($produtos)){
 	//if($ok == 1)
 	foreach ($produtos as $produto):?>
 				<div class="grid_1_of_4 images_1_of_4">
-					<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$produto['Produto']['id']); ?>">
-					<?php echo $produto['Produto']['name']?>
+					<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$produto['produtos']['id']); ?>">
+					<?php echo $produto['produtos']['name']?>
 					</a></h4>
 					
-
-					<?php echo $this->Html->image($produto['Produto']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
+					<?php echo $this->Html->image($produto['produtos']['Foto_Video'],array('width'=>'120px','height'=>'120px'))?>
 					 <div class="price-details">
 				       <div class="price-number">
-							<p><span class="rupees">R$<?php echo $produto['Produto']['Preco']?></span></p>
+							<p><span class="rupees">R$<?php echo $produto['produtos']['Preco']?></span></p>
 					    </div>
 					       		<div class="add-cart">								
 									<h4>
-									<a href="<?php echo $this->Html->url('/produtos/view/'.$produto['Produto']['id']); ?>">
+									<a href="<?php echo $this->Html->url('/produtos/view/'.$produto['produtos']['id']); ?>">
 									Mais Informações</a>
 									</h4>
 							     </div>

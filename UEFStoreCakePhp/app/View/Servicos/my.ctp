@@ -4,7 +4,7 @@ $ok = $this->Session->read('Auth.User.Status');
 if(isset($servicos)){
 	$servico = $this->requestAction('servicos/my');
 } else {
-	echo "Não tem Serviços";
+	//echo "Não tem Serviços";
 }
 
 ?>
@@ -16,7 +16,7 @@ if(isset($servicos)){
 	//if($ok == 1)
 	foreach ($servico as $servicos):?>
 				<div class="grid_1_of_4 images_1_of_4">
-					<h4><a href="<?php echo $this->Html->url('/produtos/view/'.$produto['Servico']['id']); ?>">
+					<h4><a href="<?php echo $this->Html->url('/servicos/view/'.$servicos['Servico']['id']); ?>">
 					<?php echo $servicos['Servico']['name']?>
 					</a></h4>
 					
