@@ -75,6 +75,7 @@ public function beforeFilter()
 			
 		}
 
+
 /**
 * pm_send_to
 * Esse método envia uma mensagem de um usuário para outro.
@@ -172,11 +173,10 @@ public function beforeFilter()
 
 			}
 
-	
 		}
 
 		public function message(){
-			
+			return $this->redirect('/');
 		}
 		public function pm_view_out() {
 			

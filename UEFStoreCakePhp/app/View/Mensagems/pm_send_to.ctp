@@ -111,8 +111,9 @@ mysqli_free_result($query);
 					$query = mysqli_query($myConnection, "INSERT INTO inbox(usuarios_id, email, from_id, from_email, title, content, recieve_date)VALUES('$to_usuarios_id','$to_email','$usuarios_id','$from_email','$title','$message', '$senddate')") or die (mysqli_error($myConnection));
 					
 					
- 					header ("Location: http://localhost/projetouefstore/UEFStoreCakePhp/mensagems/message");//mudar para url do site
-					
+ 					
+ 					$this->requestAction('mensagems/message');
+ 					//header ("Location: http://localhost/projetouefstore/UEFStoreCakePhp/mensagems/message");//mudar para url do site
 					exit();
 
 			    } else if($title==NULL){
